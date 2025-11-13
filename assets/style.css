@@ -1,0 +1,236 @@
+/* ===============================
+   共通 CSS
+=============================== */
+/* common.css */
+:root {
+    /* デフォルト（中） */
+    --font-body: 16px;
+    --font-h1: 24px;
+    --font-h2: 22px;
+    --font-h3: 20px;
+    --font-h4: 18px;
+    --font-p: 16px;
+    --font-button: 16px;
+    --font-label: 18px;
+}
+
+body.font-small {
+    --font-body: 14px;
+    --font-h1: 22px;
+    --font-h2: 20px;
+    --font-h3: 18px;
+    --font-h4: 16px;
+    --font-p: 14px;
+    --font-button: 14px;
+    --font-label: 16px;
+}
+
+body.font-large {
+    --font-body: 18px;
+    --font-h1: 28px;
+    --font-h2: 27px;
+    --font-h3: 22px;
+    --font-h4: 20px;
+    --font-p: 20px;
+    --font-button: 20px;
+    --font-label: 20px;
+}
+
+
+body {
+    font-size: var(--font-body);
+}
+
+h1 { font-size: var(--font-h1); margin:0px;}
+h2 { font-size: var(--font-h2); margin:0px;}
+h3 { font-size: var(--font-h3); margin:0px;}
+h4 { font-size: var(--font-h4); margin:0px;}
+p { font-size: var(--font-p); margin:0px;}
+label { font-size: var(--font-label); }
+button { font-size: var(--font-button); }
+
+
+:root {
+    /* メインカラー */
+    --color-primary: #247627;
+    --color-secondary: #89e38c;
+    --color-palegreen: #eafff2;
+    --color-gbg:#bedfca;
+    --color-bg: #fffaef;
+    --color-text: #4b4b4b;
+
+}
+
+/* body */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    letter-spacing: 0.1em;
+}
+
+/* -------------------------------
+   ヘッダー
+--------------------------------- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--color-primary);
+    color: #fffdf9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-right a {
+    color: #df3650;
+    background-color: #fff3ee;
+    font-weight: 800;
+    font-size: 18px;
+    border: 2px solid #df3650;
+    padding: 4px 13px;
+    border-radius: 30px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------
+   メニュー トグルボタン
+--------------------------------- */
+.menu-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menu-toggle .hamburger {
+    width: 25px;
+    height: 3px;
+    margin-top: 20px;
+    background-color: var(--color-bg);
+    position: relative;
+}
+
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #fffdf9;
+    left: 0;
+}
+
+.menu-toggle .hamburger::before {
+    top: -8px;
+}
+
+.menu-toggle .hamburger::after {
+    top: 8px;
+}
+
+.menu-toggle span {
+    font-size: 0.8rem;
+    margin-top: 15px;
+    color: #fffdf9;
+}
+
+/* スライドメニュー */
+#sideMenu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #ffffff;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    padding-top: 60px;
+    transition: right 0.3s ease;
+    z-index: 999;
+}
+
+#sideMenu.open {
+    right: 0;
+}
+
+#sideMenu ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sideMenu li {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+#sideMenu li a {
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 800;
+}
+
+
+/* -------------------------------
+   スクロール進捗バー
+--------------------------------- */
+#scrollProgress {
+    position: fixed;
+    top: 60px;
+    /* ヘッダー下 */
+    right: 0;
+    width: 5px;
+    height: 0;
+    background-color: var(--color-secondary);
+    z-index: 1000;
+}
+
+/* footer */
+footer {
+    color: var(--color-primary);
+
+    .font-medium {
+        font-size: var(--font-h4);
+    }
+    margin:50px 0px 100px 0px;
+    text-align: center;
+}
+
+
+/* 下部固定バー */
+.bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #525252;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1000;
+}
+
+.bottom-bar a.bottom-btn {
+    text-decoration: none;
+    color: white;
+    font-size: var(--font-h4);
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bottom-bar a.bottom-btn:hover {
+    background-color: #3cb371;
+}

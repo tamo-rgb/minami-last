@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>札幌市南区</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/common.js"></script>
+  <!-- Intro.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css" />
+
+  <!-- Intro.js JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js"></script>
+
+</head>
+<style>
+  /* ===== パンくずリスト ===== */
+  .breadcrumb {
+    margin: 10px;
+    color: #555;
+  }
+
+  .breadcrumb a {
+    color: #2e8b57;
+    /* 緑色リンク */
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .breadcrumb span {
+    color: #333;
+  }
+
+  /* section */
+  .section {
+    border-top: 1px solid #1d8143;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .omidashi h3 {
+    padding: 0px;
+    margin: 0px 0px 0px 10px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* ← 3列に変更 */
+    gap: 10px;
+    /* カードの間隔 */
+    margin: 5px 0px 5px 0px;
+  }
+
+  .grid_target {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* ← 3列に変更 */
+    gap: 10px;
+    /* カードの間隔 */
+    margin: 10px 0px 10px 0px;
+  }
+
+  .grid_event {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* ← 3列に変更 */
+    gap: 10px;
+    /* カードの間隔 */
+    margin: 10px 0px 10px 0px;
+  }
+
+  #s_1 .card {
+    background-color: #d6f6c9;
+
+  }
+
+  #s_2 .card {
+    background-color: #fdf7a5;
+    justify-content: center;
+  }
+
+  #s_3 .card {
+    background-color: #fff1c5;
+  }
+
+  #s_4 .card {
+    background-color: #ffe7c5;
+    margin-top: 10px;
+  }
+
+  /* カード */
+  .card {
+    display: flex;
+    flex-direction: column;
+    /* 縦並び */
+    align-items: center;
+    /* 中央揃え */
+    border-radius: 10px;
+    background-color: var(--color-bg);
+    padding: 7px;
+    box-shadow: 0 1px 2px rgba(10, 10, 10, 0.04);
+    text-decoration: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .card-icon img {
+    padding-top: 5px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .card h3 {
+    color: var(--color-text);
+    margin: 4px 0 8px 0;
+    text-align: center;
+  }
+
+  .card p {
+    color: #393939;
+    text-align: center;
+  }
+
+  .list-item {
+    padding: 5px 0;
+    border-bottom: 1px dashed #eee;
+  }
+
+  .list-item .meta {
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+
+
+  /* ボタン */
+  #start-tour {
+    padding: 15px 40px;
+    cursor: pointer;
+    background: var(--color-primary);
+    font-weight: bold;
+    font-size: var(--font-button);
+    color: var(--color-bg);
+    border: var(--color-primary);
+    border-radius: 50px;
+  }
+
+  .end {
+    text-align: center;
+  }
+
+  p {
+    margin: 0px;
+    font-size: var(--font-h4)
+  }
+</style>
+
+<body>
+  <!-- スクロール進捗バー -->
+  <div id="scrollProgress"></div>
+
+  <!-- ポップアップ -->
+  <div id="popup" style="display:none;">
+    <div class="popup-content">
+
+    </div>
+  </div>
+
+  <!-- ヘッダー読み込み -->
+  <div id="header"></div>
+
+  <!-- 余白 -->
+  <div style="height: 60px;  background-color: #ffffff;">
+  </div>
+
+  <main>
+    <!-- パンくずリスト -->
+     <div id="bread">
+    <nav class="breadcrumb">
+      <a href="index.html">ホームページ</a> ＞ <span>情報を探す</span>
+    </nav>
+    </div>
+
+<div id="find">
+    <section class="section" id="s_1">
+      <h3 class="omidashi">カテゴリーから探す</h3>
+      <div class="grid">
+        <a href="/search/search_living.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_1.png" alt="手続きアイコン">
+          </div>
+          <h3>暮らし・手続き</h3>
+          <p>住民票/税金/ごみ/町内会</p>
+        </a>
+        <a href="search/search_comfort.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_2.png" alt="健康アイコン">
+          </div>
+          <h3>防災・安全</h3>
+          <p>避難所・災害情報</p>
+        </a>
+        <a href="search/search_health.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_3.png" alt="手続きアイコン">
+          </div>
+          <h3>子育て・健康<br>福祉</h3>
+          <p>健康診断/介護<br>医療機について</p>
+        </a>
+        <a href="search/search_town.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_5.png" alt="健康アイコン">
+          </div>
+          <h3>環境・施設</h3>
+          <p>施設/公園設備/雪対策/道路整備</p>
+        </a>
+
+        <a href="search/search_event.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_6.png" alt="健康アイコン">
+          </div>
+          <h3>文化・イベント</h3>
+          <p>観光地<br>地域イベント</p>
+        </a>
+        <a href="search/search_public.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_4.png" alt="健康アイコン">
+          </div>
+          <h3>市政・広報</h3>
+          <p>市の方針・計画<br>広報さっぽろ</p>
+        </a>
+      </div>
+    </section>
+    <section class="section" id="s_2">
+      <h3 class="omidashi">対象者から探す</h3>
+      <div class="grid_target">
+        <a href="uncompleted.html" class="card">
+          <h3>事業者</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <h3>高齢者介護</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <h3>障がい者</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <h3>観光者</h3>
+        </a>
+      </div>
+    </section>
+    <section class="section" id="s_3">
+      <h3 class="omidashi">できごとから探す</h3>
+      <div class="grid_event">
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_7.png" alt="手続きアイコン">
+          </div>
+          <h3>引っ越し</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_8.png" alt="健康アイコン">
+          </div>
+          <h3>結婚</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_9.png" alt="健康アイコン">
+          </div>
+          <h3>離婚</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_10.png" alt="手続きアイコン">
+          </div>
+          <h3>妊娠・出産</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_11.png" alt="手続きアイコン">
+          </div>
+          <h3>就職・退職</h3>
+        </a>
+        <a href="uncompleted.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_12.png" alt="健康アイコン">
+          </div>
+          <h3>おくやみ</h3>
+        </a>
+      </div>
+    </section>
+    <section class="section" id="s_4">
+      <h3 class="omidashi">どこかわからないとき</h3>
+      <div class="grid_chat">
+        <a href="uncompleted.html" class="card">
+          <h3>チャットボットが対応します</h3>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  </main>
+
+  <!-- フッター読み込み -->
+  <div id="footer"></div>
+
+  <!-- JS 読み込み -->
+
+  <script>
+window.addEventListener('load', () => {
+    const hasVisitedSearch = localStorage.getItem('hasVisitedSearch');
+
+    if (!hasVisitedSearch) {
+        // 初回訪問 → ツアーを自動開始
+        startTourSearch();
+
+        // 2回目以降は表示しないようにフラグを保存
+        localStorage.setItem('hasVisitedSearch', 'true');
+    }
+
+    // フォントサイズ設定はそのまま
+    const savedFontSize = localStorage.getItem('fontSize');
+    if (savedFontSize) {
+        document.body.classList.remove('font-small', 'font-large');
+        if (savedFontSize === 'small') document.body.classList.add('font-small');
+        if (savedFontSize === 'large') document.body.classList.add('font-large');
+        document.querySelectorAll('input[name="font-size"]').forEach(radio => {
+            if (radio.value === savedFontSize) radio.checked = true;
+        });
+    }
+});
+
+// ツアー開始関数（search用）
+function startTourSearch() {
+    introJs()
+        .setOptions({
+            steps: [
+                {
+                    element: '#bread',
+                    intro: 'ここから前のページに戻ることができます',
+                    position: 'bottom'
+                },
+            ],
+            showProgress: true,
+            exitOnOverlayClick: false
+        })
+        .start();
+}
+
+    // -------------------------------
+    // 文字サイズ切り替え（CSS変数対応）
+    // -------------------------------
+    const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
+
+    // ページ読み込み時に保存値があれば反映
+    const savedFontSize = localStorage.getItem('fontSize');
+    if (savedFontSize) {
+      document.body.classList.remove('font-small', 'font-large');
+      if (savedFontSize === 'small') document.body.classList.add('font-small');
+      if (savedFontSize === 'large') document.body.classList.add('font-large');
+
+      // ラジオボタンもチェック状態に
+      fontSizeRadios.forEach(radio => {
+        if (radio.value === savedFontSize) radio.checked = true;
+      });
+    }
+
+    // 選択変更時
+    fontSizeRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        document.body.classList.remove('font-small', 'font-large');
+        if (radio.value === 'small') document.body.classList.add('font-small');
+        if (radio.value === 'large') document.body.classList.add('font-large');
+        // 中の場合はクラスなし（デフォルト）
+
+        // localStorageに保存
+        localStorage.setItem('fontSize', radio.value);
+      });
+    });
+
+  </script>
+</body>
+
+</html>

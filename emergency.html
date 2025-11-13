@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>緊急情報 - 札幌市南区</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/common.js"></script>
+    <style>
+        /* 緊急情報ページ専用 */
+        .emergency-section {
+            margin: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            border: 1px solid #d62828;
+        }
+
+        .emergency-header {
+            background: #d62828;
+            color: #fff;
+            padding: 15px 20px;
+            margin: 5px;
+            border-radius: 8px;
+            margin: 0px;
+        }
+
+        .emergency-list {
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .emergency-item {
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .emergency-item:last-child {
+            border-bottom: none;
+        }
+
+        .emergency-item p {
+            margin: 5px 0;
+        }
+
+        .no-emergency {
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* info-section */
+
+        .info-section {
+            background-color: var(--color-gbg);
+            padding: 10px;
+        }
+
+        .info-box {
+            margin: 10px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- スクロール進捗バー -->
+    <div id="scrollProgress"></div>
+
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+    <!-- 余白 -->
+    <div style="height: 60px;  background-color: #ffffff;">
+    </div>
+
+    <!-- スライドメニュー -->
+    <nav id="sideMenu">
+        <ul>
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="#">情報を探す</a></li>
+            <li><a href="#">お知らせ・ニュース</a></li>
+            <li><a href="#">通知をすぐ受け取る</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <!-- メイン -->
+    <main>
+        <section class="emergency-section">
+            <h2 class="emergency-header">いま発令されている緊急情報</h2>
+
+            <!-- 緊急情報がある場合 -->
+            <div id="emergencyList" class="emergency-list" style="display: none;">
+                <!-- JSで挿入 -->
+            </div>
+
+            <!-- 緊急情報がない場合 -->
+            <div id="noEmergency" class="no-emergency" style="display: none;">
+                ただいま緊急情報はありません
+            </div>
+        </section>
+        <section class="info-section">
+            <!-- 緊急連絡先 -->
+            <div class="info-box">
+                <h3>緊急連絡先</h3>
+                <ul class="info-list">
+                    <li>消防署: 011-123-4567</li>
+                    <li>警察署: 011-234-5678</li>
+                    <li>南区役所（災害窓口）: 011-345-6789</li>
+                </ul>
+            </div>
+
+            <!-- 避難所 -->
+            <div class="info-box">
+                <h3>避難所情報</h3>
+                <ul class="info-list">
+                    <li>真駒内小学校体育館</li>
+                    <li>滝野中学校 体育館</li>
+                    <li>澄川公民館 多目的ホール</li>
+                </ul>
+            </div>
+
+            <!-- 緊急時対応 -->
+            <div class="info-box">
+                <h3>緊急時の対応</h3>
+                <ul class="info-list">
+                    <li>安全な場所に移動してください</li>
+                    <li>ラジオ・テレビ・公式サイトで最新情報を確認</li>
+                    <li>避難時は近隣住民と協力する</li>
+                    <li>余裕があれば貴重品を持参</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <!-- フッター読み込み -->
+    <div id="footer"></div>
+
+
+
+    <script>
+        // ページが読み込まれたら実行
+        window.addEventListener('DOMContentLoaded', function () {
+            const emergencyLink = document.getElementById('emergency');
+            if (emergencyLink) {
+                emergencyLink.textContent = 'ホームへ戻る';
+                emergencyLink.href = 'index.html';
+            }
+        });
+        // 緊急情報サンプルデータ
+        const emergencies = [
+            {
+                type: "地震速報",
+                update: "10:30",
+                issued: "10:28",
+                description: "震源地：北海道南西沖 / マグニチュード：5.2"
+            },
+            {
+                type: "津波警報",
+                update: "10:35",
+                issued: "10:32",
+                description: "北海道沿岸に津波警報発表中"
+            },
+            {
+                type: "クマ目撃情報",
+                update: "09:50",
+                issued: "09:45",
+                description: "滝野地区でクマが目撃されています。外出を控えてください。"
+            }
+        ];
+
+        const emergencyList = document.getElementById('emergencyList');
+        const noEmergency = document.getElementById('noEmergency');
+
+        if (emergencies.length === 0) {
+            noEmergency.style.display = 'block';
+        } else {
+            emergencyList.style.display = 'block';
+            emergencies.forEach(e => {
+                const div = document.createElement('div');
+                div.classList.add('emergency-item');
+                div.innerHTML = `
+                    <h3>${e.type}</h3>
+                    <p>更新時間: ${e.update} / 発表時間: ${e.issued}</p>
+                    <h4>${e.description}</h4>
+                `;
+                emergencyList.appendChild(div);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>札幌市南区</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/common.js"></script>
+</head>
+<style>
+    body {
+        background-color: var(--color-pal);
+    }
+
+    /* ===== パンくずリスト ===== */
+    .breadcrumb {
+        margin: 10px;
+        color: #555;
+    }
+
+    .breadcrumb a {
+        color: #2e8b57;
+        /* 緑色リンク */
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb span {
+        color: #333;
+    }
+
+    .section {
+        padding: 10px;
+        border-top: 1px solid #f0f2f4;
+        margin: 15px;
+        background-color: #ffffff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top{
+        margin:20px;
+    }
+
+    h3,
+    p {
+        margin: 0px;
+    }
+</style>
+
+<body>
+    <!-- スクロール進捗バー -->
+    <div id="scrollProgress"></div>
+
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- 余白 -->
+    <div style="height: 60px;  background-color: #ffffff;">
+    </div>
+
+    <main>
+        <section class="top">
+            <h2 class =style="color:green">ごみ収集日カレンダー</h2>
+            <p>真駒内柏丘・東町・幸町・泉町・南町</p>
+
+        </section>
+
+
+
+        <!-- フッター読み込み -->
+        <div id="footer"></div>
+
+        <!-- JS 読み込み -->
+
+        <script>
+            // タブ切り替え
+            const cardTabs = document.querySelectorAll('.tab-card .tab-button');
+            const cardContents = document.querySelectorAll('.tab-card .tab-content');
+
+            cardTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    cardTabs.forEach(t => t.classList.remove('active'));
+                    cardContents.forEach(c => c.classList.remove('active'));
+                    tab.classList.add('active');
+                    document.getElementById(tab.dataset.tab).classList.add('active');
+                });
+            });
+            const list = document.getElementById('extra-list');
+            const sortSelect = document.getElementById('sort-select');
+            const tagSelect = document.getElementById('tag-select');
+
+            function filterAndSort() {
+                const items = Array.from(list.querySelectorAll('.list-item'));
+                const tagFilter = tagSelect.value;
+                const sortOption = sortSelect.value;
+
+                let filtered = items;
+            }
+
+            document.addEventListener("DOMContentLoaded", function () {
+                const articles = [
+                    { title: "秋の健康フェア開催！血圧測定や栄養相談も", date: "2025-10-01", tag: "イベント", img: "https://placehold.jp/150x150.png?text=健康フェア", link: "#" },
+                    { title: "災害時に備える！家庭でできる防災準備チェックリスト", date: "2025-09-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=防災準備", link: "#" },
+                    { title: "免疫力を高める食材5選", date: "2025-09-20", tag: "健康", img: "https://placehold.jp/150x150.png?text=免疫力アップ", link: "#" },
+                    { title: "地域の健康ウォーキング大会レポート", date: "2025-09-15", tag: "イベント", img: "https://placehold.jp/150x150.png?text=ウォーキング", link: "#" },
+                    { title: "非常食の選び方とローリングストックのコツ", date: "2025-09-10", tag: "防災", img: "https://placehold.jp/150x150.png?text=非常食", link: "#" },
+                    { title: "睡眠の質を高める夜の習慣", date: "2025-08-30", tag: "健康", img: "https://placehold.jp/150x150.png?text=睡眠習慣", link: "#" },
+                    { title: "健康イベント2025＠東京ビッグサイト開催決定！", date: "2025-08-20", tag: "イベント", img: "https://placehold.jp/150x150.png?text=イベント開催", link: "#" },
+                    { title: "熱中症対策：正しい水分補給のポイント", date: "2025-08-10", tag: "健康", img: "https://placehold.jp/150x150.png?text=水分補給", link: "#" },
+                    { title: "地震時の避難行動を見直そう", date: "2025-07-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=地震対策", link: "#" },
+                    { title: "ストレスを減らす呼吸法のススメ", date: "2025-07-15", tag: "健康", img: "https://placehold.jp/150x150.png?text=呼吸法", link: "#" },
+                ];
+
+                const container = document.getElementById("news-container");
+                const buttons = document.querySelectorAll(".filter-btn");
+
+                function displayArticles(tag) {
+                    container.innerHTML = "";
+                    const filtered = tag === "all" ? articles : articles.filter(a => a.tag === tag);
+
+                    filtered.forEach(a => {
+                        const card = document.createElement("a");
+                        card.classList.add("news-card");
+                        card.href = a.link;
+                        card.innerHTML = `
+        <img src="${a.img}" alt="${a.title}" class="news-image" />
+        <div class="news-content">
+          <div class="news-meta">${a.date}</div>
+          <h2 class="news-title">${a.title}</h2>
+          <span class="tag">${a.tag}</span>
+        </div>
+      `;
+                        container.appendChild(card);
+                    });
+                }
+
+                displayArticles("all");
+
+                buttons.forEach(btn => {
+                    btn.addEventListener("click", () => {
+                        buttons.forEach(b => b.classList.remove("active"));
+                        btn.classList.add("active");
+                        displayArticles(btn.dataset.tag);
+                    });
+                });
+            });
+            // -------------------------------
+            // 文字サイズ切り替え（CSS変数対応）
+            // -------------------------------
+            const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
+
+            // ページ読み込み時に保存値があれば反映
+            const savedFontSize = localStorage.getItem('fontSize');
+            if (savedFontSize) {
+                document.body.classList.remove('font-small', 'font-large');
+                if (savedFontSize === 'small') document.body.classList.add('font-small');
+                if (savedFontSize === 'large') document.body.classList.add('font-large');
+
+                // ラジオボタンもチェック状態に
+                fontSizeRadios.forEach(radio => {
+                    if (radio.value === savedFontSize) radio.checked = true;
+                });
+            }
+
+            // 選択変更時
+            fontSizeRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    document.body.classList.remove('font-small', 'font-large');
+                    if (radio.value === 'small') document.body.classList.add('font-small');
+                    if (radio.value === 'large') document.body.classList.add('font-large');
+                    // 中の場合はクラスなし（デフォルト）
+
+                    // localStorageに保存
+                    localStorage.setItem('fontSize', radio.value);
+                });
+            });
+            // トグルスクリプト 
+            const tabs = document.querySelectorAll('.toggle-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tab.classList.toggle('active');
+                    const content = tab.nextElementSibling;
+                    if (content.style.display === 'block') {
+                        content.style.display = 'none';
+                    } else {
+                        content.style.display = 'block';
+                    }
+                });
+            });
+
+        </script>
+</body>
+
+</html>
