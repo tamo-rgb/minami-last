@@ -3,32 +3,44 @@ document.addEventListener("DOMContentLoaded", () => {
   // ------------------------------
   // ヘッダー読み込み + メニュー開閉
   // ------------------------------
-  fetch("components/header.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("header").innerHTML = html;
+  // header/footer を読み込む
+  function loadHTML(id, url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+      })
+      .catch(err => console.error(`Error loading ${url}:`, err));
+  }
+  function loadHTML(id, url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        if (id === "header") {
+          // メニュー開閉の設定をヘッダー読み込み後に実行
+          const toggle = document.getElementById("menuToggle");
+          const sideMenu = document.getElementById("sideMenu");
+          if (toggle && sideMenu) {
+            toggle.addEventListener("click", () => {
+              sideMenu.classList.toggle("open");
+            });
+            // メニュー内リンクをクリックしたら閉じるようにしておくのも親切
+            sideMenu.querySelectorAll("a").forEach(link => {
+              link.addEventListener("click", () => {
+                sideMenu.classList.remove("open");
+              });
+            });
+          }
+        }
+      })
+      .catch(err => console.error(`Error loading ${url}:`, err));
+  }
 
-      // メニュー開閉
-      const toggle = document.getElementById("menuToggle");
-      const sideMenu = document.getElementById("sideMenu");
+  // ヘッダーとフッター読み込み
+  loadHTML("header", "/components/header.html");
+  loadHTML("footer", "/components/footer.html");
 
-      if (toggle && sideMenu) {
-        toggle.addEventListener("click", () => {
-          sideMenu.classList.toggle("open");
-        });
-      }
-    })
-    .catch(err => console.error("header.html の読み込みに失敗:", err));
-
-  // ------------------------------
-  // フッター読み込み
-  // ------------------------------
-  fetch("components/footer.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("footer").innerHTML = html;
-    })
-    .catch(err => console.error("footer.html の読み込みに失敗:", err));
 
   // ------------------------------
   // スクロール進捗バー
@@ -45,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
       scrollProgress.style.height = (progress / 100) * usableHeight + "px";
     });
   }
-  
+
   // =============================
   // ページ共通：文字サイズ反映処理
   // =============================

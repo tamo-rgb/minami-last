@@ -27,8 +27,8 @@ body.font-small {
 
 body.font-large {
     --font-body: 18px;
-    --font-h1: 28px;
-    --font-h2: 27px;
+    --font-h1: 26px;
+    --font-h2: 24px;
     --font-h3: 22px;
     --font-h4: 20px;
     --font-p: 20px;
@@ -37,35 +37,61 @@ body.font-large {
 }
 
 
-body {
-    font-size: var(--font-body);
+h1 {
+    font-size: var(--font-h1);
+    margin: 0px;
+    font-family: 'Zen Maru Gothic', sans-serif;
 }
 
-h1 { font-size: var(--font-h1); margin:0px;}
-h2 { font-size: var(--font-h2); margin:0px;}
-h3 { font-size: var(--font-h3); margin:0px;}
-h4 { font-size: var(--font-h4); margin:0px;}
-p { font-size: var(--font-p); margin:0px;}
-label { font-size: var(--font-label); }
-button { font-size: var(--font-button); }
+h2 {
+    font-size: var(--font-h2);
+    margin: 0px;
+    font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+h3 {
+    font-size: var(--font-h3);
+    margin: 0px;
+        font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+h4 {
+    font-size: var(--font-h4);
+    margin: 0px;
+}
+
+p {
+    font-size: var(--font-p);
+    margin: 0px;
+}
+
+label {
+    font-size: var(--font-label);
+}
+
+button {
+    font-size: var(--font-button);
+}
 
 
 :root {
     /* メインカラー */
-    --color-primary: #247627;
+    --color-dkgr: #175a1a;
+    --color-primary: #27862d;
     --color-secondary: #89e38c;
     --color-palegreen: #eafff2;
-    --color-gbg:#bedfca;
-    --color-bg: #fffaef;
-    --color-text: #4b4b4b;
+    --color-gbg: #adf1c6;
+    --color-bg: #ffffff;
+    --color-text: #042511;
 
 }
 
 /* body */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    letter-spacing: 0.1em;
+    align-items: center;
+    font-size: var(--font-body);
+    margin: 0 auto;
 }
 
 /* -------------------------------
@@ -73,17 +99,23 @@ body {
 --------------------------------- */
 header {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background-color: var(--color-primary);
+    background-color: var(--color-dkgr);
     color: #fffdf9;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
     z-index: 1000;
+    padding: 0px 20px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: auto;
+}
+
+.box_emergency {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .header-right {
@@ -93,17 +125,8 @@ header {
 }
 
 .header-right a {
-    color: #df3650;
-    background-color: #fff3ee;
-    font-weight: 800;
-    font-size: 18px;
-    border: 2px solid #df3650;
-    padding: 4px 13px;
-    border-radius: 30px;
+    color: #ffffff;
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /* -------------------------------
@@ -144,7 +167,7 @@ header {
 
 .menu-toggle span {
     font-size: 0.8rem;
-    margin-top: 15px;
+    margin-top: 10px;
     color: #fffdf9;
 }
 
@@ -193,19 +216,64 @@ header {
     right: 0;
     width: 5px;
     height: 0;
-    background-color: var(--color-secondary);
+    background-color: #629c2b;
     z-index: 1000;
 }
 
 /* footer */
 footer {
-    color: var(--color-primary);
+    background-color: var(--color-dkgr);
+    color: var(--color-bg);
 
     .font-medium {
         font-size: var(--font-h4);
     }
-    margin:50px 0px 100px 0px;
+
+    margin:30px 0px 0px 0px;
+
+}
+
+
+
+.info {
+    padding: 30px 15px 30px 15px;
+}
+
+.copy {
     text-align: center;
+    padding: 40px 0px 100px 0px;
+
+}
+
+
+
+.address-block p {
+    margin: 5px 0;
+}
+
+.address-block a {
+    padding: 5px 0px 7px 0px;
+    margin: 0px;
+}
+
+.map-link {
+    color: #ffffff;
+    margin-left: 5px;
+    font-size: 0.9em;
+    display: inline-flex;
+    align-items: center;
+}
+
+.pin-img {
+    width: 12px;
+    /* 好きなサイズに変更できます */
+    height: auto;
+    margin-right: 3px;
+}
+
+.open {
+    border: solid 1px #ffffff;
+    padding: 10px;
 }
 
 
@@ -215,13 +283,15 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 60px;
     background-color: #525252;
     display: flex;
     justify-content: space-around;
     align-items: center;
     z-index: 1000;
+    padding:10px;
 }
+
+
 
 .bottom-bar a.bottom-btn {
     text-decoration: none;

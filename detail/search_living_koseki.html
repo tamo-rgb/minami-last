@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>札幌市南区</title>
-    <link rel="stylesheet" href="assets/style.css">
-    <script src="assets/common.js"></script>
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
 </head>
 <style>
     body {
@@ -19,7 +19,7 @@
         padding: 10px;
         color: #555;
         background-color: rgb(255, 255, 255);
-        margin-bottom:10px;
+        margin-bottom: 10px;
     }
 
     .breadcrumb a {
@@ -65,7 +65,7 @@
         background-color: var(--color-primary);
         padding: 5px 10px;
         color: #ffffff;
-        font-weight:500;
+        font-weight: 500;
         border-radius: 20px;
         text-decoration: none;
     }
@@ -81,13 +81,40 @@
 
     .section {
         padding: 20px;
-        border-bottom: 1px solid#8b8b8b;
+        border-bottom: 1px solid#c5c5c5;
     }
+
 
     .section h3 {
         border-left: 6px solid var(--color-primary);
         padding-left: 10px;
         margin-bottom: 8px;
+    }
+
+    /* add-section */
+    
+    .add-section {
+        margin: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #e6ffc6;
+
+    }
+    .add-section h3 {
+        margin-bottom: 8px;
+    }
+
+    .add-section a {
+    display: flex;
+        justify-content: center;
+        margin:15px;
+        padding:10px;
+        background-color:#ffffff;
+        border: solid 2px var(--color-primary);
+        border-radius: 25px;
+        text-decoration: none;
+        color:var(--color-primary);
+        font-weight:500;
     }
 
     #section-1 {
@@ -140,7 +167,7 @@
     }
 
     th {
-        background-color: #2e8b57;
+        background-color: var(--color-primary);
         /* ヘッダー背景色 */
         color: white;
         /* 文字色 */
@@ -321,14 +348,21 @@
             <p>PDF形式の用紙をダウンロードして、使用できます</p>
         </div>
 
-        <div id="section-6" class="section">
-            <h3>その他</h3>
-            <p>住民戸籍課住民登録係：電話 03-3463-1696／お問い合わせフォーム…（詳細内容）</p>
-        </div>
-
         <div id="section-7" class="section">
             <h3>お問い合わせ</h3>
             <p>札幌市南区市民部戸籍住民課<br>〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>電話番号：011-582-4728<br>ファクス番号：011-582-6867</p>
+        </div>
+
+        <div id="section-8" class="add-section">
+            <h3>関連情報</h3>
+            <div class="add-box">
+            <ul>
+                <li>住民票の記載内容について</li>
+            </ul>
+            </div>
+            <a href="search.html" class="content-box">
+                    よくある質問を見る
+            </a>
         </div>
 
 
@@ -362,53 +396,6 @@
                 let filtered = items;
             }
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const articles = [
-                    { title: "秋の健康フェア開催！血圧測定や栄養相談も", date: "2025-10-01", tag: "イベント", img: "https://placehold.jp/150x150.png?text=健康フェア", link: "#" },
-                    { title: "災害時に備える！家庭でできる防災準備チェックリスト", date: "2025-09-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=防災準備", link: "#" },
-                    { title: "免疫力を高める食材5選", date: "2025-09-20", tag: "健康", img: "https://placehold.jp/150x150.png?text=免疫力アップ", link: "#" },
-                    { title: "地域の健康ウォーキング大会レポート", date: "2025-09-15", tag: "イベント", img: "https://placehold.jp/150x150.png?text=ウォーキング", link: "#" },
-                    { title: "非常食の選び方とローリングストックのコツ", date: "2025-09-10", tag: "防災", img: "https://placehold.jp/150x150.png?text=非常食", link: "#" },
-                    { title: "睡眠の質を高める夜の習慣", date: "2025-08-30", tag: "健康", img: "https://placehold.jp/150x150.png?text=睡眠習慣", link: "#" },
-                    { title: "健康イベント2025＠東京ビッグサイト開催決定！", date: "2025-08-20", tag: "イベント", img: "https://placehold.jp/150x150.png?text=イベント開催", link: "#" },
-                    { title: "熱中症対策：正しい水分補給のポイント", date: "2025-08-10", tag: "健康", img: "https://placehold.jp/150x150.png?text=水分補給", link: "#" },
-                    { title: "地震時の避難行動を見直そう", date: "2025-07-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=地震対策", link: "#" },
-                    { title: "ストレスを減らす呼吸法のススメ", date: "2025-07-15", tag: "健康", img: "https://placehold.jp/150x150.png?text=呼吸法", link: "#" },
-                ];
-
-                const container = document.getElementById("news-container");
-                const buttons = document.querySelectorAll(".filter-btn");
-
-                function displayArticles(tag) {
-                    container.innerHTML = "";
-                    const filtered = tag === "all" ? articles : articles.filter(a => a.tag === tag);
-
-                    filtered.forEach(a => {
-                        const card = document.createElement("a");
-                        card.classList.add("news-card");
-                        card.href = a.link;
-                        card.innerHTML = `
-        <img src="${a.img}" alt="${a.title}" class="news-image" />
-        <div class="news-content">
-          <div class="news-meta">${a.date}</div>
-          <h2 class="news-title">${a.title}</h2>
-          <span class="tag">${a.tag}</span>
-        </div>
-      `;
-                        container.appendChild(card);
-                    });
-                }
-
-                displayArticles("all");
-
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        buttons.forEach(b => b.classList.remove("active"));
-                        btn.classList.add("active");
-                        displayArticles(btn.dataset.tag);
-                    });
-                });
-            });
             // -------------------------------
             // 文字サイズ切り替え（CSS変数対応）
             // -------------------------------

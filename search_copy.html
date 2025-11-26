@@ -5,14 +5,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>札幌市南区</title>
+
+  <!-- ① フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- ② 自分のCSS -->
   <link rel="stylesheet" href="assets/style.css">
+
+  <!-- ③ JS -->
   <script src="assets/common.js"></script>
-  <!-- Intro.js CSS -->
+
+  <!-- ④ intro.js のCSS・JS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/introjs.min.css" />
-
-  <!-- Intro.js JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/7.0.1/intro.min.js"></script>
-
 </head>
 <style>
   /* =========================
@@ -76,91 +82,85 @@
 
   /* section */
   .section {
-    border-top: 1px solid #1d8143;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 20px 10px;
   }
 
+  /* カード */
   .omidashi h3 {
     padding: 0px;
     margin: 0px 0px 0px 10px;
   }
 
-  .grid {
+  #s_1 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* ← 3列に変更 */
-    gap: 10px;
-    /* カードの間隔 */
-    margin: 5px 0px 5px 0px;
+    gap: 8px;
+    margin: 10px 0px 5px 0px;
   }
 
-  .grid_target {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    /* ← 3列に変更 */
-    gap: 10px;
-    /* カードの間隔 */
-    margin: 10px 0px 10px 0px;
+  h3 {
+    text-align: center;
+    padding-top:5px;
   }
 
-  .grid_event {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* ← 3列に変更 */
-    gap: 10px;
-    /* カードの間隔 */
-    margin: 10px 0px 10px 0px;
-  }
 
   #s_1 .card {
-    background-color: #d6f6c9;
-
+    background-color: #ffffff;
+  }
+  #s_2 .card{
+    background-color: var(--color-dkgr);
+  }
+  #s_2 h3{
+    color: #ffffff;
+  }
+  #s_2 {
+    color: #ffffff;
+  }
+  #s_2 .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 10px 0px 5px 0px;
+  }
+  #s_2 .card-icon img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
   }
 
-  #s_2 .card {
-    background-color: #fdf7a5;
-    justify-content: center;
-  }
-
-  #s_3 .card {
-    background-color: #fff1c5;
-  }
-
-  #s_4 .card {
-    background-color: #ffe7c5;
-    margin-top: 10px;
-  }
-
-  /* カード */
   .card {
     display: flex;
-    flex-direction: column;
-    /* 縦並び */
     align-items: center;
-    /* 中央揃え */
+    justify-content: center;
+    flex-direction: column;
     border-radius: 10px;
     background-color: var(--color-bg);
-    padding: 7px;
+    padding: 10px 5px;
     box-shadow: 0 1px 2px rgba(10, 10, 10, 0.04);
     text-decoration: none;
     transition: border-color 0.3s, box-shadow 0.3s;
   }
 
-  .card-icon img {
-    padding-top: 5px;
-    width: 30px;
-    height: 30px;
+  .card-icon {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 5px;
+  }
+  #s_1 .card-icon img{
+    width: 50px;
+    height: auto;
   }
 
-  .card h3 {
+  .card-icon h3 {
     color: var(--color-text);
-    margin: 4px 0 8px 0;
+    margin: 0px;
     text-align: center;
+    padding-right: 8px;
   }
 
   .card p {
-    color: #393939;
+    color: var(--color-text);
     text-align: center;
   }
 
@@ -224,122 +224,116 @@
     </div>
 
     <div id="find">
-      <section class="section" id="s_1">
-        <h3 class="omidashi">カテゴリーから探す</h3>
+      <section class="section" id="s_1" >
+        <h3>カテゴリから探す</h3>
         <div class="grid">
+
           <a href="/search/search_living.html" class="card">
             <div class="card-icon">
-              <img src="data/search_1.png" alt="手続きアイコン">
+              <img src="data/1.png" alt="手続きアイコン">
+              <h3>暮らし・手続き</h3>
             </div>
-            <h3>暮らし・手続き</h3>
-            <p>住民票/税金/ごみ/町内会</p>
+            <p>住民票/税金/ごみ</p>
           </a>
+
           <a href="search/search_comfort.html" class="card">
             <div class="card-icon">
-              <img src="data/search_2.png" alt="健康アイコン">
+              <img src="data/2.png" alt="健康アイコン">
+              <h3>防災・安全</h3>
             </div>
-            <h3>防災・安全</h3>
             <p>避難所・災害情報</p>
           </a>
+
           <a href="search/search_health.html" class="card">
             <div class="card-icon">
-              <img src="data/search_3.png" alt="手続きアイコン">
+              <img src="data/3.png" alt="手続きアイコン">
+              <h3>子育て・健康福祉</h3>
             </div>
-            <h3>子育て・健康<br>福祉</h3>
-            <p>健康診断/介護<br>医療機について</p>
-          </a>
-          <a href="search/search_town.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_5.png" alt="健康アイコン">
-            </div>
-            <h3>環境・施設</h3>
-            <p>施設/公園設備/雪対策/道路整備</p>
+            <p>健康診断/介護/医療</p>
           </a>
 
-          <a href="search/search_event.html" class="card">
+          <a href="search/search_comfort.html" class="card">
             <div class="card-icon">
-              <img src="data/search_6.png" alt="健康アイコン">
+              <img src="data/4.png" alt="健康アイコン">
+              <h3>環境・施設</h3>
             </div>
-            <h3>文化・イベント</h3>
-            <p>観光地<br>地域イベント</p>
+            <p>施設/公園設備<br>雪対策/道路整備</p>
           </a>
-          <a href="search/search_public.html" class="card">
+
+          <a href="search/search_health.html" class="card">
             <div class="card-icon">
-              <img src="data/search_4.png" alt="健康アイコン">
+              <img src="data/5.png" alt="手続きアイコン">
+              <h3>文化・行事</h3>
             </div>
-            <h3>市政・広報</h3>
-            <p>市の方針・計画<br>広報さっぽろ</p>
+            <p>観光地/地域イベント</p>
           </a>
+
+          <a href="search/search_comfort.html" class="card">
+            <div class="card-icon">
+              <img src="data/6.png" alt="健康アイコン">
+              <h3>まちづくり</h3>
+            </div>
+            <p>市政・広報</p>
+          </a>
+
         </div>
-      </section>
-      <section class="section" id="s_2">
-        <h3 class="omidashi">対象者から探す</h3>
-        <div class="grid_target">
-          <a href="uncompleted.html" class="card">
-            <h3>事業者</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <h3>高齢者介護</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <h3>障がい者</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <h3>観光者</h3>
-          </a>
-        </div>
-      </section>
-      <section class="section" id="s_3">
-        <h3 class="omidashi">できごとから探す</h3>
-        <div class="grid_event">
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_7.png" alt="手続きアイコン">
-            </div>
-            <h3>引っ越し</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_8.png" alt="健康アイコン">
-            </div>
-            <h3>結婚</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_9.png" alt="健康アイコン">
-            </div>
-            <h3>離婚</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_10.png" alt="手続きアイコン">
-            </div>
-            <h3>妊娠・出産</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_11.png" alt="手続きアイコン">
-            </div>
-            <h3>就職・退職</h3>
-          </a>
-          <a href="uncompleted.html" class="card">
-            <div class="card-icon">
-              <img src="data/search_12.png" alt="健康アイコン">
-            </div>
-            <h3>おくやみ</h3>
-          </a>
-        </div>
-      </section>
-      <section class="section" id="s_4">
-        <h3 class="omidashi">どこかわからないとき</h3>
-        <div class="grid_chat">
-          <a href="uncompleted.html" class="card">
-            <h3>チャットボットが対応します</h3>
-          </a>
-        </div>
-      </section>
+
     </div>
+    </section>
 
+    <section class="section" id="s_2" style="background-color:#ffffff;">
+      <h3 style="color:var(--color-dkgr);">できごとから探す</h3>
+      <div class="grid">
+
+        <a href="/search/search_living.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_7.png" alt="手続きアイコン">
+          </div>
+          <h3>引っ越し</h3>
+        </a>
+
+        <a href="search/search_comfort.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_8.png" alt="健康アイコン">
+          </div>
+          <h3>結婚</h3>
+        </a>
+
+        <a href="search/search_health.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_9.png" alt="手続きアイコン">
+          </div>
+          <h3>離婚</h3>
+        </a>
+
+        <a href="search/search_comfort.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_10.png" alt="健康アイコン">
+          </div>
+          <h3>妊娠・出産</h3>
+        </a>
+
+        <a href="search/search_health.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_11.png" alt="手続きアイコン">
+          </div>
+          <h3>就職・退職</h3>
+        </a>
+
+        <a href="search/search_comfort.html" class="card">
+          <div class="card-icon">
+            <img src="data/search_12.png" alt="健康アイコン">
+          </div>
+          <h3>おくやみ</h3>
+        </a>
+
+      </div>
+
+      </div>
+    </section>
+
+
+    </div>
   </main>
 
   <!-- フッター読み込み -->

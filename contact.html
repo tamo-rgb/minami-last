@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>札幌市お問い合わせフォーム</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <script src="assets/common.js"></script>
+    <style>
+        /* ======================== タブコンテンツ ======================== */
+        .tab-container {
+            max-width: 700px;
+            margin: 100px auto 50px auto;
+            /* ヘッダー分上マージン */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+
+        /* タブボタン */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px 0;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: bold;
+            background-color: #ccc;
+            color: #333;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .tab-btn.active {
+            background-color: #555;
+            color: #fff;
+        }
+
+        /* タブ内容 */
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* フォーム */
+        .tab-content form label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .tab-content form input,
+        .tab-content form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .tab-content form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .tab-content form button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        /* タブボタン初期色 */
+        #minami-btn {
+            background-color: #d3d3d3;
+            color: #535353;
+        }
+
+        #sapporo-btn {
+            background-color: #d3d3d3;
+            color: #535353;
+        }
+
+        /* アクティブ時 */
+        #minami-btn.active {
+            background-color: #1a4d1b;
+            color: #fff;
+        }
+
+        /* 濃い緑 */
+        #sapporo-btn.active {
+            background-color: #145a91;
+            color: #fff;
+        }
+
+        /* 濃い青 */
+        /* 南区：緑 */
+        #minami form button {
+            background-color: #247627;
+            color: #fff;
+        }
+
+        #minami form button:hover {
+            background-color: #89e38c;
+        }
+
+        /* 札幌市：青 */
+        #sapporo form button {
+            background-color: #1e73be;
+            color: #fff;
+        }
+
+        #sapporo form button:hover {
+            background-color: #4aa0e0;
+        }
+
+        /* 背景色切替 */
+        .tab-container.minami {
+            background: linear-gradient(180deg, #b7e6b2, #cde9c1);
+        }
+
+        .tab-container.sapporo {
+            background: linear-gradient(180deg, #d0faff, #ffffff);
+        }
+
+        /* 文字サイズ切替ボタン */
+        .font-switcher {
+            position: fixed;
+            top: 70px;
+            right: 20px;
+            background: #fff;
+            padding: 5px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .font-switcher button {
+            margin: 0 3px;
+            padding: 3px 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        h3 {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body> <!-- ヘッダー読み込み -->
+    <div id="header"></div> <!-- スクロール進捗バー -->
+    <div id="scrollProgress"></div> <!-- タブフォーム -->
+    <div class="tab-container minami">
+        <div class="tabs">
+            <div class="tab-btn active" id="minami-btn" data-tab="minami">札幌市南区</div>
+            <div class="tab-btn" id="sapporo-btn" data-tab="sapporo">札幌市</div>
+        </div>
+        <div class="tab-content active" id="minami">
+            <h3>札幌市南区用<br>お問い合わせフォーム</h3>
+            <form action="#" method="post"> <label for="name1">お名前<span style="color:red;">*</span></label> <input
+                    type="text" id="name1" name="name" required> <label for="email1">メールアドレス<span
+                        style="color:red;">*</span></label> <input type="email" id="email1" name="email" required>
+                <label for="subject1">件名</label> <input type="text" id="subject1" name="subject"> <label
+                    for="message1">お問い合わせ内容<span style="color:red;">*</span></label> <textarea id="message1"
+                    name="message" required></textarea> <button type="submit">送信する</button>
+            </form>
+        </div>
+        <div class="tab-content" id="sapporo">
+            <h3>札幌市用<br>お問い合わせフォーム</h3>
+            <form action="#" method="post"> <label for="name2">お名前<span style="color:red;">*</span></label> <input
+                    type="text" id="name2" name="name" required> <label for="email2">メールアドレス<span
+                        style="color:red;">*</span></label> <input type="email" id="email2" name="email" required>
+                <label for="subject2">件名</label> <input type="text" id="subject2" name="subject"> <label
+                    for="message2">お問い合わせ内容<span style="color:red;">*</span></label> <textarea id="message2"
+                    name="message" required></textarea> <button type="submit">送信する</button>
+            </form>
+        </div>
+    </div> <!-- フッター読み込み -->
+    <div id="footer"></div>
+    <script> // タブ切り替え 
+        const tabBtns = document.querySelectorAll('.tab-btn'); const tabContents = document.querySelectorAll('.tab-content'); const tabContainer = document.querySelector('.tab-container'); tabBtns.forEach(btn => { btn.addEventListener('click', () => { tabBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); const target = btn.dataset.tab; tabContents.forEach(c => { c.classList.remove('active'); if (c.id === target) c.classList.add('active'); }); if (target === 'minami') { tabContainer.classList.remove('sapporo'); tabContainer.classList.add('minami'); } else { tabContainer.classList.remove('minami'); tabContainer.classList.add('sapporo'); } }); });
+        // 文字サイズ切替 
+        const fontButtons = document.querySelectorAll('.font-switcher button'); fontButtons.forEach(btn => { btn.addEventListener('click', () => { const size = btn.dataset.size; document.body.classList.remove('font-small', 'font-large'); if (size === 'small') document.body.classList.add('font-small'); if (size === 'large') document.body.classList.add('font-large'); localStorage.setItem('fontSize', size); }); });
+        // 保存サイズの反映 
+        const savedSize = localStorage.getItem('fontSize'); if (savedSize) { document.body.classList.remove('font-small', 'font-large'); if (savedSize === 'small') document.body.classList.add('font-small'); if (savedSize === 'large') document.body.classList.add('font-large'); } </script>
+</body>
+
+</html>
