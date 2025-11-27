@@ -30,7 +30,7 @@ body.font-large {
     --font-h1: 26px;
     --font-h2: 24px;
     --font-h3: 22px;
-    --font-h4: 20px;
+    --font-h4: 22px;
     --font-p: 20px;
     --font-button: 20px;
     --font-label: 20px;
@@ -52,7 +52,7 @@ h2 {
 h3 {
     font-size: var(--font-h3);
     margin: 0px;
-        font-family: 'Zen Maru Gothic', sans-serif;
+    font-family: 'Zen Maru Gothic', sans-serif;
 }
 
 h4 {
@@ -80,9 +80,9 @@ button {
     --color-primary: #27862d;
     --color-secondary: #89e38c;
     --color-palegreen: #eafff2;
-    --color-gbg: #adf1c6;
+    --color-gbg: #e1f8cf;
     --color-bg: #ffffff;
-    --color-text: #042511;
+    --color-text: #2b2b2b;
 
 }
 
@@ -92,25 +92,53 @@ body {
     align-items: center;
     font-size: var(--font-body);
     margin: 0 auto;
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-image: url("/data/background.png");
+    background-size: cover;
+    /* 画面いっぱいに伸ばす（潰れにくい） */
+    background-position: center;
+    /* 中央配置（重要） */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    /* PCで背景が固定されて綺麗 */
+}
+
+/* スマホ画面の幅（基準） */
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    background: #fff;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 /* -------------------------------
    ヘッダー
 --------------------------------- */
 header {
-    position: fixed;
     background-color: var(--color-dkgr);
     color: #fffdf9;
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    /* ← .wrapper と同じ値 */
+
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1100;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    z-index: 1000;
-    padding: 0px 20px;
-    left: 0;
-    right: 0;
-    margin: 0;
-    width: auto;
+    justify-content: space-between;
 }
+
 
 .box_emergency {
     display: flex;
@@ -122,6 +150,8 @@ header {
     display: flex;
     align-items: center;
     gap: 15px;
+    margin-left: auto;
+    /* 念のため右寄せしたい場合 */
 }
 
 .header-right a {
@@ -223,25 +253,30 @@ header {
 /* footer */
 footer {
     background-color: var(--color-dkgr);
-    color: var(--color-bg);
+    color: #ffffff;
+    margin: 0px 0px 0px 0px;
 
     .font-medium {
         font-size: var(--font-h4);
     }
 
-    margin:30px 0px 0px 0px;
+
 
 }
 
+.name {
+    text-align: left;
+    color: #ffffff;
+}
 
 
 .info {
-    padding: 30px 15px 30px 15px;
+    padding: 30px 25px 30px 25px;
 }
 
 .copy {
     text-align: center;
-    padding: 40px 0px 100px 0px;
+    padding: 40px 0px 140px 0px;
 
 }
 
@@ -281,24 +316,40 @@ footer {
 .bottom-bar {
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 100%;
+    max-width: 500px;
+    /* ← wrapper と“同じ値にする” */
+
     background-color: #525252;
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    padding: 20px 0px;
+    /* ← 横 padding を 0 にするのがコツ */
+    box-sizing: border-box;
+
     z-index: 1000;
-    padding:10px;
 }
 
 
 
 .bottom-bar a.bottom-btn {
-    text-decoration: none;
-    color: white;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
     font-size: var(--font-h4);
-    cursor: pointer;
-    transition: background 0.3s;
+    color: white;
+    text-decoration: none;
+    flex: 1;
+    /* ← 均等幅にする */
+    text-align: center;
 }
 
 .bottom-bar a.bottom-btn:hover {

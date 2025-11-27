@@ -5,18 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>札幌市お問い合わせフォーム</title>
+
+    <!-- ① フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/common.js"></script>
     <style>
+        body{
+            background-color: var(--color-gbg);
+        }
         /* ======================== タブコンテンツ ======================== */
         .tab-container {
             max-width: 700px;
-            margin: 100px auto 50px auto;
+            margin: 10px auto 50px auto;
             /* ヘッダー分上マージン */
             padding: 20px;
             border-radius: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: background 0.3s;
+        }
+        label{
+           font-family: 'Zen Maru Gothic', sans-serif;
         }
 
         /* タブボタン */
@@ -164,8 +174,13 @@
     </style>
 </head>
 
-<body> <!-- ヘッダー読み込み -->
+<body>
+    <div class="wrapper">
+    
+    <!-- ヘッダー読み込み -->
     <div id="header"></div> <!-- スクロール進捗バー -->
+        <div class="yohaku" style="height:60px;"
+></div>
     <div id="scrollProgress"></div> <!-- タブフォーム -->
     <div class="tab-container minami">
         <div class="tabs">
@@ -194,6 +209,8 @@
         </div>
     </div> <!-- フッター読み込み -->
     <div id="footer"></div>
+</div>
+
     <script> // タブ切り替え 
         const tabBtns = document.querySelectorAll('.tab-btn'); const tabContents = document.querySelectorAll('.tab-content'); const tabContainer = document.querySelector('.tab-container'); tabBtns.forEach(btn => { btn.addEventListener('click', () => { tabBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); const target = btn.dataset.tab; tabContents.forEach(c => { c.classList.remove('active'); if (c.id === target) c.classList.add('active'); }); if (target === 'minami') { tabContainer.classList.remove('sapporo'); tabContainer.classList.add('minami'); } else { tabContainer.classList.remove('minami'); tabContainer.classList.add('sapporo'); } }); });
         // 文字サイズ切替 

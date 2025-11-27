@@ -5,12 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>札幌市南区</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/common.js"></script>
 </head>
 <style>
     body {
-        background-color: var(--color-bg);
+        background-color: var(--color-gbg);
+        font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+        background-color: var(--color-gbg);
     }
 
     /* ===== パンくずリスト ===== */
@@ -19,12 +26,10 @@
         color: #555;
         background-color: #ffffff;
         margin-bottom: 10px;
-
     }
 
     .breadcrumb a {
         color: #2e8b57;
-        /* 緑色リンク */
         text-decoration: none;
         font-weight: 500;
     }
@@ -39,87 +44,110 @@
 
     .section {
         padding: 10px;
-        border-top: 1px solid #f0f2f4;
         margin: 15px;
-        background-color: #ffffff;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
 
-    /* ===== トグル内容 ===== */
-    /* トグル内容の背景・線・矢印 */
+    /* ==== リストアイテム（カード枠） ==== */
+    .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color:#304E35;
+    }
+
+    .list-item {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 12px 0;
+        padding: 15px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(10, 10, 10, 0.04);
+    }
+
+    /* ==== タイトル部分（h4 + 矢印ボタン） ==== */
+    .toggle-tab {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 7px 0;
+    }
+
+    .toggle-tab h4 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .toggle-tab .arrow-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        border: 1px solid var(--color-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        position: relative;
+        transition: 0.3s;
+    }
+
+    /* ▼（閉じているとき） */
+    .toggle-tab .arrow-btn::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid var(--color-primary);
+    }
+
+    /* 開いたとき：背景を色付き＋ ▲ に変更 */
+    .toggle-tab.active .arrow-btn {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .toggle-tab.active .arrow-btn::before {
+        border-top: none;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 8px solid #fff;
+    }
+
+    /* ==== 中身（閉
+    じているとき非表示） ==== */
     .toggle-content {
         display: none;
+        margin-top: 7px;
         background: #fff;
+        padding-top:5px;
         border-top: 1px solid var(--color-primary);
     }
 
     .toggle-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 25px;
-        border-bottom: 1px solid var(--color-primary);
+        display: block;
+        padding: 10px 0;
         color: var(--color-text);
         text-decoration: none;
-        font-size: 16px;
-        transition: background 0.2s;
-    }
-
-    .toggle-item .arrow {
-        font-size: 14px;
-        color: (--color-primary);
-    }
-
-
-    .toggle-content ul {
-        list-style-type: none;
-        padding-left: 0;
-        margin: 0;
-    }
-
-    .toggle-content li {
-        margin: 5px 0;
-        padding-left: 10px;
-        position: relative;
-    }
-
-    .toggle-content li::before {
-        content: "・";
-        position: absolute;
-        left: 0;
-        color: #2e8b57;
-    }
-
-    .toggle-content a {
-        color: var(--color-text);
         font-size: var(--font-p);
         font-weight: 500;
-        text-decoration: none;
     }
 
-    .toggle-content a:hover {
+    .toggle-item:hover {
         text-decoration: underline;
     }
 
-    /* 開いた時 */
-    .toggle-tab.active {
-        font-size: var(--font-h3);
-        background: var(--color-primary);
-        padding-bottom: 10px;
+    .toggle-item .arrow {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-bottom: 2px solid #555;
+        border-right: 2px solid #555;
+        transform: rotate(-45deg);
+        margin-left: 6px;
     }
 
-
-    /* ===== タブ部分 ===== */
-    /* .tab-card {
-        margin: 15px;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        background-color: #ffffff;
-    } */
-
-
-    /* タブボタンをカード内に並べる */
+    /* ===== タブ部分（今は未使用だが他ページと統一） ===== */
     .tab-card-buttons {
         display: flex;
         justify-content: space-around;
@@ -153,22 +181,6 @@
         display: block;
     }
 
-    /* ニュースリストはカード内に合わせる */
-    .tab-card .news-list .list-item {
-        padding: 10px;
-        border-bottom: 1px solid #eee;
-        font-size: var(--font-h3);
-    }
-
-
-    .news-list {
-        background-color: var(--color-primary);
-        color: rgb(255, 255, 255);
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
     .arrow {
         display: inline-block;
         width: 10px;
@@ -182,149 +194,51 @@
         opacity: 0.9;
     }
 
-    .filter {
-        text-align: center;
-    }
-
-    .filter-btn {
-        font-weight: 500;
-        background: #fff;
-        border: 1px solid #2e8b57;
-        color: #333;
-        padding: 0.3em 0.7em;
-        margin: 3px;
-        border-radius: 20px;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    .filter-btn:hover {
-        background: #2e8b57;
-        color: white;
-    }
-
-    .filter-btn.active {
-        background: #2e8b57;
-        color: white;
-    }
-
-    .news-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        max-width: 900px;
-        margin: 20px auto;
-    }
-
-    .news-card {
-        display: flex;
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-        transition: 0.3s;
-        text-decoration: none;
-        color: inherit;
-    }
-
-    .news-card:hover {
-        transform: translateY(-3px);
-    }
-
-    .news-image {
-        width: 150px;
-        height: 150px;
-        object-fit: cover;
-        flex-shrink: 0;
-    }
-
-    .news-content {
-        padding: 5px 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .news-title {
-        color: var(--color-text);
-        margin: 0 0 10px 0;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        line-clamp: 3;
-        /* ← 標準プロパティを追加 */
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .news-meta {
-        font-size: var(--font-p);
-        color: #666;
-        margin-bottom: 3px;
-    }
-
-    .tag {
-        display: inline-block;
-        background: #e7f5ee;
-        color: #4a8a63;
-        padding: 0.2em 0.7em;
-        border-radius: 20px;
-        width: fit-content;
-    }
-
     .end {
         text-align: center;
     }
 
     h3,
     p {
-        margin: 0px;
+        margin: 0;
     }
 
     .test-title {
-        padding: 5px 0px 10px 10px;
+        padding: 5px 0 10px 10px;
     }
 </style>
 
 <body>
+    <div class="wrapper">
     <!-- スクロール進捗バー -->
     <div id="scrollProgress"></div>
 
     <!-- ポップアップ -->
     <div id="popup" style="display:none;">
-        <div class="popup-content">
-
-        </div>
+        <div class="popup-content"></div>
     </div>
 
     <!-- ヘッダー読み込み -->
     <div id="header"></div>
-
-    <!-- 余白 -->
-    <div style="height: 60px;  background-color: #ffffff;">
-    </div>
+    <div class="yohaku" style="height:60px;"></div>
 
     <main>
         <!-- パンくずリスト -->
         <nav class="breadcrumb">
-            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>暮らし・手続き</span>
+            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>施設・環境</span>
         </nav>
 
         <!-- タブカード -->
         <section class="section tab-card">
-            <h3 class="test-title">暮らし・手続き</h3>
-            <!--             <div class="tab-card-buttons">
-                <button class="tab-button active" data-tab="new">暮らし</button>
-                <button class="tab-button" data-tab="news">証明書</button>
-            </div>  -->
+            <h3 class="test-title">施設・環境</h3>
 
-            <!-- コンテンツ（タブごと） -->
             <div class="tab-card-content">
                 <section id="new" class="tab-content active">
                     <ul class="news-list">
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>地域のセンター</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">まちづくりセンター<span class="arrow"></span></a>
@@ -336,6 +250,7 @@
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>まちづくりの支援制度</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">みなみ区魅力発信事業助成金制度<span class="arrow"></span></a>
@@ -348,6 +263,7 @@
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>区役所案内</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">地図<span class="arrow"></span></a>
@@ -357,6 +273,7 @@
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>施設一覧</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">区役所<span class="arrow"></span></a>
@@ -369,6 +286,7 @@
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>道路・公園</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">工事情報・交通止め情報<span class="arrow"></span></a>
@@ -380,6 +298,7 @@
                         <li class="list-item">
                             <div class="toggle-tab">
                                 <h4>除雪</h4>
+                                <div class="arrow-btn"></div>
                             </div>
                             <div class="toggle-content">
                                 <a href="#" class="toggle-item">南区の除雪情報・除排雪に関する支援制度<span class="arrow"></span></a>
@@ -391,273 +310,72 @@
                     </ul>
                 </section>
 
-                <section id="news" class="tab-content">
-                    <ul class="news-list">
-                        <li class="list-item">
-                            <!-- タブ1 -->
-                            <div class="toggle-tab">
-                                <h4>妊娠・出産（母子手帳／妊婦健診／助成制度）</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>乳幼児・小児健診／予防接種</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <!-- タブ1 -->
-                            <div class="toggle-tab">
-                                <h4>保育園・幼稚園・認定こども園</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>子ども医療費助成／児童手当</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <!-- タブ1 -->
-                            <div class="toggle-tab">
-                                <h4>放課後児童クラブ・子ども食堂</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>教育・学校（入学・転校・給食・相談）</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>子育て支援センター・ファミリーサポート</h4>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="../page/page_syoumei.html" class="toggle-item">
-                                    住民票の写しをとる/見るには
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="move.html" class="toggle-item">
-                                    転入・転出の手続き
-                                    <span class="arrow"></span>
-                                </a>
-                                <a href="mynumber.html" class="toggle-item">
-                                    マイナンバーカード申請
-                                    <span class="arrow"></span>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
+                <!-- 予備タブが必要になったらここに section id="news" などを追加 -->
 
             </div>
         </section>
 
-
         <!-- フッター読み込み -->
         <div id="footer"></div>
+    </div>
+    
+    </main>
 
-        <!-- JS 読み込み -->
+    <!-- JS 読み込み -->
+    <script>
+        // タブ切り替え（タブボタンを使う場合用）
+        const cardTabs = document.querySelectorAll('.tab-card .tab-button');
+        const cardContents = document.querySelectorAll('.tab-card .tab-content');
 
-        <script>
-            // タブ切り替え
-            const cardTabs = document.querySelectorAll('.tab-card .tab-button');
-            const cardContents = document.querySelectorAll('.tab-card .tab-content');
-
-            cardTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    cardTabs.forEach(t => t.classList.remove('active'));
-                    cardContents.forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
+        cardTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                cardTabs.forEach(t => t.classList.remove('active'));
+                cardContents.forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
-            const list = document.getElementById('extra-list');
-            const sortSelect = document.getElementById('sort-select');
-            const tagSelect = document.getElementById('tag-select');
+        });
 
-            function filterAndSort() {
-                const items = Array.from(list.querySelectorAll('.list-item'));
-                const tagFilter = tagSelect.value;
-                const sortOption = sortSelect.value;
+        // -------------------------------
+        // 文字サイズ切り替え（CSS変数対応）
+        // -------------------------------
+        const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
 
-                let filtered = items;
-            }
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            document.body.classList.remove('font-small', 'font-large');
+            if (savedFontSize === 'small') document.body.classList.add('font-small');
+            if (savedFontSize === 'large') document.body.classList.add('font-large');
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const articles = [
-                    { title: "秋の健康フェア開催！血圧測定や栄養相談も", date: "2025-10-01", tag: "イベント", img: "https://placehold.jp/150x150.png?text=健康フェア", link: "#" },
-                    { title: "災害時に備える！家庭でできる防災準備チェックリスト", date: "2025-09-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=防災準備", link: "#" },
-                    { title: "免疫力を高める食材5選", date: "2025-09-20", tag: "健康", img: "https://placehold.jp/150x150.png?text=免疫力アップ", link: "#" },
-                    { title: "地域の健康ウォーキング大会レポート", date: "2025-09-15", tag: "イベント", img: "https://placehold.jp/150x150.png?text=ウォーキング", link: "#" },
-                    { title: "非常食の選び方とローリングストックのコツ", date: "2025-09-10", tag: "防災", img: "https://placehold.jp/150x150.png?text=非常食", link: "#" },
-                    { title: "睡眠の質を高める夜の習慣", date: "2025-08-30", tag: "健康", img: "https://placehold.jp/150x150.png?text=睡眠習慣", link: "#" },
-                    { title: "健康イベント2025＠東京ビッグサイト開催決定！", date: "2025-08-20", tag: "イベント", img: "https://placehold.jp/150x150.png?text=イベント開催", link: "#" },
-                    { title: "熱中症対策：正しい水分補給のポイント", date: "2025-08-10", tag: "健康", img: "https://placehold.jp/150x150.png?text=水分補給", link: "#" },
-                    { title: "地震時の避難行動を見直そう", date: "2025-07-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=地震対策", link: "#" },
-                    { title: "ストレスを減らす呼吸法のススメ", date: "2025-07-15", tag: "健康", img: "https://placehold.jp/150x150.png?text=呼吸法", link: "#" },
-                ];
-
-                const container = document.getElementById("news-container");
-                const buttons = document.querySelectorAll(".filter-btn");
-
-                function displayArticles(tag) {
-                    container.innerHTML = "";
-                    const filtered = tag === "all" ? articles : articles.filter(a => a.tag === tag);
-
-                    filtered.forEach(a => {
-                        const card = document.createElement("a");
-                        card.classList.add("news-card");
-                        card.href = a.link;
-                        card.innerHTML = `
-        <img src="${a.img}" alt="${a.title}" class="news-image" />
-        <div class="news-content">
-          <div class="news-meta">${a.date}</div>
-          <h2 class="news-title">${a.title}</h2>
-          <span class="tag">${a.tag}</span>
-        </div>
-      `;
-                        container.appendChild(card);
-                    });
-                }
-
-                displayArticles("all");
-
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        buttons.forEach(b => b.classList.remove("active"));
-                        btn.classList.add("active");
-                        displayArticles(btn.dataset.tag);
-                    });
-                });
-            });
-            // -------------------------------
-            // 文字サイズ切り替え（CSS変数対応）
-            // -------------------------------
-            const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
-
-            // ページ読み込み時に保存値があれば反映
-            const savedFontSize = localStorage.getItem('fontSize');
-            if (savedFontSize) {
-                document.body.classList.remove('font-small', 'font-large');
-                if (savedFontSize === 'small') document.body.classList.add('font-small');
-                if (savedFontSize === 'large') document.body.classList.add('font-large');
-
-                // ラジオボタンもチェック状態に
-                fontSizeRadios.forEach(radio => {
-                    if (radio.value === savedFontSize) radio.checked = true;
-                });
-            }
-
-            // 選択変更時
             fontSizeRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.body.classList.remove('font-small', 'font-large');
-                    if (radio.value === 'small') document.body.classList.add('font-small');
-                    if (radio.value === 'large') document.body.classList.add('font-large');
-                    // 中の場合はクラスなし（デフォルト）
-
-                    // localStorageに保存
-                    localStorage.setItem('fontSize', radio.value);
-                });
+                if (radio.value === savedFontSize) radio.checked = true;
             });
-            // トグルスクリプト 
-            const tabs = document.querySelectorAll('.toggle-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tab.classList.toggle('active');
-                    const content = tab.nextElementSibling;
-                    if (content.style.display === 'block') {
-                        content.style.display = 'none';
-                    } else {
-                        content.style.display = 'block';
-                    }
-                });
-            });
+        }
 
-        </script>
+        fontSizeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.body.classList.remove('font-small', 'font-large');
+                if (radio.value === 'small') document.body.classList.add('font-small');
+                if (radio.value === 'large') document.body.classList.add('font-large');
+
+                localStorage.setItem('fontSize', radio.value);
+            });
+        });
+
+        // トグルスクリプト 
+        const tabs = document.querySelectorAll('.toggle-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tab.classList.toggle('active');
+                const content = tab.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

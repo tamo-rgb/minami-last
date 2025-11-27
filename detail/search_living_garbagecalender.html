@@ -5,11 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ごみ収集日（南区）</title>
+
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/common.js"></script>
+
     <style>
         body {
-            background-color: var(--color-bg);
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
         }
 
         .breadcrumb {
@@ -33,80 +44,131 @@
             color: #333;
         }
 
+        /* ページ上部タイトル部分 */
         .top-contents {
-            margin: 0 0 0 15px;
+            margin: 20px 10px 0px 10px;
+            padding: 10px 15px;
+            background-color: #fff;
             border-bottom: 2px solid #2e8b57;
-            padding-bottom: 4px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
+        .top-contents h1 {
+            font-size: 1.4rem;
+            margin: 0 0 6px;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* 目次ブロック */
         .toc {
-            padding: 10px 5px 5px 15px;
+            margin: 0px 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
         }
 
         .toc ul {
             list-style: none;
             padding: 0;
-            margin: 20px 0;
+            margin: 0 0;
             display: flex;
             flex-wrap: wrap;
-            gap: 5px;
+            gap: 6px;
+        }
+
+        .toc ul li {
+            margin: 0;
         }
 
         .toc ul li a {
             background-color: var(--color-primary);
-            padding: 5px 10px;
+            padding: 6px 12px;
             color: #fff;
             font-weight: 500;
             border-radius: 20px;
             text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
         }
 
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* 各ごみカレンダーセクション */
         .section {
-            padding: 20px;
-            border-bottom: 1px solid #8b8b8b;
+            margin: 0 15px 12px;
+            padding: 14px 14px 12px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f2f4;
         }
 
         .section h3 {
             border-left: 6px solid var(--color-primary);
             padding-left: 10px;
-            margin-bottom: 8px;
+            margin: 0 0 8px;
+            font-size: 1.1rem;
         }
 
-        .section ul {
-            padding-left: 20px;
+        .section .contents ul {
+            padding-left: 18px;
+            margin: 4px 0px 20px 0px;
         }
 
         .contents ul li {
-            margin-bottom: 7px;
+            margin-bottom: 6px;
             font-size: var(--font-p);
+        }
+
+        .contents p {
+            margin: 6px 0 6px;
+            font-size: var(--font-p);
+            font-weight: 500;
         }
 
         a.pdf-link {
             display: inline-block;
             margin: 3px 0;
-            color: #2e8b57;
+            color: var(--color-primary);
+            font-weight: 500;
             text-decoration: underline;
         }
 
+        a.pdf-link:hover {
+            opacity: 0.85;
+        }
     </style>
 </head>
 
 <body>
+    <div class="wrapper">
+    <!-- ヘッダー読み込み -->
     <div id="header"></div>
 
+    <!-- ヘッダー分の余白 -->
     <div style="height:60px; background-color:#fff;"></div>
 
     <main>
+        <!-- パンくず -->
         <nav class="breadcrumb">
-            <a href="../../index.html">ホームページ</a> ＞ <a href="../../search.html">情報を探す</a> ＞ <br>
-            <a href="../search_living.html">暮らし・手続き</a>＞ <span>ごみ収集日（南区）</span>
+            <a href="../../../index.html">ホームページ</a> ＞
+            <a href="../../search.html">情報を探す</a> ＞
+            <a href="../search/search_living.html">暮らし・手続き</a> ＞
+            <span>ごみ収集日（南区）</span>
         </nav>
 
+        <!-- ページタイトル＋説明 -->
         <section class="top-contents">
             <h1 class="midashi">ごみ収集日（南区）</h1>
             <p>札幌市南区の地域ごとのごみ収集カレンダーです。お住まいの住所に対応するカレンダー番号を確認してください。</p>
         </section>
 
+        <!-- 目次ボタン -->
         <div class="toc">
             <ul>
                 <li><a href="#section-1">南区1</a></li>
@@ -129,7 +191,7 @@
                     <li>澄川4条4丁目（1番18〜27号、2〜11番）・5丁目〜12丁目</li>
                     <li>澄川5条4丁目（1番・7〜9番）・5丁目（1〜9番（9番1〜5除く））</li>
                 </ul>
-                <p>カレンダー番号：南区1</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,457KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,117KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,423KB）</a><br>
@@ -143,15 +205,16 @@
             <div class="contents">
                 <ul>
                     <li>石山</li>
-                    <li>石山東</li>
                     <li>常盤</li>
-                    <li>芸術の森</li>
                     <li>滝野</li>
                 </ul>
-                <p>カレンダー番号：南区2</p>
-                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2_07090809.pdf" class="pdf-link">通年版（PDF：1,440KB）</a><br>
-                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2f_07090802.pdf" class="pdf-link">外国語版 前期（PDF：2,102KB）</a><br>
-                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2f_08030809.pdf" class="pdf-link">外国語版 後期（PDF：1,419KB）</a><br>
+                <p>下のPDFより確認できます</p>
+                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2_07090809.pdf"
+                    class="pdf-link">通年版（PDF：1,440KB）</a><br>
+                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2f_07090802.pdf"
+                    class="pdf-link">外国語版 前期（PDF：2,102KB）</a><br>
+                <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami2f_08030809.pdf"
+                    class="pdf-link">外国語版 後期（PDF：1,419KB）</a><br>
                 <a href="#" class="pdf-link">月めくり版 表紙・各月PDF</a>
             </div>
         </div>
@@ -171,7 +234,7 @@
                     <li>定山渓温泉西・東</li>
                     <li>定山渓</li>
                 </ul>
-                <p>カレンダー番号：南区3</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,460KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,105KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,423KB）</a><br>
@@ -192,7 +255,7 @@
                     <li>緑町</li>
                     <li>自衛隊真駒内駐屯地</li>
                 </ul>
-                <p>カレンダー番号：南区4</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,453KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,116KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,423KB）</a><br>
@@ -211,7 +274,7 @@
                     <li>北ノ沢</li>
                     <li>中ノ沢</li>
                 </ul>
-                <p>カレンダー番号：南区5</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,452KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,095KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,423KB）</a><br>
@@ -226,7 +289,7 @@
                 <ul>
                     <li>南沢（1条3丁目1番5〜14、20番、21番を除く）</li>
                 </ul>
-                <p>カレンダー番号：南区6</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,451KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,092KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,422KB）</a><br>
@@ -243,7 +306,7 @@
                     <li>南沢（1条3丁目1番5〜14・20番・21番）</li>
                     <li>石山</li>
                 </ul>
-                <p>カレンダー番号：南区7</p>
+                <p>下のPDFより確認できます</p>
                 <a href="#" class="pdf-link">通年版（PDF：1,450KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 前期（PDF：2,095KB）</a><br>
                 <a href="#" class="pdf-link">外国語版 後期（PDF：1,422KB）</a><br>
@@ -254,6 +317,7 @@
     </main>
 
     <div id="footer"></div>
+</div>
 </body>
 
 </html>

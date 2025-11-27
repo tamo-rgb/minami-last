@@ -4,208 +4,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>緊急情報 - 札幌市南区</title>
+    <title>札幌市南区｜緊急情報</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/common.js"></script>
+
     <style>
-        /* 緊急情報ページ専用 */
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, sans-serif;
+            margin: 0;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+        .p{
+            color:var(--color-text);
+        }
+
+
+
+        /* パンくず */
+        .breadcrumb {
+            margin: 10px;
+            padding: 8px 4px;
+            color: #555;
+            font-size: var(--font-h4);
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* 現在の緊急情報 */
         .emergency-section {
-            margin: 20px;
+            margin: 12px 10px 18px;
             background: #ffffff;
             border-radius: 10px;
-            border: 1px solid #d62828;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .emergency-header {
             background: #d62828;
             color: #fff;
-            padding: 15px 20px;
-            margin: 5px;
-            border-radius: 8px;
-            margin: 0px;
-        }
-
-        .emergency-list {
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .emergency-item {
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .emergency-item:last-child {
-            border-bottom: none;
-        }
-
-        .emergency-item p {
-            margin: 5px 0;
+            padding: 14px 16px;
+            margin: 0;
+            border-radius: 10px 10px 0px 0px;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
         .no-emergency {
-            padding: 15px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            font-size: 16px;
+            padding: 16px;
+            background: #fff3f3;
             color: #333;
+            border-radius: 0px 0px 10px 10px;
+            font-size: 1rem;
         }
 
-        /* info-section */
-
-        .info-section {
-            background-color: var(--color-gbg);
-            padding: 10px;
+        /* 過去の発令情報（1カードにまとめる） */
+        .past-section {
+            padding: 0 10px 20px;
         }
 
-        .info-box {
-            margin: 10px;
-            padding: 20px;
+        .past-box {
             background: #ffffff;
-            border-radius: 8px;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            margin: 12px 0;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
-        .info-box h3 {
+        .past-box h2 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
             color: var(--color-primary);
-            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .past-item {
+            margin-bottom: 14px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .past-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .past-item-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            margin: 0 0 4px;
+        }
+
+        .past-item-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .past-item-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #444;
         }
 
         .info-list {
             list-style: none;
             padding-left: 0;
+            margin: 0;
         }
 
         .info-list li {
-            margin-bottom: 5px;
+            padding: 5px 10px ;
+        }
+        .number_section{
+            background: #ffffff;
+            border: 1px solid #f0f2f4;
+            padding: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .box{
+            padding:10px 5px;
+        }
+        .box h2{
+            padding:5px;
+            margin-bottom:5px;
+            border-bottom:1px solid var(--color-primary);
         }
     </style>
 </head>
 
 <body>
-
-    <!-- スクロール進捗バー -->
+<div class="wrapper">
     <div id="scrollProgress"></div>
-
-    <!-- ヘッダー読み込み -->
     <div id="header"></div>
-    <!-- 余白 -->
-    <div style="height: 60px;  background-color: #ffffff;">
-    </div>
+    <div style="height:50px;"></div>
 
-    <!-- スライドメニュー -->
-    <nav id="sideMenu">
-        <ul>
-            <li><a href="index.html">ホーム</a></li>
-            <li><a href="#">情報を探す</a></li>
-            <li><a href="#">お知らせ・ニュース</a></li>
-            <li><a href="#">通知をすぐ受け取る</a></li>
-            <li><a href="#">お問い合わせ</a></li>
-        </ul>
-    </nav>
+    <main class="wrapper">
 
-    <!-- メイン -->
-    <main>
+        <!-- パンくず -->
+        <nav class="breadcrumb">
+            <a href="index.html">ホームページ</a> ＞ <span>緊急情報</span>
+        </nav>
+
+        <!-- 現在の緊急情報 -->
         <section class="emergency-section">
             <h2 class="emergency-header">いま発令されている緊急情報</h2>
 
-            <!-- 緊急情報がある場合 -->
-            <div id="emergencyList" class="emergency-list" style="display: none;">
-                <!-- JSで挿入 -->
-            </div>
-
-            <!-- 緊急情報がない場合 -->
-            <div id="noEmergency" class="no-emergency" style="display: none;">
+            <div class="no-emergency">
                 ただいま緊急情報はありません
             </div>
         </section>
-        <section class="info-section">
-            <!-- 緊急連絡先 -->
-            <div class="info-box">
-                <h3>緊急連絡先</h3>
-                <ul class="info-list">
-                    <li>消防署: 011-123-4567</li>
-                    <li>警察署: 011-234-5678</li>
-                    <li>南区役所（災害窓口）: 011-345-6789</li>
-                </ul>
+
+        <!-- 過去の発令情報（1カードにまとめる） -->
+        <section class="past-section">
+
+            <div class="past-box">
+                <h2>過去の発令情報</h2>
+                <div id="pastList"></div>
             </div>
 
-            <!-- 避難所 -->
-            <div class="info-box">
-                <h3>避難所情報</h3>
-                <ul class="info-list">
-                    <li>真駒内小学校体育館</li>
-                    <li>滝野中学校 体育館</li>
-                    <li>澄川公民館 多目的ホール</li>
-                </ul>
-            </div>
-
-            <!-- 緊急時対応 -->
-            <div class="info-box">
-                <h3>緊急時の対応</h3>
-                <ul class="info-list">
-                    <li>安全な場所に移動してください</li>
-                    <li>ラジオ・テレビ・公式サイトで最新情報を確認</li>
-                    <li>避難時は近隣住民と協力する</li>
-                    <li>余裕があれば貴重品を持参</li>
-                </ul>
-            </div>
         </section>
+
+        <!-- 緊急連絡先・緊急時情報・救急当番医療機関 -->
+        <section class="number_section">
+
+            <!-- 緊急連絡先 -->
+            <div class="box">
+                <h2>緊急連絡先</h2>
+                <ul class="info-list">
+                    <li>消防署（119番）</li>
+                    <li>警察署（110番）</li>
+                    <li>南区役所（災害対応窓口）：011-345-6789</li>
+                    <li>北海道救急安心センター（#7119）</li>
+                    <li>医療相談窓口（小児救急相談 #8000）</li>
+                </ul>
+            </div>
+
+            <!-- 緊急時の行動 -->
+            <div class="box">
+                <h2>緊急時の行動</h2>
+                <ul class="info-list">
+                    <li>揺れが収まるまで机の下など安全な場所に避難する</li>
+                    <li>屋外では落下物や倒壊物に注意して行動する</li>
+                    <li>避難する際は火の元を確認し、ブレーカーを落とす</li>
+                    <li>近隣住民と協力して避難し、お年寄りを優先する</li>
+                    <li>テレビ・ラジオ・公式サイトで最新の情報を確認する</li>
+                </ul>
+            </div>
+
+            <!-- 救急当番医療機関 -->
+            <div class="box">
+                <h2>救急当番医療機関（南区）</h2>
+                <ul class="info-list">
+                    <li>札幌南病院（内科・外科）</li>
+                    <li>定山渓病院（内科）</li>
+                    <li>澄川ファミリークリニック（小児科）</li>
+                    <li>川沿中央病院（整形外科）</li>
+                    <li>藤野内科医院（内科）</li>
+                </ul>
+                <p style="font-size:0.9rem; color:#555; margin-top:8px;">
+                    ※当番医は日によって変更される場合があります。札幌市公式サイト・#7119 で最新情報をご確認ください。
+                </p>
+            </div>
+
+        </section>
+
+
     </main>
-    <!-- フッター読み込み -->
+
     <div id="footer"></div>
-
-
+</div>
 
     <script>
-        // ページが読み込まれたら実行
-        window.addEventListener('DOMContentLoaded', function () {
-            const emergencyLink = document.getElementById('emergency');
-            if (emergencyLink) {
-                emergencyLink.textContent = 'ホームへ戻る';
-                emergencyLink.href = 'index.html';
-            }
-        });
-        // 緊急情報サンプルデータ
-        const emergencies = [
-            {
-                type: "地震速報",
-                update: "10:30",
-                issued: "10:28",
-                description: "震源地：北海道南西沖 / マグニチュード：5.2"
-            },
-            {
-                type: "津波警報",
-                update: "10:35",
-                issued: "10:32",
-                description: "北海道沿岸に津波警報発表中"
-            },
+        // 過去の緊急情報データ
+        const pastEmergencies = [
             {
                 type: "クマ目撃情報",
                 update: "09:50",
                 issued: "09:45",
-                description: "滝野地区でクマが目撃されています。外出を控えてください。"
+                description: "滝野地区でクマが目撃されました。外出を控えてください。"
             }
         ];
 
-        const emergencyList = document.getElementById('emergencyList');
-        const noEmergency = document.getElementById('noEmergency');
+        const pastList = document.getElementById("pastList");
 
-        if (emergencies.length === 0) {
-            noEmergency.style.display = 'block';
-        } else {
-            emergencyList.style.display = 'block';
-            emergencies.forEach(e => {
-                const div = document.createElement('div');
-                div.classList.add('emergency-item');
-                div.innerHTML = `
-                    <h3>${e.type}</h3>
-                    <p>更新時間: ${e.update} / 発表時間: ${e.issued}</p>
-                    <h4>${e.description}</h4>
-                `;
-                emergencyList.appendChild(div);
-            });
-        }
+        pastEmergencies.forEach(e => {
+            const item = document.createElement("div");
+            item.classList.add("past-item");
+            item.innerHTML = `
+                <div class="past-item-title">【${e.type}】</div>
+                <div class="past-item-meta">更新: ${e.update} ／ 発表: ${e.issued}</div>
+                <div class="past-item-desc">${e.description}</div>
+            `;
+            pastList.appendChild(item);
+        });
     </script>
+
 </body>
 
 </html>

@@ -4,21 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>札幌市南区</title>
+    <title>札幌市南区｜お知らせの詳細</title>
+
+    <!-- 共通フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="assets/style.css">
     <script src="assets/common.js"></script>
 </head>
+
 <style>
+    body {
+        background-color: var(--color-gbg);
+        font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        margin: 0;
+    }
+
+    main {
+        background-color: var(--color-gbg);
+    }
+
     /* ===== パンくずリスト ===== */
     .breadcrumb {
         margin: 10px;
+        padding: 8px 4px;
         color: #555;
         font-size: var(--font-h4);
     }
 
     .breadcrumb a {
         color: #2e8b57;
-        /* 緑色リンク */
         text-decoration: none;
         font-weight: 500;
     }
@@ -31,44 +47,46 @@
         color: #333;
     }
 
+    /* ===== セクション（共通カード） ===== */
     .section {
-        padding: 10px;
-        border-top: 1px solid #f0f2f4;
+        padding: 14px 12px;
         background: #fff;
-        margin: 15px;
+        margin: 12px 10px 18px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f0f2f4;
+        box-sizing: border-box;
     }
 
-
-    /* ===== タブ部分 ===== */
+    /* ===== タブカード ===== */
     .tab-card {
-        margin: 15px;
-        padding: 10px;
+        margin: 12px 10px 10px;
+        padding: 12px 10px 10px;
         border-radius: 10px;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        background-color: var(--color-palegreen);
+        border: 1px solid #e0f1dd;
     }
-
 
     /* タブボタンをカード内に並べる */
     .tab-card-buttons {
         display: flex;
         justify-content: space-around;
         margin-bottom: 10px;
+        gap: 6px;
     }
 
     .tab-card-buttons .tab-button {
         flex: 1;
-        margin: 0 5px;
-        padding: 12px 0;
+        margin: 0;
+        padding: 10px 0;
         background: var(--color-bg);
-        border-radius: 10px;
+        border-radius: 8px;
         border: 2px solid var(--color-primary);
         cursor: pointer;
-        font-weight: bold;
+        font-weight: 600;
         color: var(--color-primary);
         transition: all 0.2s;
+        font-size: var(--font-p);
     }
 
     .tab-card-buttons .tab-button.active {
@@ -85,21 +103,11 @@
         display: block;
     }
 
-    /* ニュースリストはカード内に合わせる */
+    /* タブ内ニュースリスト */
     .tab-card .news-list .list-item {
         padding: 10px;
         border-bottom: 1px solid #eee;
-    }
-
-    @media (max-width:600px) {
-        .tab-card-buttons .tab-button {
-            padding: 10px 0;
-            margin: 0 3px;
-        }
-
-        .tab-card .news-list .list-item {
-            font-size: var(--font-h4);
-        }
+        background: #fff;
     }
 
     .news-list {
@@ -108,15 +116,11 @@
         margin: 0;
     }
 
-    .news-list .list-item {
-        padding: 12px;
-        border-bottom: 1px solid #ccc;
-    }
-
     .news-list .list-item a {
         text-decoration: none;
         color: var(--color-text);
-        font-weight: bold;
+        font-weight: 500;
+        font-size: var(--font-p);
     }
 
     .news-list .list-item a:hover {
@@ -124,20 +128,27 @@
     }
 
     .news-list .meta {
-        color: var(--color-text);
-        margin-bottom: 5px;
+        color: #666;
+        margin-bottom: 4px;
+        font-size: 0.9rem;
     }
 
     .more {
-        margin: 10px 0px 5px 0px;
-        text-decoration: none;
+        margin: 6px 10px 0 0;
         text-align: right;
-        color: var(--color-text);
+        font-size: 0.9rem;
     }
 
     .more a {
         text-decoration: none;
         color: var(--color-text);
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .more a:hover {
+        text-decoration: underline;
     }
 
     .arrow {
@@ -149,12 +160,10 @@
         transform: rotate(-45deg);
     }
 
-    .subtitle {
-        opacity: 0.9;
-    }
-
+    /* ===== フィルタボタン ===== */
     .filter {
         text-align: center;
+        margin-bottom: 8px;
     }
 
     .filter-btn {
@@ -167,6 +176,7 @@
         border-radius: 20px;
         cursor: pointer;
         transition: 0.3s;
+        font-size: 0.9rem;
     }
 
     .filter-btn:hover {
@@ -179,12 +189,12 @@
         color: white;
     }
 
+    /* ===== ニュースカード（下段） ===== */
     .news-container {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        max-width: 900px;
-        margin: 20px auto;
+        margin-top: 10px;
     }
 
     .news-card {
@@ -192,40 +202,44 @@
         background: white;
         border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
         text-decoration: none;
         color: inherit;
+        border: 1px solid #f0f2f4;
     }
 
     .news-image {
-        width: 100px;
-        height: auto;
+        width: 110px;
+        height: 100%;
         object-fit: cover;
         flex-shrink: 0;
     }
 
     .news-content {
-        padding: 10px 5px 10px 15px;
+        padding: 10px 10px 10px 14px;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        gap: 4px;
     }
 
     .news-title {
         color: var(--color-text);
-        margin: 0 0 10px 0;
+        margin: 0 0 4px 0;
+        font-size: 1rem;
+        font-weight: 600;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         line-clamp: 3;
-        /* ← 標準プロパティを追加 */
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
     .news-meta {
         color: #666;
-        margin-bottom: 3px;
+        margin-bottom: 2px;
+        font-size: 0.9rem;
     }
 
     .tag {
@@ -240,38 +254,60 @@
 
     .end {
         text-align: center;
+        margin: 12px 0;
     }
 
     h3,
     p {
-        margin: 0px;
+        margin: 0;
+    }
+
+    @media (max-width:600px) {
+        .tab-card-buttons {
+            gap: 4px;
+        }
+
+        .tab-card-buttons .tab-button {
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .tab-card .news-list .list-item {
+            font-size: var(--font-h4);
+        }
+
+        .section {
+            margin: 10px 6px 14px;
+        }
+
+        .news-card {
+            border-radius: 10px;
+        }
     }
 </style>
 
 <body>
+    <div class="wrapper">
     <!-- スクロール進捗バー -->
     <div id="scrollProgress"></div>
 
-    <!-- ポップアップ -->
+    <!-- ポップアップ（他ページと共通仕様用） -->
     <div id="popup" style="display:none;">
-        <div class="popup-content">
-
-        </div>
+        <div class="popup-content"></div>
     </div>
 
     <!-- ヘッダー読み込み -->
     <div id="header"></div>
+    <div class="yohaku" style="height:60px;"></div>
 
-    <!-- 余白 -->
-    <div style="height: 60px;  background-color: #ffffff;">
-    </div>
-
-    <main>
+    <main class="wrapper">
         <!-- パンくずリスト -->
         <nav class="breadcrumb">
-            <a href="index.html">ホームページ</a> ＞ <span>情報を探す</span>
+            <a href="index.html">ホームページ</a> ＞
+            <span>お知らせを見る</span>
         </nav>
-        <!-- タブカード -->
+
+        <!-- タブカード：新着 / ニュース / おすすめ -->
         <section class="section tab-card">
             <div class="tab-card-buttons">
                 <button class="tab-button active" data-tab="new">新着情報</button>
@@ -281,65 +317,55 @@
 
             <!-- コンテンツ（タブごと） -->
             <div class="tab-card-content">
+                <!-- 新着情報 -->
                 <section id="new" class="tab-content active">
                     <ul class="news-list">
                         <li class="list-item">
                             <div class="meta">2025/10/31</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/shinko/seijin/index.html">令和8年（2026年）南区成人の日行事（成人式）の申込フォームを掲載しました。</a>
+                            <a href="https://www.city.sapporo.jp/minami/hoken/yakannofusodan.html">国民健康保険料の夜間納付相談のお知らせ</a>
                         </li>
                         <li class="list-item">
                             <div class="meta">2025/10/31</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/doboku/tsukodome.html">【交通規制】小樽定山渓線・硬石山線ほか冬期通行規制情報を掲載しました</a>
+                            <a href="#">【まちの話題】市立札幌みなみの杜高等支援学校の生徒が南区役所授乳室を秋色に装飾</a>
+                        </li>
+                        <li class="list-item">
+                            <div class="meta">2025/10/31</div>
+                            <a href="https://www.city.sapporo.jp/minami/shinko/seijin/index.html">令和8年（2026年）南区成人の日行事（成人式）の申込フォームを掲載しました。</a>
+                        </li>
+                        <li class="list-item">
+                            <div class="meta">2025/10/31</div>
+                            <a href="https://www.city.sapporo.jp/minami/doboku/tsukodome.html">【交通規制】小樽定山渓線・硬石山線ほか冬期通行規制情報を掲載しました</a>
                         </li>
                         <li class="list-item">
                             <div class="meta">2025/10/27</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/keiyakujoho/2025ippanjohaisetsu.html">南区役所等駐車場除排雪業務</a>
+                            <a href="https://www.city.sapporo.jp/minami/keiyakujoho/2025ippanjohaisetsu.html">南区役所等駐車場除排雪業務</a>
                         </li>
-                        <li class="list-item">
-                            <div class="meta">2025/10/24</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/news/202510/20251016.html">南区民生委員・児童委員永年勤続表彰式</a>
-                        </li>
-                        <div class="more">
-                            <a href="news_detail.html">新着情報の詳細はこちら
-                                <div class="arrow"></div>
-                            </a>
-                        </div>
                     </ul>
                 </section>
 
+                <!-- ニュース -->
                 <section id="news" class="tab-content">
                     <ul class="news-list">
                         <li class="list-item">
                             <div class="meta">2025/10/28</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/kenkou/walkingtaikai.html">「冬季ノルディックウオーキング体験会」を開催します！</a>
+                            <a href="https://www.city.sapporo.jp/minami/kenkou/walkingtaikai.html">「冬季ノルディックウオーキング体験会」を開催します！</a>
                         </li>
                         <li class="list-item">
                             <div class="meta">2025/10/28</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/kenkou/kenkokyoiku.html">市民健康教育講座「オーラルフレイルを知ろう!」を開催いたします!!</a>
+                            <a href="https://www.city.sapporo.jp/minami/kenkou/kenkokyoiku.html">市民健康教育講座「オーラルフレイルを知ろう!」を開催いたします!!</a>
                         </li>
                         <li class="list-item">
                             <div class="meta">2025/10/16</div>
-                            <a
-                                href="https://www.city.sapporo.jp/minami/oshirase/20251020shokudo.html">南区役所食堂営業再開のお知らせ</a>
+                            <a href="https://www.city.sapporo.jp/minami/oshirase/20251020shokudo.html">南区役所食堂営業再開のお知らせ</a>
                         </li>
                         <li class="list-item">
                             <div class="meta">2025/10/15</div>
                             <a href="https://www.city.sapporo.jp/minami/tetuzuki/sougouokuyami.html">総合案内・おくやみ窓口</a>
                         </li>
-                        <div class="more">
-                            <a href="news_detail.html">ニュースの詳細はこちら
-                                <div class="arrow"></div>
-                            </a>
-                        </div>
                     </ul>
                 </section>
 
+                <!-- おすすめ -->
                 <section id="recommend" class="tab-content">
                     <ul class="news-list">
                         <li class="list-item">
@@ -358,15 +384,12 @@
                             <div class="meta">2025/10/20</div>
                             <a href="#">地域防災訓練のお知らせ</a>
                         </li>
-                        <div class="more">
-                            <a href="news_detail.html">おすすめの詳細はこちら
-                                <div class="arrow"></div>
-                            </a>
-                        </div>
                     </ul>
                 </section>
             </div>
         </section>
+
+        <!-- 下段：タグで絞り込める記事カード -->
         <section class="section tab-card">
             <section class="filter">
                 <button class="filter-btn active" data-tag="all">すべて</button>
@@ -375,119 +398,164 @@
                 <button class="filter-btn" data-tag="防災">防災</button>
             </section>
 
-            <main id="news-container" class="news-container"></main>
-
+            <section id="news-container" class="news-container"></section>
         </section>
+    </main>
 
-        <!-- フッター読み込み -->
-        <div id="footer"></div>
+    <!-- フッター読み込み -->
+    <div id="footer"></div>
+</div>
 
-        <!-- JS 読み込み -->
 
-        <script>
-            // タブ切り替え
-            const cardTabs = document.querySelectorAll('.tab-card .tab-button');
-            const cardContents = document.querySelectorAll('.tab-card .tab-content');
+    <script>
+        // タブ切り替え
+        const cardTabs = document.querySelectorAll('.tab-card .tab-button');
+        const cardContents = document.querySelectorAll('.tab-card .tab-content');
 
-            cardTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    cardTabs.forEach(t => t.classList.remove('active'));
-                    cardContents.forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
+        cardTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                cardTabs.forEach(t => t.classList.remove('active'));
+                cardContents.forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
-            const list = document.getElementById('extra-list');
-            const sortSelect = document.getElementById('sort-select');
-            const tagSelect = document.getElementById('tag-select');
+        });
 
-            function filterAndSort() {
-                const items = Array.from(list.querySelectorAll('.list-item'));
-                const tagFilter = tagSelect.value;
-                const sortOption = sortSelect.value;
+        // フィルタ付きカード一覧
+        document.addEventListener("DOMContentLoaded", function () {
+            const articles = [
+                {
+                    title: "秋の健康フェア開催！血圧測定や栄養相談も",
+                    date: "2025-10-01",
+                    tag: "イベント",
+                    img: "https://placehold.jp/150x150.png?text=健康フェア",
+                    link: "#"
+                },
+                {
+                    title: "災害時に備える！家庭でできる防災準備チェックリスト",
+                    date: "2025-09-25",
+                    tag: "防災",
+                    img: "https://placehold.jp/150x150.png?text=防災準備",
+                    link: "#"
+                },
+                {
+                    title: "免疫力を高める食材5選",
+                    date: "2025-09-20",
+                    tag: "健康",
+                    img: "https://placehold.jp/150x150.png?text=免疫力アップ",
+                    link: "#"
+                },
+                {
+                    title: "地域の健康ウォーキング大会レポート",
+                    date: "2025-09-15",
+                    tag: "イベント",
+                    img: "https://placehold.jp/150x150.png?text=ウォーキング",
+                    link: "#"
+                },
+                {
+                    title: "非常食の選び方とローリングストックのコツ",
+                    date: "2025-09-10",
+                    tag: "防災",
+                    img: "https://placehold.jp/150x150.png?text=非常食",
+                    link: "#"
+                },
+                {
+                    title: "睡眠の質を高める夜の習慣",
+                    date: "2025-08-30",
+                    tag: "健康",
+                    img: "https://placehold.jp/150x150.png?text=睡眠習慣",
+                    link: "#"
+                },
+                {
+                    title: "健康イベント2025＠東京ビッグサイト開催決定！",
+                    date: "2025-08-20",
+                    tag: "イベント",
+                    img: "https://placehold.jp/150x150.png?text=イベント開催",
+                    link: "#"
+                },
+                {
+                    title: "熱中症対策：正しい水分補給のポイント",
+                    date: "2025-08-10",
+                    tag: "健康",
+                    img: "https://placehold.jp/150x150.png?text=水分補給",
+                    link: "#"
+                },
+                {
+                    title: "地震時の避難行動を見直そう",
+                    date: "2025-07-25",
+                    tag: "防災",
+                    img: "https://placehold.jp/150x150.png?text=地震対策",
+                    link: "#"
+                },
+                {
+                    title: "ストレスを減らす呼吸法のススメ",
+                    date: "2025-07-15",
+                    tag: "健康",
+                    img: "https://placehold.jp/150x150.png?text=呼吸法",
+                    link: "#"
+                },
+            ];
 
-                let filtered = items;
+            const container = document.getElementById("news-container");
+            const buttons = document.querySelectorAll(".filter-btn");
+
+            function displayArticles(tag) {
+                container.innerHTML = "";
+                const filtered = tag === "all" ? articles : articles.filter(a => a.tag === tag);
+
+                filtered.forEach(a => {
+                    const card = document.createElement("a");
+                    card.classList.add("news-card");
+                    card.href = a.link;
+                    card.innerHTML = `
+                        <img src="${a.img}" alt="${a.title}" class="news-image" />
+                        <div class="news-content">
+                          <div class="news-meta">${a.date}</div>
+                          <h4 class="news-title">${a.title}</h4>
+                          <span class="tag">${a.tag}</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
             }
 
-            document.addEventListener("DOMContentLoaded", function () {
-                const articles = [
-                    { title: "熊の目撃情報・LINE配信サービス", date: "2025-10-01", tag: "防災", img: "https://placehold.jp/150x150.png?text=健康フェア", link: "https://www.city.sapporo.jp/kurashi/animal/choju/kuma/linehaishin.html" },
-                    { title: "家庭でできる防災対策のポイント", date: "2025-09-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=防災準備", link:"https://www.city.sapporo.jp/kikikanri/higoro/iza/jibunyakazokuwomamoru.html" },
-                    { title: "南区からのお知らせ（健康関連）", date: "2025-09-20", tag: "健康", img: "https://placehold.jp/150x150.png?text=免疫力アップ", link: "https://www.city.sapporo.jp/minami/kenkou/oshirase.html" },
-                    { title: "地域の健康ウォーキング大会レポート", date: "2025-09-15", tag: "イベント", img: "https://placehold.jp/150x150.png?text=ウォーキング", link: "#" },
-                    { title: "今月の野菜情報（南区健康づくり）", date: "2025-09-10", tag: "健康", img: "https://placehold.jp/150x150.png?text=非常食", link: "https://www.city.sapporo.jp/minami/kenkou/shousai/kongetunoyasai.html" },
-                    { title: "高齢者見守りサービスのご案内", date: "2025-08-30", tag: "健康", img: "https://placehold.jp/150x150.png?text=睡眠習慣", link: "https://www.city.sapporo.jp/minami/shinko/mimamoru/index.html" },
-                    { title: "秋のお祭り", date: "2025-08-20", tag: "イベント", img: "https://placehold.jp/150x150.png?text=秋のお祭り", link: "https://www.city.sapporo.jp/minami/news/202510/20251028.html" },
-                    { title: "町内会加入のご案内", date: "2025-08-10", tag: "健康", img: "https://placehold.jp/150x150.png?text=水分補給", link: "https://www.city.sapporo.jp/minami/shinko/chounaikai/kanyuu.html" },
-                    { title: "地震時の避難行動を見直そう", date: "2025-07-25", tag: "防災", img: "https://placehold.jp/150x150.png?text=地震対策", link: "#" },
-                    { title: "まちづくりセンター", date: "2025-07-15", tag: "健康", img: "https://placehold.jp/150x150.png?text=まちせん", link: "https://www.city.sapporo.jp/minami/shinko/about.html" },
-                ];
+            displayArticles("all");
 
-                const container = document.getElementById("news-container");
-                const buttons = document.querySelectorAll(".filter-btn");
-
-                function displayArticles(tag) {
-                    container.innerHTML = "";
-                    const filtered = tag === "all" ? articles : articles.filter(a => a.tag === tag);
-
-                    filtered.forEach(a => {
-                        const card = document.createElement("a");
-                        card.classList.add("news-card");
-                        card.href = a.link;
-                        card.innerHTML = `
-        <img src="${a.img}" alt="${a.title}" class="news-image" />
-        <div class="news-content">
-          <div class="news-meta">${a.date}</div>
-          <h4 class="news-title">${a.title}</h4>
-          <span class="tag">${a.tag}</span>
-        </div>
-      `;
-                        container.appendChild(card);
-                    });
-                }
-
-                displayArticles("all");
-
-                buttons.forEach(btn => {
-                    btn.addEventListener("click", () => {
-                        buttons.forEach(b => b.classList.remove("active"));
-                        btn.classList.add("active");
-                        displayArticles(btn.dataset.tag);
-                    });
+            buttons.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    buttons.forEach(b => b.classList.remove("active"));
+                    btn.classList.add("active");
+                    displayArticles(btn.dataset.tag);
                 });
             });
-            // -------------------------------
-            // 文字サイズ切り替え（CSS変数対応）
-            // -------------------------------
-            const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
+        });
 
-            // ページ読み込み時に保存値があれば反映
-            const savedFontSize = localStorage.getItem('fontSize');
-            if (savedFontSize) {
-                document.body.classList.remove('font-small', 'font-large');
-                if (savedFontSize === 'small') document.body.classList.add('font-small');
-                if (savedFontSize === 'large') document.body.classList.add('font-large');
+        // -------------------------------
+        // 文字サイズ切り替え（CSS変数対応）
+        // ※ ラジオボタンは別ページ共通の想定。存在しない場合は何も起こりません。
+        // -------------------------------
+        const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
 
-                // ラジオボタンもチェック状態に
-                fontSizeRadios.forEach(radio => {
-                    if (radio.value === savedFontSize) radio.checked = true;
-                });
-            }
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            document.body.classList.remove('font-small', 'font-large');
+            if (savedFontSize === 'small') document.body.classList.add('font-small');
+            if (savedFontSize === 'large') document.body.classList.add('font-large');
 
-            // 選択変更時
             fontSizeRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.body.classList.remove('font-small', 'font-large');
-                    if (radio.value === 'small') document.body.classList.add('font-small');
-                    if (radio.value === 'large') document.body.classList.add('font-large');
-                    // 中の場合はクラスなし（デフォルト）
-
-                    // localStorageに保存
-                    localStorage.setItem('fontSize', radio.value);
-                });
+                if (radio.value === savedFontSize) radio.checked = true;
             });
+        }
 
-        </script>
+        fontSizeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.body.classList.remove('font-small', 'font-large');
+                if (radio.value === 'small') document.body.classList.add('font-small');
+                if (radio.value === 'large') document.body.classList.add('font-large');
+                localStorage.setItem('fontSize', radio.value);
+            });
+        });
+    </script>
 </body>
 
 </html>

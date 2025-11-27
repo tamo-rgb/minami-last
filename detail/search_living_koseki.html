@@ -4,215 +4,247 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>札幌市南区</title>
+    <title>住民票の写しなどの請求｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="/assets/style.css">
     <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border:1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
 </head>
-<style>
-    body {
-        background-color: var(--color-bg);
-    }
-
-
-    /* ===== パンくずリスト ===== */
-    .breadcrumb {
-        padding: 10px;
-        color: #555;
-        background-color: rgb(255, 255, 255);
-        margin-bottom: 10px;
-    }
-
-    .breadcrumb a {
-        color: #2e8b57;
-        /* 緑色リンク */
-        text-decoration: none;
-        font-weight: 500;
-    }
-
-    .breadcrumb a:hover {
-        text-decoration: underline;
-    }
-
-    .breadcrumb span {
-        color: #333;
-    }
-
-    /* ========== */
-    .top-contents {
-        margin: 0px 0px 0px 15px;
-        border-bottom: 2px solid #2e8b57;
-        padding-bottom: 4px;
-    }
-
-    .toc {
-        padding: 10px 5px 5px 15px;
-    }
-
-    .toc ul {
-        list-style: none;
-        padding: 0;
-        margin: 20px 0px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .toc ul li {
-        margin: 3px 0;
-    }
-
-    .toc ul li a {
-        background-color: var(--color-primary);
-        padding: 5px 10px;
-        color: #ffffff;
-        font-weight: 500;
-        border-radius: 20px;
-        text-decoration: none;
-    }
-
-    /* =====contents===== */
-    h4 {
-        padding-bottom: 5px;
-    }
-
-    ul {
-        padding-left: 20px;
-    }
-
-    .section {
-        padding: 20px;
-        border-bottom: 1px solid#c5c5c5;
-    }
-
-
-    .section h3 {
-        border-left: 6px solid var(--color-primary);
-        padding-left: 10px;
-        margin-bottom: 8px;
-    }
-
-    /* add-section */
-    
-    .add-section {
-        margin: 10px;
-        padding: 15px;
-        border-radius: 5px;
-        background-color: #e6ffc6;
-
-    }
-    .add-section h3 {
-        margin-bottom: 8px;
-    }
-
-    .add-section a {
-    display: flex;
-        justify-content: center;
-        margin:15px;
-        padding:10px;
-        background-color:#ffffff;
-        border: solid 2px var(--color-primary);
-        border-radius: 25px;
-        text-decoration: none;
-        color:var(--color-primary);
-        font-weight:500;
-    }
-
-    #section-1 {
-        border-top: 1px solid#8b8b8b;
-    }
-
-    #section-1 li {
-        margin-bottom: 7px;
-        font-size: var(--font-p);
-    }
-
-    .contents {
-
-        padding: 10px 0px 10px 0px;
-    }
-
-    #section-2 li {
-        margin-bottom: 7px;
-        font-size: var(--font-p);
-    }
-
-    .detail {
-        margin-bottom: 5px;
-        font-size: var(--font-p);
-    }
-
-    #section-2 {
-        scroll-margin-top: 70px;
-    }
-
-    /* =====contents===== */
-    .table-responsive {
-        margin: 20px 0px;
-    }
-
-    .table {
-        width: 100%;
-        /* 幅いっぱいに広げる */
-        border-collapse: collapse;
-        /* 枠線を重ねてすっきり */
-    }
-
-    th,
-    td {
-        border-bottom: 1px solid #ccc;
-        background-color: #ffffff;
-        /* 下線だけ */
-        padding: 0.6em 1em;
-        text-align: left;
-    }
-
-    th {
-        background-color: var(--color-primary);
-        /* ヘッダー背景色 */
-        color: white;
-        /* 文字色 */
-    }
-
-    /* スマホ対応 */
-    .table-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-
-
-    /* =====other===== */
-    h3,
-    p,
-    ul {
-        margin: 0px;
-    }
-</style>
 
 <body>
+    <div class="wrapper">
     <!-- スクロール進捗バー -->
     <div id="scrollProgress"></div>
 
     <!-- ポップアップ -->
     <div id="popup" style="display:none;">
-        <div class="popup-content">
-
-        </div>
+        <div class="popup-content"></div>
     </div>
 
     <!-- ヘッダー読み込み -->
     <div id="header"></div>
-
-    <!-- 余白 -->
-    <div style="height: 60px;  background-color: #ffffff;">
-    </div>
+    <div class="yohaku" style="height:60px;"></div>
 
     <main>
         <!-- パンくずリスト -->
         <nav class="breadcrumb">
-            <a href="../../index.html">ホームページ</a> ＞ <a href="../../search.html">情報を探す</a> ＞ <br><a
-                href="../search_living.html">暮らし・手続き</a> ＞ <span>住民票の写しなどの請求</span>
+            <a href="../../index.html">ホームページ</a> ＞
+            <a href="../../search.html">情報を探す</a> ＞
+            <a href="../search_living.html">暮らし・手続き</a> ＞
+            <span>住民票の写しなどの請求</span>
         </nav>
 
+        <!-- タイトル -->
         <section class="top-contents">
             <h1 class="midashi">住民票の写しなどの請求</h1>
             <p>住民票の写しなどが必要な際に行う請求です。</p>
@@ -221,7 +253,7 @@
         <!-- 目次（アンカーリンク） -->
         <div class="toc">
             <ul>
-                <li><a href="">請求・受取窓口</a></li>
+                <li><a href="#section-1">請求・受取窓口</a></li>
                 <li><a href="#section-2">請求に必要なもの</a></li>
                 <li><a href="#section-3">事務手数料（窓口での手数料）</a></li>
                 <li><a href="#section-4">法人が請求する場合</a></li>
@@ -232,89 +264,72 @@
             </ul>
         </div>
 
-        <!-- 各セクション -->
+        <!-- セクション1：請求・受取窓口 -->
         <div id="section-1" class="section">
             <h3>請求・受取窓口</h3>
-            <div class="table">
-                <div class="contents">
-                    <ul>
-                        <li>
-                            <h4>区役所戸籍住民課/定山渓出張所</h4>
-                            <p>受付時間：8:45〜17:15<br>休み：土・日・祝・年末年始（12/29〜1/3）</p>
-                        </li>
-                        <li>
-                            <h4>まちづくりセンター</h4>
-                            <p>受付時間：8:45〜16:15<br>翌開所日渡し。時間はセンターにより異なる</p>
-                        </li>
-                        <li>
-                            <h4>大通証明サービスコーナー</h4>
-                            <p>受付時間：平日 9:00〜20:00
-                                <br>土日 9:00〜17:00<br>祝日（※日曜と重なる場合は開所）・振替休日・12/29〜1/3・5/3〜5/5<br>一部証明は翌平日渡し。仮ナンバーは取扱なし
-                            </p>
-                        </li>
-                        <li>
-                            <h4>証明書コンビニ交付サービス</h4>
-                            <p>受付時間：平日 9:00〜20:00
-                                <br>店舗営業時間内<br>利用不可12/29〜1/3<br>マイナンバー入り住民票は取扱なし
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <ul class="detail">
-                    <li>札幌市に住民登録・本籍がある方は、どの受付窓口でも証明書の取得が可能です。</li>
-                    <li>請求件数が多い場合は、当日交付できないことがあります。</li>
-                    <li>札幌市に住民登録・本籍がある方は、どの受付窓口でも証明書の取得が可能です。</li>
-                    <li>受理証明書は、札幌市に戸籍届を提出した場合のみ請求可能です。</li>
-                    <li>DV・ストーカー・児童虐待等被害者の住民票等の交付を制限しています。</li>
+            <div class="contents">
+                <ul>
+                    <li>
+                        <h4>区役所戸籍住民課 / 定山渓出張所</h4>
+                        <p>受付時間：8:45〜17:15<br>休み：土・日・祝・年末年始（12/29〜1/3）</p>
+                    </li>
+                    <li>
+                        <h4>まちづくりセンター</h4>
+                        <p>受付時間：8:45〜16:15<br>翌開所日渡し（時間はセンターにより異なります）</p>
+                    </li>
+                    <li>
+                        <h4>大通証明サービスコーナー</h4>
+                        <p>受付時間：平日 9:00〜20:00 / 土日 9:00〜17:00<br>
+                            休み：祝日（※日曜と重なる場合は開所）、振替休日、12/29〜1/3、5/3〜5/5<br>
+                            ※一部証明は翌平日渡し、仮ナンバーは取扱なし</p>
+                    </li>
+                    <li>
+                        <h4>証明書コンビニ交付サービス</h4>
+                        <p>受付時間：店舗営業時間内<br>
+                            利用不可：12/29〜1/3<br>
+                            ※マイナンバー入り住民票は取扱なし</p>
+                    </li>
                 </ul>
             </div>
 
+            <ul class="detail">
+                <li>札幌市に住民登録・本籍がある方は、どの受付窓口でも証明書の取得が可能です。</li>
+                <li>請求件数が多い場合は、当日交付できないことがあります。</li>
+                <li>受理証明書は、札幌市に戸籍届を提出した場合のみ請求可能です。</li>
+                <li>DV・ストーカー・児童虐待等被害者の方の住民票等の交付は制限しています。</li>
+            </ul>
         </div>
 
+        <!-- セクション2：請求に必要なもの -->
         <div id="section-2" class="section">
             <h3>請求に必要なもの</h3>
+
             <div class="contents">
                 <h4>本人・同一世帯員の場合</h4>
                 <ul>
-                    <li>
-                        <p>本人確認書類（マイナンバーカード、運転免許証など）</p>
-                    </li>
-                    <li>
-                        <p>請求書（様式ダウンロード可）</p>
-                    </li>
-                    <li>
-                        <p>手数料免除の対象者は証明書不要</p>
-                    </li>
+                    <li>本人確認書類（マイナンバーカード、運転免許証など）</li>
+                    <li>請求書（様式ダウンロード可）</li>
+                    <li>手数料免除の対象者は証明書不要</li>
                 </ul>
             </div>
 
             <div class="contents">
                 <h4>代理人による請求</h4>
                 <ul>
-                    <li>
-                        <p>来庁者のお名前が確認できるもの（マイナンバーカード、運転免許証など）</p>
-                    </li>
-                    <li>
-                        <p>請求書（様式ダウンロードページ）（郵送による請求も可能です）</p>
-                    </li>
-                    <li>
-                        <p>任意代理人：委任状必須</p>
-                    </li>
-                    <li>
-                        <p>法定代理人：戸籍謄本や資格証明書</p>
-                    </li>
-                    <li>
-                        <p>個人番号入り住民票は代理で請求不可（郵送対応）</p>
-                    </li>
+                    <li>来庁者の本人確認書類（マイナンバーカード、運転免許証など）</li>
+                    <li>請求書（様式ダウンロードページからダウンロード可／郵送請求も可能）</li>
+                    <li>任意代理人：委任状</li>
+                    <li>法定代理人：戸籍謄本や資格証明書など</li>
+                    <li>個人番号入り住民票は、代理人による窓口請求は不可（郵送対応）</li>
                 </ul>
             </div>
         </div>
-        </div>
 
+        <!-- セクション3：手数料 -->
         <div id="section-3" class="section">
-            <h3>証明書の手数料</h3>
-            <div class="table-responsive">
-                <table>
+            <h3>事務手数料（窓口での手数料）</h3>
+            <div class="table-wrapper">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>証明書</th>
@@ -331,116 +346,53 @@
                         <tr>
                             <td>住民票記載事項証明</td>
                             <td>400円</td>
-                            <td>取り扱いなし</td>
+                            <td>取扱なし</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
+        <!-- セクション4：法人 -->
         <div id="section-4" class="section">
             <h3>法人が請求する場合</h3>
-            <a href="https://www.city.sapporo.jp/shimin/koseki/hojin.html">詳しくはこちら</a>
+            <p><a href="https://www.city.sapporo.jp/shimin/koseki/hojin.html" target="_blank">法人による住民票の写し等の請求について（札幌市公式サイト）</a>をご確認ください。</p>
         </div>
 
+        <!-- セクション5：請求書 -->
         <div id="section-5" class="section">
             <h3>住民票関係請求書</h3>
-            <p>PDF形式の用紙をダウンロードして、使用できます</p>
+            <p>PDF形式の用紙をダウンロードしてご利用いただけます。</p>
+            <!-- 必要であればリンクを追記 -->
         </div>
 
-        <div id="section-7" class="section">
+
+        <!-- セクション8：お問い合わせ -->
+        <div id="section-8" class="section">
             <h3>お問い合わせ</h3>
-            <p>札幌市南区市民部戸籍住民課<br>〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>電話番号：011-582-4728<br>ファクス番号：011-582-6867</p>
+            <p>札幌市南区市民部戸籍住民課<br>
+                〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                電話番号：011-582-4728<br>
+                ファクス番号：011-582-6867</p>
         </div>
 
-        <div id="section-8" class="add-section">
+        <!-- 関連情報カード -->
+        <div class="add-section">
             <h3>関連情報</h3>
-            <div class="add-box">
             <ul>
                 <li>住民票の記載内容について</li>
             </ul>
-            </div>
             <a href="search.html" class="content-box">
-                    よくある質問を見る
+                よくある質問を見る
             </a>
         </div>
 
-
-        <!-- フッター読み込み -->
+        <!-- フッター -->
         <div id="footer"></div>
 
-        <!-- JS 読み込み -->
+</div>
+    </main>
 
-        <script>
-            // タブ切り替え
-            const cardTabs = document.querySelectorAll('.tab-card .tab-button');
-            const cardContents = document.querySelectorAll('.tab-card .tab-content');
-
-            cardTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    cardTabs.forEach(t => t.classList.remove('active'));
-                    cardContents.forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
-            });
-            const list = document.getElementById('extra-list');
-            const sortSelect = document.getElementById('sort-select');
-            const tagSelect = document.getElementById('tag-select');
-
-            function filterAndSort() {
-                const items = Array.from(list.querySelectorAll('.list-item'));
-                const tagFilter = tagSelect.value;
-                const sortOption = sortSelect.value;
-
-                let filtered = items;
-            }
-
-            // -------------------------------
-            // 文字サイズ切り替え（CSS変数対応）
-            // -------------------------------
-            const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
-
-            // ページ読み込み時に保存値があれば反映
-            const savedFontSize = localStorage.getItem('fontSize');
-            if (savedFontSize) {
-                document.body.classList.remove('font-small', 'font-large');
-                if (savedFontSize === 'small') document.body.classList.add('font-small');
-                if (savedFontSize === 'large') document.body.classList.add('font-large');
-
-                // ラジオボタンもチェック状態に
-                fontSizeRadios.forEach(radio => {
-                    if (radio.value === savedFontSize) radio.checked = true;
-                });
-            }
-
-            // 選択変更時
-            fontSizeRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.body.classList.remove('font-small', 'font-large');
-                    if (radio.value === 'small') document.body.classList.add('font-small');
-                    if (radio.value === 'large') document.body.classList.add('font-large');
-                    // 中の場合はクラスなし（デフォルト）
-
-                    // localStorageに保存
-                    localStorage.setItem('fontSize', radio.value);
-                });
-            });
-            // トグルスクリプト 
-            const tabs = document.querySelectorAll('.toggle-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tab.classList.toggle('active');
-                    const content = tab.nextElementSibling;
-                    if (content.style.display === 'block') {
-                        content.style.display = 'none';
-                    } else {
-                        content.style.display = 'block';
-                    }
-                });
-            });
-
-        </script>
 </body>
 
 </html>

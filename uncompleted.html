@@ -278,8 +278,10 @@
 </style>
 
 <body>
+      <div class="wrapper">
     <!-- スクロール進捗バー -->
     <div id="scrollProgress"></div>
+    
 
     <!-- ポップアップ -->
     <div id="popup" style="display:none;">
@@ -291,9 +293,6 @@
     <!-- ヘッダー読み込み -->
     <div id="header"></div>
 
-    <!-- 余白 -->
-    <div style="height: 60px;  background-color: #ffffff;">
-    </div>
 
     <main>
         <section style="height:300px; display:flex; justify-content: center; align-items: center;">
@@ -305,9 +304,9 @@
 
         <!-- フッター読み込み -->
         <div id="footer"></div>
+</div>
 
         <!-- JS 読み込み -->
-
         <script>
             // タブ切り替え
             const cardTabs = document.querySelectorAll('.tab-card .tab-button');
