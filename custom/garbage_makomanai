@@ -154,14 +154,6 @@
     <div style="height:60px; background-color:#fff;"></div>
 
     <main>
-        <!-- パンくず -->
-        <nav class="breadcrumb">
-            <a href="/index.html">ホームページ</a> ＞
-            <a href="/search.html">情報を探す</a> ＞
-            <a href="/search/search_living.html">暮らし・手続き</a> ＞
-            <span>ごみ収集日（南区）</span>
-        </nav>
-
         <!-- ページタイトル＋説明 -->
         <section class="top-contents">
             <h1 class="midashi">ごみ収集日（南区）</h1>
