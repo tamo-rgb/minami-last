@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>救急当番医療機関・救急医療相談窓口｜札幌市</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* パンくず */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* タイトル部分 */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 4px 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* 目次 */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* セクション（カード） */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 10px 0 6px;
+            font-size: 1rem;
+            border-left: 4px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        .note {
+            font-size: 0.9rem;
+        }
+
+        .strong {
+            font-weight: 600;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0 10px;
+        }
+
+        /* ブロック区切り線（亡くなったときのページと同じイメージ） */
+        .sub-divider {
+            margin: 12px 0;
+            border: none;
+            border-top: 1px dashed #d0d4d8;
+        }
+
+        /* 上に戻るボタン */
+        .backtotop-wrapper {
+            position: fixed;
+            right: 16px;
+            bottom: 16px;
+            z-index: 999;
+        }
+
+        #backToTopBtn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-primary);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header"></div>
+        <div style="height: 60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_comfort.html">安心・安全</a> ＞
+                <span>救急当番医療機関・救急医療相談窓口</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">救急当番医療機関・救急医療相談窓口</h1>
+                <p>夜間や休日の急な病気やけがに備え、救急当番医療機関や電話相談窓口、小児科休日当番の混雑状況などをまとめています。受診先に迷ったときや、救急車を呼ぶべきか判断に迷うときにご活用ください。</p>
+                <p class="note">夜間や休日の「時間外診療」は、急な病気やけがなど緊急性のある患者さんのための診療です。救急医療機関の適正受診に、ご理解とご協力をお願いします。</p>
+                <p class="updated-date">更新日：2025年12月1日</p>
+            </section>
+
+            <!-- 目次 -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">救急（夜間・休日）医療機関</a></li>
+                    <li><a href="#section-2">小児科初期救急・臨時外来</a></li>
+                    <li><a href="#section-3">医療機関・薬局の検索</a></li>
+                    <li><a href="#section-4">救急医療相談窓口（#7119など）</a></li>
+                    <li><a href="#section-5">こどもの症状 受診の目安ナビ</a></li>
+                    <li><a href="#section-6">産婦人科救急相談電話</a></li>
+                    <li><a href="#section-7">札幌市精神科救急情報センター</a></li>
+                    <li><a href="#section-8">このページについてのお問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- 1 救急（夜間・休日）医療機関 -->
+            <div id="section-1" class="section">
+                <h3>救急（夜間・休日）医療機関</h3>
+                <p>夜間や休日の急病患者に対応する医療機関を紹介しています。</p>
+
+                <h4>札幌市夜間急病センター・札幌歯科医師会口腔医療センター</h4>
+                <p>札幌市夜間急病センターでは、年間全日、夜間に体の具合が悪くなられた急病患者さんの診療を行います。</p>
+                <p>札幌歯科医師会口腔医療センターでは、年間全日、夜間の歯の痛みや口中の外傷などで処置が必要となった救急患者さんの診療を行います。</p>
+
+                <ul>
+                    <li><span class="strong">札幌市夜間急病センター</span><br>
+                        所在地：札幌市中央区大通西19丁目<br>
+                        電話：011-641-4316<br>
+                        診療科目・時間：<br>
+                        ・内科／小児科…年間全日（365日） 午後7時～翌日午前7時（診療受付は午前6時30分まで）<br>
+                        ・耳鼻咽喉科／眼科…年間全日（365日） 午後7時～午後11時
+                    </li>
+                    <li><span class="strong">札幌歯科医師会口腔医療センター</span><br>
+                        所在地：札幌市中央区南7条西10丁目<br>
+                        電話：011-511-7774<br>
+                        診療科目・時間：<br>
+                        ・歯科…年間全日（365日） 午後7時～午後11時
+                    </li>
+                </ul>
+
+                <p>
+                    札幌市夜間急病センター（札幌市医師会ホームページ）（外部サイト）<br>
+                    札幌歯科医師会口腔医療センター（札幌歯科医師会ホームページ）（外部サイト）
+                </p>
+
+                <hr class="sub-divider">
+
+                <h4>救急当番医療機関等</h4>
+                <p>救急当番医療機関等とは、夜間及び休日（日曜日や祝日）に突発的な症状（激しい頭痛、腹痛、胸痛または外傷等）で、緊急処置が必要な患者さんに診療を行う医療機関等です。</p>
+                <p class="note">※やむを得ない事情により当番医療機関等が変更になることがあります。また、医療機関等によっては対応できない症状もあります。受診の前に当番医療機関等にご確認ください。</p>
+
+                <p>
+                    <span class="strong">札幌市医師会 夜間・休日診療案内</span><br>
+                    札幌市医師会公式ホームページにある「夜間・休日診療案内」のページで、札幌市の救急当番医療機関を確認することができます。<br>
+                    夜間・休日診療案内（札幌市医師会ホームページ）（外部サイト）
+                </p>
+            </div>
+
+            <!-- 2 小児科初期救急・臨時外来 -->
+            <div id="section-2" class="section">
+                <h3>小児科初期救急・臨時外来</h3>
+
+                <h4>小児初期救急医療の現状とお願い</h4>
+                <p>札幌市の小児初期救急医療は、小児科医や看護師などの献身的な努力により、何とか維持されています。しかし、医師の高齢化や医療従事者の働き方などの問題により、この体制を維持し続けることが非常に難しくなっています。皆様のご協力が不可欠です。</p>
+                <ul>
+                    <li>救急医療相談（こどもの症状 受診の目安ナビ、#7119、#8000）をご活用ください。</li>
+                    <li>かかりつけ医を持ち、日中の受診を心がけてください。</li>
+                    <li>救急外来は「本当に緊急性の高いお子さん」のための受診先です。</li>
+                </ul>
+                <p>（参考）上手な医療のかかり方.jp（厚生労働省ホームページ）（外部サイト）</p>
+
+                <hr class="sub-divider">
+
+                <h4>小児科休日当番の混雑状況</h4>
+                <p>小児科休日当番については、体制維持が難しくなっており、非常に混雑が予想されます。当日の休日当番医療機関とその混雑状況は、次のGoogleスプレッドシートで確認できます。</p>
+                <ul>
+                    <li>小児科休日当番の混雑状況（2025年12月7日）（Googleスプレッドシート）<br>
+                        ※スマートフォンからGoogleスプレッドシートを開く場合は、ブラウザアプリをご利用ください。
+                    </li>
+                </ul>
+
+                <hr class="sub-divider">
+
+                <h4>臨時休日小児急病外来</h4>
+                <p>ひっ迫する小児救急医療体制に対応するため、当面の間、臨時の急病外来を設置しています。</p>
+                <ul>
+                    <li>この施設は、完全予約制です。予約は<strong>当日朝8時から</strong>受け付けています。</li>
+                    <li>必ず受診予約をしてからお越しください。</li>
+                    <li>予約は、次のGoogleスプレッドシートにあるリンクから行ってください。</li>
+                </ul>
+                <ul>
+                    <li>臨時休日小児急病外来（2025年12月7日）（Googleスプレッドシート）</li>
+                </ul>
+                <p class="note">
+                    ※スマートフォンからGoogleスプレッドシートを開く場合は、ブラウザアプリをご利用ください。<br>
+                    ※Googleスプレッドシートが開けない場合は、こちら（臨時休日小児急病外来予約フォーム）から予約が可能です。<br>
+                    ※定員に達した場合は、予約受付を終了いたします。<br>
+                    ※ご予約後に診療予約をキャンセルする場合は、予約確認メールにあるキャンセル用URLから手続きを行ってください。
+                </p>
+
+                <hr class="sub-divider">
+
+                <h4>臨時小児ドライブスルー発熱外来</h4>
+                <p>季節性インフルエンザや新型コロナウイルス感染症等の感染症流行期（12月から3月ごろ）においては、小児科休日当番の受診者数が多くなることから、市民への医療提供体制を確保するため、札幌市医師会と連携し、ドライブスルー型の発熱外来を開設しています。</p>
+                <p>臨時小児ドライブスルー発熱外来（2025年12月7日より開設します）</p>
+
+                <hr class="sub-divider">
+
+                <h4>札幌薬剤師会による当番薬局情報</h4>
+                <p>札幌薬剤師会に加盟する調剤薬局について、日曜日・祝日の開局情報を案内しています。</p>
+                <ul>
+                    <li>土曜午後日曜祝日開局リスト（札幌薬剤師会ホームページ）（外部ページ）</li>
+                </ul>
+                <p>フリーダイヤルによるご案内：</p>
+                <ul>
+                    <li>中央区・北区・東区・西区・手稲区<br>
+                        受付時間：午前9時～午後5時<br>
+                        電話：0120-33-8931
+                    </li>
+                    <li>白石区・厚別区・豊平区・清田区・南区<br>
+                        受付時間：午前9時～午後5時<br>
+                        電話：0120-22-8941
+                    </li>
+                </ul>
+                <p class="note">
+                    ※ご利用にあたりましては、事前にお電話により確認されることをお勧めします。<br>
+                    ※当番薬局は急遽変更される場合があります。<br>
+                    ※医薬品の在庫状況により、すぐに調剤できない場合があります。
+                </p>
+            </div>
+
+            <!-- 3 医療機関・薬局の検索 -->
+            <div id="section-3" class="section">
+                <h3>医療機関・薬局の検索</h3>
+
+                <h4>北海道救急医療・広域災害情報システム</h4>
+                <p>「北海道救急医療・広域災害情報システム」では、全道の医療機関について、休日・夜間に対応している医療機関も含めて検索することができます。</p>
+                <ul>
+                    <li>北海道救急医療・広域災害情報システム（北海道ホームページ）（外部サイト）</li>
+                    <li>北海道救急医療・広域災害情報システム 周知チラシ（PDF：1,808KB）</li>
+                </ul>
+
+                <hr class="sub-divider">
+
+                <h4>医療情報ネット（ナビイ）</h4>
+                <p>「医療情報ネット（ナビイ）」では、全国の病院・診療所・歯科診療所・助産所・薬局を検索することができます。</p>
+                <ul>
+                    <li>医療情報ネット（ナビイ）（厚生労働省ホームページ）（外部サイト）</li>
+                </ul>
+            </div>
+
+            <!-- 4 救急医療相談窓口 -->
+            <div id="section-4" class="section">
+                <h3>救急医療相談窓口</h3>
+
+                <h4>救急安心センターさっぽろ（#7119）</h4>
+                <p>救急安心センターさっぽろとは、市民からの救急医療相談に看護師が24時間・365日対応する、電話による相談窓口です。また、救急当番医療機関についても案内しています。</p>
+                <ul>
+                    <li>受付時間：24時間365日</li>
+                    <li>電話：#7119</li>
+                    <li>ダイヤル回線・一部IP電話からは：011-272-7119</li>
+                </ul>
+
+                <hr class="sub-divider">
+
+                <h4>小児救急相談窓口（#8000）</h4>
+                <p>夜間における子どもの急な病気やけがなどの際に、保護者等が専任の看護師や医師から、症状に応じた適切な助言を受けられます。</p>
+                <ul>
+                    <li>受付時間：年間全日夜間 午後7時～翌日午前8時</li>
+                    <li>電話：#8000</li>
+                    <li>ダイヤル回線・一部IP電話からは：011-232-1599（いーこきゅうきゅう）</li>
+                    <li>北海道小児救急電話相談事業（北海道ホームページ）（外部サイト）</li>
+                </ul>
+            </div>
+
+            <!-- 5 こどもの症状 受診の目安ナビ -->
+            <div id="section-5" class="section">
+                <h3>こどもの症状 受診の目安ナビ</h3>
+                <p>お子様のけがの状況や病気の症状について回答するだけで、受診の目安を丁寧にアドバイスする無料のWEBサービスです。ご不安が残るときは、看護師や小児科医に相談もできます。</p>
+                <ul>
+                    <li>こどもの症状 受診の目安ナビ（外部サイト）</li>
+                </ul>
+                <p class="note">
+                    ※本事業は、札幌市が小児救急医療の負担軽減を目的に、令和7年8月6日から令和8年2月28日までの期間限定で、実証実験を行うものです。
+                </p>
+            </div>
+
+            <!-- 6 産婦人科救急相談電話 -->
+            <div id="section-6" class="section">
+                <h3>産婦人科救急相談電話</h3>
+                <p>助産師が産婦人科に関する症状について、救急の電話相談を行います。</p>
+                <ul>
+                    <li>受付時間：年間全日夜間 午後7時～翌日午前9時</li>
+                    <li>電話：011-290-3299（さんぷきゅうきゅう）</li>
+                </ul>
+                <p class="note">
+                    ※かかりつけの医療機関がある場合、まずはかかりつけにご相談ください。入院施設がある医療機関は、夜間でも電話がつながります。<br>
+                    ※妊産婦さんの急な病気や事故等のときや、婦人科の急な症状で具合が悪いとき、その緊急度に応じて助産師が助言等を行います。
+                </p>
+                <ul>
+                    <li>問診の結果、緊急受診が必要と判断される場合は、受診可能な医療機関をお探しします。</li>
+                    <li>症状から緊急性が高くないと判断される場合は、明朝以降の受診を勧奨します。</li>
+                </ul>
+                <p class="note">
+                    ※当相談は緊急性のある産婦人科の症状をお持ちの方のための電話相談窓口です。通常の診療や薬の処方に関してのアドバイスは行いません。薬の飲み方については、処方を受けた薬局等にご相談ください。<br>
+                    ※緊急避妊については、次のサイトをご参照ください。<br>
+                    ・緊急避妊について（日本産婦人科医会ホームページ）（外部サイト）
+                </p>
+            </div>
+
+            <!-- 7 精神科救急 -->
+            <div id="section-7" class="section">
+                <h3>札幌市精神科救急情報センター</h3>
+                <p>札幌市精神科救急情報センターが、精神科救急医療の相談および当番病院の紹介を受け付けます。</p>
+                <ul>
+                    <li>平日：午後5時～翌日午前9時</li>
+                    <li>土曜日・日曜日・祝日：24時間</li>
+                    <li>電話番号：011-204-6010</li>
+                </ul>
+            </div>
+
+            <!-- 8 このページについてのお問い合わせ -->
+            <div id="section-8" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>札幌市保健福祉局ウェルネス推進部医療政策課<br>
+                    〒060-0002 札幌市中央区北2条西1丁目1番地7 ORE札幌ビル7階<br>
+                    電話番号：011-211-3517<br>
+                    ファクス番号：011-211-3521
+                </p>
+                <p>お問い合わせフォーム</p>
+                <p class="note">※お問い合わせフォームからいただいたお問い合わせの回答については、開庁日（平日8時45分～17時15分）の返信となります。</p>
+
+                <h4>PDFファイルの閲覧について</h4>
+                <p>PDF形式のファイルをご覧いただく場合には、Adobe Acrobat Readerが必要です。お持ちでない方は、Adobe社のサイトから無料でダウンロードしてください。</p>
+            </div>
+
+            <div id="footer"></div>
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

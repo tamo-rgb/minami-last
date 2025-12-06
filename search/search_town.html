@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
     <title>札幌市南区</title>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
         rel="stylesheet">
@@ -52,7 +54,7 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        color:#304E35;
+        color: #304E35;
     }
 
     .list-item {
@@ -120,7 +122,7 @@
         display: none;
         margin-top: 7px;
         background: #fff;
-        padding-top:5px;
+        padding-top: 5px;
         border-top: 1px solid var(--color-primary);
     }
 
@@ -210,115 +212,90 @@
 
 <body>
     <div class="wrapper">
-    <!-- スクロール進捗バー -->
-    <div id="scrollProgress"></div>
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
 
-    <!-- ポップアップ -->
-    <div id="popup" style="display:none;">
-        <div class="popup-content"></div>
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>施設・環境</span>
+            </nav>
+
+            <!-- タブカード -->
+            <section class="section tab-card">
+                <h3 class="test-title">施設・環境</h3>
+
+                <div class="tab-card-content">
+                    <section id="new" class="tab-content active">
+                        <ul class="news-list">
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>施設案内</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="/detail/town_1_sisetu.html" class="toggle-item">施設案内<span class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>まちづくりの支援制度</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="#" class="toggle-item">みなみ区魅力発信事業助成金制度<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">南区まちづくり活動助成金制度の概要<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">学生が主体的に取り組むまちづくり活動助成金制度の概要<span
+                                            class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>道路・公園</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="#" class="toggle-item">工事情報・交通止め情報<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">公園施設案内<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">歩道美化活動<span class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>除雪</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="#" class="toggle-item">南区の除雪情報・除排雪に関する支援制度<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">除排雪に関する広報・啓発の取組<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">冬のボランティア活動のご紹介<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">その他<span class="arrow"></span></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- 予備タブが必要になったらここに section id="news" などを追加 -->
+
+                </div>
+            </section>
+
+            <!-- フッター読み込み -->
+            <div id="footer"></div>
     </div>
 
-    <!-- ヘッダー読み込み -->
-    <div id="header"></div>
-    <div class="yohaku" style="height:60px;"></div>
-
-    <main>
-        <!-- パンくずリスト -->
-        <nav class="breadcrumb">
-            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>施設・環境</span>
-        </nav>
-
-        <!-- タブカード -->
-        <section class="section tab-card">
-            <h3 class="test-title">施設・環境</h3>
-
-            <div class="tab-card-content">
-                <section id="new" class="tab-content active">
-                    <ul class="news-list">
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>地域のセンター</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">まちづくりセンター<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区民センター<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">地区センター<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>まちづくりの支援制度</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">みなみ区魅力発信事業助成金制度<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区まちづくり活動助成金制度の概要<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">学生が主体的に取り組むまちづくり活動助成金制度の概要<span
-                                        class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>区役所案内</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">地図<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>施設一覧</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">区役所<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">まちづくりセンター<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区民センター・地区センター<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">その他の公共施設<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>道路・公園</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">工事情報・交通止め情報<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">公園施設案内<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">歩道美化活動<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>除雪</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">南区の除雪情報・除排雪に関する支援制度<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">除排雪に関する広報・啓発の取組<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">冬のボランティア活動のご紹介<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">その他<span class="arrow"></span></a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- 予備タブが必要になったらここに section id="news" などを追加 -->
-
-            </div>
-        </section>
-
-        <!-- フッター読み込み -->
-        <div id="footer"></div>
-    </div>
-    
     </main>
 
     <!-- JS 読み込み -->

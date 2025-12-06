@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>広報さっぽろ一覧｜札幌市南区</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくず ===== */
+        .breadcrumb {
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: var(--color-primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 14px 16px;
+            background: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 6px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 4px 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* ===== 年インデックス（ページ内リンク） ===== */
+        .year-index {
+            margin: 10px 15px 0;
+            padding: 10px 12px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #e0f2e5;
+        }
+
+        .year-index p {
+            margin: 0 0 6px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .year-index-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .year-index-list li a {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 16px;
+            background: var(--color-primary);
+            color: #fff;
+            font-size: 0.85rem;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .year-index-list li a:hover {
+            opacity: .9;
+        }
+
+        /* ===== 年ごとのセクション ===== */
+        .year-section {
+            margin: 14px 15px;
+            padding: 14px 16px 16px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .year-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .year-title h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            border-left: 6px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        .year-title span {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        /* ===== インスタっぽいカードグリッド ===== */
+        .issue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 12px;
+        }
+
+        .issue-card {
+            background: #fff;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+            border: 1px solid #eef2f2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .issue-image-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .issue-image {
+            width: 100%;
+            aspect-ratio:  1/ 1.41;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .issue-card:hover .issue-image {
+            transform: scale(1.03);
+        }
+
+        .month-label-badge {
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            font-size: 0.78rem;
+        }
+
+        .issue-body {
+            padding: 10px 10px 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex: 1;
+        }
+
+        .issue-month {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .issue-feature {
+            font-size: 0.85rem;
+            color: #333;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .issue-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 6px;
+            flex-wrap: wrap;
+        }
+
+        .issue-btn-main,
+        .issue-btn-sub {
+            flex: 1 1 auto;
+            text-align: center;
+            padding: 6px 8px;
+            border-radius: 999px;
+            height: 44px;
+            align-content: center;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .issue-btn-main {
+            background: var(--color-primary);
+            color: #fff;
+        }
+
+        .issue-btn-sub {
+            background: #f4f7f5;
+            color: #355c3e;
+            border: 1px solid #d5e3d7;
+        }
+
+        .issue-btn-main:hover,
+        .issue-btn-sub:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== 古い年はシンプルリスト ===== */
+        .simple-year-list {
+            margin-top: 6px;
+            padding-left: 18px;
+            font-size: 0.9rem;
+        }
+
+        .simple-year-list li {
+            margin-bottom: 4px;
+        }
+
+        .simple-year-list a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        .simple-year-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== お問い合わせ・関連情報 ===== */
+        .section-contact {
+            margin: 14px 15px 0;
+            padding: 14px 16px;
+            background: #fff;
+            border-radius: 12px;
+            border: 1px solid #f0f2f4;
+        }
+
+        .section-contact h3 {
+            margin: 0 0 8px;
+            padding-left: 8px;
+            border-left: 6px solid var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .add-section {
+            margin: 10px 15px 20px;
+            padding: 14px 16px;
+            background: #fff;
+            border-radius: 12px;
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+
+        .add-section ul {
+            margin: 4px 0 10px;
+            padding-left: 20px;
+        }
+
+        /* ===== モバイル調整 ===== */
+        @media (max-width: 600px) {
+            .issue-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .year-section {
+                margin: 12px 10px;
+            }
+
+            .year-index {
+                margin: 10px 10px 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- ヘッダー -->
+        <div id="header"></div>
+        <div style="height:60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホーム</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_public.html">市政・広報</a> ＞
+                <span>広報さっぽろ一覧</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">広報さっぽろ一覧</h1>
+                <p>平成14年（2002年）以降の広報さっぽろがご覧になれます。</p>
+                <p class="updated-date">更新日：2025年12月1日</p>
+            </section>
+
+            <!-- 年インデックス -->
+            <section class="year-index">
+                <p>見たい年を選んでください</p>
+                <ul class="year-index-list">
+                    <li><a href="#y2025">令和7年（2025年）</a></li>
+                    <li><a href="#y2024">令和6年（2024年）</a></li>
+                    <li><a href="#y2023">令和5年（2023年）</a></li>
+                    <li><a href="#y2022">令和4年（2022年）</a></li>
+                    <li><a href="#y2021">令和3年（2021年）</a></li>
+                    <li><a href="#y2020">令和2年（2020年）</a></li>
+                    <li><a href="#y2019">平成31年／令和元年（2019年）</a></li>
+                    <li><a href="#y2018">平成30年（2018年）</a></li>
+                    <li><a href="#y2017">平成29年（2017年）</a></li>
+                    <li><a href="#y2016">平成28年（2016年）</a></li>
+                    <li><a href="#y2015">平成27年（2015年）</a></li>
+                    <li><a href="#older">平成26年（2014年）以前</a></li>
+                </ul>
+            </section>
+
+            <!-- ===== 2025 ===== -->
+            <section id="y2025" class="year-section">
+                <div class="year-title">
+                    <h2>令和7年（2025年）の広報さっぽろ</h2>
+                </div>
+
+                <div class="issue-grid">
+                    <!-- 12月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <!-- ★画像パスは差し替えてください -->
+                            <img src="/data/202512hyou.jpg" alt="広報さっぽろ2025年12月号 表紙" class="issue-image">
+                            <span class="month-label-badge">12月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年12月号</div>
+                            <p class="issue-feature">
+                                特集：心のバリアフリーでみんなに優しい街へ
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 11月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202511hyoushi.jpg" alt="広報さっぽろ2025年11月号 表紙" class="issue-image">
+                            <span class="month-label-badge">11月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年11月号</div>
+                            <p class="issue-feature">
+                                特集：応援しよう！札幌を拠点に躍動するプロスポーツチーム
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 10月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202510hyou.jpg" alt="広報さっぽろ2025年10月号 表紙" class="issue-image">
+                            <span class="month-label-badge">10月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年10月号</div>
+                            <p class="issue-feature">
+                                特集：全ての子どもが幸せに暮らすために
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 9月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202509hyou.jpg" alt="広報さっぽろ2025年9月号 表紙" class="issue-image">
+                            <span class="month-label-badge">9月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年9月号</div>
+                            <p class="issue-feature">
+                                特集：食べ物が安全に食卓へ届くまで
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 8月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/hyou8gatu.jpg" alt="広報さっぽろ2025年8月号 表紙" class="issue-image">
+                            <span class="month-label-badge">8月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年8月号</div>
+                            <p class="issue-feature">
+                                特集：近くて便利！丘珠空港から空の旅へ
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 7月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202507hyou.jpg" alt="広報さっぽろ2025年7月号 表紙" class="issue-image">
+                            <span class="month-label-badge">7月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年7月号</div>
+                            <p class="issue-feature">
+                                特集：デジタルを上手に活用して暮らしを便利に
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 6月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202506.png" alt="広報さっぽろ2025年6月号 表紙" class="issue-image">
+                            <span class="month-label-badge">6月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年6月号</div>
+                            <p class="issue-feature">
+                                特集：知っていますか 捨てたごみの“その先”
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202505hyou.jpg" alt="広報さっぽろ2025年5月号 表紙" class="issue-image">
+                            <span class="month-label-badge">5月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年5月号</div>
+                            <p class="issue-feature">
+                                特集：春の札幌にお出かけ！
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202504hyou.jpg" alt="広報さっぽろ2025年4月号 表紙" class="issue-image">
+                            <span class="month-label-badge">4月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年4月号</div>
+                            <p class="issue-feature">
+                                特集：令和7年度の予算を解説！
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202503hyou.jpg" alt="広報さっぽろ2025年3月号 表紙" class="issue-image">
+                            <span class="month-label-badge">3月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年3月号</div>
+                            <p class="issue-feature">
+                                特集：子育てをずっとサポート！
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202502hyou.jpg" alt="広報さっぽろ2025年2月号 表紙" class="issue-image">
+                            <span class="month-label-badge">2月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年2月号</div>
+                            <p class="issue-feature">
+                                特集：女性の健康課題に目を向けて
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 1月号 -->
+                    <article class="issue-card">
+                        <div class="issue-image-wrapper">
+                            <img src="/data/202501hyou.png" alt="広報さっぽろ2025年1月号 表紙" class="issue-image">
+                            <span class="month-label-badge">1月号</span>
+                        </div>
+                        <div class="issue-body">
+                            <div class="issue-month">2025年1月号</div>
+                            <p class="issue-feature">
+                                特集：新春対談　夢見る未来の実現に向かって
+                            </p>
+                            <div class="issue-actions">
+                                <a href="#" class="issue-btn-main">誌面を見る</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+
+
+
+            <section id="older" class="year-section">
+                <div class="year-title">
+                    <h2>平成26年（2014年）〜平成14年（2002年）</h2>
+                </div>
+                <ul class="simple-year-list">
+                    <li><a href="#">平成26年（2014年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成25年（2013年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成24年（2012年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成23年（2011年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成22年（2010年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成21年（2009年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成20年（2008年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成19年（2007年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成18年（2006年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成17年（2005年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成16年（2004年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成15年（2003年）の広報さっぽろ</a></li>
+                    <li><a href="#">平成14年（2002年）の広報さっぽろ</a></li>
+                </ul>
+            </section>
+
+            <!-- お問い合わせ -->
+            <section class="section-contact">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>札幌市総務局広報部広報課</p>
+                <p>〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎11階</p>
+                <p><strong>電話番号：</strong>011-211-2036</p>
+                <p><strong>ファクス番号：</strong>011-218-5163</p>
+            </section>
+
+            <!-- 関連情報 -->
+            <section class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>広報さっぽろ 最新号</li>
+                    <li>増刊号・特集広報</li>
+                    <li>バックナンバーの閲覧方法</li>
+                </ul>
+            </section>
+
+            <div id="footer"></div>
+
+        </main>
+
+            <div class="backtotop-wrapper">
+                <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+            </div>
+    </div>
+    <script>
+        // タブ切り替え
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+
+                // タブ切り替え時に少し上へスクロール（タイトルが見える位置）
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

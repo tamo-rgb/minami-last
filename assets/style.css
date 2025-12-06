@@ -9,6 +9,7 @@
     --font-h2: 22px;
     --font-h3: 20px;
     --font-h4: 18px;
+    --font-h5: 17px;
     --font-p: 16px;
     --font-button: 16px;
     --font-label: 18px;
@@ -20,6 +21,7 @@ body.font-small {
     --font-h2: 20px;
     --font-h3: 18px;
     --font-h4: 16px;
+    --font-h5: 16px;
     --font-p: 14px;
     --font-button: 14px;
     --font-label: 16px;
@@ -31,6 +33,7 @@ body.font-large {
     --font-h2: 24px;
     --font-h3: 22px;
     --font-h4: 22px;
+    --font-h5: 22px;
     --font-p: 20px;
     --font-button: 20px;
     --font-label: 20px;
@@ -352,6 +355,87 @@ footer {
     text-align: center;
 }
 
-.bottom-bar a.bottom-btn:hover {
-    background-color: #3cb371;
+#backToTopBtn {
+    position: fixed;
+    right: 16px;
+    bottom: 80px;
+    /* ← ボトムバーより少し上にくるように調整 */
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    display: none;
+    /* 最初は非表示にしておく */
+    align-items: center;
+    justify-content: center;
+}
+
+#backToTopBtn {
+    /* 位置はラッパーに任せるので fixed は消す */
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    border: none;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+    z-index: 2000;
+    display: none;
+    /* 最初は非表示 */
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    /* ラッパーの pointer-events:none を打ち消す */
+}
+
+/* ホバー時のリアクション */
+#backToTopBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* スマホでも同じ位置でOKなら media-query はなくても可 */
+@media (max-width: 600px) {
+    .backtotop-wrapper {
+        bottom: 90px;
+        /* ボトムバーが高ければここだけ微調整 */
+    }
+}
+
+/* 上に戻るボタン用の固定ラッパー */
+.backtotop-wrapper {
+    position: fixed;
+    bottom: 80px;
+    /* ボトムバーより少し上に */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    /* .wrapper と同じ幅 */
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    /* 右寄せ */
+    padding: 0 12px;
+    /* 右に少し余白 */
+    z-index: 1500;
+    pointer-events: none;
+    /* ラッパー自体はクリックを通す */
+}
+
+.updated-date {
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #777;
 }

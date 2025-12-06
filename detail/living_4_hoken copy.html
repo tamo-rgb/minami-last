@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>国民健康保険｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== 各カード内のリンクボタン ===== */
+        .link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>国民健康保険</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">国民健康保険</h1>
+                <p>南区保健福祉部 保険年金課 保険係・収納係が担当する、国民健康保険に関するご案内です。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">担当窓口・電話番号</a></li>
+                    <li><a href="#section-2">国民健康保険の手続き</a></li>
+                    <li><a href="#section-3">国民健康保険料と減額制度</a></li>
+                    <li><a href="#section-4">保険料の納付方法と相談</a></li>
+                    <li><a href="#section-5">保険料の証明と所得控除</a></li>
+                    <li><a href="#section-6">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：担当窓口・電話番号 -->
+            <div id="section-1" class="section">
+                <h3>担当窓口・電話番号</h3>
+                <p>国民健康保険に関する届出やご相談は、南区役所 保健福祉部 保険年金課の各係が担当しています。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>担当</th>
+                                <th>主な内容</th>
+                                <th>電話番号</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>保険係</td>
+                                <td>加入・脱退・保険料の計算など</td>
+                                <td>000-0000-0000</td>
+                            </tr>
+                            <tr>
+                                <td>給付係</td>
+                                <td>保険給付、医療費等に関すること</td>
+                                <td>000-0000-0000</td>
+                            </tr>
+                            <tr>
+                                <td>収納係</td>
+                                <td>保険料の口座振替・納付相談など</td>
+                                <td>000-0000-0000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <ul class="detail">
+                    <li>具体的な手続きの方法や必要書類は、内容に応じて各係にお問い合わせください。</li>
+                </ul>
+            </div>
+
+            <!-- セクション2：国民健康保険の手続き -->
+            <div id="section-2" class="section">
+                <h3>国民健康保険の手続きについて</h3>
+                <p>国民健康保険の届出は、<strong>必ず14日以内</strong>に行ってください。</p>
+
+                <div class="contents">
+                    <h4>届出が必要な主な場面</h4>
+                    <ul>
+                        <li>勤務先の健康保険をやめたとき</li>
+                        <li>札幌市に転入したとき</li>
+                        <li>子どもが生まれたとき</li>
+                        <li>世帯の方が転出・死亡されたとき</li>
+                        <li>他の健康保険に加入したとき　など</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>届出が遅れた場合の影響</h4>
+                    <ul>
+                        <li>届出以前の医療費が、全額自己負担になる場合があります。</li>
+                        <li>勤務先の健康保険をやめたときや札幌市に転入したときに、
+                            さかのぼって（最高2年間）保険料を納付していただくことがあります。</li>
+                    </ul>
+                </div>
+
+                <p>手続きの詳細については、保険係（000-0000-0000）へお問い合わせください。</p>
+
+                <!-- 詳細ボタン（外部・別ページへのリンク想定） -->
+                <a href="#" class="link-button" target="_blank">国民健康保険の手続きの詳細を見る</a>
+            </div>
+
+            <!-- セクション3：国民健康保険料と減額制度 -->
+            <div id="section-3" class="section">
+                <h3>国民健康保険料と減額制度</h3>
+
+                <div class="contents">
+                    <h4>保険料に関する主な項目</h4>
+                    <ul>
+                        <li>国民健康保険料の計算方法</li>
+                        <li>令和7年度国民健康保険料早見表</li>
+                        <li>保険料の納付義務者と納期限について</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>保険料の減額・減免制度</h4>
+                    <ul>
+                        <li>低所得世帯に対する保険料の減額</li>
+                        <li>未就学児の方に対する保険料の減額</li>
+                        <li>後期高齢者医療制度の加入者がいる世帯の保険料の激変緩和措置</li>
+                        <li>被用者保険の扶養に入っていた方に対する保険料の減免</li>
+                        <li>解雇・倒産等により離職した方に対する保険料の減額</li>
+                        <li>出産する予定または出産された方に対する保険料の減額</li>
+                        <li>その他の保険料の減免</li>
+                    </ul>
+                </div>
+
+                <p>詳しい条件や必要書類については、保険係（000-0000-0000）へお問い合わせください。</p>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">国民健康保険料・減額制度の詳細を見る</a>
+            </div>
+
+            <!-- セクション4：保険料の納付方法と相談 -->
+            <div id="section-4" class="section">
+                <h3>保険料の納付方法と相談</h3>
+
+                <div class="contents">
+                    <h4>保険料の納付方法</h4>
+                    <ul>
+                        <li>納付書による納付（金融機関・コンビニエンスストアなど）</li>
+                        <li>口座振替による納付</li>
+                        <li>スマートフォン決済 等</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>保険料の納付が困難な場合</h4>
+                    <ul>
+                        <li>失業や営業不振など、何らかの事情で保険料を納期内に納付することが困難な場合</li>
+                        <li>滞納している保険料を一括して納付することが難しい場合</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>生活状況・収入・資産などがわかる書類をお持ちのうえ、収納係（000-0000-0000）にご相談ください。</li>
+                        <li>相談なく滞納が続くと、医療機関の窓口での負担増や、財産の差押えなどの対象となる場合があります。</li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">保険料の納付方法・納付相談の詳細を見る</a>
+            </div>
+
+            <!-- セクション5：保険料の証明と所得控除 -->
+            <div id="section-5" class="section">
+                <h3>保険料の証明と所得控除について</h3>
+
+                <div class="contents">
+                    <ul>
+                        <li>保険料年間領収額のお知らせおよび納付確認書の交付について
+                            <ul class="detail">
+                                <li>確定申告や年末調整の際に、国民健康保険料の納付額の確認に利用できます。</li>
+                            </ul>
+                        </li>
+                        <li>一口メモ：保険料は全額所得控除の対象になります。
+                            <ul class="detail">
+                                <li>ご自身や世帯で納めた国民健康保険料は、原則として所得控除の対象となります。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">国民健康保険料の証明・所得控除の詳細を見る</a>
+            </div>
+
+            <!-- セクション6：お問い合わせ -->
+            <div id="section-6" class="section">
+                <h3>お問い合わせ</h3>
+                <p>札幌市南区 保健福祉部 保険年金課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1</p>
+                <p>保険料のお問い合わせ（保険係）：000-0000-0000<br>
+                    納付相談に関すること（収納係）：000-0000-0000<br>
+                    医療費等に関すること（給付係）：000-0000-0000<br>
+                    ファクス番号：000-0000-0000</p>
+                <p>その他のお問い合わせは、<a href="#" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>国民健康保険の加入・脱退に関する手続き</li>
+                    <li>国民健康保険料の減額・減免制度</li>
+                    <li>保険料の納付相談について</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    保険に関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

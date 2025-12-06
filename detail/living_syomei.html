@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>受理証明・市税証明｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== タブナビゲーション ===== */
+        .tab-wrapper {
+            margin: 10px 15px 0;
+            background-color: transparent;
+        }
+
+        .tab-label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .tab-button {
+            flex: 1 1 150px;
+            padding: 8px 10px;
+            border-radius: 20px 20px 0 0;
+            border: 1px solid var(--color-primary);
+            border-bottom: none;
+            background-color: #f0f5eb;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #222;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px 8px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc-block {
+            display: none;
+        }
+
+        .toc-block.active {
+            display: block;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 0 15px 12px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出し・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        h5 {
+            margin: 6px 0 4px;
+            font-size: 0.95rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0 10px;
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード（使うなら） ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header"></div>
+        <div style="height: 60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>受理証明・市税証明</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">受理証明・市税証明のご案内</h1>
+                <p>受理証明書および市税証明の種類・手数料、請求できる方や必要書類などについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- タブ切り替え（目次より上） -->
+            <div class="tab-wrapper">
+                <p>知りたい内容を選択してください</p>
+                <div class="tab-nav">
+                    <button class="tab-button active" data-target="juri-content">受理証明書</button>
+                    <button class="tab-button" data-target="tax-content">市税証明</button>
+                </div>
+            </div>
+
+            <!-- 目次：受理証明 -->
+            <div id="juri-toc" class="toc toc-block active">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#juri-types">証明書の種類と手数料</a></li>
+                    <li><a href="#juri-notes">受付窓口・注意事項</a></li>
+                    <li><a href="#juri-docs">申請時の必要書類</a></li>
+                    <li><a href="#juri-contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- 目次：市税証明 -->
+            <div id="tax-toc" class="toc toc-block">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#tax-types">市税証明の種類・手数料</a></li>
+                    <li><a href="#tax-who">証明と閲覧を請求できる方</a></li>
+                    <li><a href="#tax-how">市税証明の請求方法</a></li>
+                    <li><a href="#tax-contact">市税証明に関するお問い合わせ先</a></li>
+                </ul>
+            </div>
+
+            <!-- タブ：受理証明書 -->
+            <div id="juri-content" class="tab-content active">
+                <!-- 証明書の種類と手数料 -->
+                <div id="juri-types" class="section">
+                    <h3>証明書の種類と手数料</h3>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>証明書の種類</th>
+                                    <th>手数料</th>
+                                    <th>内容</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>受理証明</td>
+                                    <td>350円<br>[1通]</td>
+                                    <td>戸籍届を受理したことを証明するものです。</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        受理証明（賞状形式）<br>
+                                        <small>※婚姻・離婚・養子縁組・養子離縁・認知届に限る</small>
+                                    </td>
+                                    <td>1,400円<br>[1通]</td>
+                                    <td>届出が受理されたことを、賞状のような形式で証明するものです。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 受付窓口・注意事項 -->
+                <div id="juri-notes" class="section">
+                    <h3>受付窓口・注意事項</h3>
+                    <ul>
+                        <li>札幌市に戸籍届を提出した場合のみ請求できます。</li>
+                        <li>札幌市以外に戸籍届を提出した場合は、提出した市町村に請求してください。</li>
+                        <li>日本に戸籍届を提出していない方の証明は発行できません。大使館等へお問い合わせください。</li>
+                    </ul>
+                    <p>ご不明な点がありましたら、各区役所戸籍住民課（電話番号・所在地はこちら）へお問い合わせください。</p>
+                </div>
+
+                <!-- 申請時の必要書類 -->
+                <div id="juri-docs" class="section">
+                    <h3>申請時の必要書類</h3>
+
+                    <h4>提出した戸籍届の届出人（本人）が請求する場合</h4>
+                    <ul>
+                        <li>来庁者のお名前が確認できるもの（マイナンバーカード、運転免許証など）</li>
+                        <li>請求書（申請書ダウンロードサイト）<br>※郵送等による請求も可能です。</li>
+                    </ul>
+
+                    <h4>上記以外の方（代理人）が請求する場合</h4>
+                    <ul>
+                        <li>来庁者のお名前が確認できるもの（マイナンバーカード、運転免許証など）</li>
+                        <li>請求書（申請書ダウンロードサイト）</li>
+                        <li>任意代理人の場合：委任する本人が記入した委任状（申請書ダウンロードサイト）</li>
+                        <li>法定代理人の場合：戸籍謄本（本籍が札幌市内の場合は不要）や登記事項証明書等、法定代理人の資格を証明する書類（作成から3か月以内の原本）</li>
+                    </ul>
+
+                    <p>ご不明な点がありましたら、各区役所戸籍住民課（電話番号・所在地はこちら）へお問い合わせください。</p>
+                </div>
+
+                <!-- お問い合わせ -->
+                <div id="juri-contact" class="section">
+                    <h3>お問い合わせ</h3>
+                    <p>札幌市南区 市民部 戸籍住民課<br>
+                        〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                        電話番号：000-000-0000<br>
+                        ファクス番号：000-000-0000</p>
+                </div>
+            </div>
+
+            <!-- タブ：市税証明 -->
+            <div id="tax-content" class="tab-content">
+                <!-- 市税証明の種類・手数料 -->
+                <div id="tax-types" class="section">
+                    <h3>市税証明の種類・手数料</h3>
+                    <p>窓口で証明書を取得する際は、「キャッシュレス決済」が利用できます。利用できるキャッシュレス決済の詳細については、別途ご確認ください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>証明書の種類</th>
+                                    <th>証明項目</th>
+                                    <th>手数料</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3">所得証明</td>
+                                    <td>所得金額のみ<br>
+                                        <small>前年（1月〜12月）の所得金額</small>
+                                    </td>
+                                    <td>
+                                        年度・納税義務者ごとに450円<br>
+                                        <small>※コンビニ交付手数料は250円</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>所得金額・税額・控除の内訳<br>
+                                        <small>前年の所得金額、市民税・道民税・森林環境税額、扶養親族数、社会保険料などの控除の内訳</small>
+                                    </td>
+                                    <td>
+                                        年度・納税義務者ごとに450円<br>
+                                        <small>※コンビニ交付手数料は250円</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>所得金額・税額<br>
+                                        <small>前年の所得金額、市民税・道民税・森林環境税額</small>
+                                    </td>
+                                    <td>
+                                        年度・納税義務者ごとに450円<br>
+                                        <small>※コンビニ交付手数料は250円</small>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>課税証明</td>
+                                    <td>
+                                        指定した税目・年度の課税額<br>
+                                        <small>※課税証明に所得金額の記載はされません。</small>
+                                    </td>
+                                    <td>
+                                        年度・税目・納税義務者ごとに450円<br>
+                                        <small>※固定資産税・都市計画税に係る納税証明・課税証明で複数区に固定資産を所有している場合は、区ごとに450円</small><br>
+                                        <small>※コンビニ交付手数料は250円</small>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="3">納税証明</td>
+                                    <td>
+                                        一般<br>
+                                        <small>税目、賦課年度（または事業年度）、納付すべき税額（課税額）、納付した税額、納期未到来税額、未納税額</small>
+                                    </td>
+                                    <td>
+                                        年度・税目・納税義務者ごとに450円<br>
+                                        <small>※固定資産税・都市計画税に係る納税証明・課税証明で複数区に固定資産を所有している場合は、区ごとに450円</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>指名願用<br>
+                                        <small>札幌市に納付すべき税について未納がないこと</small>
+                                    </td>
+                                    <td>450円</td>
+                                </tr>
+                                <tr>
+                                    <td>軽自動車税（車検用）<br>
+                                        <small>車検を受ける車両に対する税額に未納がないこと（または課税がないこと）</small><br>
+                                        <small>※令和5年からの変更点あり</small>
+                                    </td>
+                                    <td>無料</td>
+                                </tr>
+
+                                <tr>
+                                    <td>酒類販売業免許申請用</td>
+                                    <td>
+                                        ・過去2年間において、市税について滞納処分を受けたことがないこと<br>
+                                        ・現在、市税を滞納していないこと
+                                    </td>
+                                    <td>900円（証明項目2件）</td>
+                                </tr>
+
+                                <tr>
+                                    <td>公益（社団・財団）法人認定（報告）用</td>
+                                    <td>過去3年間において、市税について滞納処分を受けたことがないこと</td>
+                                    <td>450円</td>
+                                </tr>
+
+                                <tr>
+                                    <td rowspan="4">固定資産評価証明</td>
+                                    <td>その1：価格（評価額）・課税標準額</td>
+                                    <td rowspan="4">
+                                        年度・土地1筆または家屋1棟（区分所有家屋の場合は1専有部分）・納税義務者ごとに450円<br>
+                                        <small>※区分所有家屋における規約共用部分は、対応する専有部分ごとに1件450円</small><br>
+                                        償却資産については、1年度・1納税義務者ごとに450円<br>
+                                        <small>※複数区に償却資産を所有している場合は区ごとに450円</small>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>その2：価格（評価額）・課税標準額・税相当額</td>
+                                </tr>
+                                <tr>
+                                    <td>その3：価格（評価額）</td>
+                                </tr>
+                                <tr>
+                                    <td>償却資産分：資産の種類、数量、評価額、課税標準額など</td>
+                                </tr>
+
+                                <tr>
+                                    <td>固定資産課税台帳の閲覧</td>
+                                    <td>価格（評価額）・課税標準額など固定資産課税台帳に登録されている事項<br>
+                                        <small>※市長の公印はありません。</small>
+                                    </td>
+                                    <td>台帳の種類・内容により異なります。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>特定疾患医療受給証交付申請、自立支援給付の受給などに使用する場合や、生活保護世帯の方などは、発行手数料が免除となる場合があります。</p>
+
+                    <h4>令和7年度の証明交付開始日</h4>
+                    <ul>
+                        <li>所得証明
+                            <ul>
+                                <li>給与からの特別徴収の方：5月16日から</li>
+                                <li>普通徴収の方、公的年金からの特別徴収の方および被扶養者の方：6月11日から<br>
+                                    ※所得額のみの所得証明は5月16日から</li>
+                            </ul>
+                        </li>
+                        <li>市民税・道民税・森林環境税の納税証明および課税証明：6月11日から（給与からの特別徴収の方は5月16日から）</li>
+                        <li>固定資産税・都市計画税の課税証明および納税証明：4月11日から</li>
+                        <li>固定資産評価証明：4月1日から</li>
+                    </ul>
+
+                    <p>税の証明書の交付年限は7年間です。</p>
+
+                    <h4>税の証明書に表示される年度について</h4>
+                    <ul>
+                        <li>税の証明書では、2019年度は「令和元年度」ではなく、「平成31年度」と表示されます。</li>
+                        <li>2020年度（令和2年度）の所得証明書には、「平成31年分の所得」と表示されます。</li>
+                        <li>固定資産課税台帳（名寄帳）の写しの請求は、市税の証明とは取扱いが異なります。「固定資産課税台帳（名寄帳）について知りたい」をご確認ください。</li>
+                    </ul>
+                </div>
+
+                <!-- 証明と閲覧を請求できる方 -->
+                <div id="tax-who" class="section">
+                    <h3>証明と閲覧を請求できる方</h3>
+                    <p>証明と閲覧を請求できる方は、原則として次の方に限られます。</p>
+                    <ul>
+                        <li>本人（相続人、納税管理人も含みます）</li>
+                        <li>代理人（本人の委任状・同意書などが必要になります）</li>
+                        <li>借地人・借家人（固定資産課税台帳の閲覧、固定資産評価証明の請求に限ります）
+                            <ul>
+                                <li>賃貸借契約書等の提示が必要です。</li>
+                                <li>賃貸借契約書の当初の契約期間が終了している場合には、賃料の支払い状況が確認できる領収書等の提示も必要です。</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 市税証明の請求方法 -->
+                <div id="tax-how" class="section">
+                    <h3>市税証明の請求方法</h3>
+                    <p>取得できる証明の種類や手続きについては、それぞれの詳しいページでご確認ください。</p>
+
+                    <h4>窓口に行かずに請求する</h4>
+                    <p>マイナンバーカードをお持ちの方は、コンビニ交付やオンライン申請が便利です。</p>
+                    <ul>
+                        <li>コンビニ交付サービス：札幌市にお住まいでマイナンバーカードをお持ちの方が利用できます。</li>
+                        <li>オンライン申請：マイナンバーカードをお持ちの方（札幌市から転出した方も利用可能）</li>
+                        <li>郵送による請求：法人やマイナンバーカードをお持ちでない方、コンビニ交付・オンライン申請で対応していない証明書を請求する場合</li>
+                    </ul>
+
+                    <h4>窓口で請求する</h4>
+                    <p>各市税事務所、市役所本庁舎などの窓口で請求できます。詳しくは「税の窓口」等をご確認ください。</p>
+                </div>
+
+                <!-- お問い合わせ先 -->
+                <div id="tax-contact" class="section">
+                    <h3>市税証明に関するお問い合わせ先</h3>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>部署名</th>
+                                    <th>所在地</th>
+                                    <th>電話番号</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>【中央区担当】中央市税事務所<br>納税課 市税証明担当</td>
+                                    <td>札幌市中央区南3条西11丁目</td>
+                                    <td>011-596-9012</td>
+                                </tr>
+                                <tr>
+                                    <td>【北区・東区担当】北部市税事務所<br>納税課 市税証明担当</td>
+                                    <td>札幌市中央区北4条西5丁目 アスティ45 9階</td>
+                                    <td>011-207-3912</td>
+                                </tr>
+                                <tr>
+                                    <td>【白石区・厚別区担当】東部市税事務所<br>納税課 市税証明担当</td>
+                                    <td>札幌市厚別区大谷地東2丁目4-30 大谷地アドバンシービル3階</td>
+                                    <td>011-802-3912</td>
+                                </tr>
+                                <tr>
+                                    <td>【豊平区・清田区・南区担当】南部市税事務所<br>納税課 市税証明担当</td>
+                                    <td>札幌市豊平区平岸5条8丁目2-10 イースト平岸 2階</td>
+                                    <td>011-824-3912</td>
+                                </tr>
+                                <tr>
+                                    <td>【西区・手稲区担当】西部市税事務所<br>納税課 市税証明担当</td>
+                                    <td>札幌市西区琴似3条1丁目1-20 コトニ3・1ビル 2階</td>
+                                    <td>011-618-3912</td>
+                                </tr>
+                                <tr>
+                                    <td>市役所本庁舎 税の証明窓口</td>
+                                    <td>札幌市中央区北1条西2丁目 札幌市役所本庁舎 2階</td>
+                                    <td>011-211-2233</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <ul>
+                        <li>電話番号のお掛け間違いにはくれぐれもご注意ください。</li>
+                        <li>各市税事務所の下4桁3912番（中央は9012番）の電話番号は、自動音声によりご案内いたします。</li>
+                        <li>市税の窓口の業務時間は、平日8時45分〜17時15分（土日祝日および12月29日〜1月3日はお休み）です。</li>
+                        <li>固定資産課税台帳（名寄帳）の写しの請求については、「固定資産課税台帳（名寄帳）について知りたい」をご確認ください。</li>
+                    </ul>
+
+                    <h4>関連リンク</h4>
+                    <ul>
+                        <li>申請書・届出書ダウンロードサービス（税に関する証明・閲覧）</li>
+                        <li>税の窓口</li>
+                        <li>市税証明のコンビニ交付サービス（コンビニ交付）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- （必要なら）関連情報カード -->
+            <!--
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>戸籍に関する各種手続き</li>
+                    <li>税の窓口</li>
+                    <li>申請書・届出書のダウンロード</li>
+                </ul>
+                <a href="/search/search_living.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+            -->
+
+            <div id="footer"></div>
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // タブ切り替え
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const juriToc = document.getElementById('juri-toc');
+        const taxToc = document.getElementById('tax-toc');
+
+        function activateTab(targetId) {
+            tabButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.target === targetId);
+            });
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === targetId);
+            });
+
+            if (targetId === 'juri-content') {
+                juriToc.classList.add('active');
+                taxToc.classList.remove('active');
+            } else if (targetId === 'tax-content') {
+                taxToc.classList.add('active');
+                juriToc.classList.remove('active');
+            }
+        }
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                activateTab(targetId);
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 初期表示
+        activateTab('juri-content');
+
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

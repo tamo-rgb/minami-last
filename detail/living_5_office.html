@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>事業所から出るごみ｜札幌市</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== 各カード内のリンクボタン ===== */
+        .link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>事業所から出るごみ</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">事業所から出るごみ</h1>
+                <p>札幌市環境局 環境事業部 事業廃棄物課が担当する、事業所から出るごみ（事業系廃棄物）に関するご案内です。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">事業所のごみについて</a></li>
+                    <li><a href="#section-2">事業系廃棄物の区分</a></li>
+                    <li><a href="#section-3">廃棄物とならないもの</a></li>
+                    <li><a href="#section-4">具体的な処理方法</a></li>
+                    <li><a href="#section-5">お知らせ・関連制度</a></li>
+                    <li><a href="#section-6">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：事業所のごみについて -->
+            <div id="section-1" class="section">
+                <h3>事業所のごみについて</h3>
+                <p>事業所から出るごみ（事業系廃棄物）は、その種類（大きく分けて一般廃棄物と産業廃棄物）によって、法の許可を持つ処理業者に運搬や処分を委託する必要があります。</p>
+                <ul class="detail">
+                    <li>委託の際は、処理料金や各社が持つ許可証の許可品目を確認しましょう。</li>
+                    <li>札幌市では、事業系廃棄物を収集していません。少量でも、家庭用ごみステーションや大型ごみ収集センターは利用できません。</li>
+                </ul>
+
+                <div class="contents">
+                    <h4>事業系廃棄物に関する主なポイント</h4>
+                    <ul>
+                        <li>事業活動に伴って生じたごみは、「事業系廃棄物」として取り扱います。</li>
+                        <li>家庭ごみと同じ品目であっても、排出の主体が「事業所」である場合は事業系廃棄物です。</li>
+                        <li>適正な分別と処理を行うことは、法律上の義務であるとともに、地域の環境保全にもつながります。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション2：事業系廃棄物の区分 -->
+            <div id="section-2" class="section">
+                <h3>事業系廃棄物の区分</h3>
+                <p>事業所から出るごみは、次のように大きく区分されます。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>分類</th>
+                                <th>内容</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>産業廃棄物</td>
+                                <td>法、政令で定められる20種類及び輸入された廃棄物</td>
+                            </tr>
+                            <tr>
+                                <td>特別管理産業廃棄物</td>
+                                <td>産業廃棄物のうち、特に爆発性、毒性、感染性など人の健康や生活環境に被害を与えるもの</td>
+                            </tr>
+                            <tr>
+                                <td>事業系一般廃棄物</td>
+                                <td>産業廃棄物、特別管理産業廃棄物に該当しないもの</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="contents">
+                    <h4>処理委託の際の注意点</h4>
+                    <ul>
+                        <li>区分によって委託できる処理業者が異なります。</li>
+                        <li>マニフェスト（産業廃棄物管理票）の交付が必要となる場合があります。</li>
+                        <li>処理委託契約書を取り交わし、保管しておきましょう。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション3：廃棄物とならないもの -->
+            <div id="section-3" class="section">
+                <h3>廃棄物とならないもの</h3>
+                <p>「廃棄物」とは、「廃棄物の処理及び清掃に関する法律」（以下、「法」という。）により、次のように規定されています。</p>
+                <ul class="detail">
+                    <li>ごみ、粗大ごみ、燃え殻、汚泥、ふん尿、廃油、廃酸、廃アルカリ、動物の死体その他汚物や不要物で、固形状又は液状のもの（放射性物質及びこれによって汚染されたものを除く）。（法第2条第1項）</li>
+                </ul>
+
+                <div class="contents">
+                    <h4>廃棄物該当性の考え方</h4>
+                    <p>廃棄物に該当するかどうかの判断については、次の事項を総合的に勘案して判断することとされています。</p>
+                    <ul>
+                        <li>物の性状</li>
+                        <li>排出の状況</li>
+                        <li>通常の取り扱い形態</li>
+                        <li>取引価値の有無</li>
+                        <li>占有者の意思 など</li>
+                    </ul>
+                    <p>「占有者が自ら利用し、又は他人に有償で売却することができないために不要になった物」が廃棄物に該当するものとされています。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>法の対象とならない主な例</h4>
+                    <p>以下に該当するものは廃棄物とはみなされないため、法の対象外となります。（放射性物質などは原子力基本法等で別途定められています。）</p>
+                    <ul>
+                        <li>港湾や河川のしゅんせつ工事で生じる土砂など</li>
+                        <li>土砂や土地造成の目的となる土砂など</li>
+                        <li>漁業で漁網にかかったもののうち、不要で海にもどしたもの</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション4：具体的な処理方法 -->
+            <div id="section-4" class="section">
+                <h3>具体的な処理方法</h3>
+                <p>札幌市では、ごみの品目による処理方法や依頼先を紹介したガイドブックを作成しています。事業所で処理方法に迷った際は、まずこれらの資料をご確認ください。</p>
+
+                <div class="contents">
+                    <h4>ガイドブック・参考資料</h4>
+                    <ul>
+                        <li>オフィス・店舗向け事業ごみ分別・処理ガイドブック</li>
+                        <li>産業廃棄物ガイド</li>
+                        <li>事業所ごみの処理方法の概要
+                            <ul class="detail">
+                                <li>（札幌市役所に寄せられる"よくある質問"検索サービス FAQ407）</li>
+                            </ul>
+                        </li>
+                        <li>住居併設店舗、マンション管理組合、下宿、グループホームから排出される廃棄物について
+                            <ul class="detail">
+                                <li>（札幌市役所に寄せられる"よくある質問"検索サービス FAQ430712）</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン（外部・別ページへのリンク想定） -->
+                <a href="#" class="link-button" target="_blank">事業所ごみの処理方法の詳細を見る</a>
+            </div>
+
+            <!-- セクション5：お知らせ・関連制度 -->
+            <div id="section-5" class="section">
+                <h3>お知らせ・関連制度</h3>
+
+                <div class="contents">
+                    <h4>お知らせ</h4>
+                    <ul>
+                        <li>事業所から出るごみに関する最新のお知らせや制度改正情報を掲載しています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">事業所ごみに関するお知らせを見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>不利益処分の公表</h4>
+                    <ul>
+                        <li>廃棄物の処理及び清掃に関する法律に基づく不利益処分の公表</li>
+                        <li>違反事例や行政処分の状況を公表しています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">不利益処分の公表ページへ</a>
+                </div>
+
+                <div class="contents">
+                    <h4>大規模建築物に関する手続き</h4>
+                    <ul>
+                        <li>大規模建築物におけるごみ収納施設・集積所の設置などに関する手続きのご案内です。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">大規模建築物に関する手続きの詳細を見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>札幌市廃棄物処理施設設置等評価委員会</h4>
+                    <ul>
+                        <li>廃棄物処理施設の設置等に関する評価・審議を行う委員会の情報です。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">評価委員会に関する情報を見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>PCB廃棄物</h4>
+                    <ul>
+                        <li>PCB（ポリ塩化ビフェニル）を含む機器・廃棄物の適正処理に関する情報です。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">PCB廃棄物に関するページを見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>雑品スクラップ（有害使用済機器）の扱い</h4>
+                    <ul>
+                        <li>有害物質を含む使用済機器の適正な取り扱い・処理に関する注意点をまとめています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">雑品スクラップの扱いについて詳しく見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>自動車・二輪車のリサイクル</h4>
+                    <ul>
+                        <li>自動車リサイクル法等に基づく自動車・二輪車のリサイクルについてのご案内です。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">自動車・二輪車のリサイクル情報を見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>札幌市リサイクル団地</h4>
+                    <ul>
+                        <li>リサイクル関連事業所が集積する「札幌市リサイクル団地」に関する情報です。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">札幌市リサイクル団地の概要を見る</a>
+                </div>
+            </div>
+
+            <!-- セクション6：お問い合わせ -->
+            <div id="section-6" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>札幌市環境局 環境事業部 事業廃棄物課<br>
+                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎13階</p>
+                <p>電話番号：011-211-2927<br>
+                    ファクス番号：011-218-5105</p>
+                <p>その他のお問い合わせは、<a href="#" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>事業所から出るごみ（事業系廃棄物）の分別・処理方法</li>
+                    <li>産業廃棄物・特別管理産業廃棄物に関する制度</li>
+                    <li>リサイクル・再資源化に関する取り組み</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    事業系廃棄物・リサイクルに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

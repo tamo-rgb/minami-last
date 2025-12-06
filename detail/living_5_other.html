@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>ごみの計画・不法投棄・ごみ処理施設・条例など｜札幌市</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル（必要なら） ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== 各カード内のリンクボタン ===== */
+        .link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>ごみの計画・不法投棄・ごみ処理施設・条例など</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">ごみの計画・不法投棄・ごみ処理施設・条例など</h1>
+                <p>ごみの計画やデータ、不法投棄・不法焼却、ごみ処理施設、廃棄物に関する条例・規則など、市の清掃事業に関する総合的な情報をご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">ごみの計画・データ</a></li>
+                    <li><a href="#section-2">不法投棄・不法焼却・ポイ捨て</a></li>
+                    <li><a href="#section-3">ごみに関する出前講座</a></li>
+                    <li><a href="#section-4">ごみ処理施設</a></li>
+                    <li><a href="#section-5">審議会・協議会・委員会</a></li>
+                    <li><a href="#section-6">廃棄物に関する条例・規則等</a></li>
+                    <li><a href="#section-7">ごみ・し尿の問い合わせ先</a></li>
+                    <li><a href="#section-8">清掃事業の関連リンク</a></li>
+                    <li><a href="#section-9">このページについてのお問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：ごみの計画・データ -->
+            <div id="section-1" class="section">
+                <h3>ごみの計画・データ</h3>
+                <p>市では、循環型社会の形成に向けて、ごみの減量やリサイクルの推進に関する各種計画を策定するとともに、ごみ量や資源化率などのデータを公表しています。</p>
+
+                <div class="contents">
+                    <h4>主な計画・資料</h4>
+                    <ul>
+                        <li>一般廃棄物処理基本計画</li>
+                        <li>ごみ減量・リサイクル推進計画</li>
+                        <li>家庭ごみ・事業系ごみの排出量や資源化量などの統計データ</li>
+                        <li>清掃事業に関する年次報告・パンフレット</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">ごみの計画・データの詳細を見る</a>
+            </div>
+
+            <!-- セクション2：不法投棄・不法焼却・ポイ捨て -->
+            <div id="section-2" class="section">
+                <h3>不法投棄・不法焼却・ポイ捨て</h3>
+                <p>不法投棄や不法焼却、ポイ捨ては、周辺環境の悪化だけでなく、火災や悪臭の原因にもなります。廃棄物処理法や市の条例により禁止されています。</p>
+
+                <div class="contents">
+                    <h4>不法投棄・不法焼却とは</h4>
+                    <ul>
+                        <li>許可を受けていない場所にごみを捨てる行為や、野外でのごみの焼却行為は「不法投棄」「不法焼却」にあたります。</li>
+                        <li>悪質な場合は、罰則の対象となることがあります。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>ポイ捨ての防止</h4>
+                    <ul>
+                        <li>空き缶・ペットボトル・吸いがら・レジ袋などのポイ捨ては、街の景観を損なうだけでなく、動物や河川環境にも悪影響を与えます。</li>
+                        <li>一人ひとりがルールとマナーを守り、きれいなまちづくりに協力しましょう。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>見つけたときの連絡先</h4>
+                    <ul>
+                        <li>不法投棄・不法焼却を見つけた場合は、場所や状況を確認のうえ、市の担当窓口までご連絡ください。</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">不法投棄・不法焼却・ポイ捨てに関するページを見る</a>
+            </div>
+
+            <!-- セクション3：ごみに関する出前講座 -->
+            <div id="section-3" class="section">
+                <h3>ごみに関する出前講座の受講募集</h3>
+                <p>市では、自治会や学校、企業などを対象に、ごみの分別やリサイクル、清掃事業について学べる出前講座を行っています。</p>
+
+                <div class="contents">
+                    <h4>講座の内容例</h4>
+                    <ul>
+                        <li>ごみの分け方・出し方のポイント</li>
+                        <li>ごみ処理施設の役割と仕組み</li>
+                        <li>ごみ減量・リサイクルの取り組み</li>
+                        <li>３Ｒ（リデュース・リユース・リサイクル）について</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>申込方法</h4>
+                    <ul>
+                        <li>実施希望日の一定期間前までに、担当窓口へお申し込みください。</li>
+                        <li>会場の手配や参加者のとりまとめは、主催者側で行ってください。</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">ごみの出前講座の詳細・申込方法を見る</a>
+            </div>
+
+            <!-- セクション4：ごみ処理施設 -->
+            <div id="section-4" class="section">
+                <h3>ごみ処理施設</h3>
+                <p>市内には、ごみの焼却や資源物の選別などを行うごみ処理施設が整備されています。安全で安定した処理を行うため、設備の更新や維持管理を行っています。</p>
+
+                <div class="contents">
+                    <h4>主な施設の役割</h4>
+                    <ul>
+                        <li>焼却施設：燃やせるごみを焼却し、熱エネルギーの回収なども行います。</li>
+                        <li>資源選別施設：びん・缶・ペットボトルなどの資源物を選別します。</li>
+                        <li>最終処分場：焼却灰などを安全に埋立処分します。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>施設見学</h4>
+                    <ul>
+                        <li>一部の施設では、事前申込により見学を受け付けています。</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">ごみ処理施設の一覧・見学案内を見る</a>
+            </div>
+
+            <!-- セクション5：審議会・協議会・委員会 -->
+            <div id="section-5" class="section">
+                <h3>廃棄物に関する審議会・協議会・委員会</h3>
+                <p>ごみ処理施設の整備や廃棄物行政の推進にあたっては、有識者や市民代表などで構成される審議会・協議会・委員会の意見を踏まえて検討を行っています。</p>
+
+                <div class="contents">
+                    <h4>主な会議体</h4>
+                    <ul>
+                        <li>廃棄物に関する審議会</li>
+                        <li>ごみ処理施設に関する協議会</li>
+                        <li>清掃事業に関する各種委員会　など</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>公表内容</h4>
+                    <ul>
+                        <li>開催案内・審議事項</li>
+                        <li>会議録・配布資料</li>
+                        <li>答申・報告書　など</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">廃棄物に関する審議会・協議会等の情報を見る</a>
+            </div>
+
+            <!-- セクション6：廃棄物に関する条例・規則等 -->
+            <div id="section-6" class="section">
+                <h3>廃棄物に関する条例・規則・告示・要綱</h3>
+                <p>廃棄物の適正処理やごみ減量の推進のため、市ではさまざまな条例・規則・告示・要綱を定めています。</p>
+
+                <div class="contents">
+                    <h4>主な内容</h4>
+                    <ul>
+                        <li>廃棄物の処理及び清掃に関する法律に基づく市の条例</li>
+                        <li>家庭ごみ・事業系ごみの排出ルールを定めた規則</li>
+                        <li>ごみ処理手数料等に関する告示</li>
+                        <li>リサイクルや３Ｒ推進に関する要綱・要領</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">廃棄物に関する条例・規則等の一覧を見る</a>
+            </div>
+
+            <!-- セクション7：ごみ・し尿の問い合わせ先 -->
+            <div id="section-7" class="section">
+                <h3>ごみ・し尿の問い合わせ先</h3>
+                <p>ごみの分け方・出し方、収集日、し尿の収集などについての問い合わせ先は、お住まいの地域ごとに異なります。</p>
+
+                <div class="contents">
+                    <h4>お問い合わせの例</h4>
+                    <ul>
+                        <li>ごみの分別や収集日に関すること</li>
+                        <li>大型ごみの申し込みに関すること</li>
+                        <li>し尿収集の申し込み・変更に関すること</li>
+                    </ul>
+                </div>
+
+                <a href="#" class="link-button" target="_blank">ごみ・し尿の問い合わせ先一覧を見る</a>
+            </div>
+
+            <!-- セクション8：清掃事業の関連リンク -->
+            <div id="section-8" class="section">
+                <h3>清掃事業の関連施設・情報へのリンク</h3>
+
+                <div class="contents">
+                    <h4>清掃事業の関連施設・機関等へのリンク</h4>
+                    <ul>
+                        <li>清掃工場・リサイクルセンターなどの関連施設</li>
+                        <li>環境学習・啓発施設　など</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">関連施設・機関等へのリンク集を見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>工事・設計等に係る設計書の情報提供</h4>
+                    <ul>
+                        <li>清掃事業に関する工事・設計等の設計書の情報提供についてご案内しています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">設計書の情報提供に関するページを見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>環境施設設備工事の共通仕様書</h4>
+                    <ul>
+                        <li>環境施設・ごみ処理施設等の設備工事に関する共通仕様書を掲載しています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">環境施設設備工事 共通仕様書を見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>東日本大震災により生じた災害廃棄物の受入処理について</h4>
+                    <ul>
+                        <li>東日本大震災で発生した災害廃棄物の受入処理に関する取り組み状況などをお知らせしています。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">災害廃棄物の受入処理に関するページを見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>会計年度任用職員の募集</h4>
+                    <ul>
+                        <li>会計年度任用職員（清掃業務員）の募集</li>
+                        <li>会計年度任用職員（管理工）の募集</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">会計年度任用職員の募集情報を見る</a>
+                </div>
+            </div>
+
+            <!-- セクション9：このページについてのお問い合わせ -->
+            <div id="section-9" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>札幌市環境局 環境事業部（担当部署は内容により異なります）<br>
+                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎</p>
+                <p>電話番号：000-0000-0000<br>
+                    ファクス番号：000-0000-0000</p>
+                <p>その他のお問い合わせは、<a href="#" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>家庭ごみ・事業系ごみの分け方・出し方</li>
+                    <li>３Ｒ（リデュース・リユース・リサイクル）の取り組み</li>
+                    <li>環境学習・啓発に関する情報</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    ごみ・リサイクルに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南区 area_3</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+
+    <!-- フォント -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        .top-contents {
+            margin: 0;
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 2px solid #2e8b57;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            font-size: 1.4rem;
+            margin: 0 0 6px;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li {
+            margin: 0;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        .section {
+            margin: 0 15px 12px;
+            padding: 14px 14px 12px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f2f4;
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .section .contents ul {
+            padding-left: 18px;
+            margin: 4px 0 20px 0;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .contents p {
+            margin: 6px 0 6px;
+            font-size: var(--font-p);
+            font-weight: 500;
+        }
+
+        a.pdf-link {
+            display: inline-block;
+            margin: 3px 0;
+            color: var(--color-primary);
+            font-weight: 500;
+            text-decoration: underline;
+        }
+
+        a.pdf-link:hover {
+            opacity: 0.85;
+        }
+
+        .toggle-list {
+            margin-top: 8px;
+        }
+
+        .toggle-item {
+            border-radius: 8px;
+            border: 1px solid #e1e4e8;
+            margin-bottom: 8px;
+            overflow: hidden;
+            background-color: #fafafa;
+        }
+
+        .toggle-header {
+            width: 100%;
+            text-align: left;
+            border: none;
+            background: none;
+            padding: 10px 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toggle-header span.label {
+            flex: 1;
+        }
+
+        .toggle-header span.icon {
+            font-size: 1rem;
+            margin-left: 8px;
+        }
+
+        .toggle-header:focus-visible {
+            outline: 2px solid var(--color-primary);
+            outline-offset: 2px;
+        }
+
+        .toggle-content {
+            padding: 8px 12px 10px;
+            border-top: 1px solid #e1e4e8;
+            background-color: #fff;
+        }
+
+        .toggle-content p {
+            font-weight: 400;
+        }
+
+        .toggle-content ul {
+            padding-left: 18px;
+            margin: 4px 0 6px;
+        }
+
+        .toggle-content ul li {
+            font-size: var(--font-p);
+        }
+
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header"></div>
+        <div style="height:60px; background-color:#fff;"></div>
+
+        <main>
+            <section class="top-contents">
+                <h1 class="midashi">お住まいのごみ収集について</h1>
+                <p>藤野・白川・簾舞・砥山・豊滝・硬石山・小金湯・定山渓温泉（西・東）・定山渓地区</p>
+                <p class="updated-date">更新日：2022年6月22日</p>
+            </section>
+
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">ごみ収集日</a></li>
+                    <li><a href="#toggle-bunbetsu">ごみの分別</a></li>
+                    <li><a href="#toggle-shigen">資源回収について</a></li>
+                    <li><a href="#toggle-others">その他の地域</a></li>
+                </ul>
+            </div>
+
+            <div id="section-1" class="section">
+                <h3>ごみ収集日</h3>
+                <div class="contents">
+                    <ul>
+                        <li>藤野</li>
+                        <li>白川</li>
+                        <li>簾舞</li>
+                        <li>砥山</li>
+                        <li>豊滝</li>
+                        <li>硬石山</li>
+                        <li>小金湯</li>
+                        <li>定山渓温泉（西・東）</li>
+                        <li>定山渓</li>
+                    </ul>
+                    <p>下のPDFより確認できます</p>
+                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami3_07090809.pdf"
+                        class="pdf-link">通年版（PDF：1,440KB）</a><br>
+                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami3f_07090802.pdf"
+                        class="pdf-link">外国語版 前期（PDF：2,102KB）</a><br>
+                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami3f_08030809.pdf"
+                        class="pdf-link">外国語版 後期（PDF：1,419KB）</a><br>
+                    <a href="#" class="pdf-link">月めくり版 表紙・各月PDF</a>
+                </div>
+            </div>
+
+            <div id="section-2" class="section">
+                <h3>ごみの分別・資源回収・その他の地域</h3>
+                <div class="contents">
+                    <p>詳しい内容は、以下のトグルをタップ（クリック）してご覧ください。</p>
+
+                    <div class="toggle-list">
+                        <div class="toggle-item" id="toggle-bunbetsu">
+                            <button class="toggle-header" type="button" aria-expanded="false"
+                                aria-controls="toggle-bunbetsu-content">
+                                <span class="label">ごみの分別</span>
+                                <span class="icon" aria-hidden="true">＋</span>
+                            </button>
+                            <div class="toggle-content" id="toggle-bunbetsu-content" hidden>
+                                <p>ごみの分け方・出し方の詳細は、札幌市の「ごみ分別」のページで確認してください。</p>
+                                <ul>
+                                    <li>燃やせるごみ・燃やせないごみ・資源ごみなど、種類ごとに出し方が異なります。</li>
+                                    <li>スプレー缶や乾電池などは、危険物として指定の方法で出す必要があります。</li>
+                                </ul>
+                                <a href="/uncompleted.html" class="content-box">
+                                    ごみの分け方・出し方（外部サイト・PDF 等）
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-shigen">
+                            <button class="toggle-header" type="button" aria-expanded="false"
+                                aria-controls="toggle-shigen-content">
+                                <span class="label">資源回収について</span>
+                                <span class="icon" aria-hidden="true">＋</span>
+                            </button>
+                            <div class="toggle-content" id="toggle-shigen-content" hidden>
+                                <p>資源物（古紙、缶、びん、ペットボトルなど）は、地域の集団回収や資源ごみ回収日に出すことができます。</p>
+                                <ul>
+                                    <li>資源物ごとに、出し方（ひもで束ねる・中を水ですすぐ など）が決められています。</li>
+                                    <li>回収方法は地域や団体によって異なる場合があります。回覧板や町内会のお知らせもご確認ください。</li>
+                                </ul>
+                                <a href="/uncompleted.html" class="content-box">
+                                    資源物の出し方・集団回収のご案内
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="toggle-item" id="toggle-others">
+                            <button class="toggle-header" type="button" aria-expanded="false"
+                                aria-controls="toggle-others-content">
+                                <span class="label">その他の地域</span>
+                                <span class="icon" aria-hidden="true">＋</span>
+                            </button>
+                            <div class="toggle-content" id="toggle-others-content" hidden>
+                                <p>藤野・白川・簾舞・砥山・豊滝・硬石山・小金湯・定山渓温泉（西・東）・定山渓地区以外の南区のごみ収集カレンダーは、別ページでご案内しています。</p>
+                                <ul>
+                                    <li>お住まいの地区名を選んで、ごみ収集日カレンダーを確認してください。</li>
+                                    <li>引っ越しなどで地区が変わった場合は、新しい地区のカレンダーをご確認ください。</li>
+                                </ul>
+                                <a href="/uncompleted.html" class="content-box">
+                                    南区の他の地域のごみ収集カレンダー
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>住民票の記載内容について</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    よくある質問を見る
+                </a>
+            </div>
+
+            <div id="footer"></div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggles = document.querySelectorAll('.toggle-header');
+            toggles.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    const contentId = btn.getAttribute('aria-controls');
+                    const content = document.getElementById(contentId);
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    if (content) content.hidden = expanded;
+                    const icon = btn.querySelector('.icon');
+                    if (icon) icon.textContent = expanded ? '＋' : '－';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

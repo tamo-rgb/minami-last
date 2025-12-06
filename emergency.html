@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/icon.png">
+    <link rel="icon" type="image/icon" href="/data/favcon.png">
     <title>札幌市南区｜緊急情報</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
@@ -22,8 +24,9 @@
         main {
             background-color: var(--color-gbg);
         }
-        .p{
-            color:var(--color-text);
+
+        .p {
+            color: var(--color-text);
         }
 
 
@@ -131,106 +134,109 @@
         }
 
         .info-list li {
-            padding: 5px 10px ;
+            padding: 5px 10px;
         }
-        .number_section{
+
+        .number_section {
             background: #ffffff;
             border: 1px solid #f0f2f4;
             padding: 16px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
-        .box{
-            padding:10px 5px;
+
+        .box {
+            padding: 10px 5px;
         }
-        .box h2{
-            padding:5px;
-            margin-bottom:5px;
-            border-bottom:1px solid var(--color-primary);
+
+        .box h2 {
+            padding: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid var(--color-primary);
         }
     </style>
 </head>
 
 <body>
-<div class="wrapper">
-    <div id="scrollProgress"></div>
-    <div id="header"></div>
-    <div style="height:50px;"></div>
+    <div class="wrapper">
+        <div id="scrollProgress"></div>
+        <div id="header"></div>
+        <div style="height:50px;"></div>
 
-    <main class="wrapper">
+        <main class="wrapper">
 
-        <!-- パンくず -->
-        <nav class="breadcrumb">
-            <a href="index.html">ホームページ</a> ＞ <span>緊急情報</span>
-        </nav>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="index.html">ホームページ</a> ＞ <span>緊急情報</span>
+            </nav>
 
-        <!-- 現在の緊急情報 -->
-        <section class="emergency-section">
-            <h2 class="emergency-header">いま発令されている緊急情報</h2>
+            <!-- 現在の緊急情報 -->
+            <section class="emergency-section">
+                <h2 class="emergency-header">いま発令されている緊急情報</h2>
 
-            <div class="no-emergency">
-                ただいま緊急情報はありません
-            </div>
-        </section>
+                <div class="no-emergency">
+                    ただいま緊急情報はありません
+                </div>
+            </section>
 
-        <!-- 過去の発令情報（1カードにまとめる） -->
-        <section class="past-section">
+            <!-- 過去の発令情報（1カードにまとめる） -->
+            <section class="past-section">
 
-            <div class="past-box">
-                <h2>過去の発令情報</h2>
-                <div id="pastList"></div>
-            </div>
+                <div class="past-box">
+                    <h2>過去の発令情報</h2>
+                    <div id="pastList"></div>
+                </div>
 
-        </section>
+            </section>
 
-        <!-- 緊急連絡先・緊急時情報・救急当番医療機関 -->
-        <section class="number_section">
+            <!-- 緊急連絡先・緊急時情報・救急当番医療機関 -->
+            <section class="number_section">
 
-            <!-- 緊急連絡先 -->
-            <div class="box">
-                <h2>緊急連絡先</h2>
-                <ul class="info-list">
-                    <li>消防署（119番）</li>
-                    <li>警察署（110番）</li>
-                    <li>南区役所（災害対応窓口）：011-345-6789</li>
-                    <li>北海道救急安心センター（#7119）</li>
-                    <li>医療相談窓口（小児救急相談 #8000）</li>
-                </ul>
-            </div>
+                <!-- 緊急連絡先 -->
+                <div class="box">
+                    <h2>緊急連絡先</h2>
+                    <ul class="info-list">
+                        <li>消防署（119番）</li>
+                        <li>警察署（110番）</li>
+                        <li>南区役所（災害対応窓口）：011-345-6789</li>
+                        <li>北海道救急安心センター（#7119）</li>
+                        <li>医療相談窓口（小児救急相談 #8000）</li>
+                    </ul>
+                </div>
 
-            <!-- 緊急時の行動 -->
-            <div class="box">
-                <h2>緊急時の行動</h2>
-                <ul class="info-list">
-                    <li>揺れが収まるまで机の下など安全な場所に避難する</li>
-                    <li>屋外では落下物や倒壊物に注意して行動する</li>
-                    <li>避難する際は火の元を確認し、ブレーカーを落とす</li>
-                    <li>近隣住民と協力して避難し、お年寄りを優先する</li>
-                    <li>テレビ・ラジオ・公式サイトで最新の情報を確認する</li>
-                </ul>
-            </div>
+                <!-- 緊急時の行動 -->
+                <div class="box">
+                    <h2>緊急時の行動</h2>
+                    <ul class="info-list">
+                        <li>揺れが収まるまで机の下など安全な場所に避難する</li>
+                        <li>屋外では落下物や倒壊物に注意して行動する</li>
+                        <li>避難する際は火の元を確認し、ブレーカーを落とす</li>
+                        <li>近隣住民と協力して避難し、お年寄りを優先する</li>
+                        <li>テレビ・ラジオ・公式サイトで最新の情報を確認する</li>
+                    </ul>
+                </div>
 
-            <!-- 救急当番医療機関 -->
-            <div class="box">
-                <h2>救急当番医療機関（南区）</h2>
-                <ul class="info-list">
-                    <li>札幌南病院（内科・外科）</li>
-                    <li>定山渓病院（内科）</li>
-                    <li>澄川ファミリークリニック（小児科）</li>
-                    <li>川沿中央病院（整形外科）</li>
-                    <li>藤野内科医院（内科）</li>
-                </ul>
-                <p style="font-size:0.9rem; color:#555; margin-top:8px;">
-                    ※当番医は日によって変更される場合があります。札幌市公式サイト・#7119 で最新情報をご確認ください。
-                </p>
-            </div>
+                <!-- 救急当番医療機関 -->
+                <div class="box">
+                    <h2>救急当番医療機関（南区）</h2>
+                    <ul class="info-list">
+                        <li>札幌南病院（内科・外科）</li>
+                        <li>定山渓病院（内科）</li>
+                        <li>澄川ファミリークリニック（小児科）</li>
+                        <li>川沿中央病院（整形外科）</li>
+                        <li>藤野内科医院（内科）</li>
+                    </ul>
+                    <p style="font-size:0.9rem; color:#555; margin-top:8px;">
+                        ※当番医は日によって変更される場合があります。札幌市公式サイト・#7119 で最新情報をご確認ください。
+                    </p>
+                </div>
 
-        </section>
+            </section>
 
 
-    </main>
+        </main>
 
-    <div id="footer"></div>
-</div>
+        <div id="footer"></div>
+    </div>
 
     <script>
         // 過去の緊急情報データ

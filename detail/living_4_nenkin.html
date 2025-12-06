@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>国民年金｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== 各カード内のリンクボタン ===== */
+        .link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>国民年金</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">国民年金</h1>
+                <p>国民年金の加入・届出、年金の受給、年金受給者の各種手続きなどについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">国民年金の概要・届出</a></li>
+                    <li><a href="#section-2">国民年金からのお知らせ</a></li>
+                    <li><a href="#section-3">年金の受給と振込日</a></li>
+                    <li><a href="#section-4">国民年金に加入する方</a></li>
+                    <li><a href="#section-5">加入・変更の届け出</a></li>
+                    <li><a href="#section-6">基礎年金番号通知書の再発行</a></li>
+                    <li><a href="#section-7">第3号被保険者に関する届け出</a></li>
+                    <li><a href="#section-8">海外で働くとき（社会保障協定）</a></li>
+                    <li><a href="#section-9">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：国民年金の概要・届出 -->
+            <div id="section-1" class="section">
+                <h3>国民年金について</h3>
+                <p>勤めをおやめになったときや、各種基礎年金を受給するときなど、区役所への届出が必要となる場合があります。</p>
+
+                <div class="contents">
+                    <h4>区役所に届出が必要な主な場面</h4>
+                    <ul>
+                        <li>会社などを退職したとき</li>
+                        <li>厚生年金から国民年金に切り替わるとき</li>
+                        <li>各種基礎年金を受給するとき など</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>具体的な手続きや必要書類は、南区役所 保険年金課 年金係（011-582-4786）へお問い合わせください。</li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">札幌市国民年金ホームページの詳細を見る</a>
+            </div>
+
+            <!-- セクション2：国民年金からのお知らせ -->
+            <div id="section-2" class="section">
+                <h3>国民年金からのお知らせ</h3>
+                <div class="contents">
+                    <ul>
+                        <li>新型コロナウイルス感染症の影響に伴う国民年金保険料の免除の臨時特例措置について</li>
+                        <li>国民年金第1号被保険者の産前産後期間の保険料免除について</li>
+                        <li>東日本大震災の被災者の皆様へのお知らせ</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>内容や対象要件などの詳細は、日本年金機構や札幌市の国民年金関連ページをご確認ください。</li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">国民年金からのお知らせの詳細を見る</a>
+            </div>
+
+            <!-- セクション3：年金の受給と振込日 -->
+            <div id="section-3" class="section">
+                <h3>年金の受給と振込日</h3>
+
+                <div class="contents">
+                    <h4>年金を受けるための手続き</h4>
+                    <p>すべての年金は、受給条件を満たしていても、ご本人が「裁定請求」を行わなければ受給することができません。請求先や必要書類は、年金の種類や加入状況によって異なります。</p>
+                    <ul>
+                        <li>老齢基礎年金</li>
+                        <li>障害基礎年金</li>
+                        <li>遺族基礎年金</li>
+                        <li>その他（付加年金、寡婦年金、死亡一時金、外国人の脱退一時金 など）</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>年金を受けられる期間</h4>
+                    <ul>
+                        <li>年金は、受給権を取得した月の翌月分から、受給権を失った月の分まで支給されます。</li>
+                        <li>老齢基礎年金の場合、通常は65歳になった月の翌月分から、亡くなった月の分まで受け取ることになります。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>年金の振込日（令和7年度）</h4>
+                    <p>年金は年6回、偶数月の15日に、それぞれ前2か月分が振り込まれます。（振込日が土日・祝日の場合は直前の平日）</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>支払対象月</th>
+                                    <th>支払月</th>
+                                    <th>振込日</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>4月分・5月分</td>
+                                    <td>6月</td>
+                                    <td>令和7年6月13日</td>
+                                </tr>
+                                <tr>
+                                    <td>6月分・7月分</td>
+                                    <td>8月</td>
+                                    <td>令和7年8月15日</td>
+                                </tr>
+                                <tr>
+                                    <td>8月分・9月分</td>
+                                    <td>10月</td>
+                                    <td>令和7年10月15日</td>
+                                </tr>
+                                <tr>
+                                    <td>10月分・11月分</td>
+                                    <td>12月</td>
+                                    <td>令和7年12月15日</td>
+                                </tr>
+                                <tr>
+                                    <td>12月分・1月分</td>
+                                    <td>2月</td>
+                                    <td>令和8年2月13日</td>
+                                </tr>
+                                <tr>
+                                    <td>2月分・3月分</td>
+                                    <td>4月</td>
+                                    <td>令和8年4月15日</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>年金受給者の主な手続き</h4>
+                    <ul>
+                        <li><strong>住所が変わったとき</strong><br>
+                            年金事務所または街角の年金相談センターで手続きを行います。マイナンバーが収録されている場合、手続きが不要となることがあります。</li>
+                        <li><strong>振込先の口座を変更したいとき</strong><br>
+                            年金事務所または街角の年金相談センターで手続きを行います。新しい口座が分かる書類が必要です。</li>
+                        <li><strong>名前が変わったとき</strong><br>
+                            結婚や養子縁組などで氏名が変わったときは届け出が必要です。マイナンバーが収録されている場合は手続きが不要となることがあります。</li>
+                        <li><strong>年金受給者が亡くなったとき</strong><br>
+                            年金用の死亡の届け出が必要です。未支給の年金がある場合は、生計を同じくしていた遺族が請求することができます。</li>
+                    </ul>
+
+                    <ul class="detail">
+                        <li>障害基礎年金・遺族基礎年金・寡婦年金を受けている方の死亡時の手続きは、お住まいの区の区役所年金係で行います。</li>
+                        <li>その他の年金を受けていた場合は、年金事務所にご相談ください。</li>
+                    </ul>
+                </div>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">日本年金機構ホームページで詳しく見る</a>
+            </div>
+
+            <!-- セクション4：国民年金に加入する方 -->
+            <div id="section-4" class="section">
+                <h3>国民年金に加入する方</h3>
+
+                <div class="contents">
+                    <h4>必ず加入する方</h4>
+                    <p>20歳以上60歳未満で日本国内に住所のある方は、一部の方を除き国民年金に加入します。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>被保険者の種類</th>
+                                    <th>対象となる方</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>第1号被保険者</td>
+                                    <td>20歳以上60歳未満で、第2号・第3号被保険者以外の方</td>
+                                </tr>
+                                <tr>
+                                    <td>第2号被保険者</td>
+                                    <td>会社員・公務員など厚生年金の加入者（65歳以上は老齢年金等の受給権がない方のみ）</td>
+                                </tr>
+                                <tr>
+                                    <td>第3号被保険者</td>
+                                    <td>20歳以上60歳未満で、第2号被保険者に扶養されている配偶者</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>希望により加入できる方（任意加入被保険者）</h4>
+                    <ul>
+                        <li>日本国内に住所がある60歳以上65歳未満の方</li>
+                        <li>日本国籍があり、海外に住んでいる20歳以上65歳未満の方</li>
+                        <li>加入期間が不足しているため、老齢基礎年金を受給できない65歳以上70歳未満の方（一定条件あり）</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>任意加入期間の保険料は、原則として免除の対象にはなりません。</li>
+                        <li>任意加入中の保険料納付方法は、原則口座振替となり、申し立てによりクレジットカード払いも選択できます。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション5：加入・変更の届け出 -->
+            <div id="section-5" class="section">
+                <h3>加入の届け出など</h3>
+
+                <p>国民年金に加入するとき・やめるとき、状況が変わったときなどは、お住まいの区の区役所年金係に届け出をしてください。届出を忘れると、年金が受けられなかったり、将来の年金額が少なくなる場合があります。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>こんなとき</th>
+                                <th>必要なもの</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>会社を退職したとき（被扶養配偶者の届け出も忘れずに）</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書（基礎年金番号が分かるもの）<br>
+                                    退職年月日の分かるもの（離職票など）<br>
+                                    （配偶者が第3号被保険者だったとき）配偶者の年金手帳または基礎年金番号通知書
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>配偶者の扶養からはずれたとき（離婚や収入増など）</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書<br>
+                                    扶養からはずれた日が分かるもの（社会保険の資格喪失証明書など）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>氏名が変わったとき（第1号被保険者のみ）</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書<br>
+                                    ※日本年金機構にマイナンバーが収録されている方は届出不要の場合があります。
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>日本国外に住むようになったとき（第1号被保険者）</td>
+                                <td>本人のマイナンバーカード、年金手帳または基礎年金番号通知書</td>
+                            </tr>
+                            <tr>
+                                <td>海外に住んでいた方が帰国したとき（任意加入していた方等）</td>
+                                <td>本人のマイナンバーカード、年金手帳または基礎年金番号通知書</td>
+                            </tr>
+                            <tr>
+                                <td>任意加入するとき・やめるとき</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書<br>
+                                    通帳・金融機関届出印（またはクレジットカード）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>付加年金に加入するとき・やめるとき</td>
+                                <td>本人のマイナンバーカード、年金手帳または基礎年金番号通知書</td>
+                            </tr>
+                            <tr>
+                                <td>生活保護を受けはじめたとき／廃止になったとき（法定免除）</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書<br>
+                                    生活保護の開始日または廃止日を証明するもの
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>障害基礎年金を受給しはじめたとき（法定免除）</td>
+                                <td>年金証書</td>
+                            </tr>
+                            <tr>
+                                <td>出産したとき（産前産後免除の届け出）</td>
+                                <td>
+                                    本人のマイナンバーカード、年金手帳または基礎年金番号通知書<br>
+                                    出産（予定）日が分かる書類（出産後の届け出の場合、原則不要）<br>
+                                    ※市役所では手続きできませんのでご注意ください。
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- セクション6：基礎年金番号通知書の再発行 -->
+            <div id="section-6" class="section">
+                <h3>基礎年金番号通知書の再発行</h3>
+
+                <p>基礎年金番号通知書は日本年金機構が発行しています。再発行の申請先は加入している年金の種類によって異なります。</p>
+                <p>令和4年4月以降は年金手帳の新規発行が廃止され、基礎年金番号通知書が発行されることとなりました。既に年金手帳をお持ちの方は、引き続きご使用いただけます。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>被保険者の種類</th>
+                                <th>申請先</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>第1号被保険者</td>
+                                <td>
+                                    お住まいの区の区役所年金係（市役所では申請できません）<br>
+                                    ※再発行までに1か月ほどかかります。お急ぎの場合は年金事務所へご相談ください。<br>
+                                    ＜持参するもの＞マイナンバーカードまたは基礎年金番号が分かるもの（ない場合は本人確認書類）
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>第2号被保険者</td>
+                                <td>勤務先を通じて年金事務所へ申請</td>
+                            </tr>
+                            <tr>
+                                <td>第3号被保険者</td>
+                                <td>年金事務所へ申請</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- セクション7：第3号被保険者に関する届け出 -->
+            <div id="section-7" class="section">
+                <h3>第3号被保険者に関する届け出</h3>
+                <p>厚生年金の加入者である配偶者の扶養に入るとき（第3号被保険者に該当するようになったとき）は、原則として配偶者の勤務先が年金事務所に届け出を行います。</p>
+                <p>扶養の状況が変わったときには、勤務先や年金事務所に早めにご相談ください。</p>
+            </div>
+
+            <!-- セクション8：海外で働くとき（社会保障協定） -->
+            <div id="section-8" class="section">
+                <h3>海外で働くときは（社会保障協定）</h3>
+                <p>海外で就労する場合など、日本と外国の年金制度に二重加入してしまうことや、保険料が掛け捨てとなることを防ぐため、日本と一部の国の間で「社会保障協定」が結ばれています。</p>
+                <ul>
+                    <li>協定の内容（どの期間が通算できるか など）は、相手国によって異なります。</li>
+                    <li>対象となる国や手続き方法などは、日本年金機構の「社会保障協定」ページで確認できます。</li>
+                </ul>
+
+                <!-- 詳細ボタン -->
+                <a href="#" class="link-button" target="_blank">社会保障協定の詳細を見る（日本年金機構）</a>
+            </div>
+
+            <!-- セクション9：お問い合わせ -->
+            <div id="section-9" class="section">
+                <h3>お問い合わせ</h3>
+                <p>このページの内容（国民年金の加入・届出、年金受給、各種手続きなど）に関するお問い合わせは、下記までご連絡ください。</p>
+
+                <p>札幌市南区 保健福祉部 保険年金課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1</p>
+
+                <p>
+                    国民年金に関すること（年金係）：011-582-4786<br>
+                    保険年金課代表：011-582-4770<br>
+                    ファクス番号：011-582-2401
+                </p>
+
+                <p>メールでのお問い合わせは、<a href="#" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>国民健康保険に関するページ</li>
+                    <li>国民年金保険料の免除・猶予制度について</li>
+                    <li>日本年金機構の各種年金ガイド</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    保険・年金に関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

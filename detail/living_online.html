@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>来庁せずにできる手続き｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* パンくず */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* タイトル部分 */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        /* 目次 */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        /* セクション（カード） */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 箇条書き */
+        ul {
+            padding-left: 20px;
+            margin: 5px 0 10px;
+        }
+
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header"></div>
+        <div style="height: 60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>来庁せずにできる手続き</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">住民票・戸籍証明等に関する来庁せずにできる手続き等のお知らせ</h1>
+                <p>住民票・戸籍証明・市税証明などについて、区役所へ来庁せずに手続きできる方法をご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次 -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">郵送による転出届の提出</a></li>
+                    <li><a href="#section-2">マイナポータルを使用したオンラインでの転出届</a></li>
+                    <li><a href="#section-3">郵送による証明請求</a></li>
+                    <li><a href="#section-4">コンビニエンスストアでの証明取得</a></li>
+                    <li><a href="#section-5">住民票などのオンライン申請</a></li>
+                    <li><a href="#section-6">このページについてのお問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- 郵送による転出届の提出 -->
+            <div id="section-1" class="section">
+                <h3>郵送による転出届の提出</h3>
+                <p>札幌市から他市区町村へお引越しされる場合、郵送で転出届を提出することができます。</p>
+                <p>詳しい手続き方法については、「郵送による転出届の提出方法（転出証明書の請求方法）」のページをご覧ください。</p>
+                <p><strong>※送付先は区役所ではありませんのでご注意ください。</strong></p>
+            </div>
+
+            <!-- マイナポータルを使用したオンラインでの転出届 -->
+            <div id="section-2" class="section">
+                <h3>マイナポータルを使用したオンラインでの転出届</h3>
+                <p>マイナンバーカードをお持ちの方が、他市町村（国内）にお引越しされる場合は、マイナポータルを利用してオンラインで転出届を行うことができます。</p>
+                <p>詳しくは、「マイナンバーカードをお持ちの方の転出手続きについて（マイナポータルを利用した、オンラインでの転出届）」のページをご覧ください。</p>
+            </div>
+
+            <!-- 郵送による証明請求 -->
+            <div id="section-3" class="section">
+                <h3>郵送による証明請求</h3>
+
+                <h4>住民票、戸籍証明の郵送請求</h4>
+                <p>住民登録が札幌市にある方は住民票、本籍が札幌市にある方は戸籍関係の証明書を、郵送により請求することができます。</p>
+                <p>ただし、証明書の送付先が住民登録の住所以外の場合は、請求できない場合があります。</p>
+                <p>詳しくは、「札幌市証明郵送センター」のページをご覧ください。</p>
+                <p><strong>※送付先は区役所ではありませんのでご注意ください。</strong></p>
+
+                <h4>市税証明の郵送請求</h4>
+                <p>市税の証明（所得（市・道民税）証明書、納税証明書、課税証明書など）を郵送により請求することができます。</p>
+                <p>詳しくは、「市税証明の郵送での請求」のページをご覧ください。</p>
+                <p><strong>※送付先は区役所ではありませんのでご注意ください。</strong></p>
+            </div>
+
+            <!-- コンビニエンスストアでの証明取得 -->
+            <div id="section-4" class="section">
+                <h3>コンビニエンスストアでの証明取得</h3>
+                <p>マイナンバーカードをお持ちの方は、全国のコンビニエンスストア等で対象の証明を、窓口請求よりも200円お得に取得できます。</p>
+
+                <h4>住民票・戸籍証明のコンビニ交付</h4>
+                <p>住民票・印鑑証明・戸籍証明書・戸籍の附票の写しなどを、コンビニエンスストアで取得できます。</p>
+                <p>詳しくは、「住民票・印鑑証明・戸籍証明書・戸籍の附票の写しの証明書コンビニ交付サービス（コンビニ交付）」のページをご覧ください。</p>
+
+                <h4>市税証明のコンビニ交付</h4>
+                <p>市税証明についても、一部の証明をコンビニエンスストアで取得することができます。</p>
+                <p>詳しくは、「市税証明のコンビニ交付サービス（コンビニ交付）」のページをご覧ください。</p>
+            </div>
+
+            <!-- 住民票などのオンライン申請 -->
+            <div id="section-5" class="section">
+                <h3>住民票などのオンライン申請</h3>
+                <p>マイナンバーカードをお持ちの方は、札幌市の住民票などを、ご自宅にいながら24時間365日（※メンテナンス時を除く）オンラインで申請し、郵送で受け取ることができます。</p>
+                <p>詳しくは、「オンライン申請（請求）」のページをご覧ください。</p>
+            </div>
+
+            <!-- お問い合わせ -->
+            <div id="section-6" class="section">
+                <h3>お問い合わせ</h3>
+                <p>札幌市南区 市民部 戸籍住民課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                    電話番号：000-000-0000<br>
+                    ファクス番号：000-000-0000</p>
+            </div>
+
+            <div id="footer"></div>
+        </main>
+    </div>
+<div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+</div>
+
+</body>
+<script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</html>

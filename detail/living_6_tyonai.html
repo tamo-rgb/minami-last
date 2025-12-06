@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>町内会・自治会に入りませんか｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 6px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>町内会・自治会に入りませんか</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">町内会・自治会に入りませんか</h1>
+                <p>地域のつながりを深め、安心して暮らせるまちづくりのために活動している町内会・自治会への加入についてご案内します。</p>
+                <p class="updated-date">更新日：2022年7月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">町内会・自治会とは</a></li>
+                    <li><a href="#section-2">南区の町内会・自治会の状況</a></li>
+                    <li><a href="#section-3">加入方法</a></li>
+                    <li><a href="#section-4">インターネットからの手続き</a></li>
+                    <li><a href="#section-contact">このページについてのお問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：概要 -->
+            <div id="section-1" class="section">
+                <h3>町内会・自治会とは</h3>
+                <div class="contents">
+                    <p>自分たちの住む地域でお互いのつながりを深めながら暮らしていく上で必要となる様々な活動をしているのが「町内会・自治会」です。</p>
+                    <p>地域の環境美化や防犯・防災、青少年育成、住民同士の交流など、安心・安全で住みよい地域づくりのために、住民同士が協力して取り組んでいます。</p>
+                    <h4>主な活動例</h4>
+                    <ul>
+                        <li>地域の清掃やごみステーションの管理など、環境・衛生に関する活動</li>
+                        <li>防犯パトロール、防災訓練、防災備品の整備など、防犯・防災に関する活動</li>
+                        <li>子ども会や行事の開催など、青少年育成に関する活動</li>
+                        <li>お祭り・交流会・サロンなど、住民同士の交流を深める活動</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション2：南区の状況 -->
+            <div id="section-2" class="section">
+                <h3>南区の町内会・自治会の状況</h3>
+                <div class="contents">
+                    <p>南区内には、令和2年1月1日現在で<strong>250の町内会・自治会</strong>と、その連合体である<strong>10の連合会組織</strong>があります。</p>
+                    <p>それぞれの町内会・自治会や連合会が、地域の実情にあわせた活動を行いながら、環境・衛生や防犯・防災、青少年育成、住民間の交流などに取り組んでいます。</p>
+                </div>
+            </div>
+
+            <!-- セクション3：加入方法 -->
+            <div id="section-3" class="section">
+                <h3>町内会・自治会への加入方法</h3>
+                <div class="contents">
+                    <p>南区では、次のような方法で町内会・自治会への加入案内を行っています。</p>
+                    <h4>窓口でのご案内</h4>
+                    <ul>
+                        <li>戸籍住民課窓口で住所異動の手続きをされた方に、<strong>町内会加入申出書</strong>をお配りしています。</li>
+                        <li>お住まいの地域の町内会・自治会についての相談も受け付けています。</li>
+                    </ul>
+                    <p>加入方法や会費、活動内容など、気になる点がありましたら、お気軽にご相談ください。</p>
+                </div>
+            </div>
+
+            <!-- セクション4：インターネット手続き -->
+            <div id="section-4" class="section">
+                <h3>インターネットからの加入手続き</h3>
+                <div class="contents">
+                    <p>インターネットからも、町内会・自治会への加入手続きを進めることができます。</p>
+                    <p>お住まいの地域から、該当する町内会・自治会を検索し、加入申込みへ進むことができます。</p>
+
+                <a href="https://www.city.sapporo.jp/shimin/shinko/chounaikai/kanyu/kensaku.html" class="content-box">
+                    町内会・自治会検索（札幌市公式サイト）
+                </a>
+                </div>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>まちづくりセンターのご案内</li>
+                    <li>地域活動・市民活動団体の紹介</li>
+                    <li>南区の地域振興に関する情報</li>
+                </ul>
+                <a href="/search/search_living.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- お問い合わせ -->
+            <div id="section-contact" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>
+                    札幌市南区 市民部 地域振興課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1
+                </p>
+                <p>
+                    電話番号：011-582-4723<br>
+                    ファクス番号：011-582-5470
+                </p>
+                <p>その他のお問い合わせは、<a href="#" target="_blank">お問い合わせフォーム</a>をご利用ください。</p>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>結婚したときの手続き｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 12px 0 6px;
+            font-size: 1rem;
+        }
+
+        /* ★ h4見出しに左線を追加（例：マイナンバーカードに関すること 等） */
+        .section h4 {
+            border-left: 4px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 8px 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <span>結婚したとき</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">結婚したときの手続き</h1>
+                <p>結婚に伴い必要となる戸籍・住所、健康保険、年金、子育て、氏名変更などの主な手続きについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月22日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#section-1">戸籍・住所変更の手続き</a></li>
+                    <li><a href="#section-2">国民健康保険の手続き</a></li>
+                    <li><a href="#section-3">遺族年金・寡婦年金を受給している方</a></li>
+                    <li><a href="#section-4">子どもがいる方の手続き</a></li>
+                    <li><a href="#section-5">氏名変更の手続き</a></li>
+                    <li><a href="#section-6">その他の手続き（ライフラインなど）</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：戸籍・住所変更の手続き -->
+            <div id="section-1" class="section">
+                <h3>戸籍・住所変更の手続き</h3>
+
+                <div class="contents">
+                    <h4>婚姻</h4>
+                    <ul>
+                        <li>成人の証人2人の署名が必要です。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所1階1番　戸籍住民課戸籍係（電話011-582-4724）<br>
+                        ※まちづくりセンター（定山渓出張所を除く）では届出できません。
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        本人確認書類（運転免許証・マイナンバーカード等）
+                    </p>
+
+                    <h4>婚姻届の夜間・休日受付</h4>
+                    <ul>
+                        <li>夜間・休日でも、区役所北側入口の時間外受付で婚姻届をお預かりすることができます。（事務処理は翌業務日になります）</li>
+                    </ul>
+
+                    <h4>婚姻に伴い住所が変わる場合</h4>
+                    <ul>
+                        <li>婚姻により住所が変わる場合には、婚姻届のほかに住所変更の届出（外国人住民を含む）が必要です。</li>
+                        <li>「引越し（市内で引越し）」、「引越し（市外へ転出）」のページをご覧ください。</li>
+                        <li>※夜間・休日は住所変更の届出はできません。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション2：国民健康保険の手続き -->
+            <div id="section-2" class="section">
+                <h3>国民健康保険の手続き</h3>
+
+                <div class="contents">
+                    <h4>国民健康保険の異動届（加入・脱退）</h4>
+                    <p>夫婦の一方が国民健康保険に加入していた場合や、配偶者が加入している健康保険の種類によって、手続きが異なります。詳しくはお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階6番　保険年金課保険係（電話011-582-4772）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション3：遺族年金・寡婦年金 -->
+            <div id="section-3" class="section">
+                <h3>遺族年金・寡婦年金を受給している方の手続き</h3>
+
+                <div class="contents">
+                    <h4>遺族年金・寡婦年金の失権届</h4>
+                    <p>遺族年金・寡婦年金の受給権のある方が結婚（事実婚を含む）したときは、遺族年金・寡婦年金を受ける権利がなくなります。</p>
+                    <p>届出が必要になりますので、詳細は下記へお問い合わせください。</p>
+                    <p><strong>お問い合わせ先</strong><br>
+                        札幌西年金事務所（電話011-241-7284）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション4：子どもがいる方の手続き -->
+            <div id="section-4" class="section">
+                <h3>子どもがいる方の手続き</h3>
+
+                <div class="contents">
+                    <h4>児童手当・特別児童扶養手当・子ども医療費助成の手続き</h4>
+                    <p>結婚したとき、児童手当・特別児童扶養手当の受給者が変更となる場合があります。</p>
+                    <ul>
+                        <li>受給者が変更となる場合は、消滅届と新たな認定請求、または増額届（児童手当のみ）が必要です。</li>
+                        <li>所得証明書、預金通帳、健康保険証などが必要となる場合がありますので、詳しくはお問い合わせください。</li>
+                        <li>お子さんの氏名や健康保険などが変わった場合は、子ども医療費助成の変更届を提出してください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        お子さんの健康保険証又は資格確認書、資格情報のお知らせなど（マイナンバーカードの提示のみでは保険証の情報が確認できません）・受給者証（子ども医療費助成を受給していて、変更があった場合）<br>
+                        ※手当についてはお問い合わせください。
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>保育園の手続き</h4>
+                    <p>保育園に入園しているお子さんがいる場合は、保護者変更などの手続きが必要になる場合があります。詳しくはお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階　健康・子ども課 子ども家庭福祉担当（電話011-522-5780）
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>ひとり親家庭だった方の手続き</h4>
+                    <p>ひとり親家庭のため、児童扶養手当などを受けていた方は、結婚により受給資格を失いますので、喪失の手続きをしてください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>必要なもの</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>児童扶養手当・災害遺児手当の喪失届</td>
+                                    <td>手当証書がある場合は手当証書</td>
+                                    <td>保健福祉課福祉助成係（区役所2階3番・電話011-582-4741）</td>
+                                </tr>
+                                <tr>
+                                    <td>ひとり親家庭等医療費助成の喪失届</td>
+                                    <td>
+                                        受給者証（子ども医療費助成に切り替えますので、お子さんの健康保険証又は資格確認書、資格情報のお知らせなど（マイナンバーカードの提示のみでは保険証の情報が確認できません）をお持ちください。<br>
+                                        なお、新たに生計維持者となる方の所得証明書が必要な場合があります。
+                                    </td>
+                                    <td>保健福祉課福祉助成係（区役所2階3番・電話011-582-4741）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>障がい児の手続き</h4>
+                    <p>各種手当、障害児福祉手当、障害者福祉サービス・障害児通所支援受給者証、自立支援医療受給者証（精神通院医療）をお持ちの場合、保護者変更などの手続きが必要な場合があります。詳しくはお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション5：氏名変更の手続き -->
+            <div id="section-5" class="section">
+                <h3>氏名変更の手続き</h3>
+
+                <div class="contents">
+                    <p>姓が変わったことで、各種氏名変更の手続きが必要な場合があります。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>マイナンバーカード（個人番号カード）に関すること</h4>
+                    <p><strong>マイナンバーカードの記載事項変更届</strong><br>
+                        マイナンバーカード（個人番号カード）の追記欄に氏名変更の記載を行いますので、窓口で届出をしてください。
+                    </p>
+                    <p><strong>窓口</strong><br>
+                        区役所1階2・3番　戸籍住民課住民記録係（電話011-582-4728）<br>
+                        またはマイナンバーカードセンター
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        マイナンバーカード（個人番号カード）、本人確認書類（運転免許証・健康保険証など）<br>
+                        ※代理人が手続きする場合は、事前にお問い合わせください。
+                    </p>
+                    <p><strong>マイナンバーカードセンター</strong><br>
+                        受付時間：水～金 12時～20時、土日 9時～17時<br>
+                        場所：札幌市中央区北3条西3丁目1-6　札幌小暮ビル1階<br>
+                        問い合わせ先：電話011-600-2323（マイナンバーカードコールセンター）<br>
+                        （月～金：9時～20時、土日祝日：9時～17時　年末年始除く）
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>印鑑登録に関すること</h4>
+                    <p><strong>印鑑登録の新規登録</strong><br>
+                        姓（氏）が変わった場合、姓（氏）の印鑑を登録している方は、印鑑登録が廃止されます。登録証を窓口へ返還するか破棄してください。印鑑証明が必要となる予定の方は、新たに登録してください。
+                    </p>
+                    <p><strong>窓口</strong><br>
+                        区役所1階4～8番　戸籍住民課住民記録係（電話011-582-4728）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        登録する印鑑、委任状（代理人が手続きする場合）
+                    </p>
+                    <ul>
+                        <li>当日中に印鑑登録を完了するには、本人が来庁し、規定の身分確認書類を提示する必要があります。詳しくはお問い合わせください。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>国民健康保険・介護保険・後期高齢者医療・国民年金に関すること</h4>
+
+                    <p><strong>国民健康保険の氏名変更届</strong><br>
+                        新しい氏名の被保険者証を交付します。<br>
+                        窓口：区役所2階6番　保険年金課保険係（電話011-582-4772）<br>
+                        必要なもの：国民健康保険資格確認書等、本人確認書類（運転免許証、マイナンバーカードなど）
+                    </p>
+
+                    <p><strong>介護保険の氏名変更届</strong><br>
+                        65歳以上の方または40歳以上で要介護認定を受けている方は、新しい氏名の被保険者証を交付します。<br>
+                        窓口：区役所2階6番　保険年金課保険係（電話011-582-4772）<br>
+                        必要なもの：介護保険被保険者証、本人確認書類（運転免許証、マイナンバーカードなど）
+                    </p>
+
+                    <p><strong>後期高齢者医療の氏名変更届</strong><br>
+                        新しい氏名の資格確認書は後日送付します。窓口での手続きは不要ですが、介護保険の手続きがありますので、窓口へお越しください。<br>
+                        窓口：区役所2階6番　保険年金課保険係（電話011-582-4772）<br>
+                        必要なもの：後期高齢者医療資格確認書、本人確認書類（運転免許証、マイナンバーカードなど）
+                    </p>
+
+                    <p><strong>国民年金の氏名変更届</strong><br>
+                        国民年金に加入している方（第1号被保険者及び任意加入被保険者）は、原則手続き不要です。<br>
+                        配偶者の被扶養者（第3号被保険者）になる場合は、配偶者の勤務先で手続きをしてください。<br>
+                        国民年金・厚生年金を受給していて日本年金機構にマイナンバーが収録されている方は原則手続き不要です。後日、日本年金機構から届く「氏名変更のお知らせ」を確認してください。<br>
+                        共済年金を受給している方は各共済組合へお問い合わせください。<br>
+                        ※マイナンバーの収録状況については、札幌西年金事務所（011-241-7284）へお問い合わせください。<br>
+                        窓口：区役所2階8番　保険年金課年金係（電話011-582-4786）<br>
+                        ※厚生年金に加入している方は、勤務先へお問い合わせください。
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>高齢者・障がい者・障がい児福祉に関すること</h4>
+                    <p>※外国人高齢者福祉手当の氏名変更は、保健福祉課地域福祉係（区役所2階4番・電話011-582-4734）へお問い合わせください。</p>
+
+                    <h4>各種手帳の氏名変更</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>必要なもの</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>身体障害者手帳</td>
+                                    <td>身体障害者手帳</td>
+                                    <td>保健福祉課相談担当（区役所2階2番・電話011-582-4747）</td>
+                                </tr>
+                                <tr>
+                                    <td>療育手帳</td>
+                                    <td>療育手帳</td>
+                                    <td>保健福祉課相談担当（区役所2階2番・電話011-582-4747）</td>
+                                </tr>
+                                <tr>
+                                    <td>精神障害者保健福祉手帳</td>
+                                    <td>精神障害者保健福祉手帳</td>
+                                    <td>保健福祉課相談担当（区役所2階2番・電話011-582-4747）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>重度心身障がい者医療費助成の氏名変更届</h4>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        受給者証、健康保険証又は資格確認書、資格情報のお知らせなど（マイナンバーカードの提示のみでは保険証の情報が確認できません）
+                    </p>
+
+                    <h4>特別障害者・障害児福祉・経過的福祉手当の氏名変更</h4>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        身体障害者手帳・療育手帳・精神障害者保健福祉手帳、受給資格者名義の預貯金通帳<br>
+                        （公金受取口座を名義変更し、利用する場合は預貯金通帳不要）
+                    </p>
+                    <p>※心身障害者扶養共済制度に加入している方は、保健福祉課福祉助成係（区役所2階3番・電話011-582-4741）へお問い合わせ下さい。</p>
+                    <p>※外国人障害者福祉手当の氏名変更は、保健福祉課地域福祉係（区役所2階4番・電話011-582-4734）へお問い合わせください。</p>
+
+                    <h4>障害福祉サービス・障害児通所支援受給者証の氏名変更</h4>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        受給者証
+                    </p>
+
+                    <h4>自立支援医療受給者証（更生医療・精神通院医療）の氏名変更</h4>
+                    <p>自立支援医療受給者証の氏名を変更しますので、窓口へお持ちください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        自立支援医療受給者証<br>
+                        ※保険証も変わる場合は以下もお持ちください。<br>
+                        ・健康保険証<br>
+                        ・保険世帯が市町村民税非課税の場合は受診者の年金収入等がわかるもの（申請日が1～6月は前々年、7～12月は前年の1～12月の収入）
+                    </p>
+
+                    <h4>特定医療費（指定難病）に関すること</h4>
+                    <p><strong>特定医療費（指定難病）受給者証の氏名変更届</strong><br>
+                        窓口：保健センター3階　健康・子ども課（電話011-581-5211）<br>
+                        必要なもの：受給者証、変更後の氏名が確認できるもの（住民票、戸籍個人事項証明（戸籍抄本）、保険証など）
+                    </p>
+                    <p>※小児慢性特定疾病医療受給者の氏名変更は、受給者証と変更後の氏名が確認できるもの（保険証など）を持って、健康・子ども課（保健センター3階・電話011-581-5211）で手続きしてください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>不動産に関すること</h4>
+                    <p><strong>不動産登記の氏名変更届</strong><br>
+                        不動産を管轄する法務局で手続きしてください。<br>
+                        窓口：札幌市法務局南出張所（札幌市豊平区平岸1条22丁目・電話(代)011-824-7411）<br>
+                        ※南・清田・豊平区所在の不動産のみ
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        戸籍個人事項証明（戸籍抄本）、住民票（戸籍個人事項証明の本籍地と登記簿の住所が符合しない場合）、除籍個人事項証明（戸籍抄本）（個人事項証明の氏名と登記簿の氏名が符合しない場合）、委任状（代理人申請の場合）、印鑑など。詳しくはお問い合わせください。
+                    </p>
+
+                    <p><strong>固定資産税・都市計画税の納税義務者の氏名変更届</strong><br>
+                        不動産が所在する市町村の固定資産税担当課へ届け出てください。（電話・はがき可）<br>
+                        窓口：南部市税事務所4階　固定資産税課 土地担当（電話011-824-3917）・家屋担当（電話011-824-3918）<br>
+                        ※南・清田・豊平区所在の土地・家屋<br>
+                        または、札幌市財政局税政部税制課のホームページよりお申し込みください。
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>自動車やバイクに関すること</h4>
+
+                    <p><strong>運転免許証の記載事項変更届</strong><br>
+                        最寄りの警察署で手続きができます。<br>
+                        窓口：<br>
+                        ・南警察署（札幌市中央区南29条西11丁目・電話011-552-0110）<br>
+                        ・中央警察署（札幌市中央区北1条西5丁目・電話011-242-0110）<br>
+                        必要なもの：運転免許証、住民票（発行後6ヵ月以内で本籍地が記載されているもの）など。詳しくはお問い合わせください。<br>
+                        北海道警察ホームページ「運転免許証に関する各種案内」もご参照ください。
+                    </p>
+
+                    <h4>登録証・車検証の氏名変更届</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種別</th>
+                                    <th>必要なもの</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>原動機付自転車（125CC以下または1.0kW以下）・小型特殊自動車</td>
+                                    <td>
+                                        運転免許証などの身分証明書、標識交付証明書<br>
+                                        ※郵送でも手続き可。詳細は「原動機付自転車・小型特殊自動車の申告について」をご確認ください。
+                                    </td>
+                                    <td>中央市税事務所 諸税課 軽自動車税担当（札幌市中央区南3条西11丁目・電話011-596-6932）</td>
+                                </tr>
+                                <tr>
+                                    <td>軽自動車</td>
+                                    <td>
+                                        検査証記入申請書、車検証、使用者の住所を証する書類（印鑑証明書・住民票等で発行後3ヵ月以内）、車両番号票（同じ管轄であれば不要）、軽自動車税申告書など。詳しくはお問い合わせください。
+                                    </td>
+                                    <td>
+                                        札幌地区軽自動車協会（札幌市北区新川5条20丁目・電話011-768-3955）<br>
+                                        ※業務時間：月曜日～金曜日（9時00分～11時30分、13時00分～16時00分）
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>125CC超のバイク・普通自動車</td>
+                                    <td>
+                                        変更登録申請書、手数料納付書、免許証、車検証、本籍地が変わる場合は戸籍全部事項証明（戸籍謄本、発行後3ヵ月以内）、自賠責証明書、自動車税申告書、印鑑など。詳しくはお問い合わせください。
+                                    </td>
+                                    <td>
+                                        札幌運輸支局（札幌市東区北28条東1丁目・電話050-5540-2001）<br>
+                                        ※業務時間：月曜日～金曜日（9時00分～12時00分、13時00分～16時00分）
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>免許に関すること</h4>
+                    <p><strong>調理師免許・看護師免許等の書換手続き</strong><br>
+                        窓口：保健センター3階　健康・子ども課（電話011-581-5213）<br>
+                        必要なもの：上記窓口にお問い合わせください。
+                    </p>
+
+                    <p><strong>食品営業に関する手続き</strong><br>
+                        窓口：保健センター3階　健康・子ども課（電話011-581-5213）<br>
+                        必要なもの：上記窓口にお問い合わせください。
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション6：その他の手続き -->
+            <div id="section-6" class="section">
+                <h3>その他の手続き（電気・ガス・水道・電話など）</h3>
+
+                <div class="contents">
+                    <p>結婚に伴い、電気・ガス・水道・電話などの名義変更が必要となる場合があります。それぞれ所管する機関へお問い合わせください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>必要な手続き</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>電気の氏名変更<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>ほくでん契約センター（電話0120-12-6565）</td>
+                                </tr>
+                                <tr>
+                                    <td>ガスの氏名変更<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>北ガスお客様センター（電話011-231-9511）</td>
+                                </tr>
+                                <tr>
+                                    <td>水道の氏名変更<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>札幌市水道局電話受付センター（電話011-211-7770）</td>
+                                </tr>
+                                <tr>
+                                    <td>電話の氏名変更<br>
+                                        戸籍全部事項証明（戸籍謄本）か戸籍個人事項証明（戸籍抄本）、印鑑を用意して届け出てください。
+                                    </td>
+                                    <td>NTT116センター（電話116）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>引っ越し（住所変更の手続き）</li>
+                    <li>国民健康保険の手続き</li>
+                    <li>子育て・医療費助成に関する手続き</li>
+                    <li>マイナンバーカード・印鑑登録に関する手続き</li>
+                </ul>
+                <a href="/search/search_living.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

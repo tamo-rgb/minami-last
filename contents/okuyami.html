@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>亡くなったときの手続き｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc p {
+            margin: 0 0 4px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・5・リスト */
+        h4 {
+            margin: 12px 0 6px;
+            font-size: 1rem;
+        }
+
+        .section h4 {
+            border-left: 4px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        h5 {
+            margin: 8px 0 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .section h5 {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ブロックを区切る線 */
+        .sub-divider {
+            margin: 12px 0;
+            border: none;
+            border-top: 1px dashed #d0d4d8;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 8px 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <span>亡くなったとき</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">亡くなったときの手続き</h1>
+                <p>ご家族がお亡くなりになった際に必要となる、死亡届、健康保険・介護保険・年金、福祉、税金、自動車、その他の主な手続きについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月22日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#section-1">区役所での主な手続き一覧</a></li>
+                    <li><a href="#section-2">戸籍等の手続き</a></li>
+                    <li><a href="#section-3">国民健康保険・後期高齢者医療・介護保険・国民年金の手続き</a></li>
+                    <li><a href="#section-4">保健福祉の手続き</a></li>
+                    <li><a href="#section-5">市税の手続き</a></li>
+                    <li><a href="#section-6">自動車やバイクの手続き</a></li>
+                    <li><a href="#section-7">その他の手続き</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：区役所での主な手続き一覧 -->
+            <div id="section-1" class="section">
+                <h3>区役所での主な手続き一覧</h3>
+
+                <div class="contents">
+                    <h4>区役所1階</h4>
+                    <h5>死亡届</h5>
+                    <p>死亡したことを知った日から7日以内に届出が必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        1番窓口
+                    </p>
+                    <ul>
+                        <li>印鑑登録をしていた場合は、死亡届を提出すると印鑑登録は自動的に廃止されます。印鑑登録証は廃棄してください。</li>
+                        <li>マイナンバーカードをお持ちだった場合、返還は不要です（死亡後の諸手続きにマイナンバーが必要となる場合もあるため、一定期間保管しておくことをお勧めします）。</li>
+                    </ul>
+                    <p><strong>その他（1階）</strong><br>
+                        印鑑登録に関することなど：4～8番窓口での手続きとなります。
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>区役所2階</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>手続きの内容</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>国民健康保険の資格喪失、介護保険の資格喪失</td>
+                                    <td>2階6番窓口（保険年金課保険係）</td>
+                                </tr>
+                                <tr>
+                                    <td>後期高齢者医療の資格喪失</td>
+                                    <td>2階6番窓口（保険年金課保険係）</td>
+                                </tr>
+                                <tr>
+                                    <td>葬祭費の申請（国民健康保険・後期高齢者医療に加入していた場合）</td>
+                                    <td>2階7番窓口（保険年金課給付係）</td>
+                                </tr>
+                                <tr>
+                                    <td>国民年金の手続き</td>
+                                    <td>2階8番窓口（保険年金課年金係）</td>
+                                </tr>
+                                <tr>
+                                    <td>敬老優待乗車証（敬老パス）・福祉乗車証等の返還、介護保険に係る一部負担金等の減額・減免認定証の返還</td>
+                                    <td>2階1番窓口（保健福祉課給付事務係）</td>
+                                </tr>
+                                <tr>
+                                    <td>身体障害者手帳・療育手帳・精神障害者保健福祉手帳の返還、特別障害者手当・障害児福祉手当・経過的福祉手当の資格喪失</td>
+                                    <td>2階2番窓口（保健福祉課相談担当）</td>
+                                </tr>
+                                <tr>
+                                    <td>自立支援医療受給者証の返還</td>
+                                    <td>2階2番窓口（保健福祉課相談担当）</td>
+                                </tr>
+                                <tr>
+                                    <td>重度心身障がい者医療費受給者証の返還、心身障害者扶養共済年金加入者の年金・弔慰金請求</td>
+                                    <td>2階3番窓口（保健福祉課福祉助成係）</td>
+                                </tr>
+                                <tr>
+                                    <td>児童手当・（特別）児童扶養手当・子ども医療費助成・ひとり親家庭等医療費助成の資格喪失、災害遺児手当に関する手続き</td>
+                                    <td>2階3番窓口（保健福祉課福祉助成係）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>保健センター</h4>
+                    <p><strong>特定医療費（指定難病）受給者証の返還</strong><br>
+                        保健センター3階　健康・子ども課（電話011-581-5211）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション2：戸籍等の手続き -->
+            <div id="section-2" class="section">
+                <h3>戸籍等の手続き</h3>
+
+                <div class="contents">
+                    <h4>死亡届</h4>
+                    <p>死亡したことを知った日から7日以内に届出が必要です。死亡届を提出すると、住民登録および印鑑登録は廃止されます。印鑑登録証は窓口へ返還するか、廃棄してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所1階1番　戸籍住民課戸籍係（電話011-582-4724）<br>
+                        ※まちづくりセンター（定山渓出張所を除く）では届出できません。
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>死亡診断書</li>
+                    </ul>
+
+                    <h5>死亡届の夜間・休日受付</h5>
+                    <ul>
+                        <li>夜間・休日でも各区役所で死亡届をお預かりすることができます。</li>
+                        <li>火葬許可証のお渡しは、8時45分から17時15分までに死亡届を提出した場合に限られます。</li>
+                        <li>夜間に死亡届をご提出いただく場合、火葬許可証の発行のため、再度お越しいただく必要があります。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション3：国民健康保険・後期高齢者医療・介護保険・国民年金 -->
+            <div id="section-3" class="section">
+                <h3>国民健康保険・後期高齢者医療・介護保険・国民年金の手続き</h3>
+
+                <div class="contents">
+                    <h4>国民健康保険の資格喪失届</h4>
+                    <p>国民健康保険に加入していた方がお亡くなりになった場合は、資格確認書等を返還してください。</p>
+                    <p>なお、保険料の精算（月割の支払いまたは返還）は、相続人の代表者を指定していただき、その方にお願いすることになります。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階6番　保険年金課保険係（電話011-582-4772）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>国民健康保険被保険者証</li>
+                        <li>代表相続人の預金通帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>介護保険の資格喪失届</h4>
+                    <p>65歳以上、または40歳以上で要介護認定を受けていた方がお亡くなりになった場合は、介護保険被保険者証を返還してください。</p>
+                    <p>保険料の精算（月割の支払または還付）は、相続人の代表者を指定していただき、その方にお願いすることになります。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階6番　保険年金課保険係（電話011-582-4772）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>介護保険被保険者証</li>
+                        <li>代表相続人の預金通帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>後期高齢者医療の資格喪失届・代表相続人指定届</h4>
+                    <p>後期高齢者医療に加入していた方は、後期高齢者医療被保険者証を返還してください。</p>
+                    <p>保険料の精算（月割の支払または還付）は、相続人の代表者を指定していただき、その方にお願いすることになります。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階6番　保険年金課保険係（電話011-582-4772）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>後期高齢者医療被保険者証</li>
+                        <li>代表相続人の預金通帳</li>
+                    </ul>
+                    <p>※社会保険や共済保険に加入している場合は、勤務先または加入している健康保険の事務所へお問い合わせください。</p>
+                    <hr class="sub-divider">
+
+                    <h4>葬祭費の申請</h4>
+                    <p>国民健康保険または後期高齢者医療に加入していた方が亡くなられた場合、加入者が死亡したときの葬祭（お葬式）を行った喪主または施主の方に葬祭費を支給します。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階7番　保険年金課給付係（電話011-582-4770）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>国民健康保険被保険者証または後期高齢者医療被保険者証</li>
+                        <li>葬祭を行った喪主または施主の氏名（フルネーム）が確認できるもの<br>
+                            （会葬はがき・葬儀社の領収書など）
+                        </li>
+                        <li>申請者（喪主または施主）の預金通帳</li>
+                        <li>印鑑</li>
+                    </ul>
+                    <p>※社会保険や共済保険に加入している場合は、勤務先または加入している健康保険の事務所へお問い合わせください。</p>
+                    <hr class="sub-divider">
+
+                    <h4>国民年金の手続き</h4>
+                    <p>年金を受給している方（障害基礎年金、遺族基礎年金、寡婦年金、老齢福祉年金、特別障害給付金）が亡くなった場合は手続きが必要です。</p>
+                    <p>また、20歳未満の子がいる方や、年金を受給していない方が亡くなった場合は、遺族基礎年金、寡婦年金、死亡一時金を請求できる可能性がありますので、保険年金課年金係にお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階8番　保険年金課年金係（電話011-582-4786）
+                    </p>
+                    <p>※国民年金（老齢）・厚生年金を受給している方は、札幌西年金事務所（011-241-7284）へ。</p>
+                    <p>※共済年金を受給している方は、各共済組合へお問い合わせください。</p>
+                </div>
+            </div>
+
+            <!-- セクション4：保健福祉の手続き -->
+            <div id="section-4" class="section">
+                <h3>保健福祉の手続き</h3>
+
+                <div class="contents">
+                    <h4>敬老優待乗車証（敬老パス）の返還</h4>
+                    <p>敬老優待乗車証（ICカード）内の残ポイントがある場合、利用者負担相当分を返金いたします。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階1番　保健福祉課給付事務係（電話011-582-4742）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>敬老優待乗車証</li>
+                        <li>代表相続人の印鑑</li>
+                        <li>代表相続人の預金通帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>障がい者交通費助成の返還</h4>
+                    <p>障がい者交通費助成を受けていた方は、以下の助成券を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階1番　保健福祉課給付事務係（電話011-582-4742）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>福祉乗車証</li>
+                        <li>福祉タクシー利用券</li>
+                        <li>福祉自動車燃料助成券</li>
+                        <li>交通費助成カードなど</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>介護保険に係る一部負担金等の減額・減免認定証の返還</h4>
+                    <p>介護保険に係る一部負担金等の減額・減免を受けられていた方は、認定証を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階1番　保健福祉課給付事務係（電話011-582-4742）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>認定証</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>身体障害者手帳・療育手帳・精神障害者保健福祉手帳の返還</h4>
+                    <p>これらの手帳をお持ちだった方は、手帳を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>身体障害者手帳</li>
+                        <li>療育手帳</li>
+                        <li>精神障害者保健福祉手帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>特別障害者手当・障害児福祉手当・経過的福祉手当の資格喪失</h4>
+                    <p>これらの手当を受給されていた方は、資格喪失の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>預金通帳（配偶者または同一生計にあった扶養義務者のもの）<br>
+                            ※公金受取口座を利用する場合、預金通帳は不要です。
+                        </li>
+                        <li>身体障害者手帳・療育手帳・精神障害者保健福祉手帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>障害福祉サービス・障害児通所支援受給者証の返還</h4>
+                    <p>障害福祉サービス・障害児通所支援受給者証をお持ちだった方は、受給者証を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>自立支援医療受給者証（更生医療・精神通院医療）の返還</h4>
+                    <p>自立支援医療受給者証をお持ちだった方は、受給者証を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>自立支援医療受給者証</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>重度心身障がい者医療費受給者証の返還</h4>
+                    <p>重度心身障がい者医療費受給者証をお持ちだった方は、受給者証を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>重度心身障がい者医療費受給者証</li>
+                        <li>「老初」「老課」の受給者証の場合は、代表相続人の預金通帳</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>心身障害者扶養共済制度加入者の年金・弔慰金請求</h4>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p>必要なものは場合によって異なりますので、詳しくは窓口にお問い合わせください。</p>
+                    <hr class="sub-divider">
+
+                    <h4>子ども医療費助成・ひとり親家庭等医療費助成の資格喪失届</h4>
+                    <p>子ども医療費助成・ひとり親家庭等医療費助成を受給していた方は、資格喪失の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>児童手当・児童扶養手当・特別児童扶養手当の資格喪失・額改定・受給者死亡届・未支払手当請求</h4>
+                    <p>手当の支給対象児童が亡くなられた場合は、資格喪失または額改定の手続きをしてください。</p>
+                    <p>受給者本人が亡くなられた場合は、受給者死亡届を提出してください。また、未支払手当がある場合は未支払手当請求をしてください（未支払手当は支給対象児童の口座に振り込みます）。</p>
+                    <p>なお、受給者の配偶者等、新たに子どもを養育することになった方は、新規の認定請求をしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>手当証書（児童扶養手当を受けていた場合）</li>
+                        <li>支給対象児童の預金通帳（受給者本人が亡くなられて未支払手当がある場合）<br>
+                            ※支給対象児童が2名以上いる場合は代表者1名分
+                        </li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>災害遺児手当に関する手続き</h4>
+                    <p>交通事故、労働災害等の不慮の災害で父または母等を失った（重度障がいとなった場合を含む）義務教育終了前の遺児を扶養する方に支給される手当です。</p>
+                    <p>新規申請や、すでに受給している方・支給対象児童が亡くなられた場合なども、手続きが必要ですので、窓口にお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
+                    </p>
+                    <p><strong>必要なもの（新規申請の場合の一例）</strong></p>
+                    <ul>
+                        <li>遺児の属する戸籍全部事項証明（戸籍謄本）</li>
+                        <li>保護者および遺児の属する世帯全員の住民票の写し</li>
+                        <li>災害であることを明らかにした警察署長または労働基準監督署長の発行する証明など</li>
+                        <li>※このほかにも書類が必要な場合がありますので、詳しくはお問い合わせください。</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>特定医療費（指定難病）受給者証の返還</h4>
+                    <p>特定医療費（指定難病）受給者証をお持ちだった方は、受給者証を返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階　健康・子ども課（電話011-581-5211）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>外国人高齢者福祉手当・外国人障害者福祉手当の手続き</h4>
+                    <p>対象となる手当を受給していた場合は、保健福祉課地域福祉係へお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健福祉課地域福祉係（区役所2階4番・電話011-582-4734）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション5：市税の手続き -->
+            <div id="section-5" class="section">
+                <h3>市税の手続き</h3>
+
+                <div class="contents">
+                    <h4>現所有者届（未登記家屋・相続登記に時間を要する場合）</h4>
+                    <p>区内に未登記の家屋を持っていた方、または相続登記に時間を要する方は、現所有者届の手続きが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        南部市税事務所4階　固定資産税課 土地担当（電話011-824-3917）・家屋担当（電話011-824-3918）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>登記簿</li>
+                        <li>相続人を証する書類（遺産分割協議書等）</li>
+                        <li>相続人の印鑑</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>納税義務承継の手続き</h4>
+                    <p>亡くなられた方の市税の納税義務を相続人が承継する手続きです。</p>
+                    <p><strong>窓口</strong><br>
+                        南部市税事務所3階　市民税課（電話011-824-3914）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>相続人の本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                    </ul>
+
+                    <h5>一定以上の財産等がある方の確定申告</h5>
+                    <p>一定以上の財産等がある場合は、確定申告が必要となる場合があります。</p>
+                    <p><strong>お問い合わせ先</strong><br>
+                        札幌南税務署（札幌市豊平区月寒東1条5丁目・電話011-853-1011）
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション6：自動車やバイクの手続き -->
+            <div id="section-6" class="section">
+                <h3>自動車やバイクの手続き</h3>
+
+                <div class="contents">
+                    <h4>運転免許証の返還</h4>
+                    <p>運転免許証は、最寄りの警察署に返還してください。</p>
+                    <p><strong>窓口</strong><br>
+                        南警察署（札幌市中央区南29条西11丁目・電話011-552-0110）<br>
+                        中央警察署（札幌市中央区北1条西5丁目・電話011-242-0110）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>自動車等の相続</h4>
+                    <p>自動車・バイク等を相続する場合は、車種ごとに手続き先・必要書類が異なります。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種別</th>
+                                    <th>必要なもの</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>原動機付自転車（125CC以下または1.0kW以下）・小型特殊自動車</td>
+                                    <td>
+                                        運転免許証などの身分証明書<br>
+                                        標識交付証明書
+                                    </td>
+                                    <td>
+                                        中央市税事務所 諸税課 軽自動車税担当<br>
+                                        （札幌市中央区南3条西11丁目・電話011-596-6932）
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>軽自動車</td>
+                                    <td>
+                                        検査証記入申請書<br>
+                                        車検証<br>
+                                        使用者の住所を証する書類（印鑑証明書・住民票等／発行後3ヵ月以内）<br>
+                                        自賠責証明書<br>
+                                        車両番号票（同じ管轄であれば不要）<br>
+                                        軽自動車税申告書・軽自動車税（環境性能割）申告書 など（詳しくはお問い合わせください）
+                                    </td>
+                                    <td>
+                                        札幌地区軽自動車協会<br>
+                                        （札幌市北区新川5条20丁目・電話011-768-3955）<br>
+                                        ※業務時間：月曜日～金曜日（9時～11時30分、13時～16時）
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>125CC超のバイク・普通自動車</td>
+                                    <td>
+                                        法定相続人の印鑑証明書と実印<br>
+                                        死亡証明書<br>
+                                        相続する人の車庫証明<br>
+                                        遺産分割協議書 など（詳しくはお問い合わせください）
+                                    </td>
+                                    <td>
+                                        札幌運輸支局<br>
+                                        （札幌市東区北28条東1丁目・電話050-5540-2001）<br>
+                                        ※業務時間：月曜日～金曜日（9時～12時、13時～16時）
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション7：その他の手続き -->
+            <div id="section-7" class="section">
+                <h3>その他の手続き</h3>
+
+                <div class="contents">
+                    <h4>飼い犬の登録変更</h4>
+                    <p>飼い犬を登録していた場合は、登録変更等の手続きが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階　健康・子ども課（電話011-581-5213）<br>
+                        札幌市動物愛護管理センター<br>
+                        （札幌市中央区北22条西15丁目3-6・電話011-736-6134）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>医師免許証等の返還の手続き</h4>
+                    <p>医師・看護師・調理師などの免許をお持ちだった場合は、免許証の返還手続きが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階　健康・子ども課（電話011-581-5213）
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>現在お持ちの免許証</li>
+                        <li>戸籍個人事項証明（戸籍抄本）など</li>
+                    </ul>
+                    <hr class="sub-divider">
+
+                    <h4>飲食店などの営業廃止または承継の手続き</h4>
+                    <p>飲食店などの営業許可を受けていた場合は、営業廃止または承継（お店を相続する場合）の手続きをしてください。</p>
+                    <p>手続きによって必要なものが異なりますので、詳しくは保健センターにお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階　健康・子ども課（電話011-581-5213）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>病院・診療所の廃止の手続き</h4>
+                    <p>病院・診療所などを開業していた場合は、廃止の手続きが必要です。詳細については医療政策課へご確認ください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健所　医療政策課（電話011-622-5162）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>市営墓地の権利移転の届出</h4>
+                    <p>市営墓地の所有権者であった場合は、権利移転の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健所　生活環境課<br>
+                        （札幌市中央区大通西19丁目 WEST19ビル3階・電話011-616-2855）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>遺言状の検認、相続放棄の手続き</h4>
+                    <p>遺言状の検認や相続放棄など、相続に関する手続きについては、家庭裁判所にお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        札幌家庭裁判所（札幌市中央区大通西12丁目・電話011-221-7281）
+                    </p>
+                    <hr class="sub-divider">
+
+                    <h4>電気・ガス・水道・電話の手続き</h4>
+                    <p>名義変更・継承などの手続きが必要となる場合があります。それぞれ所管する機関へお問い合わせください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>必要な手続き</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        電気の氏名変更・継承<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>ほくでん契約センター（電話0120-12-6565）</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        ガスの氏名変更・継承<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>北ガスお客様センター（電話011-231-9511）</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        水道の氏名変更・継承<br>
+                                        （電話でお申し込みください。）
+                                    </td>
+                                    <td>札幌市水道局電話受付センター（電話011-211-7770）</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        電話の氏名変更・継承<br>
+                                        戸籍全部事項証明（戸籍謄本）か戸籍個人事項証明（戸籍抄本）、印鑑を用意して届け出てください。
+                                    </td>
+                                    <td>NTT116センター（電話116）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>相続や遺言に関する相談窓口</li>
+                    <li>高齢者・障がい者福祉に関する手続き</li>
+                    <li>国民健康保険・介護保険・年金に関する手続き</li>
+                </ul>
+                <a href="/search/search_living.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

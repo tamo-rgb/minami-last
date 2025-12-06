@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>札幌市南区｜施設案内</title>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+</head>
+
+<style>
+    body {
+        background-color: var(--color-gbg);
+        font-family: 'Zen Maru Gothic', sans-serif;
+        margin: 0;
+    }
+
+    /* ===== パンくずリスト ===== */
+    .breadcrumb {
+        padding: 10px;
+        color: #555;
+        background-color: #ffffff;
+        margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+        color: #2e8b57;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumb span {
+        color: #333;
+    }
+
+    /* ===== セクション全体 ===== */
+    .section {
+        padding: 20px 16px 25px;
+        background-color: var(--color-gbg);
+    }
+
+    /* ==== リストアイテム（カード枠） ==== */
+    .list-item {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 12px 0;
+        padding: 15px;
+        background: #fff;
+    }
+
+    /* ==== タイトル部分（h4 + 矢印ボタン） ==== */
+    .toggle-tab {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 7px 0;
+        gap: 8px;
+    }
+
+    .toggle-tab h4 {
+        margin: 0;
+        font-size: 18px;
+    }
+
+    .toggle-tab .arrow-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 6px;
+        border: 1px solid var(--color-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        position: relative;
+        transition: 0.3s;
+        flex-shrink: 0;
+    }
+
+    /* ▼（閉じているとき） */
+    .toggle-tab .arrow-btn::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-top: 8px solid var(--color-primary);
+    }
+
+    /* 開いたとき：背景を色付き＋ ▲ に変更 */
+    .toggle-tab.active .arrow-btn {
+        background: var(--color-primary);
+        border-color: var(--color-primary);
+    }
+
+    .toggle-tab.active .arrow-btn::before {
+        border-top: none;
+        border-left: 6px solid transparent;
+        border-right: 6px solid transparent;
+        border-bottom: 8px solid #fff;
+    }
+
+    /* ==== 中身（閉じているとき非表示） ==== */
+    .toggle-content {
+        display: none;
+        margin-top: 7px;
+        background: #fff;
+        padding-top: 6px;
+        border-top: 1px solid var(--color-primary);
+    }
+
+    .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: rgb(48, 78, 53);
+    }
+
+    .test-title {
+        padding: 5px 0 10px 4px;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    /* ===== 施設ブロック ===== */
+    .facility-item {
+        padding: 8px 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .facility-item:last-child {
+        border-bottom: none;
+    }
+
+    .facility-name {
+        font-weight: 600;
+        margin: 0 0 4px;
+        font-size: 1rem;
+    }
+
+    .facility-addr,
+    .facility-tel {
+        margin: 0 0 2px;
+        font-size: var(--font-p);
+    }
+
+    .facility-addr span {
+        display: block;
+    }
+
+    .facility-tel a {
+        color: var(--color-text);
+        text-decoration: none;
+    }
+
+    .facility-tel a:hover {
+        text-decoration: underline;
+    }
+
+    /* ===== 箇条書きリンク ===== */
+    .link-list {
+        list-style: disc;
+        padding-left: 18px;
+        margin: 4px 0 0;
+    }
+
+    .link-list li {
+        margin: 3px 0;
+        font-size: var(--font-p);
+    }
+
+    .link-list a {
+        color: var(--color-primary);
+        text-decoration: underline;
+    }
+
+    .link-list a:hover {
+        opacity: 0.9;
+    }
+
+    /* ページ先頭へ */
+    .pagetop {
+        text-align: right;
+        margin-top: 8px;
+        font-size: 0.9rem;
+    }
+
+    .pagetop a {
+        color: var(--color-primary);
+        text-decoration: none;
+    }
+
+    .pagetop a:hover {
+        text-decoration: underline;
+    }
+
+    /* ページの先頭に戻るボタン */
+    #backToTopBtn {
+        position: fixed;
+        right: 16px;
+        bottom: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: var(--color-primary);
+        color: #fff;
+        cursor: pointer;
+        font-size: 18px;
+        display: none;
+        z-index: 1000;
+    }
+
+    @media (max-width:600px) {
+        .section {
+            padding: 18px 12px 22px;
+        }
+
+        .list-item {
+            padding: 12px;
+        }
+
+        .toggle-tab h4 {
+            font-size: 16px;
+        }
+    }
+
+            a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        a.content-box:hover {
+            background-color: #f7fff0;
+        }
+</style>
+
+<body id="top">
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="../index.html">ホームページ</a> ＞
+                <a href="../search.html">情報を探す</a> ＞
+                <a href="/search/search_town.html">環境・施設</a> ＞
+                <span>施設案内</span>
+            </nav>
+
+            <!-- 本文 -->
+            <section class="section">
+                <h3 class="test-title">施設案内</h3>
+
+                <ul class="news-list">
+                    <!-- 区役所 -->
+                    <li class="list-item">
+                        <div class="toggle-tab">
+                            <h4>区役所</h4>
+                            <div class="arrow-btn"></div>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="facility-item">
+                                <p class="facility-name">南区役所</p>
+                                <p class="facility-addr">
+                                    <span>〒005-8612</span>
+                                    <span>札幌市南区真駒内幸町2丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115822400">011-582-2400</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">南保健センター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0014</span>
+                                    <span>札幌市南区真駒内幸町1丁目3-2</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115815211">011-581-5211</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">南区土木センター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0031</span>
+                                    <span>札幌市南区南31条西8丁目2-5</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115813811">011-581-3811</a>
+                                </p>
+                            </div>
+                                <a href="/uncompleted.html" class="content-box">
+                                    区役所各課・係の直通電話番号
+                                </a>
+                        </div>
+                    </li>
+
+                    <!-- まちづくりセンター -->
+                    <li class="list-item">
+                        <div class="toggle-tab">
+                            <h4>まちづくりセンター（出張所・旧連絡所）</h4>
+                            <div class="arrow-btn"></div>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="facility-item">
+                                <p class="facility-name">澄川まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0003</span>
+                                    <span>札幌市南区澄川3条2丁目6-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0118218585">011-821-8585</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">藻岩下まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0034</span>
+                                    <span>札幌市南区南34条西9丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115812001">011-581-2001</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">真駒内まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0014</span>
+                                    <span>札幌市南区真駒内幸町2丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115813025">011-581-3025</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">藻岩まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0808</span>
+                                    <span>札幌市南区川沿8条2丁目4-15</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115716121">011-571-6121</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">石山まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0841</span>
+                                    <span>札幌市南区石山1条4丁目1-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115918734">011-591-8734</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">芸術の森地区まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0850</span>
+                                    <span>札幌市南区石山東7丁目1-31</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115927009">011-592-7009</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">藤野まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒061-2282</span>
+                                    <span>札幌市南区藤野2条7丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115917041">011-591-7041</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">簾舞まちづくりセンター</p>
+                                <p class="facility-addr">
+                                    <span>〒061-2263</span>
+                                    <span>札幌市南区簾舞3条6丁目8-25</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115962059">011-596-2059</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">定山渓まちづくりセンター（定山渓出張所）</p>
+                                <p class="facility-addr">
+                                    <span>〒061-2302</span>
+                                    <span>札幌市南区定山渓温泉東4丁目315-4</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115982191">011-598-2191</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- 区民センター・地区センター -->
+                    <li class="list-item">
+                        <div class="toggle-tab">
+                            <h4>区民センター・地区センター</h4>
+                            <div class="arrow-btn"></div>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="facility-item">
+                                <p class="facility-name">南区民センター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0014</span>
+                                    <span>札幌市南区真駒内幸町2丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115842100">011-584-2100</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">藤野地区センター</p>
+                                <p class="facility-addr">
+                                    <span>〒061-2282</span>
+                                    <span>札幌市南区藤野2条7丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115922002">011-592-2002</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">もいわ地区センター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0808</span>
+                                    <span>札幌市南区川沿8条2丁目4-15</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115725733">011-572-5733</a>
+                                </p>
+                            </div>
+                            <div class="facility-item">
+                                <p class="facility-name">すみかわ地区センター</p>
+                                <p class="facility-addr">
+                                    <span>〒005-0004</span>
+                                    <span>札幌市南区澄川4条4丁目4-40</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0118183035">011-818-3035</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- その他公共施設 -->
+                    <li class="list-item">
+                        <div class="toggle-tab">
+                            <h4>その他公共施設</h4>
+                            <div class="arrow-btn"></div>
+                        </div>
+                        <div class="toggle-content">
+                            <p>南区内のその他公共施設の一覧や詳細は、以下のページからご覧いただけます。</p>
+
+                            <p style="margin-top:8px; font-weight:600;">保育園／幼稚園／児童会館</p>
+                            <ul class="link-list">
+                                <li><a href="#">認可保育所</a></li>
+                                <li><a href="#">市立幼稚園</a></li>
+                                <li><a href="#">私立幼稚園（社団法人札幌市私立幼稚園連合会のページ）</a></li>
+                                <li><a href="#">児童会館</a></li>
+                            </ul>
+
+                            <p style="margin-top:10px; font-weight:600;">学校</p>
+                            <ul class="link-list">
+                                <li><a href="#">小学校／中学校</a></li>
+                                <li><a href="#">高等学校</a></li>
+                                <li><a href="#">養護学校</a></li>
+                                <li><a href="#">短期大学</a></li>
+                                <li><a href="#">大学</a></li>
+                            </ul>
+
+                            <p style="margin-top:10px; font-weight:600;">その他</p>
+                            <ul class="link-list">
+                                <li><a href="#">清掃事務所／体育館／図書館</a></li>
+                                <li><a href="#">警察／消防</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <!-- お問い合わせ -->
+                    <li class="list-item">
+                        <div class="toggle-tab">
+                            <h4>このページについてのお問い合わせ</h4>
+                            <div class="arrow-btn"></div>
+                        </div>
+                        <div class="toggle-content">
+                            <div class="facility-item">
+                                <p class="facility-name">札幌市南区市民部総務企画課</p>
+                                <p class="facility-addr">
+                                    <span>〒005-8612</span>
+                                    <span>札幌市南区真駒内幸町2丁目2-1</span>
+                                </p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115824714">011-582-4714</a>
+                                </p>
+                                <p class="facility-tel">
+                                    ファクス番号：011-582-0144
+                                </p>
+                                <p style="margin-top:4px;">
+                                    <a href="#" class="link-inline">お問い合わせフォーム</a>
+                                </p>
+                            </div>
+
+                            <div class="facility-item">
+                                <p class="facility-name">掲載内容のお問い合わせ先</p>
+                                <p>札幌市南区市民部総務企画課庶務係</p>
+                                <p class="facility-tel">
+                                    電話番号：
+                                    <a href="tel:0115824705">011-582-4705</a>
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <!-- フッター読み込み -->
+        <div id="footer"></div>
+    </div>
+
+    <div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+</div>
+
+    <script>
+        // アコーディオン（トグル）
+        const tabs = document.querySelectorAll('.toggle-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tab.classList.toggle('active');
+                const content = tab.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+
+        // ページ上部に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 200) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>ごみステーションに出すごみ・資源物｜札幌市</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== トグルリスト（details） ===== */
+        .toggle-list {
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #dbe7d0;
+            background-color: #f8fdf5;
+        }
+
+        .toggle-list summary {
+            cursor: pointer;
+            padding: 8px 10px;
+            font-weight: 600;
+            list-style: none;
+        }
+
+        .toggle-list[open] {
+            background-color: #f5fbef;
+        }
+
+        .toggle-list summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .toggle-list summary::after {
+            content: "＋";
+            float: right;
+            font-weight: 700;
+        }
+
+        .toggle-list[open] summary::after {
+            content: "－";
+        }
+
+        .toggle-list-content {
+            padding: 0 10px 8px 16px;
+        }
+
+        .toggle-list-content ul {
+            margin: 4px 0 0;
+            padding-left: 16px;
+        }
+
+        .toggle-list-content li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== よくある質問 ===== */
+        .faq-item {
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .faq-q::before {
+            content: "Q.";
+            margin-right: 4px;
+            color: var(--color-primary);
+        }
+
+        .faq-a::before {
+            content: "A.";
+            margin-right: 4px;
+            font-weight: 600;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>ごみステーションに出すごみ・資源物</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">ごみステーションに出すごみ・資源物</h1>
+                <p>札幌市では、ごみステーションで9種類のごみ・資源物を分別して収集しています。収集日や分け方のルールを守り、適切な排出にご協力ください。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-0">ごみ・資源物の種類</a></li>
+                    <li><a href="#type-moyaseru">燃やせるごみ</a></li>
+                    <li><a href="#type-moyasenai">燃やせないごみ</a></li>
+                    <li><a href="#type-bin">びん・缶・ペットボトル</a></li>
+                    <li><a href="#type-plastic">容器包装プラスチック</a></li>
+                    <li><a href="#type-zatsugami">雑がみ</a></li>
+                    <li><a href="#type-eda">枝・葉・草</a></li>
+                    <li><a href="#type-spray">スプレー缶・カセットボンベ</a></li>
+                    <li><a href="#type-battery">筒型乾電池</a></li>
+                    <li><a href="#type-tobacco">加熱式たばこ・電子たばこ、ライター</a></li>
+                    <li><a href="#section-faq">よくある質問Q&A</a></li>
+                    <li><a href="#section-toggle">その他のごみ・資源物の情報</a></li>
+                    <li><a href="#section-contact">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション：概要・種類一覧 -->
+            <div id="section-0" class="section">
+                <h3>ごみステーション収集の概要</h3>
+                <div class="contents">
+                    <p>札幌市では、次の9種類のごみ・資源物を、ごみステーションで分別収集しています。</p>
+                    <ul>
+                        <li>燃やせるごみ</li>
+                        <li>燃やせないごみ</li>
+                        <li>びん・缶・ペットボトル</li>
+                        <li>容器包装プラスチック</li>
+                        <li>雑がみ</li>
+                        <li>枝・葉・草</li>
+                        <li>スプレー缶・カセットボンベ</li>
+                        <li>筒型乾電池</li>
+                        <li>加熱式たばこ・電子たばこ、ライター</li>
+                    </ul>
+
+                    <h4>ご利用にあたっての注意事項</h4>
+                    <ul>
+                        <li>各区分の詳細ルールは、それぞれの説明とリンク先ページを必ずご確認ください。</li>
+                        <li>収集日は地区ごとに異なります。「ごみ収集日カレンダー」でご確認ください。</li>
+                        <li>燃やせるごみ・燃やせないごみに分類される品目の中には、<strong>回収拠点で無料回収している資源物</strong>もあります。限りある資源を守るため、回収拠点での無料回収のご利用もご検討ください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 燃やせるごみ -->
+            <div id="type-moyaseru" class="section">
+                <h3>燃やせるごみ（有料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>週2回</p>
+                    <p><strong>出し方：</strong>指定ごみ袋に入れて出してください。指定ごみ袋に入らないものは「大型ごみ（有料）」になります。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>台所のごみ（生ごみなど）</li>
+                        <li>食用油（布や紙にしみ込ませるなどしてから）</li>
+                        <li>製品プラスチック（おもちゃ・バケツなどのプラスチック製品）</li>
+                        <li>汚れた紙（ピザの箱・油のしみた紙など）</li>
+                        <li>衣類・布類</li>
+                        <li>皮革・ゴム・ビニール製品</li>
+                        <li>木製品・材木類</li>
+                        <li>炭、乾燥剤、保冷剤、使い捨てカイロ　など</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>家庭から出る庭木の剪定枝・刈芝・草花・落ち葉などは、通常は「枝・葉・草」に出してください。</li>
+                        <li>「枝・葉・草」の収集期間外（12月〜4月）や、やむを得ず「枝・葉・草」に出せない場合のみ、「燃やせるごみ」として収集します。</li>
+                    </ul>
+
+                    <p>詳しくは、「燃やせるごみ」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- 燃やせないごみ -->
+            <div id="type-moyasenai" class="section">
+                <h3>燃やせないごみ（有料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>4週に1回</p>
+                    <p><strong>出し方：</strong>指定ごみ袋に入れて出してください。指定ごみ袋に入らないものは「大型ごみ（有料）」です。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>塗料缶の容器など（「容器包装プラスチック」「びん・缶・ペットボトル」で対象外のもの）</li>
+                        <li>小型家電製品（テレビやパソコンなど、市で収集しないものを除く）</li>
+                        <li>金属製品</li>
+                        <li>ブロック・レンガ</li>
+                        <li>ガラス・せともの</li>
+                        <li>蛍光管（厚紙などで包み、指定ごみ袋に「キケン」と表示して）など</li>
+                    </ul>
+
+                    <p>詳しくは、「燃やせないごみ」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- びん・缶・ペットボトル -->
+            <div id="type-bin" class="section">
+                <h3>びん・缶・ペットボトル（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>週1回</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>空きびん</li>
+                        <li>空き缶</li>
+                        <li>ペットボトル（ペットマークの付いた容器）</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>中身が残っていたり、汚れが付着している場合は、水で軽くすすいでください。</li>
+                        <li>プラスチック製ラベルははがして「容器包装プラスチック」へ。</li>
+                        <li>プラスチック製のふたは「容器包装プラスチック」へ。</li>
+                        <li>アルミボトルのふたははずして「びん・缶・ペットボトル」へ。</li>
+                        <li>上記以外のふたは「燃やせないごみ」へ。</li>
+                    </ul>
+
+                    <p>詳しくは、「びん・缶・ペットボトル」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- 容器包装プラスチック -->
+            <div id="type-plastic" class="section">
+                <h3>容器包装プラスチック（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>週1回</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>プラマークの付いた容器・包装類</li>
+                        <li>パック・カップ類</li>
+                        <li>プラスチック製ボトル類</li>
+                        <li>ネット類、チューブ類、トレイ類</li>
+                        <li>ポリ袋、ラップ類</li>
+                        <li>プラスチック製のふた・ラベル</li>
+                        <li>緩衝材、発泡スチロール　など</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>中身が残っていたり、汚れが付着している場合は、水で軽くすすいでください。</li>
+                        <li><strong>リチウムイオン電池を使用した家電製品や危険物は絶対に入れないでください。</strong></li>
+                    </ul>
+
+                    <p>詳しくは、「容器包装プラスチック」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- 雑がみ -->
+            <div id="type-zatsugami" class="section">
+                <h3>雑がみ（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>2週に1回</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>紙箱類</li>
+                        <li>紙缶・紙カップ類</li>
+                        <li>台紙類、カレンダー</li>
+                        <li>レシート、包装紙類、紙袋類</li>
+                        <li>はがき、手紙、封筒、写真</li>
+                        <li>トイレットペーパーの芯</li>
+                        <li>シュレッダーなどで裁断した紙</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>水で洗っても汚れが落ちないものは「燃やせるごみ」へ。</li>
+                        <li>新聞・雑誌・ダンボールは、集団資源回収や回収拠点へ出してください。</li>
+                        <li>やむを得ず出せない場合は、有料の指定ごみ袋に入れて「燃やせるごみ」の日に出すこともできます。</li>
+                    </ul>
+
+                    <p>詳しくは、「雑がみ」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- 枝・葉・草 -->
+            <div id="type-eda" class="section">
+                <h3>枝・葉・草（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>4週に1回</p>
+                    <p><strong>収集期間：</strong>5月〜12月中旬（地区により異なります）</p>
+
+                    <h4>出し方</h4>
+                    <ul>
+                        <li><strong>枝：</strong>長さ50cm以下に切り、1mくらいの束になるようひもで縛ってください。</li>
+                        <li><strong>草・葉：</strong>透明または半透明の袋に入れてください。</li>
+                    </ul>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>刈芝</li>
+                        <li>草花</li>
+                        <li>落ち葉</li>
+                        <li>庭木の剪定枝</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>野菜や果実（果物）、材木類、木製品、竹やむしろなどの冬囲い用品は対象外です。</li>
+                        <li>対象外のものは、大きさに応じて「燃やせるごみ」または「大型ごみ」に出してください。</li>
+                    </ul>
+
+                    <p>詳しくは、「枝・葉・草」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- スプレー缶・カセットボンベ -->
+            <div id="type-spray" class="section">
+                <h3>スプレー缶・カセットボンベ（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>週2回（「燃やせるごみ」の日と同じ）</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください（燃やせるごみの指定袋とは別の袋）。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>整髪料スプレー</li>
+                        <li>殺虫剤スプレー</li>
+                        <li>卓上ガスボンベ　など</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>中身を使い切ってから出してください。</li>
+                        <li><strong>穴はあけないでください。</strong></li>
+                        <li>平成29年7月から排出ルールを変更しています。</li>
+                    </ul>
+
+                    <p>詳しくは、「スプレー缶・カセットボンベ」のページをご覧ください。中身を使い切れない場合の処分方法も掲載しています。</p>
+                </div>
+            </div>
+
+            <!-- 筒型乾電池 -->
+            <div id="type-battery" class="section">
+                <h3>筒型乾電池（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>週1回（「びん・缶・ペットボトル」の日と同じ）</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください（びん・缶・ペットボトルの袋とは別の袋）。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>単1〜単5電池</li>
+                        <li>角型9V電池などの使い捨て電池</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>次の電池は出せません：
+                            <ul class="detail">
+                                <li>小型充電式電池（ニカド電池、ニッケル水素電池、リチウムイオン電池）</li>
+                                <li>ボタン電池</li>
+                                <li>リチウムコイン電池</li>
+                            </ul>
+                        </li>
+                        <li>これらの処分方法は、「筒型乾電池」の詳細ページ内でご案内しています。</li>
+                        <li>令和3年10月から排出ルールを変更しました。</li>
+                    </ul>
+
+                    <p>詳しくは、「筒型乾電池」のページをご覧ください。</p>
+                </div>
+            </div>
+
+            <!-- 加熱式たばこ・電子たばこ、ライター -->
+            <div id="type-tobacco" class="section">
+                <h3>加熱式たばこ・電子たばこ、ライター（無料）</h3>
+                <div class="contents">
+                    <p><strong>収集頻度：</strong>4週に1回（「燃やせないごみ」の日と同じ）</p>
+                    <p><strong>出し方：</strong>透明または半透明の袋に入れて出してください（燃やせないごみの指定袋とは別の袋）。</p>
+
+                    <h4>主な品目</h4>
+                    <ul>
+                        <li>加熱式たばこ・電子たばこ本体</li>
+                        <li>使い捨てライター</li>
+                    </ul>
+
+                    <h4>注意点</h4>
+                    <ul>
+                        <li>ライターは中身を使い切ってから出してください。</li>
+                        <li>平成29年7月からライターの排出ルールを変更しています。</li>
+                        <li>令和3年10月から加熱式たばこ・電子たばこの排出ルールを変更しています。</li>
+                    </ul>
+
+                    <p>詳しくは、「加熱式たばこ・電子たばこ、ライター」のページをご覧ください。中身を使いきれないライターの処分方法も掲載しています。</p>
+                </div>
+            </div>
+
+            <!-- よくある質問 -->
+            <div id="section-faq" class="section">
+                <h3>よくある質問Q&A</h3>
+
+                <div class="contents">
+                    <div class="faq-item">
+                        <div class="faq-q">ごみは祝日の場合でも収集していますか。</div>
+                        <div class="faq-a">
+                            ごみ収集は、土曜日・日曜日・年末年始を除き、祝日や振替休日も収集しています。
+                            収集日については「ごみ収集日カレンダー」でご確認ください。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">収集日なのに、なかなかごみを取りに来ません。</div>
+                        <div class="faq-a">
+                            収集車のルートの関係で、収集が午後になる場合があります。
+                            収集時間が極端に遅い場合は、お住まいの区を担当する清掃事務所へご連絡ください。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">「半透明の袋」とは、どの程度の透明度ですか。</div>
+                        <div class="faq-a">
+                            収集作業員が中身を確認できる程度の透明度が必要です。
+                            指定ごみ袋と同程度以上の透明度で、中身が見える袋をお使いください。
+                            白・黄・青・緑などの明るい色で中身が見えるものは使用できますが、
+                            黒・灰・茶色など暗い色の袋は、中身が見えにくくなるため使用できません。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">乳白色のレジ袋は、半透明の袋として使えますか。</div>
+                        <div class="faq-a">
+                            中身がはっきり見える程度の透明度があれば使用できますが、
+                            最近の乳白色のレジ袋は以前より色が濃く、中身が見えにくいものも多くなっています。
+                            指定のごみ袋と同程度以上の透明度がないものは使用できませんので、ご注意ください。
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-q">犬・猫などペットの死体はどう処理すればよいですか。</div>
+                        <div class="faq-a">
+                            飼い犬・猫などのペットを葬る場合（有料）は、
+                            「動物管理センター（札幌市西区八軒9条5丁目 電話：011-736-6134）」へご相談ください。
+                            飼い主が不明な場合（公道上の死体など）は、その区を担当する清掃事務所、
+                            または札幌市コールセンター（電話：011-222-4894）までご連絡ください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- トグルリスト：その他の情報 -->
+            <div id="section-toggle" class="section">
+                <h3>その他のごみ・資源物に関する情報</h3>
+
+                <!-- 資源物の無料回収 -->
+                <details class="toggle-list">
+                    <summary>資源物の無料回収</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>集団資源回収（町内会等による新聞・雑誌・ダンボールなどの収集）</li>
+                            <li>資源物の無料回収一覧（資源物別の一覧）</li>
+                            <li>古紙（新聞・雑誌・ダンボール）の無料回収</li>
+                            <li>小型家電の無料回収</li>
+                            <li>古着の無料回収</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- 大型ごみの出し方 -->
+                <details class="toggle-list">
+                    <summary>大型ごみの出し方</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>大型ごみ（大型ごみのリユース（再利用）収集を含む）</li>
+                            <li>民間サービスを活用してリユースする</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- 民間サービスを活用してリユース -->
+                <details class="toggle-list">
+                    <summary>民間サービスを活用してリユース</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>民間サービスを活用してリユース（フリマアプリ・リサイクルショップ等の活用）</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- 市では収集・受け入れしないごみ -->
+                <details class="toggle-list">
+                    <summary>市では収集・受け入れしないごみの処分方法</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>テレビ・冷蔵庫・洗濯機・エアコンリサイクル（家電リサイクル法対象品）</li>
+                            <li>パソコンリサイクル</li>
+                            <li>市が収集しないごみ（一覧と処分方法）</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- 市の施設へ自分で持ち込む -->
+                <details class="toggle-list">
+                    <summary>市の施設へ自分で持ち込む</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>家庭ごみの自己搬入（市のごみ処理施設にごみを持ち込む場合）<br>
+                                ┗ 燃やせるごみ・燃やせないごみ・大型ごみ等の持ち込み先</li>
+                            <li>地区リサイクルセンター（資源物の持ち込み先）</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <!-- お知らせ・お願い -->
+                <details class="toggle-list">
+                    <summary>お知らせ・お願い</summary>
+                    <div class="toggle-list-content">
+                        <ul>
+                            <li>製品プラスチック回収の検討について</li>
+                            <li>ペットボトルをペットボトルにリサイクルする「ボトルtoボトル試行事業」の開始について</li>
+                            <li>リチウムイオン電池を使用した家電製品や危険物を容器包装プラスチックに出さないでください</li>
+                            <li>引越しなどで一時的に多量に出るごみの処理について</li>
+                            <li>清掃工場での火災の原因となるごみについて</li>
+                            <li>ごみ収集車の火災について</li>
+                            <li>違法な不用品回収業者にご注意ください</li>
+                            <li>アスベスト含有製品（バスマット等）の流通とメーカー等による回収について</li>
+                            <li>令和3年度の大雪による家庭ごみ収集への影響について</li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <!-- 関連ページ -->
+            <div class="add-section">
+                <h3>関連ページ</h3>
+                <ul>
+                    <li>大型ごみ：大型ごみの出し方、申込先</li>
+                    <li>家庭ごみ50音分別辞典：処分したいものの名前から、ごみの出し方を調べることができます。</li>
+                    <li>ごみ収集日カレンダー</li>
+                    <li>集団資源回収：新聞・雑誌・ダンボールなどの収集日を調べることができます。</li>
+                    <li>市が収集しないごみ：テレビ・冷蔵庫・洗濯機・エアコンのリサイクル、パソコンリサイクル、充電式電池のリサイクルなどについて</li>
+                    <li>引越しや遺品の整理などで一時的に多量に出るごみの処理について</li>
+                    <li>ごみ・リサイクルのお問い合わせ先</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    ごみ・リサイクルに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- お問い合わせ -->
+            <div id="section-contact" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>
+                    札幌市環境局 環境事業部 業務課<br>
+                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎13階<br>
+                    電話番号：011-211-2916（内線：2916）<br>
+                    ファクス番号：011-218-2105
+                </p>
+                <p>お問い合わせフォームからもご相談いただけます。</p>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

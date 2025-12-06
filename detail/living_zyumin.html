@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
     <title>住民票の写しなどの請求｜札幌市南区</title>
 
     <!-- フォント（統一） -->
@@ -104,6 +106,7 @@
             border-radius: 10px;
             border: 1px solid #f0f2f4;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
         }
 
         .section h3 {
@@ -248,6 +251,7 @@
         <section class="top-contents">
             <h1 class="midashi">住民票の写しなどの請求</h1>
             <p>住民票の写しなどが必要な際に行う請求です。</p>
+            <p class="updated-date">更新日：2022年6月21日</p>
         </section>
 
         <!-- 目次（アンカーリンク） -->
@@ -391,8 +395,33 @@
         <div id="footer"></div>
 
 </div>
+<div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+</div>
     </main>
 
+
 </body>
+<script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 
 </html>

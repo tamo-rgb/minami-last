@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>マイナンバーカードセンター｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* パンくず */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* タイトル部分 */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        /* 目次 */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #fff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        /* セクション（カード） */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 5px 0 10px;
+        }
+
+        h4 {
+            margin: 10px 0 6px;
+            font-size: 1rem;
+        }
+
+        h5 {
+            margin: 6px 0 4px;
+            font-size: 0.95rem;
+        }
+
+        .note {
+            font-size: 0.9rem;
+        }
+
+        /* 表 */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 10px;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background: #fff;
+            vertical-align: top;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="header"></div>
+        <div style="height: 60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>マイナンバーカードセンター</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">マイナンバーカードセンター</h1>
+                <p>マイナンバーカードの申請サポートや電子証明書の更新、交付予約、各種手続きができる専用窓口「マイナンバーカードセンター」についてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次 -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">お知らせ・混雑状況</a></li>
+                    <li><a href="#section-2">マイナンバーカードセンターでできる手続き</a></li>
+                    <li><a href="#section-3">カード受け取り（完全予約制）</a></li>
+                    <li><a href="#section-4">マイナンバーカードセンターの場所・アクセス</a></li>
+                    <li><a href="#section-5">開所日時・休所日</a></li>
+                    <li><a href="#section-6">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- お知らせ・混雑状況 -->
+            <div id="section-1" class="section">
+                <h3>お知らせ・混雑状況</h3>
+                <p><strong>●マイナンバーカードの電子証明書の更新や住所変更等の手続きが増えており、大変混雑しております。</strong></p>
+                <p>長時間お待ちいただく場合がありますので、あらかじめご了承ください。</p>
+                <p>マイナンバーカードセンターは、<strong>土・日曜日や平日夜間</strong>にマイナンバーカードの各種手続きができる窓口です。</p>
+                <p class="note">マイナンバーカードの交付や各種手続き（申請サポートを除く）は、お住まいの区の<strong>区役所戸籍住民課</strong>でも行っています。「区役所戸籍住民課窓口の呼び出し状況」で混雑状況を確認のうえ、ご来庁ください。</p>
+                <ul>
+                    <li>区役所戸籍住民課窓口の呼び出し状況</li>
+                    <li>マイナンバー制度</li>
+                    <li>マイナンバーカードの利用について（マイナポータル閲覧等支援窓口のご案内）</li>
+                </ul>
+            </div>
+
+            <!-- 取扱業務 -->
+            <div id="section-2" class="section">
+                <h3>マイナンバーカードセンターでできる手続き</h3>
+                <p>マイナンバーカードセンターで取り扱っている主な業務は次のとおりです。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>取扱業務</th>
+                                <th>内容</th>
+                                <th>備考</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>申請サポート</td>
+                                <td>
+                                    <p>顔写真の撮影（無料）や申請書記載のお手伝いを行います。</p>
+                                    <p>本人確認書類を持参いただいた札幌市民の方は、その場で申請を受け付け、<strong>約1か月後にご自宅あてにカード（本人限定受取郵便）</strong>を郵送します。</p>
+                                    <p>ただし、「再交付」の場合はカードの郵送はできず、センターまたは区役所でのお受け取りが必要です。</p>
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>予約は<strong>不要</strong>です。</li>
+                                        <li>窓口終了の<strong>15分前</strong>までに直接お越しください。</li>
+                                        <li>必要書類はマイナンバーカードコールセンター（TEL：000-0000-0000）へお問い合わせください。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>住所・氏名の変更に伴う<br>券面記載事項の変更</td>
+                                <td>
+                                    <p>引っ越しや氏名変更に伴うマイナンバーカードの記載事項（住所・氏名など）の変更手続きです。</p>
+                                </td>
+                                <td>
+                                    <p>住所の異動届（転入・転居など）は<strong>区役所</strong>で行ってください。マイナンバーカードの記載変更は、その後に行います。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>暗証番号の再設定・変更</td>
+                                <td>
+                                    <p>暗証番号を忘れてしまった場合や、暗証番号の連続誤入力によるロックがかかった場合の再設定・初期化などの手続きです。</p>
+                                </td>
+                                <td>
+                                    <p>マイナンバーカード本体と本人確認書類が必要です。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>電子証明書の更新・発行</td>
+                                <td>
+                                    <p>マイナンバーカードに格納されている電子証明書（署名用・利用者証明用など）の更新・発行手続きです。</p>
+                                    <p>電子証明書の有効期限は<strong>5年</strong>で、有効期限を迎える方には、<strong>2～3か月前</strong>に有効期限通知書が送付されます。</p>
+                                </td>
+                                <td>
+                                    <p>通知書が届いた方は、記載内容をご確認のうえ、期限に余裕を持ってご来所ください。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>その他のマイナンバーカードに関する諸手続き</td>
+                                <td>
+                                    <ul>
+                                        <li>マイナンバーカードの返納</li>
+                                        <li>マイナンバーカードの紛失・廃止届 など</li>
+                                    </ul>
+                                </td>
+                                <td>
+                                    <p>状況に応じて必要書類が異なります。事前にマイナンバーカードコールセンター（TEL：000-0000-0000）へご相談ください。</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>マイナンバーカードの交付</td>
+                                <td>
+                                    <p>マイナンバーカード交付通知書（はがき）をお持ちの方のカード受け取りを行います。</p>
+                                </td>
+                                <td>
+                                    <p><strong>完全予約制</strong>です。窓口の混雑状況等によっては、予約時間帯の中でもお待ちいただく場合があります。</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="note">手続きごとに必要書類が異なります。詳しくは、マイナンバーカードコールセンター（TEL：000-0000-0000）にお問い合わせください。</p>
+            </div>
+
+            <!-- 完全予約制での交付 -->
+            <div id="section-3" class="section">
+                <h3>マイナンバーカードセンターでのカード受け取り（完全予約制）</h3>
+                <p>自宅にマイナンバーカード交付通知書（はがき）が届いたものの、<strong>区役所の開庁時間内に受け取りに行くことが難しい方</strong>は、マイナンバーカードセンターでの受け取りが便利です。</p>
+                <p>マイナンバーカードセンターでのカード受け取りは<strong>完全予約制</strong>です。次のいずれかの方法で予約してください。</p>
+                <ul>
+                    <li>予約専用Webサイトからの予約</li>
+                    <li>マイナンバーカードコールセンター（TEL：000-0000-0000）への電話予約</li>
+                </ul>
+                <p>※マイナンバーカードを受け取る際は、<strong>本人確認書類等の持参</strong>が必要です。必要書類の詳細は、マイナンバーカードのページ「受け取り時の必要書類」をご確認ください。</p>
+
+                <h4>マイナンバーカードセンターと区役所の比較</h4>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>場所</th>
+                                <th>予約</th>
+                                <th>業務時間</th>
+                                <th>備考</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>マイナンバーカードセンター<br>（札幌市中央区北3条西3丁目1-6 札幌小暮ビル1階）</td>
+                                <td>予約必須</td>
+                                <td>
+                                    【水～金曜】12:00～20:00<br>
+                                    【土・日曜】9:00～17:00<br>
+                                    ※休所日は「開所日時・休所日」をご確認ください。
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>市内に住民登録している方が対象です。</li>
+                                        <li>仕事帰りや休日にもカード受け取りができます。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>区役所（戸籍住民課）</td>
+                                <td>予約不要</td>
+                                <td>
+                                    【月～金曜】8:45～17:15<br>
+                                    ※土・日曜、祝・休日、年末年始は休み
+                                </td>
+                                <td>
+                                    <ul>
+                                        <li>住民登録をしている<strong>区の区役所</strong>でのみ受け取りが可能です。</li>
+                                        <li>混雑状況は「区役所戸籍住民課窓口の呼び出し状況」でご確認ください。</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="note">窓口の混雑状況等によっては、予約時間の中でもお待ちいただく場合があります。時間に余裕を持ってお越しください。</p>
+            </div>
+
+            <!-- センター概要・アクセス -->
+            <div id="section-4" class="section">
+                <h3>マイナンバーカードセンターの場所・アクセス</h3>
+
+                <h4>場所</h4>
+                <p>マイナンバーカードセンター<br>
+                    札幌市中央区北3条西3丁目1-6 札幌小暮ビル1階</p>
+
+                <h4>アクセス</h4>
+                <ul>
+                    <li>札幌駅前通地下歩行空間（チ・カ・ホ）1番出口から徒歩約2分</li>
+                    <li>地下鉄さっぽろ駅（南北線）9番出口から徒歩約5分</li>
+                    <li>JR札幌駅南口から徒歩約7分</li>
+                    <li>地下鉄大通駅（東西線）6番出口から徒歩約10分</li>
+                </ul>
+                <p>※駐車場および駐輪場はありません。来所の際は公共交通機関をご利用ください。</p>
+
+                <p>マイナンバーカードセンターの地図<br>
+                    詳細な地図を確認する</p>
+            </div>
+
+            <!-- 開所日時・休所日 -->
+            <div id="section-5" class="section">
+                <h3>開所日時・休所日</h3>
+
+                <h4>開所日時</h4>
+                <ul>
+                    <li>水・木・金曜：12時00分～20時00分</li>
+                    <li>土・日曜：9時00分～17時00分</li>
+                </ul>
+                <p>※終業時間にシステムが停止するため、余裕を持って来所ください。</p>
+
+                <h4>休所日</h4>
+                <ul>
+                    <li>毎週 月曜・火曜</li>
+                    <li>祝日（祝日と日曜日が重なる日は開所）</li>
+                    <li>休日</li>
+                    <li>第3土曜の翌日の日曜</li>
+                    <li>年末年始</li>
+                </ul>
+                <p>※その他、臨時に休所となる場合があります。</p>
+
+                <p>詳しい開所日については、<strong>開所予定表（令和7年度）（PDF：368KB）</strong>をご確認ください。</p>
+            </div>
+
+            <!-- お問い合わせ -->
+            <div id="section-6" class="section">
+                <h3>お問い合わせ</h3>
+                <p>マイナンバーカードセンターに関すること、マイナンバーカードに関することなどは、下記のマイナンバーカードコールセンターへお問い合わせください。</p>
+
+                <h4>マイナンバーカードコールセンター</h4>
+                <p>電話番号：<strong>000-0000-0000</strong>（札幌市マイナンバーカードコールセンター）</p>
+
+                <h4>受付日時</h4>
+                <ul>
+                    <li>水曜～金曜：9時00分～20時00分</li>
+                    <li>土曜～火曜：9時00分～17時00分</li>
+                </ul>
+                <p>休止日：祝日（祝日と日曜日が重なる日は除く）、休日、第3土曜日の翌日の日曜日、年末年始</p>
+            </div>
+
+            <div id="footer"></div>
+        </main>
+    </div>
+<div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+</div>
+
+</body>
+<script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+</html>

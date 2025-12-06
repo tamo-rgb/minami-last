@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>引越し（市内で引越し）｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== ボタン風リンク ===== */
+        .link-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0 0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+        /* ▼ セクション内サブ目次（ページ上部のTOCと同じデザイン） */
+.sub-toc {
+    margin: 8px 0 12px;
+    padding: 10px 10px;
+    background-color: #f8fdf5;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+}
+
+.sub-toc-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.sub-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.sub-toc ul li a {
+    background-color: var(--color-primary);
+    padding: 6px 12px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-block;
+}
+
+.sub-toc ul li a:hover {
+    opacity: 0.9;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>引越し（市内で引越し）</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">引越し（市内で引越し）</h1>
+                <p>札幌市内で南区への引越し・南区内での転居などをされる際に必要な主な手続きのご案内です。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">住所変更の手続き</a></li>
+                    <li><a href="#section-2">国保・介護・年金など</a></li>
+                    <li><a href="#section-3">高齢者福祉</a></li>
+                    <li><a href="#section-4">障がい者・障がい児福祉</a></li>
+                    <li><a href="#section-5">子どもに関する手続き</a></li>
+                    <li><a href="#section-6">自動車やバイク</a></li>
+                    <li><a href="#section-7">土地・家屋</a></li>
+                    <li><a href="#section-8">町内会・自治会</a></li>
+                    <li><a href="#section-9">その他の手続き</a></li>
+                    <li><a href="#section-10">南区から他区へ引越すとき</a></li>
+                    <li><a href="#section-11">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：住所変更の手続き -->
+            <div id="section-1" class="section">
+                <h3>住所変更の手続き</h3>
+
+                <div class="contents">
+                    <h4>住民票の転入・転居届（外国人住民を含む）</h4>
+                    <p>住み始めた日から<strong>14日以内</strong>に、新住所地の区役所で転入（転居）の届出をしてください。</p>
+                    <ul>
+                        <li>札幌市内での引越しの場合、前住所地での「転出届」は不要です。</li>
+                        <li>外国人住民の方も対象です。</li>
+                    </ul>
+                    <p>詳しくは「札幌市の中での引越し（転入届・転居届）」をご確認ください。</p>
+
+                    <p><strong>窓口</strong><br>
+                        区役所1階 4〜8番 戸籍住民課 住民記録係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>届出人の本人確認書類（運転免許証・健康保険証など）</li>
+                        <li>お持ちの方：マイナンバーカード（個人番号カード）、住民基本台帳カード</li>
+                        <li>外国人住民の方：在留カード、特別永住者証明書</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション2：国民健康保険・介護保険・後期高齢者医療・国民年金 -->
+            <div id="section-2" class="section">
+                <h3>国民健康保険・介護保険・後期高齢者医療・国民年金</h3>
+
+                <div class="contents">
+                    <h4>国民健康保険の住所変更届</h4>
+                    <p>引越し先の新しい保険証を交付します。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 6番 保険年金課 保険係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>国民健康保険資格確認書等</li>
+                        <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>社会保険や共済保険に加入している方は勤務先へご相談ください。</li>
+                        <li>社会保険の任意継続をしている方は、加入している健康保険の事務所へお問い合わせください。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>介護保険の住所変更届</h4>
+                    <p>引越し先の新しい介護保険証を交付します。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 6番 保険年金課 保険係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>介護保険被保険者証</li>
+                        <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>後期高齢者医療の住所変更届</h4>
+                    <ul>
+                        <li>新しい住所の資格確認書は、後日郵送されます。</li>
+                        <li>窓口での手続きは不要ですが、介護保険の手続きがありますので、保険年金課窓口へお越しください。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>国民年金の住所変更について</h4>
+                    <ul>
+                        <li>国民年金加入者（第1号被保険者・任意加入被保険者）の住所変更手続きは不要です。</li>
+                        <li>年金を受給している方は、手続きが必要となる場合があります。</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>国民年金・厚生年金を受給している方：転居先の年金事務所へ</li>
+                        <li>共済年金を受給している方：各共済組合へ</li>
+                        <li>厚生年金に加入している方：勤務先へ</li>
+                        <li>厚生年金加入者に扶養されている方（第3号被保険者）：配偶者の勤務先へ</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション3：高齢者福祉 -->
+            <div id="section-3" class="section">
+                <h3>高齢者福祉の手続き</h3>
+
+                <div class="contents">
+                    <h4>外国人高齢者福祉手当の住所変更</h4>
+                    <p>外国人高齢者福祉手当を受給している方は、住所変更の手続きが必要です。</p>
+                    <p><strong>お問い合わせ</strong><br>
+                        保健福祉課 地域福祉係（区役所2階 4番）<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション4：障がい者・障がい児福祉 -->
+            <div id="section-4" class="section">
+                <h3>障がい者・障がい児福祉の手続き</h3>
+
+                <!-- セクション内サブ目次 -->
+                <div class="sub-toc">
+                    <div class="sub-toc-title">この中の手続き一覧</div>
+                    <ul>
+                        <li><a href="#sub-4-1">各種手帳の住所変更</a></li>
+                        <li><a href="#sub-4-2">重度心身障がい者医療費助成</a></li>
+                        <li><a href="#sub-4-3">各種福祉手当の住所変更</a></li>
+                        <li><a href="#sub-4-4">心身障害者扶養共済制度</a></li>
+                        <li><a href="#sub-4-5">外国人障害者福祉手当</a></li>
+                        <li><a href="#sub-4-6">障害福祉サービス等 受給者証</a></li>
+                        <li><a href="#sub-4-7">自立支援医療受給者証</a></li>
+                    </ul>
+                </div>
+
+                <div class="contents" id="sub-4-1">
+                    <h4>各種手帳の住所変更</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>必要なもの</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>身体障害者手帳</td>
+                                    <td>身体障害者手帳</td>
+                                    <td>
+                                        区役所2階 2番 保健福祉課 相談担当<br>
+                                        電話：000-000-0000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>療育手帳</td>
+                                    <td>療育手帳</td>
+                                    <td>
+                                        区役所2階 2番 保健福祉課 相談担当<br>
+                                        電話：000-000-0000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>精神障害者保健福祉手帳</td>
+                                    <td>精神障害者保健福祉手帳</td>
+                                    <td>
+                                        区役所2階 2番 保健福祉課 相談担当<br>
+                                        電話：000-000-0000
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents" id="sub-4-2">
+                    <h4>重度心身障がい者医療費助成の住所変更</h4>
+                    <p>医療費助成を受給している方は、受給者証の住所を書き換えます。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番 保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                </div>
+
+                <div class="contents" id="sub-4-3">
+                    <h4>特別障害者・障害児福祉・経過的福祉手当の住所変更</h4>
+                    <p>各手当を受給している方は、住所変更の手続きが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 2番 保健福祉課 相談担当<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>身体障害者手帳</li>
+                        <li>療育手帳</li>
+                        <li>精神障害者保健福祉手帳</li>
+                    </ul>
+                </div>
+
+                <div class="contents" id="sub-4-4">
+                    <h4>心身障害者扶養共済制度加入者の住所変更</h4>
+                    <p>心身障害者扶養共済制度に加入されている方は、住所変更の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番 保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents" id="sub-4-5">
+                    <h4>外国人障害者福祉手当の住所変更</h4>
+                    <p>外国人障害者福祉手当を受給している方は、住所変更の手続きが必要です。</p>
+                    <p><strong>お問い合わせ</strong><br>
+                        保健福祉課 地域福祉係（区役所2階 4番）<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents" id="sub-4-6">
+                    <h4>障害福祉サービス・障害児通所支援受給者証の住所変更</h4>
+                    <p>障害福祉サービス・障害児通所支援を受給している方は、住所変更の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 2番 保健福祉課 相談担当<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                </div>
+
+                <div class="contents" id="sub-4-7">
+                    <h4>自立支援医療受給者証（更生医療・精神通院医療）の住所変更</h4>
+                    <p>自立支援医療受給者証の住所変更を行います。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 2番 保健福祉課 相談担当<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>自立支援医療受給者証</li>
+                        <li>国民健康保険証（住所変更に伴い保険証も変わる場合）</li>
+                        <li>保険世帯が市町村民税非課税世帯の場合：受診者の年金収入等がわかるもの
+                            （申請日が1〜6月は前々年、7〜12月は前年の1〜12月の収入）</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- セクション5：子どもに関する手続き -->
+            <div id="section-5" class="section">
+                <h3>子どもに関する手続き</h3>
+
+                <div class="contents">
+                    <h4>小・中学校の転校届</h4>
+                    <p>小・中学校に通うお子さんがいる場合、転入（転居）届の際に入校票を発行します。</p>
+                    <ul>
+                        <li>入校票と在学証明書を、転校先の学校へ提出してください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所1階 4〜8番 戸籍住民課 住民記録係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>在学証明書（前住所地の学校で発行）</li>
+                    </ul>
+                    <p>学区などの詳細は、札幌市教育委員会教育推進課 学びの支援係へお問い合わせください。（電話：000-000-0000）</p>
+                </div>
+
+                <div class="contents">
+                    <h4>子ども医療費助成の住所変更届</h4>
+                    <p>医療費助成を受給している方は、受給者証の住所を書き換えます。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番 保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>児童手当の住所変更</h4>
+                    <ul>
+                        <li>住民票の転入（転居）届により、自動的に住所変更されるため、原則手続きは不要です。</li>
+                        <li>ただし、電話番号が変わる場合、または住所変更により受給者と子どもが別居する場合は届出が必要です。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番 保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>ひとり親家庭等医療費助成の住所変更届</h4>
+                    <p>医療費助成を受給している方は、受給者証の住所を書き換えます。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番 保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>児童扶養手当・特別児童扶養手当・災害遺児手当の住所変更も、同じ窓口で手続きしてください。</li>
+                        <li>手当証書がある場合は、手当証書もお持ちください。</li>
+                        <li>児童扶養手当を受給している方は、住所変更に伴い一旦手当が差し止めとなるため、お早めに手続きしてください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション6：自動車やバイクの手続き -->
+            <div id="section-6" class="section">
+                <h3>自動車やバイクの手続き</h3>
+
+                <div class="contents">
+                    <h4>運転免許証の記載事項変更申請</h4>
+                    <p>最寄りの警察署で手続きができます。</p>
+                    <p><strong>主な窓口</strong></p>
+                    <ul>
+                        <li>南警察署（札幌市中央区南29条西11丁目1-1・電話：000-000-0000）</li>
+                        <li>中央警察署（札幌市中央区北1条西5丁目4・電話：000-000-0000）</li>
+                    </ul>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>運転免許証</li>
+                        <li>新住所を確認できる書類（住民票・健康保険証・新住所に届いた本人あての郵便物など）</li>
+                    </ul>
+                    <p>詳しくは、北海道警察ホームページ「運転免許証に関する各種案内」をご確認ください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>登録証・車検証の住所変更届</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>主な必要書類</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>原動機付自転車・小型特殊自動車</td>
+                                    <td>
+                                        ・運転免許証などの身分証明書<br>
+                                        ・標識交付証明書 ほか<br>
+                                        ※郵送による手続きも可
+                                    </td>
+                                    <td>
+                                        中央市税事務所 諸税課 軽自動車税担当<br>
+                                        （電話：000-000-0000）
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>軽自動車</td>
+                                    <td>
+                                        ・検査証記入申請書、車検証<br>
+                                        ・使用者の住所を証する書類（印鑑証明書・住民票等：発行後3ヶ月以内）<br>
+                                        ・車両番号標（同じ管轄であれば不要の場合あり）ほか
+                                    </td>
+                                    <td>
+                                        札幌地区軽自動車協会<br>
+                                        （電話：000-000-0000）<br>
+                                        業務時間：月〜金 9:00〜11:30／13:00〜16:00
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>125cc超のバイク・普通自動車</td>
+                                    <td>
+                                        ・変更登録申請書、手数料納付書、車検証<br>
+                                        ・住民票（発行後3ヶ月以内、転居が複数回の場合は除票等）<br>
+                                        ・車庫証明書（発行後1ヶ月以内）<br>
+                                        ・自賠責証明書、印鑑 など
+                                    </td>
+                                    <td>
+                                        札幌運輸支局（電話：000-000-0000）<br>
+                                        業務時間：月〜金 9:00〜12:00／13:00〜16:00
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>バイクや自動車の税金について</strong></p>
+                    <ul>
+                        <li>バイク・軽自動車：住民票の転居届により自動的に住所変更されるため、連絡は不要です。</li>
+                        <li>普通自動車：札幌道税事務所 自動車税部（電話：000-000-0000）へお問い合わせください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション7：土地・家屋の手続き -->
+            <div id="section-7" class="section">
+                <h3>土地・家屋の手続き</h3>
+
+                <div class="contents">
+                    <h4>不動産登記の住所変更届</h4>
+                    <p>不動産を管轄する法務局で手続きしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        札幌法務局 南出張所（札幌市豊平区平岸1条22丁目2-25）<br>
+                        電話：000-000-0000<br>
+                        ※南・清田・豊平区所在の不動産のみ
+                    </p>
+                    <p><strong>主な必要なもの</strong></p>
+                    <ul>
+                        <li>変更証明書（住民票や戸籍の附票など、登記上の住所と現住所の移り変わりがわかるもの）</li>
+                        <li>委任状（代理人申請の場合）</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>固定資産税・都市計画税の住所変更届</h4>
+                    <p>不動産が所在する市町村の固定資産税担当課へ住所変更を届け出てください（電話・はがきでも可）。</p>
+                    <p><strong>窓口（南区・清田区・豊平区所在の土地・家屋）</strong><br>
+                        南部市税事務所 4階 固定資産税課 土地担当／家屋担当<br>
+                        電話（土地担当）：000-000-0000<br>
+                        電話（家屋担当）：000-000-0000
+                    </p>
+                    <p>札幌市財政局税政部のホームページからもお申し込みが可能です。</p>
+                </div>
+            </div>
+
+            <!-- セクション8：町内会・自治会 -->
+            <div id="section-8" class="section">
+                <h3>町内会・自治会加入のご案内</h3>
+
+                <div class="contents">
+                    <p>町内会・自治会への加入については、札幌市市民文化局市民自治推進室ホームページをご覧ください。</p>
+                    <ul>
+                        <li>町内会・自治会への加入：<br>「町内会・自治会への加入」のページをご参照ください。</li>
+                        <li>お住まいの地域の町内会を知りたい方・加入を希望される方：<br>「町内会・自治会検索」をご利用ください。</li>
+                    </ul>
+
+                    <p><strong>窓口</strong><br>
+                        各まちづくりセンター、または<br>
+                        区役所3階 地域振興課 まちづくり推進係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション9：その他の手続き -->
+            <div id="section-9" class="section">
+                <h3>その他の手続き（難病・ライフラインなど）</h3>
+
+                <div class="contents">
+                    <h4>特定医療費（指定難病）受給者の住所変更届</h4>
+                    <p>特定医療費（指定難病）受給者証をお持ちの方は、住所変更の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        保健センター3階 健康・子ども課<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                        <li>変更後の住所が確認できるもの</li>
+                    </ul>
+                    <p>小児慢性特定疾病医療受給者の住所変更も、同じ窓口で受け付けています。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>飼い犬の登録変更届</h4>
+                    <p>飼い犬の登録住所を変更する場合は、電話でお申し込みください。</p>
+                    <p><strong>窓口</strong><br>
+                        動物愛護管理センター<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>電気・ガス・水道などの手続き</h4>
+                    <p>ライフラインの住所変更は、それぞれの事業者への連絡が必要です。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>必要な手続き</th>
+                                    <th>連絡先</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>電気の住所変更</td>
+                                    <td>電話で申し込み</td>
+                                    <td>ほくでん契約センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>ガスの住所変更</td>
+                                    <td>電話で申し込み</td>
+                                    <td>北ガスお客様センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>水道の住所変更</td>
+                                    <td>電話または、水道局ホームページから申し込み</td>
+                                    <td>札幌市水道局電話受付センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>郵便物の転居届</td>
+                                    <td>郵便局備え付けのはがき、または日本郵便のホームページから申し込み</td>
+                                    <td>旧住所の最寄りの郵便局</td>
+                                </tr>
+                                <tr>
+                                    <td>電話の移転</td>
+                                    <td>電話で申し込み</td>
+                                    <td>NTT 116センター（電話：000-000-0000）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション10：南区から他区へ引越すとき -->
+            <div id="section-10" class="section">
+                <h3>南区から他区へ引越すとき</h3>
+
+                <div class="contents">
+                    <p>札幌市内で南区から他区へ引越す場合、新住所地の区役所で手続きを行ってください（南区役所での手続きは不要です）。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>区役所</th>
+                                    <th>住所</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>中央区役所</td>
+                                    <td>札幌市中央区南3条西11丁目</td>
+                                </tr>
+                                <tr>
+                                    <td>北区役所</td>
+                                    <td>札幌市北区北24条西6丁目1-1</td>
+                                </tr>
+                                <tr>
+                                    <td>東区役所</td>
+                                    <td>札幌市東区北11条東7丁目1</td>
+                                </tr>
+                                <tr>
+                                    <td>白石区役所</td>
+                                    <td>札幌市白石区南郷通1丁目南8</td>
+                                </tr>
+                                <tr>
+                                    <td>厚別区役所</td>
+                                    <td>札幌市厚別区厚別中央1条5丁目3-2</td>
+                                </tr>
+                                <tr>
+                                    <td>豊平区役所</td>
+                                    <td>札幌市豊平区平岸6条10丁目1-1</td>
+                                </tr>
+                                <tr>
+                                    <td>清田区役所</td>
+                                    <td>札幌市清田区平岡1条1丁目2-1</td>
+                                </tr>
+                                <tr>
+                                    <td>西区役所</td>
+                                    <td>札幌市西区琴似2条7丁目1-1</td>
+                                </tr>
+                                <tr>
+                                    <td>手稲区役所</td>
+                                    <td>札幌市手稲区前田1条11丁目1-10</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション11：お問い合わせ -->
+            <div id="section-11" class="section">
+                <h3>お問い合わせ</h3>
+                <p>引越しに伴う各種手続きについて、ご不明な点がありましたら南区役所までお問い合わせください。</p>
+                <p>
+                    札幌市南区役所<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                    電話番号：000-000-0000<br>
+                    ファクス番号：000-000-0000
+                </p>
+                <p>内容に応じて、担当課・担当係をご案内いたします。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>札幌市の中での引越し（転入届・転居届）</li>
+                    <li>住民票の写しなどの請求</li>
+                    <li>国民健康保険・介護保険に関するページ</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

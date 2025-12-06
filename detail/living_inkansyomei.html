@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
     <title>印鑑登録証明書｜札幌市南区</title>
 
     <!-- フォント（統一） -->
@@ -91,6 +93,7 @@
             border-radius: 10px;
             border: 1px solid #f0f2f4;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
         }
 
         .section h3 {
@@ -164,6 +167,7 @@
         <section class="top-contents">
             <h1 class="midashi">印鑑登録証明書</h1>
             <p>印鑑登録証明書の交付・申請に関するご案内です。</p>
+            <p class="updated-date">更新日：2022年6月21日</p>
         </section>
 
         <!-- 目次 -->
@@ -267,14 +271,38 @@
             <h3>お問い合わせ</h3>
             <p>札幌市南区 市民部 戸籍住民課<br>
                 〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
-                電話：011-582-4728<br>
-                FAX：011-582-6867</p>
+                電話：000-000-0000<br>
+                FAX：000-000-0000</p>
         </div>
 
         <div id="footer"></div>
 </div>
     </main>
+<div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+</div>
 
 </body>
+<script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 
 </html>

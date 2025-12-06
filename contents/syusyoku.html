@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>就職したとき・退職もしくは失業したとき｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== タブナビゲーション ===== */
+        .tab-wrapper {
+            margin: 10px 15px 0;
+            background-color: transparent;
+        }
+
+        .tab-label {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 4px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .tab-button {
+            flex: 1 1 150px;
+            padding: 8px 10px;
+            border-radius: 20px 20px 0 0;
+            border: 1px solid var(--color-primary);
+            border-bottom: none;
+            background-color: #f0f5eb;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #222;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px 8px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc-title {
+            font-size: 0.9rem;
+            margin: 0 0 4px;
+            color: #555;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        .toc-block {
+            display: none;
+        }
+
+        .toc-block.active {
+            display: block;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 0 15px 12px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 12px 0 6px;
+            font-size: 1rem;
+        }
+
+        /* h4見出し左側に線 */
+        .section h4 {
+            border-left: 4px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 4px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 4px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 8px 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <span>就職したとき・退職もしくは失業したとき</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">就職したとき・退職もしくは失業したときの手続き</h1>
+                <p>就職や退職に伴い必要となる、健康保険や年金、自立支援医療などの主な手続きについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月22日</p>
+            </section>
+
+            <!-- タブ切り替え（目次より上） -->
+            <div class="tab-wrapper">
+                <p></p>状況を選択してください</p>
+                <div class="tab-nav">
+                    <button class="tab-button active" data-target="job-content">就職したとき</button>
+                    <button class="tab-button" data-target="retire-content">退職もしくは失業したとき</button>
+                </div>
+            </div>
+
+            <!-- 目次（タブごとに切り替え） -->
+            <div id="job-toc" class="toc toc-block active">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#job-overview">就職したときの概要</a></li>
+                    <li><a href="#job-address">就職により住所が変わる場合</a></li>
+                    <li><a href="#job-kokuho">国民健康保険の手続き</a></li>
+                    <li><a href="#job-kokunen">国民年金の手続き</a></li>
+                    <li><a href="#job-jiritsu">自立支援医療受給者証の変更手続き</a></li>
+                </ul>
+            </div>
+
+            <div id="retire-toc" class="toc toc-block">
+                <p>見出しに移動できます</p>
+                <ul>
+                    <li><a href="#retire-overview">退職・失業したときの概要</a></li>
+                    <li><a href="#retire-kokuho">国民健康保険の加入手続き</a></li>
+                    <li><a href="#retire-kokunen">国民年金の変更手続き</a></li>
+                    <li><a href="#retire-jiritsu">自立支援医療受給者証の変更手続き</a></li>
+                    <li><a href="#retire-tokutei">特定医療費（指定難病）等受給者証の変更届</a></li>
+                    <li><a href="#retire-other">その他　就労・労働に関する相談</a></li>
+                </ul>
+            </div>
+
+            <!-- タブ：就職したとき -->
+            <div id="job-content" class="tab-content active">
+                <!-- 概要カード -->
+                <div id="job-overview" class="section">
+                    <h3>就職したときの概要</h3>
+                    <p>就職により、住所や加入している健康保険・年金の種類が変わる場合があります。必要な手続きを確認し、漏れのないように手続きを行いましょう。</p>
+                </div>
+
+                <!-- 住所変更 -->
+                <div id="job-address" class="section">
+                    <h3>就職により住所が変わる場合（住所変更の手続き）</h3>
+                    <div class="contents">
+                        <h4>住所変更の手続きについて</h4>
+                        <p>就職に伴い住所が変わる場合は、住所変更の届出が必要です。「引っ越し」のページもあわせてご確認ください。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所1階4～8番　戸籍住民課住民記録係（電話011-582-4728）
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 国民健康保険 -->
+                <div id="job-kokuho" class="section">
+                    <h3>国民健康保険の手続き</h3>
+                    <div class="contents">
+                        <h4>国民健康保険の脱退手続き</h4>
+                        <p>就職前に国民健康保険に加入されていた方で、勤務先の健康保険などに加入された場合は、<strong>国民健康保険の脱退手続き</strong>が必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所2階6番　保険年金課保険係（電話011-582-4772）
+                        </p>
+                        <p><strong>必要なもの</strong></p>
+                        <ul>
+                            <li>国民健康保険資格確認書等</li>
+                            <li>勤務先の資格確認書等（世帯全員分）または健康保険加入証明書</li>
+                            <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 国民年金 -->
+                <div id="job-kokunen" class="section">
+                    <h3>国民年金の手続き</h3>
+                    <div class="contents">
+                        <h4>厚生年金加入時の手続き</h4>
+                        <p>就職により勤務先の厚生年金に加入した場合、<strong>国民年金の手続きは不要</strong>です。勤務先が厚生年金加入の資格変更を行います。</p>
+                    </div>
+                </div>
+
+                <!-- 自立支援医療 -->
+                <div id="job-jiritsu" class="section">
+                    <h3>自立支援医療受給者証（更生医療・精神通院医療）の手続き</h3>
+                    <div class="contents">
+                        <h4>健康保険が変わる場合の手続き</h4>
+                        <p>就職により健康保険が変更となる場合は、<strong>自立支援医療受給者証の変更手続き</strong>が必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                        </p>
+                        <p><strong>必要なもの</strong></p>
+                        <ul>
+                            <li>自立支援医療受給者証</li>
+                            <li>健康保険証</li>
+                            <li>保険世帯が市町村民税非課税の場合：受診者の年金収入等がわかるもの<br>
+                                （申請日が1～6月は前々年、7～12月は前年の1～12月の収入）
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- タブ：退職もしくは失業したとき -->
+            <div id="retire-content" class="tab-content">
+                <!-- 概要カード -->
+                <div id="retire-overview" class="section">
+                    <h3>退職もしくは失業したときの概要</h3>
+                    <p>退職や失業により、勤務先の健康保険や厚生年金をやめた場合は、国民健康保険や国民年金への切り替えなど、各種手続きが必要です。</p>
+                </div>
+
+                <!-- 国民健康保険加入 -->
+                <div id="retire-kokuho" class="section">
+                    <h3>国民健康保険の加入手続き</h3>
+                    <div class="contents">
+                        <h4>勤務先の健康保険をやめたとき</h4>
+                        <p>勤務先の健康保険（または任意継続）などをやめたときは、<strong>国民健康保険への加入手続き</strong>が必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所2階6番　保険年金課保険係（電話011-582-4772）
+                        </p>
+                        <p><strong>必要なもの</strong></p>
+                        <ul>
+                            <li>健康保険脱退証明書（勤務先の健康保険を脱退した場合、勤務先・年金事務所などが発行します。）</li>
+                            <li>本人確認書類（運転免許証、マイナンバーカードなど）<br>
+                                ※外国人の方は、在留カード・特別永住証明書など
+                            </li>
+                            <li>キャッシュカード、通帳、通帳使用印</li>
+                        </ul>
+                        <ul class="detail">
+                            <li>月の初日（1日）や、休日の翌日（月曜日）は窓口が混雑する場合があります。</li>
+                            <li>年度の初日（4月1日）は、かなりの混雑が予想されます。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 国民年金変更 -->
+                <div id="retire-kokunen" class="section">
+                    <h3>国民年金の変更手続き</h3>
+                    <div class="contents">
+                        <h4>第2号被保険者から第1号被保険者へ</h4>
+                        <p>厚生年金・共済年金加入者（国民年金第2号被保険者）は、退職後、<strong>国民年金第1号被保険者への種別変更</strong>の手続きが必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所2階8番　保険年金課年金係（電話011-582-4786）
+                        </p>
+                        <p><strong>必要なもの</strong></p>
+                        <ul>
+                            <li>本人確認書類（運転免許証、年金手帳など）</li>
+                            <li>退職年月日がわかるもの（雇用保険被保険者離職票など）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 自立支援医療 -->
+                <div id="retire-jiritsu" class="section">
+                    <h3>自立支援医療受給者証（更生医療・精神通院医療）の手続き</h3>
+                    <div class="contents">
+                        <h4>健康保険が変わる場合の手続き</h4>
+                        <p>退職などにより健康保険が変更となる場合は、<strong>自立支援医療受給者証の変更手続き</strong>が必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            区役所2階2番　保健福祉課相談担当（電話011-582-4747）
+                        </p>
+                        <p><strong>必要なもの</strong></p>
+                        <ul>
+                            <li>自立支援医療受給者証</li>
+                            <li>健康保険証</li>
+                            <li>保険世帯が市町村民税非課税の場合：受診者の年金収入等がわかるもの<br>
+                                （申請日が1～6月は前々年、7～12月は前年の1～12月の収入）
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 特定医療費（指定難病） -->
+                <div id="retire-tokutei" class="section">
+                    <h3>特定医療費（指定難病）等受給者証の変更届</h3>
+                    <div class="contents">
+                        <h4>健康保険が変更となる場合</h4>
+                        <p>退職などにより健康保険が変更となる場合は、<strong>特定医療費（指定難病）等受給者証の変更手続き</strong>が必要です。</p>
+                        <p><strong>窓口</strong><br>
+                            南保健センター3階　健康・子ども課（電話011-581-5211）
+                        </p>
+                        <p><strong>必要なもの</strong><br>
+                            上記窓口にお問い合わせください。
+                        </p>
+                        <p>※小児慢性特定疾病医療受給者証の変更についても、健康保険が変更となる場合は手続きが必要です。詳しくは保健センター3階 健康・子ども課（電話011-581-5211）にお問い合わせください。</p>
+                    </div>
+                </div>
+
+                <!-- その他の相談 -->
+                <div id="retire-other" class="section">
+                    <h3>その他　就労・労働に関する相談</h3>
+                    <div class="contents">
+                        <h4>就職・労働に関する相談窓口</h4>
+                        <p>その他の就労・労働などに関することにつきましては、<strong>就職・労働に関する相談窓口</strong>をご利用ください。</p>
+                        <p>あいワーク南（南区民センター1階）でもご相談を受け付けています。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>引っ越し（住所変更）の手続き</li>
+                    <li>国民健康保険の手続き</li>
+                    <li>国民年金に関する手続き</li>
+                    <li>自立支援医療・特定医療費（指定難病）に関する手続き</li>
+                    <li>就職・労働に関する相談窓口（あいワーク南 など）</li>
+                </ul>
+                <a href="/search/search_living.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // タブ切り替え
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const jobToc = document.getElementById('job-toc');
+        const retireToc = document.getElementById('retire-toc');
+
+        function activateTab(targetId) {
+            tabButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.target === targetId);
+            });
+            tabContents.forEach(content => {
+                content.classList.toggle('active', content.id === targetId);
+            });
+
+            // 目次の切り替え
+            if (targetId === 'job-content') {
+                jobToc.classList.add('active');
+                retireToc.classList.remove('active');
+            } else if (targetId === 'retire-content') {
+                retireToc.classList.add('active');
+                jobToc.classList.remove('active');
+            }
+        }
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+                activateTab(targetId);
+            });
+        });
+
+        // 初期表示
+        activateTab('job-content');
+
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

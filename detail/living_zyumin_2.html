@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="favcon.png">
+    <title>引越し（市外へ転出）｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 関連情報・カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== ボタン風リンク ===== */
+        .link-button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0 0;
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ▼ セクション内サブ目次（必要に応じて使用） */
+        .sub-toc {
+            margin: 8px 0 12px;
+            padding: 10px 10px;
+            background-color: #f8fdf5;
+            border: 1px solid var(--color-primary);
+            border-radius: 6px;
+        }
+
+        .sub-toc-title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+
+        .sub-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .sub-toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-block;
+        }
+
+        .sub-toc ul li a:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>引越し（市外へ転出）</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">引越し（市外へ転出）</h1>
+                <p>札幌市南区から市外へ引越し（転出）される際に必要な主な手続きについてご案内します。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">住所変更の手続き</a></li>
+                    <li><a href="#section-2">国保・介護・年金など</a></li>
+                    <li><a href="#section-3">高齢者福祉</a></li>
+                    <li><a href="#section-4">障がい者・障がい児福祉</a></li>
+                    <li><a href="#section-5">子どもに関する手続き</a></li>
+                    <li><a href="#section-6">自動車やバイク</a></li>
+                    <li><a href="#section-7">土地・家屋</a></li>
+                    <li><a href="#section-8">その他の手続き</a></li>
+                    <li><a href="#section-9">お問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：住所変更の手続き -->
+            <div id="section-1" class="section">
+                <h3>住所変更の手続き</h3>
+
+                <div class="contents">
+                    <h4>住民票の転出届（外国人住民を含む）</h4>
+                    <p>市外へ引越しをする前に、あらかじめ南区役所で転出の届出をしてください。</p>
+                    <ul>
+                        <li>届出に基づき「転出証明書」を発行します。</li>
+                        <li>転出先の市町村で転入の手続きをする際に、転出証明書が必要です。</li>
+                        <li>印鑑登録は転出（予定）日で廃止となります。登録証は窓口へ返還するか、ご自身で破棄してください。</li>
+                    </ul>
+                    <p>詳細は「市外への引越し（転出届）」をご覧ください。</p>
+
+                    <p><strong>窓口</strong><br>
+                        区役所1階 4〜8番　戸籍住民課 住民記録係<br>
+                        電話：000-000-0000
+                    </p>
+
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>届出人の本人確認書類（運転免許証・健康保険証など）</li>
+                    </ul>
+
+                    <h4>郵送による届出</h4>
+                    <p>郵送で転出届を提出することもできます。詳細は「郵送による転出届の提出方法（転出証明書の請求方法）」のページをご確認ください。</p>
+
+                    <h4>マイナンバーカードによる転出届</h4>
+                    <p>マイナンバーカード（個人番号カード）をお持ちの方は、マイナポータルを利用したオンラインでの転出届が可能です。</p>
+                    <p>詳細は「マイナンバーカードをお持ちの方の転出手続きについて（マイナポータルを利用したオンラインでの転出届）」をご覧ください。</p>
+
+                    <ul class="detail">
+                        <li>マイナンバーカードは引越し先の市区町村で継続利用の手続きが必要です。</li>
+                        <li>次の場合、カードが失効し、再発行には手数料がかかる場合があります。
+                            <ul>
+                                <li>転入日から14日以内に転入届を提出しなかった場合</li>
+                                <li>転入予定日から30日以内に転入届を提出しなかった場合</li>
+                                <li>転入届出日から90日以内に、マイナンバーカードの継続利用手続きを行わなかった場合</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション2：国民健康保険・介護保険・後期高齢者医療・国民年金 -->
+            <div id="section-2" class="section">
+                <h3>国民健康保険・介護保険・後期高齢者医療・国民年金</h3>
+
+                <div class="contents">
+                    <h4>国民健康保険の資格喪失届</h4>
+                    <p>南区で使用している国民健康保険証を返還してください。転出先の市町村で新たに国民健康保険の加入手続きが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 6番　保険年金課 保険係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>国民健康保険資格確認書等</li>
+                        <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>社会保険や共済保険に加入している方は勤務先へお問い合わせください。</li>
+                        <li>社会保険の任意継続をしている方は、加入している健康保険の事務所へお問い合わせください。</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>介護保険の資格喪失届</h4>
+                    <p>介護保険被保険者証を返還してください。転出先の市町村で介護保険の加入手続きが必要です。</p>
+                    <p>要介護認定を受けている方には、受給資格証明書を発行しますので、転出先の市町村で要介護認定申請を行ってください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 6番　保険年金課 保険係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>介護保険被保険者証</li>
+                        <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>後期高齢者医療の資格喪失届</h4>
+                    <ul>
+                        <li>道外へ転出される方：負担区分証明書を発行しますので、転出先の市町村へ提出してください。</li>
+                        <li>道内の他市町村へ転出される方：後期高齢者医療制度の資格は継続されます。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 6番　保険年金課 保険係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>後期高齢者医療資格確認書等</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>国民年金の住所変更届</h4>
+                    <ul>
+                        <li>国民年金に加入している方（第1号被保険者および任意加入被保険者）は、市内転居の場合と同様に住所変更の手続きは原則不要です。</li>
+                        <li>ただし、<strong>国外へ転出する場合</strong>は手続きが必要です。</li>
+                        <li>年金を受給している方は、手続きが必要となる場合があります。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 8番　保険年金課 年金係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong><br>
+                        【国外へ転出の方】</p>
+                    <ul>
+                        <li>本人確認書類（運転免許証、年金手帳など）</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>国民年金・厚生年金を受給している方：転出先を管轄する年金事務所へお問い合わせください。</li>
+                        <li>共済年金を受給している方：各共済組合へお問い合わせください。</li>
+                        <li>厚生年金に加入している方：勤務先へお問い合わせください。</li>
+                        <li>厚生年金加入者に扶養されている方（第3号被保険者）：配偶者の勤務先へお問い合わせください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション3：高齢者福祉の手続き -->
+            <div id="section-3" class="section">
+                <h3>高齢者福祉の手続き</h3>
+
+                <div class="contents">
+                    <h4>敬老優待乗車証（敬老パス）の返還</h4>
+                    <p>敬老ICカードの残額に応じて納入金が返還される場合があります。該当する方はお問い合わせください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 1番　保健福祉課 給付事務係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>敬老ICカード</li>
+                        <li>預金通帳</li>
+                        <li>本人確認書類（運転免許証、健康保険証など）</li>
+                        <li>印鑑</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>外国人高齢者福祉手当の喪失</h4>
+                    <p>外国人高齢者福祉手当を受給している方は、手当の喪失に関する手続きが必要です。</p>
+                    <p><strong>お問い合わせ</strong><br>
+                        保健福祉課 地域福祉係（区役所2階 4番）<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション4：障がい者・障がい児福祉の手続き -->
+            <div id="section-4" class="section">
+                <h3>障がい者・障がい児福祉の手続き</h3>
+
+                <div class="contents">
+                    <h4>重度心身障がい者医療費助成の喪失届</h4>
+                    <p>医療費助成を受給している方は、受給者証を返還してください。</p>
+                    <ul>
+                        <li>転出先の市町村で新たに助成申請が必要です。</li>
+                        <li>助成の内容や受給資格は市町村によって異なります。</li>
+                        <li>所得証明書が必要な場合は、区役所1階 10番窓口で交付を受け、転出先の市町村へ提出してください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番　保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>障がい者交通費助成の返還</h4>
+                    <p>次の障がい者交通費助成を受けていた方は、該当する助成券を返還してください。</p>
+                    <ul>
+                        <li>福祉乗車証</li>
+                        <li>福祉タクシー利用券</li>
+                        <li>福祉自動車燃料助成券</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 1番　保健福祉課 給付事務係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>手帳・手当等の住所変更・喪失手続き（主に転出先での手続き）</h4>
+                    <ul>
+                        <li><strong>身体障害者手帳・療育手帳・精神障害者保健福祉手帳</strong><br>
+                            転出先の市町村で住所変更の手続きを行ってください。</li>
+                        <li><strong>心身障害者扶養共済制度加入者</strong><br>
+                            転出先の市町村で手続きを行ってください。</li>
+                        <li><strong>外国人障害者福祉手当の喪失</strong><br>
+                            保健福祉課 地域福祉係（区役所2階 4番、電話：000-000-0000）へお問い合わせください。</li>
+                        <li><strong>特別障害者・障害児福祉・経過的福祉手当</strong><br>
+                            受給している方は、転出先の市町村で手続きを行ってください。</li>
+                        <li><strong>自立支援医療受給者証（更生医療・精神通院医療）</strong><br>
+                            受給者証をお持ちの方は、転出先の市町村で手続きを行ってください。</li>
+                        <li><strong>障害福祉サービス・障害児通所支援受給者証</strong><br>
+                            受給者証をお持ちの方は、転出先の市町村で手続きを行ってください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション5：子どもに関する手続き -->
+            <div id="section-5" class="section">
+                <h3>子どもに関する手続き</h3>
+
+                <div class="contents">
+                    <h4>小・中学校の転校届</h4>
+                    <p>小・中学校に通うお子さんがいる方は、現住所地の小・中学校で在学証明書を受け取り、転出先の市町村で転校の手続きを行ってください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>子ども医療費助成の喪失届</h4>
+                    <p>医療費助成を受給している方は、受給者証を返還してください。</p>
+                    <ul>
+                        <li>転出先の市町村で新たに助成申請が必要です。</li>
+                        <li>助成の内容や受給資格は市町村によって異なります。</li>
+                        <li>所得証明書が必要な場合は、区役所1階 10番窓口で交付を受け、転出先の市町村へ提出してください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番　保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>児童手当の消滅届</h4>
+                    <p>受給者本人が転出する場合、転出予定日をもって児童手当の受給資格が消滅となるため、消滅届の提出が必要です。</p>
+                    <ul>
+                        <li>転出先の市町村で児童手当を受けるためには、新たな認定請求（申請）が必要です。</li>
+                        <li>所得証明書等が必要な場合がありますので、詳しくは転出先の市町村へご確認ください。</li>
+                        <li>転出予定日の翌日から起算して15日以内に申請してください。</li>
+                        <li>16日以上経過し、月をまたいで認定請求をした場合、認定請求のあった翌月分からの支給となります。</li>
+                        <li>子どものみが転出する場合は、窓口に手続き方法をご確認ください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番　保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>災害遺児手当の消滅届</h4>
+                    <p>受給者本人が転出する場合は、受給資格が消滅となるため、消滅届を提出してください。</p>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番　保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>ひとり親家庭等医療費助成の喪失届</h4>
+                    <p>医療費助成を受給している方は、受給者証を返還してください。</p>
+                    <ul>
+                        <li>転出先の市町村で新たに助成申請が必要です。</li>
+                        <li>助成の内容や受給資格は市町村によって異なります。</li>
+                        <li>所得証明書が必要な場合は、区役所1階 10番窓口で交付を受け、転出先の市町村へ提出してください。</li>
+                    </ul>
+                    <p><strong>窓口</strong><br>
+                        区役所2階 3番　保健福祉課 福祉助成係<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+
+                    <ul class="detail">
+                        <li>児童扶養手当・特別児童扶養手当の住所変更は、保健福祉課 福祉助成係（区役所2階3番）で行ってください。</li>
+                        <li>児童扶養手当を受給している方は、住所変更に伴い一旦手当が差し止めとなります。</li>
+                        <li>手当証書をお持ちの方は、あわせて手当証書もお持ちください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション6：自動車やバイクの手続き -->
+            <div id="section-6" class="section">
+                <h3>自動車やバイクの手続き</h3>
+
+                <div class="contents">
+                    <h4>運転免許証の記載事項変更申請</h4>
+                    <p>引越し後、転出先の警察署で運転免許証の住所変更手続きを行ってください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>原動機付自転車等の廃車届</h4>
+                    <p>原動機付自転車（125cc以下）や小型特殊自動車をお持ちの方は、南区で廃車証明書の交付を受け、転出先の市町村で新規登録の手続きをしてください。</p>
+                    <p><strong>窓口</strong><br>
+                        中央市税事務所　諸税課 軽自動車税担当<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>運転免許証などの身分証明書</li>
+                        <li>標識交付証明書</li>
+                        <li>ナンバープレート</li>
+                    </ul>
+                    <p>※郵送でも手続きが可能です。詳しくは「原動機付自転車・小型特殊自動車の申告について」をご確認ください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>車検証の住所変更（参考）</h4>
+                    <ul>
+                        <li>普通自動車・125cc超のバイク：転出先を管轄する運輸局で手続きをしてください。</li>
+                        <li>軽自動車：転出先を管轄する軽自動車協会で手続きをしてください。</li>
+                    </ul>
+
+                    <h4>バイクや自動車の税金（参考）</h4>
+                    <ul>
+                        <li>バイクや軽自動車：転出先の市町村へお問い合わせください。</li>
+                        <li>普通自動車：転出先の都道府県（道税事務所等）へお問い合わせください。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション7：土地・家屋の手続き -->
+            <div id="section-7" class="section">
+                <h3>土地・家屋の手続き</h3>
+
+                <div class="contents">
+                    <h4>不動産登記の住所変更届</h4>
+                    <p>不動産を管轄する法務局で住所変更の手続きを行ってください。</p>
+                    <p><strong>窓口</strong><br>
+                        札幌法務局 南出張所（札幌市豊平区平岸1条22丁目）<br>
+                        電話：000-000-0000<br>
+                        ※南区・清田区・豊平区所在の不動産のみ
+                    </p>
+                    <p><strong>主な必要なもの</strong></p>
+                    <ul>
+                        <li>変更証明書（住民票や戸籍の附票など、登記上の住所と現住所の移り変わりが分かるもの）</li>
+                        <li>委任状（代理人申請の場合）</li>
+                    </ul>
+                </div>
+
+                <div class="contents">
+                    <h4>固定資産税・都市計画税の住所変更届</h4>
+                    <p>不動産が所在する市町村の固定資産税担当課へ、住所変更の届出を行ってください（電話・はがきでも可）。</p>
+                    <p><strong>南区・清田区・豊平区所在の土地・家屋の場合</strong><br>
+                        南部市税事務所 4階 固定資産税課 土地担当／家屋担当<br>
+                        電話（土地担当）：000-000-0000<br>
+                        電話（家屋担当）：000-000-0000
+                    </p>
+
+                    <h4>事務所等の申告</h4>
+                    <p>区内に事務所・事業所、家屋敷（自己または家族居住を目的として住所地以外に設けられた独立した住宅）を所有している方は、ご連絡ください。</p>
+                    <p><strong>窓口</strong><br>
+                        南部市税事務所 3階 市民税課<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+            </div>
+
+            <!-- セクション8：その他 -->
+            <div id="section-8" class="section">
+                <h3>その他の手続き</h3>
+
+                <div class="contents">
+                    <h4>特定医療費（指定難病）受給者の住所変更</h4>
+                    <p>特定医療費（指定難病）受給者証をお持ちの方は、転出先の市町村を管轄する保健所で住所変更の手続きを行ってください。</p>
+                    <ul>
+                        <li>受給者証の返還が必要になる場合があります。</li>
+                        <li>道単独の対象疾患については、他都府県では受給者証の交付が受けられない場合があります。</li>
+                    </ul>
+                    <p><strong>窓口（南区での確認・相談）</strong><br>
+                        保健センター3階　健康・子ども課<br>
+                        電話：000-000-0000
+                    </p>
+                    <p><strong>必要なもの</strong></p>
+                    <ul>
+                        <li>受給者証</li>
+                    </ul>
+
+                    <h4>小児慢性特定疾病医療受給者証の返還</h4>
+                    <p>受給者証と、変更後の住所が確認できるもの（保険証など）を持参し、健康・子ども課（保健センター3階）へ返還してください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>納税管理人の申請</h4>
+                    <p>納税義務者である方が国外へ転出する場合は、納税管理人の選任が必要となる場合があります。詳しくは市税のホームページをご覧いただくか、担当窓口へご相談ください。</p>
+                </div>
+
+                <div class="contents">
+                    <h4>飼い犬の登録変更</h4>
+                    <p>飼い犬の登録情報の変更については、お電話でご連絡ください。転出先の市町村で鑑札の引き換えが必要です。</p>
+                    <p><strong>窓口</strong><br>
+                        動物愛護管理センター<br>
+                        電話：000-000-0000
+                    </p>
+                </div>
+
+                <div class="contents">
+                    <h4>電気・ガス・水道・電話などの手続き</h4>
+                    <p>ライフラインの停止や変更手続きは、それぞれの事業者へ直接お問い合わせください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>種類</th>
+                                    <th>必要な手続き</th>
+                                    <th>窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>電気の使用停止</td>
+                                    <td>電話で申し込み</td>
+                                    <td>ほくでん契約センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>ガスの使用停止</td>
+                                    <td>電話で申し込み</td>
+                                    <td>北ガスお客様センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>水道の使用停止</td>
+                                    <td>電話で申し込み</td>
+                                    <td>札幌市水道局電話受付センター（電話：000-000-0000）</td>
+                                </tr>
+                                <tr>
+                                    <td>電話の移転</td>
+                                    <td>電話で申し込み</td>
+                                    <td>NTT 116センター（電話：000-000-0000）</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション9：お問い合わせ -->
+            <div id="section-9" class="section">
+                <h3>お問い合わせ</h3>
+                <p>引越し（市外への転出）に伴う各種手続きについて、ご不明な点がありましたら南区役所までお問い合わせください。</p>
+                <p>
+                    札幌市南区役所<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                    電話番号：000-000-0000<br>
+                    ファクス番号：000-000-0000
+                </p>
+                <p>内容に応じて、担当課・担当係をご案内いたします。</p>
+            </div>
+
+            <!-- 関連情報カード -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>市外への引越し（転出届）</li>
+                    <li>住民票の写しなどの請求</li>
+                    <li>国民健康保険・介護保険に関するページ</li>
+                </ul>
+                <a href="search.html" class="content-box">
+                    暮らし・手続きに関する他のページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

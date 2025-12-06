@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
     <title>ごみ収集日（南区）</title>
 
     <!-- フォント -->
@@ -100,12 +102,17 @@
 
         /* 各ごみカレンダーセクション */
         .section {
-            margin: 0 15px 12px;
-            padding: 14px 14px 12px;
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
             border: 1px solid #f0f2f4;
+            scroll-margin-top: 70px;
         }
 
         .section h3 {
@@ -166,6 +173,7 @@
         <section class="top-contents">
             <h1 class="midashi">ごみ収集日（南区）</h1>
             <p>札幌市南区の地域ごとのごみ収集カレンダーです。お住まいの住所に対応するカレンダー番号を確認してください。</p>
+            <p class="updated-date">更新日：2022年6月21日</p>
         </section>
 
         <!-- 目次ボタン -->
@@ -178,6 +186,7 @@
                 <li><a href="#section-5">南区5</a></li>
                 <li><a href="#section-6">南区6</a></li>
                 <li><a href="#section-7">南区7</a></li>
+                <li><a href="#section-8">お問い合わせ</a></li>
             </ul>
         </div>
 
@@ -314,10 +323,43 @@
             </div>
         </div>
 
-    </main>
+                    <!-- お問い合わせ -->
+            <div id="section-8" class="section">
+                <h3>お問い合わせ</h3>
+                <p>札幌市 〇〇部 〇〇課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                    電話：000-000-0000<br>
+                    FAX：000-000-0000</p>
+            </div>
 
     <div id="footer"></div>
+    </main>
+    
+</div>
+<div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
 </div>
 </body>
+<script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'flex';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 
 </html>

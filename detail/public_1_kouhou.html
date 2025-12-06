@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>広報さっぽろ12月号｜札幌市南区</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ==== パンくず ==== */
+        .breadcrumb {
+            padding: 10px;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+
+        .breadcrumb a {
+            color: var(--color-primary);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==== タイトルカード ==== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 14px 16px;
+            background: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 6px;
+            font-size: 1.4rem;
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* ==== タブナビ ==== */
+        .tab-wrapper {
+            margin: 10px 15px 0;
+        }
+
+        .tab-label {
+            font-size: 0.9rem;
+            color: #555;
+            margin: 0 0 4px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom:8px;
+        }
+
+        .tab-button {
+            flex: 1 1 140px;
+            padding: 8px 10px;
+            border-radius: 20px 20px 0 0;
+            border: 1px solid var(--color-primary);
+            border-bottom: none;
+            background-color: #f0f5eb;
+            color: #555;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tab-button.active {
+            background-color: #ffffff;
+            color: #222;
+            border-bottom: 1px solid #ffffff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ==== セクション ==== */
+        .section {
+            margin: 0 15px 14px;
+            padding: 14px 16px;
+            background: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .section h3 {
+            margin: 0 0 10px;
+            padding-left: 8px;
+            border-left: 6px solid var(--color-primary);
+            font-size: 1.2rem;
+        }
+
+        /* ======== PDF行 ======== */
+        .pdf-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .pdf-item:last-child {
+            border-bottom: none;
+        }
+
+        .pdf-text {
+            flex: 1;
+        }
+
+        .pdf-title {
+            margin: 0 0 4px;
+            font-weight: 600;
+            font-size: var(--font-p);
+        }
+
+        .pdf-meta {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 43px;
+            padding: 0 20px;
+            min-width: 100px;
+            background-color: var(--color-primary);
+            color: #fff;
+            border-radius: 23px;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .pdf-btn:hover {
+            opacity: 0.85;
+        }
+
+        /* ===== 関連情報 ===== */
+        .add-section {
+            margin: 0 15px 20px;
+            padding: 14px 16px;
+            background: #fff;
+            border-radius: 10px;
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <!-- ヘッダー -->
+        <div id="header"></div>
+        <div style="height:60px;"></div>
+
+        <main>
+
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホーム</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_public.html">市政・広報</a> ＞
+                <span>広報さっぽろ12月号</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">広報さっぽろ 2025年12月号</h1>
+                <p>PDF版で広報さっぽろをご覧いただけます。</p>
+                <p class="updated-date">更新日：2025年12月1日</p>
+            </section>
+
+            <!-- タブナビ -->
+            <div class="tab-wrapper">
+                <p class="tab-label">内容を選択してください</p>
+                <div class="tab-nav">
+                    <button class="tab-button active" data-target="tab-all">全ページ・特集</button>
+                    <button class="tab-button" data-target="tab-ward">区民のページ</button>
+                </div>
+            </div>
+
+            <!-- ▼ タブ1：全ページ・特集 ▼ -->
+            <div id="tab-all" class="tab-content active">
+                <!-- 一括版 -->
+                <section class="section">
+                    <h3>一括版（全ページまとめて）</h3>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">全ページ（区版を除く）</p>
+                            <p class="pdf-meta">1～22ページ（PDF：6,718KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">表紙～15ページ 一括</p>
+                            <p class="pdf-meta">表紙～15ページ（PDF：5,734KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+                </section>
+
+                <!-- 特集・ニュース -->
+                <section class="section">
+                    <h3>特集・ニュース</h3>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">心のバリアフリーでみんなに優しい街へ</p>
+                            <p class="pdf-meta">2～7ページ（PDF：3,457KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">救急医療を守るために</p>
+                            <p class="pdf-meta">8～9ページ（PDF：2,936KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">イベントカタログ</p>
+                            <p class="pdf-meta">10～11ページ（PDF：1,136KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">さっぽろのお財布</p>
+                            <p class="pdf-meta">12～14ページ（PDF：604KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">eスポーツの世界大会を札幌で開催！</p>
+                            <p class="pdf-meta">15ページ（PDF：1,655KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDFを開く</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ▼ タブ2：区民のページ ▼ -->
+            <div id="tab-ward" class="tab-content">
+                <section class="section">
+                    <h3>区民のページ（2025年12月号）</h3>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">中央区｜健康づくりセンターで運動してみませんか？</p>
+                            <p class="pdf-meta">1～6ページ（PDF：6,359KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">北区｜冬を元気に過ごすおすすめレシピ</p>
+                            <p class="pdf-meta">1～6ページ（PDF：5,048KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">東区｜看護・栄養学生に聞く 冬を元気に乗り切るこつ！</p>
+                            <p class="pdf-meta">1～6ページ（PDF：1,411KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">白石区｜冬のお出かけスポットご紹介！</p>
+                            <p class="pdf-meta">1～6ページ（PDF：1,628KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">厚別区｜除排雪の試験施工について</p>
+                            <p class="pdf-meta">1～6ページ（PDF：2,303KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">豊平区｜冬こそ自宅で体を動かそう！</p>
+                            <p class="pdf-meta">1～6ページ（PDF：1,626KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">清田区｜清田区の除排雪「試験施工」のポイント</p>
+                            <p class="pdf-meta">1～6ページ（PDF：3,078KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">南区｜クリスマス特別企画 みなみ区チャレンジパズル</p>
+                            <p class="pdf-meta">1～6ページ（PDF：2,142KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">西区｜結果発表！西区SDGsフォトコンテスト</p>
+                            <p class="pdf-meta">1～6ページ（PDF：1,100KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+
+                    <div class="pdf-item">
+                        <div class="pdf-text">
+                            <p class="pdf-title">手稲区｜わたしたちのまちを守る手稲消防団</p>
+                            <p class="pdf-meta">1～6ページ（PDF：1,934KB）</p>
+                        </div>
+                        <a href="#" class="pdf-btn">PDF</a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ■ お問い合わせ ■ -->
+            <section class="section">
+                <h3>このページについてのお問い合わせ</h3>
+
+                <p>札幌市総務局広報部広報課</p>
+                <p>〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎11階</p>
+
+                <p><strong>電話番号：</strong>011-211-2036</p>
+                <p><strong>FAX：</strong>011-218-5163</p>
+            </section>
+
+            <!-- 関連情報 -->
+            <div class="add-section">
+                <h3>関連情報</h3>
+                <ul>
+                    <li>広報さっぽろ 最新号</li>
+                    <li>バックナンバー</li>
+                </ul>
+            </div>
+
+            <div id="footer"></div>
+        </main>
+    </div>
+
+    <script>
+        // タブ切り替え
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetId = button.dataset.target;
+
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(targetId).classList.add('active');
+
+                // タブ切り替え時に少し上へスクロール（タイトルが見える位置）
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

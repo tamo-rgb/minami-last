@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <link rel="icon" type="image/icon" href="/favcon.png">
+    <title>税金に関するご案内｜札幌市</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくずリスト ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル部分 ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 0;
+            font-size: var(--font-p);
+        }
+
+        /* ===== 目次（アンカーリンク） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション（カード） ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        /* 見出しレベル4・リスト */
+        h4 {
+            margin: 8px 0 4px;
+            font-size: 1rem;
+        }
+
+        .contents {
+            padding: 6px 0 4px;
+        }
+
+        .contents ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .contents ul li {
+            margin-bottom: 6px;
+            font-size: var(--font-p);
+        }
+
+        .detail {
+            padding-left: 20px;
+            margin: 8px 0 0;
+            font-size: var(--font-p);
+        }
+
+        .detail li {
+            margin-bottom: 6px;
+        }
+
+        /* ===== テーブル ===== */
+        .table-wrapper {
+            margin-top: 10px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table.table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: var(--font-p);
+            background-color: #fff;
+        }
+
+        table.table th {
+            background-color: var(--color-primary);
+            color: #fff;
+            font-weight: 500;
+            padding: 10px;
+            white-space: nowrap;
+        }
+
+        table.table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+            vertical-align: top;
+        }
+
+        /* ===== 追記事項・関連情報カード ===== */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+        /* ===== 各カード内のリンクボタン ===== */
+        .link-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border-radius: 25px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .link-button:hover {
+            background-color: #f7fff0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
+
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search.html">情報を探す</a> ＞
+                <a href="/search/search_living.html">暮らし・手続き</a> ＞
+                <span>税金に関するご案内</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">税金に関するご案内</h1>
+                <p>市税に関する窓口、国税・道税の問い合わせ先、お知らせなどをまとめたページです。</p>
+                <p class="updated-date">更新日：2022年6月21日</p>
+            </section>
+
+            <!-- 目次（アンカーリンク） -->
+            <div class="toc">
+                <ul>
+                    <li><a href="#section-1">お知らせ</a></li>
+                    <li><a href="#section-2">市税に関するお問い合わせ</a></li>
+                    <li><a href="#section-3">市税事務所と担当区</a></li>
+                    <li><a href="#section-4">財政局税政部（市税総括）</a></li>
+                    <li><a href="#section-5">国税の窓口</a></li>
+                    <li><a href="#section-6">道税の窓口</a></li>
+                    <li><a href="#section-7">お問い合わせ</a></li>
+                    <li><a href="#section-8">関連情報</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：お知らせ -->
+            <div id="section-1" class="section">
+                <h3>お知らせ</h3>
+                <div class="contents">
+                    <ul>
+                        <li>令和8年4月1日（水曜日）から札幌市宿泊税が課税開始となります</li>
+                        <li>東部市税事務所は令和7年9月16日（火曜日）に移転しました</li>
+                        <li>中央市税事務所は令和7年7月22日（火曜日）に移転しました</li>
+                        <li>令和6年能登半島地震により被災された皆様へ</li>
+                        <li>不審なショートメッセージや電子メールにご注意ください！</li>
+                        <li>税務職員をかたる不審な電話や訪問にご注意ください！</li>
+                        <li>虚偽申告は犯罪です！</li>
+                        <li>東日本大震災関連：[被災された皆様へ／義援金等に関する寄附金税額控除の取扱いについて]</li>
+                    </ul>
+                    <ul class="detail">
+                        <li>その他、税に関するお知らせについては、毎月発行の「広報さっぽろ」をご覧ください。</li>
+                    </ul>
+                </div>
+                <a href="#" class="link-button" target="_blank">税に関するお知らせの詳細を見る</a>
+            </div>
+
+            <!-- セクション2：市税に関するお問い合わせ -->
+            <div id="section-2" class="section">
+                <h3>市税に関するお問い合わせ</h3>
+                <p>市税の納付、証明書の交付、申告・課税内容の確認などに関する主な窓口は次のとおりです。</p>
+
+                <div class="contents">
+                    <h4>市税の納付・納税相談・口座振替</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>お問い合わせの内容</th>
+                                    <th>担当窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>市税の納付に関すること／納税相談</td>
+                                    <td>お住まいの区を担当する市税事務所の納税相談担当</td>
+                                </tr>
+                                <tr>
+                                    <td>口座振替の申込み</td>
+                                    <td>
+                                        札幌市行政事務センター（口座振替担当）<br>
+                                        電話：011-350-5132<br>
+                                        ※窓口での申し込みは、最寄りの市税事務所または金融機関でも可能です。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>市税証明の交付</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>内容</th>
+                                    <th>担当窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>市税証明の交付（窓口での請求）</td>
+                                    <td>
+                                        最寄りの市税事務所の市税証明担当<br>
+                                        または市役所本庁舎2階「税の証明窓口」<br>
+                                        ※一部の市税証明は、区役所・出張所でも交付しています。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>市税証明の交付（郵送での請求）</td>
+                                    <td>
+                                        西部市税事務所（郵送請求の受付）<br>
+                                        ※請求書類の記載方法や必要書類等についてのお問い合わせは、<br>
+                                        札幌市納税お知らせセンター（電話：011-616-5559）で受け付けています。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>市税の申告・申請・課税内容の確認</h4>
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>税目・内容</th>
+                                    <th>担当窓口</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>個人市民税</td>
+                                    <td>お住まいの区（1月1日現在）を担当する市税事務所の個人市民税担当</td>
+                                </tr>
+                                <tr>
+                                    <td>給与から特別徴収により納める個人市民税（特別徴収義務者からのお問い合わせ）</td>
+                                    <td>中央市税事務所の特別徴収担当</td>
+                                </tr>
+                                <tr>
+                                    <td>法人市民税</td>
+                                    <td>中央市税事務所の法人市民税担当</td>
+                                </tr>
+                                <tr>
+                                    <td>固定資産税・都市計画税（土地分）</td>
+                                    <td>資産の所在する区を担当する市税事務所の土地担当</td>
+                                </tr>
+                                <tr>
+                                    <td>固定資産税・都市計画税（家屋分）</td>
+                                    <td>資産の所在する区を担当する市税事務所の家屋担当</td>
+                                </tr>
+                                <tr>
+                                    <td>固定資産税（償却資産分）</td>
+                                    <td>中央市税事務所の償却資産担当</td>
+                                </tr>
+                                <tr>
+                                    <td>軽自動車税（種別割）</td>
+                                    <td>中央市税事務所の軽自動車税担当</td>
+                                </tr>
+                                <tr>
+                                    <td>市たばこ税・入湯税・事業所税・宿泊税</td>
+                                    <td>中央市税事務所の市たばこ税・入湯税・事業所税・宿泊税担当</td>
+                                </tr>
+                                <tr>
+                                    <td>市税の制度等総括的なこと<br>（個別の納税相談、申告等は市税事務所へ）</td>
+                                    <td>
+                                        個人市民税・法人市民税・軽自動車税・市たばこ税・入湯税・事業所税・宿泊税：税政部市民税課<br>
+                                        固定資産税・都市計画税：税政部固定資産税課<br>
+                                        納税に関する総括的なこと：税政部納税指導課
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>市税に関する一般的な相談・お問い合わせ</td>
+                                    <td>最寄りの市税事務所</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="contents">
+                    <h4>市税の窓口の業務時間</h4>
+                    <ul>
+                        <li>市税の窓口：平日 8時45分〜17時15分<br>
+                            （土日祝日および年末年始（12月29日〜1月3日）はお休み）</li>
+                        <li>各市税事務所の納税相談に限り、毎週木曜日（年末年始・祝日を除く）は20時まで夜間納税相談窓口を開設しています。</li>
+                        <li>札幌市行政事務センターの業務時間：平日 9時〜17時（土日祝日および年末年始は休み）</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション3：各市税事務所と担当区 -->
+            <div id="section-3" class="section">
+                <h3>各市税事務所と担当する区</h3>
+                <p>市税事務所ごとに担当する区が決まっています。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>事務所名称</th>
+                                <th>担当する区・担当税目</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>中央市税事務所</td>
+                                <td>
+                                    担当区：中央区<br>
+                                    また、市内全区を一括して担当する税目：<br>
+                                    ・特別徴収義務者（会社等）が特別徴収分として納める個人市民税<br>
+                                    （個人の方の申告・課税内容の確認はお住まいの区を担当する市税事務所）<br>
+                                    ・法人市民税<br>
+                                    ・固定資産税（償却資産分）<br>
+                                    ・軽自動車税（種別割）<br>
+                                    ・市たばこ税<br>
+                                    ・入湯税<br>
+                                    ・事業所税<br>
+                                    ・宿泊税
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>北部市税事務所</td>
+                                <td>担当区：北区・東区</td>
+                            </tr>
+                            <tr>
+                                <td>東部市税事務所</td>
+                                <td>担当区：白石区・厚別区</td>
+                            </tr>
+                            <tr>
+                                <td>南部市税事務所</td>
+                                <td>担当区：豊平区・清田区・南区</td>
+                            </tr>
+                            <tr>
+                                <td>西部市税事務所</td>
+                                <td>担当区：西区・手稲区</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <ul class="detail">
+                    <li>各市税事務所の所在地や電話番号などの詳細は、別途「市税事務所」のページをご確認ください。</li>
+                </ul>
+
+                <a href="#" class="link-button" target="_blank">各市税事務所の所在地・連絡先を見る</a>
+            </div>
+
+            <!-- セクション4：財政局税政部 -->
+            <div id="section-4" class="section">
+                <h3>財政局税政部（市税に関する総括）</h3>
+                <p>市税に関する総括的なことについては、財政局税政部（札幌市役所本庁舎）が担当しています。※個別の納税相談・申告等は市税事務所へ。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>担当業務</th>
+                                <th>担当課</th>
+                                <th>電話番号・所在地</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    課税に関する総括的なこと<br>
+                                    ・個人市民税<br>
+                                    ・法人市民税<br>
+                                    ・軽自動車税<br>
+                                    ・市たばこ税<br>
+                                    ・入湯税<br>
+                                    ・事業所税<br>
+                                    ・宿泊税
+                                </td>
+                                <td>市民税課</td>
+                                <td>
+                                    電話：011-211-2272<br>
+                                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎2階
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    課税に関する総括的なこと<br>
+                                    ・固定資産税<br>
+                                    ・都市計画税
+                                </td>
+                                <td>固定資産税課</td>
+                                <td>
+                                    電話：011-211-2228<br>
+                                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎2階
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>納税に関する総括的なこと</td>
+                                <td>納税指導課</td>
+                                <td>
+                                    電話：011-211-2292<br>
+                                    〒060-8611 札幌市中央区北1条西2丁目 札幌市役所本庁舎2階
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- セクション5：国税の窓口 -->
+            <div id="section-5" class="section">
+                <h3>国税の窓口</h3>
+
+                <div class="contents">
+                    <h4>国税（所得税・法人税・相続税・贈与税など）</h4>
+                    <p>所得税・法人税・相続税・贈与税などの国税に関するお問い合わせは、所轄の税務署までご連絡ください。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>所在地</th>
+                                    <th>電話番号</th>
+                                    <th>管轄区域</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>札幌中税務署</td>
+                                    <td>〒060-0042 札幌市中央区大通西10丁目（札幌第2合同庁舎）</td>
+                                    <td>011-231-9311</td>
+                                    <td>中央区の一部</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌北税務署</td>
+                                    <td>〒001-0031 札幌市北区北31条西7丁目3-1</td>
+                                    <td>011-707-5111</td>
+                                    <td>北区・東区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌東税務署</td>
+                                    <td>〒004-0004 札幌市厚別区厚別東4条4丁目8-8</td>
+                                    <td>011-897-6111</td>
+                                    <td>白石区・厚別区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌南税務署</td>
+                                    <td>〒062-0051 札幌市豊平区月寒東1条5丁目3-4</td>
+                                    <td>011-555-3900</td>
+                                    <td>豊平区・清田区・南区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌西税務署</td>
+                                    <td>〒063-0824 札幌市西区発寒4条1丁目7-1</td>
+                                    <td>011-666-5111</td>
+                                    <td>中央区（札幌中税務署管轄以外）・西区・手稲区</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="detail">
+                        <li>税務署へのお電話は、自動音声案内によりご案内されます。</li>
+                    </ul>
+                    <a href="#" class="link-button" target="_blank">国税庁ホームページを見る</a>
+                </div>
+
+                <div class="contents">
+                    <h4>国税（登録免許税）</h4>
+                    <p>登録免許税に関するお問い合わせは、法務局の不動産登記・法人登記などの窓口が担当します。</p>
+
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>名称</th>
+                                    <th>所在地</th>
+                                    <th>電話番号</th>
+                                    <th>管轄区域</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>札幌法務局 不動産登記部門</td>
+                                    <td>
+                                        〒060-0808<br>
+                                        札幌市北区北8条西2丁目1番1<br>
+                                        （札幌第1合同庁舎1階）
+                                    </td>
+                                    <td>011-709-2311（内線2185）</td>
+                                    <td>札幌市中央区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌法務局 法人登記部門</td>
+                                    <td>
+                                        〒060-0808<br>
+                                        札幌市北区北8条西2丁目1番1<br>
+                                        （札幌第1合同庁舎1階）
+                                    </td>
+                                    <td>011-709-2311（内線2188）</td>
+                                    <td>札幌法務局の管轄区域の全部</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌法務局 南出張所</td>
+                                    <td>〒062-0931 札幌市豊平区平岸1条22丁目2番25号</td>
+                                    <td>011-824-7411</td>
+                                    <td>札幌市豊平区・南区・清田区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌法務局 北出張所</td>
+                                    <td>〒001-0031 札幌市北区北31条西7丁目1番1号</td>
+                                    <td>011-700-3311</td>
+                                    <td>札幌市北区・東区・石狩市</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌法務局 西出張所</td>
+                                    <td>〒063-0824 札幌市西区発寒4条1丁目1番1号</td>
+                                    <td>011-664-2251</td>
+                                    <td>札幌市西区・手稲区</td>
+                                </tr>
+                                <tr>
+                                    <td>札幌法務局 白石出張所</td>
+                                    <td>〒003-0027 札幌市白石区本通1丁目北4番2号</td>
+                                    <td>011-864-2021</td>
+                                    <td>札幌市白石区・厚別区・北広島市</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション6：道税の窓口 -->
+            <div id="section-6" class="section">
+                <h3>道税の窓口（事業税・不動産取得税・自動車税など）</h3>
+                <p>事業税・不動産取得税・自動車税などの道税に関するお問い合わせは、札幌道税事務所が担当します。</p>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>担当業務</th>
+                                <th>所在地</th>
+                                <th>電話番号</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>札幌道税事務所 税務管理部</td>
+                                <td>札幌市内全域の道税業務（自動車税業務を除く）</td>
+                                <td>
+                                    〒060-0003<br>
+                                    札幌市中央区北3条西7丁目（道庁別館2階）
+                                </td>
+                                <td>011-204-5084</td>
+                            </tr>
+                            <tr>
+                                <td>札幌道税事務所 自動車税部</td>
+                                <td>自動車税業務</td>
+                                <td>
+                                    〒001-8588<br>
+                                    札幌市北区北22条西2丁目
+                                </td>
+                                <td>011-746-1190</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <ul class="detail">
+                    <li>札幌道税事務所 自動車税部への電話は、自動音声案内によりご案内されます。</li>
+                </ul>
+
+                <a href="#" class="link-button" target="_blank">北海道税ホームページを見る</a>
+            </div>
+
+            <!-- セクション7：お問い合わせ（まとめ） -->
+            <div id="section-7" class="section">
+                <h3>お問い合わせ（まとめ）</h3>
+                <div class="contents">
+                    <ul>
+                        <li><strong>市税に関すること</strong><br>
+                            ・納税相談・課税内容の確認・市税証明など：お住まいの区を担当する市税事務所<br>
+                            ・市税の制度全般：財政局税政部（市民税課・固定資産税課・納税指導課）
+                        </li>
+                        <li><strong>国税に関すること</strong><br>
+                            所得税・法人税・相続税・贈与税など：所轄の税務署<br>
+                            登録免許税：不動産・法人登記を担当する法務局各窓口
+                        </li>
+                        <li><strong>道税に関すること</strong><br>
+                            事業税・不動産取得税など：札幌道税事務所 税務管理部<br>
+                            自動車税：札幌道税事務所 自動車税部
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- セクション8：関連情報・その他メニュー -->
+            <div id="section-8" class="add-section">
+                <h3>関連情報・その他のメニュー</h3>
+                <ul>
+                    <li>お知らせ</li>
+                    <li>よくあるご質問</li>
+                    <li>税の窓口</li>
+                    <li>市税事務所</li>
+                    <li>市税の納付・相談（納期、納付場所、口座振替、キャッシュレス納付など）</li>
+                    <li>市税の証明と閲覧</li>
+                    <li>市税の種類</li>
+                    <li>公売情報</li>
+                    <li>申告用紙の提供</li>
+                    <li>電子申告および電子納税（eLTAX）</li>
+                    <li>契約情報（税政部）</li>
+                    <li>資料・パンフレット</li>
+                    <li>ご意見・ご感想</li>
+                    <li>マイナンバー制度（税関係）</li>
+                    <li>宿泊税の導入</li>
+                </ul>
+                <a href="#" class="content-box">
+                    税金に関するほかのページを見る
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        // 一定量スクロールしたらボタン表示
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // クリックで先頭へスムーズスクロール
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>
