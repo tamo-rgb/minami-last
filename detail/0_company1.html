@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>企業への支援｜札幌市</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: var(--font-p);
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 新着情報リスト */
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 6px;
+      font-size: var(--font-p);
+    }
+
+    .news-list li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .news-label {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 6px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      background-color: #eef5ef;
+      color: #355c3e;
+      vertical-align: middle;
+    }
+
+    /* ボタンリンク */
+    .content-box {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      background-color: var(--color-palegreen);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--font-p);
+    }
+
+    .content-box:hover {
+      opacity: 0.95;
+    }
+
+    /* リンクリスト（全般・各メニュー） */
+    .link-list {
+      list-style: none;
+      padding: 0;
+      margin: 6px 0;
+      font-size: var(--font-p);
+    }
+
+    .link-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .link-list a {
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .link-list a:hover {
+      opacity: 0.9;
+    }
+
+    /* 区切り線（点線） */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/business.html">事業者向け情報</a> ＞
+        <span>企業への支援</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">企業への支援</h1>
+        <p>
+          札幌市では、中小企業や創業予定の方をはじめ、さまざまな業種の企業のみなさまを対象に、<br>
+          融資・販路開拓・人材・DX・SDGsなど、多様な支援を行っています<br>
+          下記のメニューから、目的にあった情報をご覧ください。
+        </p>
+        <p class="updated-date">更新日：2025年12月5日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-news">新着情報</a></li>
+          <li><a href="#section-general">全般情報</a></li>
+          <li><a href="#section-all">全業種向け</a></li>
+          <li><a href="#section-industry">各業種向け</a></li>
+        </ul>
+      </div>
+
+      <!-- 新着情報 -->
+      <section id="section-news" class="section">
+        <h3>新着情報</h3>
+        <div class="contents">
+          <ul class="news-list">
+            <li>
+              <span class="news-label">11月28日</span>
+              商店街応援マガジン「まいど。」
+            </li>
+            <li>
+              <span class="news-label">11月19日</span>
+              大札新パートナーズ会員の紹介ページを更新しました。
+            </li>
+            <li>
+              <span class="news-label">10月14日</span>
+              札幌SDGs先進企業認証制度について
+            </li>
+            <li>
+              <span class="news-label">10月2日</span>
+              札幌を牽引する企業の創出
+            </li>
+            <li>
+              <span class="news-label">9月18日</span>
+              札幌市外資系企業誘致イベント
+            </li>
+          </ul>
+
+          <a href="/uncompleted.html" class="content-box">新着情報の一覧を見る</a>
+        </div>
+      </section>
+
+      <!-- 全般情報 -->
+      <section id="section-general" class="section">
+        <h3>全般情報</h3>
+        <div class="contents">
+          <p>
+            札幌市の企業支援全般に関する情報や、中小企業向けの支援メニュー、<br>
+            セミナー・イベント情報などをまとめてご覧いただけます。
+          </p>
+
+          <ul class="link-list">
+            <li><a href="/uncompleted.html">中小企業向け支援メニューガイドブック</a></li>
+            <li><a href="/uncompleted.html">セミナー情報</a></li>
+            <li><a href="/uncompleted.html">さっぽろ産業ポータル</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 全業種向け -->
+      <section id="section-all" class="section">
+        <h3>全業種向けの支援</h3>
+        <div class="contents">
+          <p>
+            業種を問わずご利用いただける、資金繰り、販路拡大、人材確保・育成、<br>
+            DX・働き方改革、SDGs・国際展開などに関する支援メニューです。
+          </p>
+
+          <ul class="link-list">
+            <li><a href="/uncompleted.html">中小企業への融資・支援</a></li>
+            <li><a href="/uncompleted.html">札幌から国内外への販路拡大</a></li>
+            <li><a href="/uncompleted.html">企業立地</a></li>
+            <li><a href="/uncompleted.html">働き方改革の推進・テレワーク導入への支援</a></li>
+            <li><a href="/uncompleted.html">事業承継マッチング支援</a></li>
+            <li><a href="/uncompleted.html">先端設備等導入計画</a></li>
+            <li><a href="/uncompleted.html">創業予定の方、創業間もない方への支援</a></li>
+            <li><a href="/uncompleted.html">国際ビジネス人材の支援</a></li>
+            <li><a href="/uncompleted.html">札幌を牽引する企業の創出</a></li>
+            <li><a href="/uncompleted.html">SDGsに取り組む企業の支援</a></li>
+            <li><a href="/uncompleted.html">外資系企業の進出支援</a></li>
+            <li><a href="/uncompleted.html">札幌海外企業受入ワンストップ窓口</a></li>
+            <li><a href="/uncompleted.html">企業DX推進に向けた支援</a></li>
+            <li><a href="/uncompleted.html">一般任期付職員（課長職）採用選考</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 各業種向け -->
+      <section id="section-industry" class="section">
+        <h3>各業種向けの支援</h3>
+        <div class="contents">
+          <p>
+            商店街・製造業・IT産業・食関連産業など、業種ごとの特性に応じた支援メニューです。<br>
+            該当する業種を選択し、詳細をご確認ください。
+          </p>
+
+          <ul class="link-list">
+            <li><a href="/uncompleted.html">商店街・個店の活性化</a></li>
+            <li><a href="/uncompleted.html">卸売業の活性化</a></li>
+            <li><a href="/uncompleted.html">ものづくり企業への支援</a></li>
+            <li><a href="/uncompleted.html">健康・医療・バイオ関連産業への支援</a></li>
+            <li><a href="/uncompleted.html">食関連産業への支援</a></li>
+            <li><a href="/uncompleted.html">IT産業への支援</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

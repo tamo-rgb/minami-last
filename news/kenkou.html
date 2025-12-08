@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>市民健康教育講座「オーラルフレイルを知ろう！」｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 情報リスト・ラベル */
+    .info-list {
+      margin: 4px 0 6px;
+      padding: 0;
+      list-style: none;
+      font-size: var(--font-p);
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 6em;
+      color: #355c3e;
+    }
+
+    /* 説明ブロック */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* 区切り線（点線） */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* PDFリンク */
+    a.pdf-link {
+      display: inline-block;
+      margin: 4px 0;
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    a.pdf-link:hover {
+      opacity: 0.85;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/news.html">お知らせを見る</a> ＞
+        <span>市民健康教育講座</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">市民健康教育講座「オーラルフレイルを知ろう！」</h1>
+        <p>
+          南区では、区民の皆さまの健康増進を目的として、札幌市医師会、札幌歯科医師会及び札幌薬剤師会の各会支部との共催により、市民健康教育講座を実施しています。<br>
+          普段なかなか聞くことができない気になる病気や症状のお話を直接聞くことができるチャンスです。ぜひお気軽にご参加ください。
+        </p>
+        <p class="updated-date">更新日：2025年10月1日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-intro">講座の概要</a></li>
+          <li><a href="#section-theme">テーマ・講師</a></li>
+          <li><a href="#section-outline">開催日時・会場</a></li>
+          <li><a href="#section-content">講座内容</a></li>
+          <li><a href="#section-target">対象・定員・費用</a></li>
+          <li><a href="#section-entry">申込方法</a></li>
+        </ul>
+      </div>
+
+      <!-- 講座の概要 -->
+      <section id="section-intro" class="section">
+        <h3>市民健康教育講座について</h3>
+        <div class="contents">
+          <div class="text-block">
+            今回の市民健康教育講座では、「オーラルフレイル」をテーマに、<br>
+            お口の健康と全身の健康との関わりについて学びます。<br>
+            オーラルフレイルの正しい知識を身につけ、日頃の習慣や食生活を見直すきっかけにしましょう。
+          </div>
+
+          <a href="/uncompleted.html" class="pdf-link">チラシ（PDF：864KB）</a>
+        </div>
+      </section>
+
+      <!-- テーマ・講師 -->
+      <section id="section-theme" class="section">
+        <h3>テーマ・講師</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">テーマ</span>オーラルフレイルを知ろう！</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>講師</strong></p>
+          <p>
+            医療法人社団慶祥会 ウィズ・ユー歯科 院長<br>
+            <strong>太田 祥一 先生</strong>
+          </p>
+          <p>
+            オーラルフレイルとは何か、その予防のために必要なことについて、<br>
+            地域の歯科医療を支える歯科医師の立場から、わかりやすくお話しいただきます。
+          </p>
+        </div>
+      </section>
+
+      <!-- 開催概要 -->
+      <section id="section-outline" class="section">
+        <h3>開催日時・会場</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li>
+              <span class="label">日時</span>
+              令和7年（2025年）11月28日（金曜日）<br>
+              14時00分～15時45分（13時30分受付開始）
+            </li>
+            <li>
+              <span class="label">会場</span>
+              南保健センター 1階講堂（南区真駒内幸町1丁目3-2）
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 内容 -->
+      <section id="section-content" class="section">
+        <h3>講座内容</h3>
+        <div class="contents">
+          <p><strong>プログラム（予定）</strong></p>
+          <ul class="info-list">
+            <li>歯科医師による講演「オーラルフレイルを知ろう！」</li>
+            <li>区管理栄養士による食育講話「かむ力を引き出す食事の工夫」</li>
+            <li>試食（にんじんとりんごのサラダ、にんじんとりんごのジャムサンド）</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="text-block">
+            かむ力や飲み込む力を保つことは、健康寿命の延伸にもつながります。<br>
+            講話と試食を通して、日常の食事の工夫についても具体的に学ぶことができます。
+          </div>
+        </div>
+      </section>
+
+      <!-- 対象・定員・費用 -->
+      <section id="section-target" class="section">
+        <h3>対象・定員・費用</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">対象</span>南区にお住まいの方</li>
+            <li><span class="label">定員</span>25名（先着）</li>
+            <li><span class="label">費用</span>無料</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 申込方法 -->
+      <section id="section-entry" class="section">
+        <h3>申込方法</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">受付期間</span>11月11日（火曜日）～11月25日（火曜日）</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>申込方法</strong></p>
+          <div class="text-block">
+            受付期間中に、南保健センター（011-581-5211）までお電話でお申し込みください。
+          </div>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

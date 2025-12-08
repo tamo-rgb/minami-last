@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南区役所等駐車場除排雪業務 入札情報｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 4px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 情報ラベル＋リスト */
+    .info-list {
+      margin: 4px 0 6px;
+      padding: 0;
+      list-style: none;
+      font-size: var(--font-p);
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 6em;
+      color: #355c3e;
+    }
+
+    /* 長文＆説明ブロック */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* 区切り線（長文の区切り用） */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* PDFリンク */
+    a.pdf-link {
+      display: block;
+      margin: 3px 0;
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    a.pdf-link:hover {
+      opacity: 0.85;
+    }
+
+    /* 問い合わせボックス */
+    .add-section {
+      margin: 12px 15px 20px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .add-section h3 {
+      margin: 0 0 6px;
+    }
+
+    .add-section p {
+      margin: 4px 0;
+      font-size: var(--font-p);
+    }
+
+    a.content-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 0;
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-palegreen);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+    }
+
+    a.content-box:hover {
+      background-color: #f7fff0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section,
+      .add-section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/news.html">お知らせを見る</a> ＞
+        <span>入札・契約情報</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">南区役所等駐車場除排雪業務（入札情報）</h1>
+        <p>南区役所等の駐車場における除雪・排雪業務の入札情報を掲載しています。</p>
+        <p class="updated-date">更新日：2025年10月27日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-outline">案件概要</a></li>
+          <li><a href="#section-docs">告示・資料</a></li>
+          <li><a href="#section-submit">入札書の提出</a></li>
+          <li><a href="#section-open">開札</a></li>
+          <li><a href="#section-question">入札に係る質問</a></li>
+          <li><a href="#section-result">入札結果</a></li>
+          <li><a href="#section-page-contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- 案件概要 -->
+      <section id="section-outline" class="section">
+        <h3>案件概要</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">案件名称</span>南区役所等駐車場除排雪業務</li>
+            <li><span class="label">告示日</span>令和7年10月27日（月曜日）</li>
+          </ul>
+          <div class="text-block">
+            南区役所等の駐車場における除雪・排雪業務について、事後審査型一般競争入札により受託事業者を決定します。<br>
+            入札参加を希望される方は、告示および各種資料を確認のうえ、期限までに入札書の提出をお願いします。
+          </div>
+        </div>
+      </section>
+
+      <!-- 告示・資料 -->
+      <section id="section-docs" class="section">
+        <h3>告示・入札関係資料</h3>
+        <div class="contents">
+          <p>入札に参加される方は、必ず以下の告示および関係書類をご確認ください。</p>
+
+          <div class="divider"></div>
+
+          <p><strong>告示・説明書等</strong></p>
+          <a href="/uncompleted.html" class="pdf-link">入札告示（PDF：94KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">入札説明書（PDF：116KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別記1（PDF：254KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別記2（PDF：28KB）</a>
+
+          <div class="divider"></div>
+
+          <p><strong>様式（入札書・申請関係）</strong></p>
+          <a href="/uncompleted.html" class="pdf-link">別紙1 入札書（PDF：51KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別紙2 委任状（PDF：32KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別紙3 質問票（PDF：44KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別紙4 消費税及び地方消費税免税事業者申出書（PDF：40KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">別紙5 契約書（案）（PDF：216KB）</a>
+
+          <div class="divider"></div>
+
+          <p><strong>その他</strong></p>
+          <a href="/uncompleted.html" class="pdf-link">仕様書（PDF：537KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">事後審査型一般競争入札参加資格確認申請書（PDF：53KB）</a>
+          <a href="/uncompleted.html" class="pdf-link">資本関係・人的関係調書（PDF：51KB）</a>
+        </div>
+      </section>
+
+      <!-- 入札書提出 -->
+      <section id="section-submit" class="section">
+        <h3>入札書提出について</h3>
+        <div class="contents">
+          <p>入札書は、提出期限までに「持参」または「郵送」により提出してください。</p>
+
+          <ul class="info-list">
+            <li><span class="label">提出期限</span>令和7年11月11日（火曜日）13時30分 必着</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>提出先</strong></p>
+          <ul class="info-list">
+            <li>〒005-8612 札幌市南区真駒内幸町2丁目2-1</li>
+            <li>南区役所3階 市民部総務企画課</li>
+          </ul>
+
+          <div class="text-block">
+            郵送の場合は、配達に要する日数に余裕をもって発送してください。<br>
+            期限までに到着しない場合は、入札に参加できません。
+          </div>
+        </div>
+      </section>
+
+      <!-- 開札 -->
+      <section id="section-open" class="section">
+        <h3>開札場所・日時</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">日時</span>令和7年11月11日（火曜日）14時00分</li>
+            <li><span class="label">場所</span>札幌市南区真駒内幸町2丁目2-1 南区役所3階 中会議室</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 質問 -->
+      <section id="section-question" class="section">
+        <h3>入札に係る質問</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">提出期限</span>令和7年11月4日（火曜日）17時15分</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>質問方法</strong></p>
+          <div class="text-block">
+            質問は、書面により「持参」「送付」または「電子メール」にて提出してください。  
+          </div>
+
+          <div class="divider"></div>
+
+          <p><strong>回答方法</strong></p>
+          <p>
+            質問への回答は、随時、南区ホームページに掲載します。なお、本件入札に直接関連する質問に対してのみ回答を行い、
+            すべての質問に回答するとは限りません。
+          </p>
+        </div>
+      </section>
+
+      <!-- 入札結果 -->
+      <section id="section-result" class="section">
+        <h3>入札結果</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">落札者</span>岡本興業株式会社</li>
+            <li><span class="label">落札金額</span>1,000,945円</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>入札等執行調書</strong></p>
+          <a href="/uncompleted.html" class="pdf-link">入札等執行調書（PDF：61KB）</a>
+        </div>
+      </section>
+
+      <!-- このページについてのお問い合わせ -->
+      <section id="section-page-contact" class="add-section">
+        <h3>このページについてのお問い合わせ</h3>
+        <p>札幌市南区市民部 総務企画課</p>
+        <p>〒005-8612 札幌市南区真駒内幸町2丁目2-1（南区役所3階）</p>
+        <ul class="info-list">
+          <li><span class="label">電話</span><a href="tel:000-0000">000-0000</a></li>
+          <li><span class="label">FAX</span>000-0000</li>
+        </ul>
+
+        <a href="/uncompleted.html" class="content-box">
+          お問い合わせフォーム
+        </a>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

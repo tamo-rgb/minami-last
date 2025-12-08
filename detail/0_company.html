@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>入札契約案件情報｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: var(--font-p);
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 新着情報リスト */
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 6px;
+      font-size: var(--font-p);
+    }
+
+    .news-list li {
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    .news-label {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 2px 6px;
+      font-size: 0.8rem;
+      border-radius: 4px;
+      background-color: #eef5ef;
+      color: #355c3e;
+      vertical-align: middle;
+    }
+
+    .link-inline {
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    /* ボタンリンク */
+    .content-box {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      padding: 8px 16px;
+      border-radius: 25px;
+      background-color: var(--color-palegreen);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: var(--font-p);
+    }
+
+    .content-box:hover {
+      opacity: 0.95;
+    }
+
+    /* 区切り線（点線） */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/contents/1_zigyou.html">事業者向け情報</a> ＞
+        <span>入札契約案件情報</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">入札契約案件情報</h1>
+        <p>
+          市長部局（交通局、水道局及び病院局を除く各部局）で直接契約する物品及び役務契約に係る情報を掲載しています。<br>
+          公募中の案件や入札結果、発注見通しなどの情報をご覧いただけます。
+        </p>
+        <p class="updated-date">更新日：2025年12月5日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-news">新着情報</a></li>
+          <li><a href="#section-open">公募中案件一覧</a></li>
+          <li><a href="#section-result">入札等結果一覧</a></li>
+          <li><a href="#section-forecast">発注見通し案件一覧</a></li>
+          <li><a href="#section-electronic">電子入札案件について</a></li>
+        </ul>
+      </div>
+
+      <!-- 新着情報 -->
+      <section id="section-news" class="section">
+        <h3>新着情報</h3>
+        <div class="contents">
+          <ul class="news-list">
+            <li>
+              <span class="news-label">12月5日</span>
+              令和7年度一般競争入札等情報（12月5日）
+            </li>
+            <li>
+              <span class="news-label">12月5日</span>
+              一般競争入札（令和7年度札幌市教育旅行プロモーション業務）の実施について
+            </li>
+            <li>
+              <span class="news-label">12月5日</span>
+              質問回答（札幌市税のコンビニエンスストアでの収納業務）
+            </li>
+            <li>
+              <span class="news-label">12月5日</span>
+              「札幌市公園照明灯LED化ESCO事業」に係る公募型企画競争の実施について
+            </li>
+            <li>
+              <span class="news-label">12月5日</span>
+              入札等告示（定山渓水再生プラザ濃縮汚泥運搬業務）
+            </li>
+          </ul>
+
+          <a href="/uncompleted.html" class="content-box">新着情報の一覧を見る</a>
+        </div>
+      </section>
+
+      <!-- 公募中案件一覧 -->
+      <section id="section-open" class="section">
+        <h3>公募中案件一覧</h3>
+        <div class="contents">
+          <p>
+            市長部局における物品及び役務契約に係る一般競争入札、公募型企画競争及び公募型指名競争入札等の
+            公募中案件の一覧をご覧いただけます。
+          </p>
+          <a href="/uncompleted.html" class="content-box">公募中案件一覧へ</a>
+        </div>
+      </section>
+
+      <!-- 入札等結果一覧 -->
+      <section id="section-result" class="section">
+        <h3>入札等結果一覧</h3>
+        <div class="contents">
+          <p>
+            市長部局における物品及び役務契約に係る一般競争入札、指名競争入札及び随意契約の結果の一覧をご覧いただけます。
+          </p>
+          <a href="/uncompleted.html" class="content-box">入札等結果一覧へ</a>
+        </div>
+      </section>
+
+      <!-- 発注見通し案件一覧 -->
+      <section id="section-forecast" class="section">
+        <h3>発注見通し案件一覧</h3>
+        <div class="contents">
+          <p>
+            市長部局における建物の清掃、警備その他の業務委託等のうち、競争入札を行う予定である
+            発注見通しの案件一覧をご覧いただけます。
+          </p>
+          <a href="/uncompleted.html" class="content-box">発注見通し案件一覧へ</a>
+        </div>
+      </section>
+
+      <!-- 電子入札案件について -->
+      <section id="section-electronic" class="section">
+        <h3>電子入札案件について</h3>
+        <div class="contents">
+          <p>
+            契約管理課で入札・契約を行う物品及び工事等の電子入札案件については、
+            入札情報サービスにて案件及び結果等の情報を掲載しています。
+          </p>
+
+          <div class="divider"></div>
+
+          <p>
+            詳細は、入札情報サービスのページからご確認ください。
+          </p>
+          <a href="/uncompleted.html" class="content-box">入札情報サービスへ</a>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

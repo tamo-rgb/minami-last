@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南区成人の日行事（成人式）｜札幌市南区</title>
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* --- パンくず --- */
+    .breadcrumb {
+      padding: 10px;
+      background-color: #fff;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* --- 上部タイトル --- */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      margin: 0 0 4px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+    }
+
+    /* --- 目次 --- */
+    .toc {
+      margin: 0 10px 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      gap: 6px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      display: inline-block;
+      background-color: var(--color-primary);
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* --- セクション箱 --- */
+    .section {
+      background-color: #fff;
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      border-radius: 10px;
+      border: 1px solid #edf0ef;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 10px;
+    }
+
+    .section .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+    }
+
+    /* --- 長文ブロックの装飾 --- */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* --- 区切り線（そのまま活かす） --- */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 15px 0;
+    }
+
+    /* --- 情報ラベル --- */
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-list li {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 5em;
+      color: #355c3e;
+    }
+
+    /* --- お問い合わせ・関連情報 --- */
+    .add-section {
+      background: #fff;
+      border-radius: 10px;
+      margin: 12px 15px 20px;
+      padding: 14px 16px;
+      border: 1px solid #edf0ef;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      scroll-margin-top: 70px;
+    }
+
+    .add-section h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .add-section p {
+      margin: 4px 0;
+      font-size: var(--font-p);
+    }
+
+    .content-box {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 25px;
+      background-color: var(--color-palegreen);
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .content-box:hover {
+      background-color: #f7fff0;
+    }
+
+    /* スマホ向け微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.2rem;
+      }
+
+      .section,
+      .add-section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 4.5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div id="header"></div>
+    <!-- ヘッダー分の余白（背景はヘッダーと揃えて白） -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホーム</a> ＞
+        <a href="/news.html">お知らせを見る</a> ＞
+        <span>南区成人の日行事</span>
+      </nav>
+
+      <!-- タイトル -->
+      <section class="top-contents">
+        <h1>南区成人の日行事（成人式）</h1>
+        <p class="updated-date">更新日：2025年12月5日</p>
+      </section>
+
+      <!-- 目次 -->
+      <div class="toc">
+        <ul>
+          <li><a href="#overview">行事概要</a></li>
+          <li><a href="#r8">令和8年の開催</a></li>
+          <li><a href="#apply">案内状・申込</a></li>
+          <li><a href="#support">付き添いについて</a></li>
+          <li><a href="#r7">令和7年の結果</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- 概要 -->
+      <section id="overview" class="section">
+        <h3>南区成人の日行事とは</h3>
+
+        <div class="text-block">
+          南区成人の日行事（成人式）は、南区成人の日行事実施委員会が主催し、
+          「親が子を祝うような温かい手づくりの式典」を目指し、毎年内容を企画・実施しています。
+        </div>
+      </section>
+
+      <!-- 令和8年 -->
+      <section id="r8" class="section">
+        <h3>令和8年 南区二十歳のつどい</h3>
+
+        <ul class="info-list">
+          <li><span class="label">日時</span>2026年1月11日（日）13:30〜（開場 13:00）</li>
+          <li><span class="label">会場</span>アパホテル＆リゾート〈札幌〉（南区川沿4条2丁目）</li>
+          <li><span class="label">対象</span>2005年4月2日〜2006年4月1日生まれ</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <div class="text-block">
+          当日は式典のほか、記念撮影や地域ゆかりのキャラクターとの交流など、
+          二十歳の門出を祝う企画を予定しています。
+        </div>
+      </section>
+
+      <!-- 案内状＆申し込み -->
+      <section id="apply" class="section">
+        <h3>案内状・参加申込について</h3>
+
+        <div class="contents">
+          <p class="text-block">
+            南区に住民登録のある対象の方には、12月頃に案内状を郵送します。
+          </p>
+
+          <div class="divider"></div>
+
+          <h4>札幌市外・区外にお住まいの方</h4>
+          <p>
+            案内状が届かない場合も参加できますが、事前申込が必要です。
+          </p>
+
+          <a href="/uncompleted.html" class="content-box">申込フォーム</a>
+
+          <div class="divider"></div>
+
+          <h4>案内状の発送スケジュール</h4>
+          <ul>
+            <li>12/7（日）までの申込 → 12月中旬に一斉発送</li>
+            <li>12/8〜12/21の申込 → 随時発送</li>
+            <li>12/22以降 → 当日までに届かない可能性あり</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 付き添い -->
+      <section id="support" class="section">
+        <h3>保護者・付き添いの皆さまへ</h3>
+
+        <div class="contents">
+          <p class="text-block">
+            会場スペースの都合上、保護者・付き添いの入場はできません。  
+            ただし、介助が必要な場合は事前にご相談ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- 令和7年 結果 -->
+      <section id="r7" class="section">
+        <h3>令和7年 南区二十歳のつどい（開催結果）</h3>
+
+        <ul class="info-list">
+          <li><span class="label">開催日</span>2025年1月12日（日）</li>
+          <li><span class="label">出席者</span>672人（対象1,149人）</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h4>式典内容</h4>
+        <ul>
+          <li>国歌斉唱</li>
+          <li>主催者あいさつ</li>
+          <li>祝辞</li>
+          <li>二十歳の宣誓</li>
+        </ul>
+
+        <div class="divider"></div>
+
+        <h4>アトラクション・催し物</h4>
+        <ul>
+          <li>お祝いメッセージビデオ（中学校より）</li>
+          <li>キャラクター記念撮影（かっぽん・さくらんぼちゃん）</li>
+          <li>バルーンフォトスポット</li>
+          <li>着付け直しコーナー</li>
+        </ul>
+      </section>
+
+      <!-- お問い合わせ -->
+      <section id="contact" class="add-section">
+        <h3>お問い合わせ</h3>
+        <p>札幌市南区市民部 地域振興課</p>
+        <p>〒005-8612 南区真駒内幸町2丁目2-1</p>
+
+        <ul class="info-list">
+          <li><span class="label">電話</span>000-0000</li>
+          <li><span class="label">FAX</span>000-0000</li>
+        </ul>
+
+        <a href="/uncompleted.html" class="content-box">お問い合わせフォーム</a>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>通行止め情報｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      margin: 0 0 4px;
+      font-size: 1.2rem;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 注意書きのボックス */
+    .notice-block {
+      background-color: #fff7e6;
+      border: 1px solid #f0d4a2;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .notice-block p {
+      margin: 4px 0;
+    }
+
+    /* 長文の淡色ブロック */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* 区切り線 */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 15px 0;
+    }
+
+    /* 情報ラベル＋リスト */
+    .info-list {
+      margin: 4px 0 6px;
+      padding: 0;
+      list-style: none;
+      font-size: var(--font-p);
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 5em;
+      color: #355c3e;
+    }
+
+    /* PDFリンク */
+    a.pdf-link {
+      display: inline-block;
+      margin: 4px 0;
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    a.pdf-link:hover {
+      opacity: 0.85;
+    }
+
+    /* 問い合わせボックス */
+    .add-section {
+      margin: 12px 15px 20px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .add-section h3 {
+      margin: 0 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .add-section p {
+      margin: 4px 0;
+      font-size: var(--font-p);
+    }
+
+    a.content-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 0;
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-palegreen);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    a.content-box:hover {
+      background-color: #f7fff0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section,
+      .add-section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 4.5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/news.html">お知らせを見る</a> ＞
+        <span>通行止め情報</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">通行止め情報</h1>
+        <p>南区内道路の冬期通行止めや幅員減少規制などの情報をお知らせします。</p>
+        <p class="updated-date">更新日：2025年6月22日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-notice">ご利用前の注意</a></li>
+          <li><a href="#section-otaru">道道小樽定山渓線（朝里峠）</a></li>
+          <li><a href="#section-koisiyama">市道硬石山線</a></li>
+          <li><a href="#section-life-road">生活道路の通行規制</a></li>
+          <li><a href="#section-kyogoku">道道京極定山渓線</a></li>
+          <li><a href="#section-page-contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- 注意事項 -->
+      <section id="section-notice" class="section">
+        <h3>ご利用前の注意</h3>
+        <div class="contents">
+          <div class="notice-block">
+            <p>※天候および道路状況によって、予告なく規制期間・規制区間を変更する場合があります。</p>
+            <p>※本ページに掲載のない路線についても、予告なく規制の開始・解除を行うことがあります。</p>
+          </div>
+          <div class="text-block">
+            冬期間、南区内の勾配のある道路で、車両がスリップなどにより立往生してしまう事故が多発しています。  
+            天候や路面状況をよく見極め、タイヤチェーンの装着や安全なルートへの迂回などを行い、事故防止にご協力ください。
+          </div>
+        </div>
+      </section>
+
+      <!-- 道道小樽定山渓線（朝里峠） -->
+      <section id="section-otaru" class="section">
+        <h3>【冬期夜間通行止め】道道小樽定山渓線（朝里峠）</h3>
+        <div class="contents">
+          <p>
+            札幌市と小樽市を結ぶ「道道小樽定山渓線（定山渓朝日橋～朝日ループ橋間）」において、冬期夜間通行止め規制を実施します。
+          </p>
+
+          <ul class="info-list">
+            <li><span class="label">期間</span>令和7年（2025年）11月1日（土曜日）～令和8年（2026年）4月20日（月曜日）（予定）</li>
+            <li><span class="label">時間</span>19時00分～翌朝7時00分まで</li>
+          </ul>
+
+          <a href="/uncompleted.html" class="pdf-link">規制箇所位置図（PDF：710KB）</a>
+
+          <div class="divider"></div>
+
+          <p>
+            なお、悪天候により通行規制時間や期間が変更となる場合があります。詳細については、下記のお問い合わせ先までご確認ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- 市道硬石山線 -->
+      <section id="section-koisiyama" class="section">
+        <h3>【冬期通行止め】市道硬石山線</h3>
+        <div class="contents">
+          <p>
+            南沢と白川を結ぶ「市道硬石山線（南沢線1899-16～白川1814-1092間）」において、冬期通行止め規制を実施します。
+          </p>
+
+          <ul class="info-list">
+            <li><span class="label">期間</span>令和7年（2025年）11月14日（金曜日）～令和8年（2026年）4月中旬まで（予定）</li>
+          </ul>
+
+          <a href="/uncompleted.html" class="pdf-link">規制箇所位置図（PDF：88KB）</a>
+
+          <div class="divider"></div>
+
+          <p>
+            悪天候により、規制期間が変更となる場合があります。詳細は下記のお問い合わせ先までご確認ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- 生活道路の通行規制 -->
+      <section id="section-life-road" class="section">
+        <h3>【冬期通行止め】生活道路の通行規制</h3>
+        <div class="contents">
+          <p>
+            下記の生活道路（10路線11区間）において、冬期通行止め規制を実施します。
+          </p>
+
+          <div class="text-block">
+            <p>対象路線（抜粋）：</p>
+            <p>
+              1. 川沿3条3丁目4号線（川沿3条3丁目）<br>
+              2. 川沿4条4丁目4号線（川沿4条3丁目）<br>
+              3. 川沿4条5丁目1号線（川沿4条5丁目）<br>
+              4. 南条例4号線、同5号線、澄川5条6丁目8号線、同9号線（澄川5条6丁目）<br>
+              5. 駒岡団地1号線（真駒内138-1）<br>
+              6. 石山西岡南線（真駒内159-1～同156-1、真駒内608-2～同238-2）<br>
+              7. 常盤真駒内線（真駒内235-1～同217-13）
+            </p>
+          </div>
+
+          <ul class="info-list">
+            <li><span class="label">期間</span>令和7年（2025年）11月下旬～令和8年（2026年）4月中旬まで（予定）</li>
+          </ul>
+
+          <a href="/uncompleted.html" class="pdf-link">規制箇所位置図1.～7.（PDF：2,071KB）</a>
+
+          <div class="divider"></div>
+
+          <p>
+            開始日および解除日の詳細については、下記のお問い合わせ先までご確認ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- 道道京極定山渓線 -->
+      <section id="section-kyogoku" class="section">
+        <h3>【一部区間 幅員減少規制】道道京極定山渓線</h3>
+        <div class="contents">
+          <p>
+            令和6年4月25日から、法面崩壊による土砂崩れの影響により、道道京極定山渓線
+            （天狗小屋～豊羽鉱山の区間）において通行止め規制を行っていましたが、
+            令和6年5月10日13時からは通行止めを解除し、一部区間の幅員減少規制を実施しています。
+          </p>
+
+          <ul class="info-list">
+            <li><span class="label">期間</span>令和6年5月10日（金曜日）13時～（規制解除時期は未定）</li>
+          </ul>
+
+          <a href="/uncompleted.html" class="pdf-link">規制箇所位置図（PDF：192KB）</a>
+
+          <div class="divider"></div>
+
+          <p>
+            規制状況は、今後の工事や道路状況により変更となる場合があります。ご利用の際は最新の道路情報をご確認ください。
+          </p>
+        </div>
+      </section>
+
+      <!-- このページについてのお問い合わせ -->
+      <section id="section-page-contact" class="add-section">
+        <h3>このページに関するお問い合わせ先</h3>
+        <p>南区土木センター</p>
+        <p>電話番号：011-581-3811</p>
+
+        <p>道路情報管理室</p>
+        <p>電話番号：011-708-0303（<span style="font-size:0.9em;">土曜・日曜・祝日、平日の夜間・早朝</span>）</p>
+
+        <a href="/uncompleted.html" class="content-box">
+          お問い合わせフォーム
+        </a>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>

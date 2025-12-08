@@ -21,7 +21,7 @@
 </head>
 <style>
   body {
-    margin-top:60px;
+    margin-top: 60px;
     font-family: 'Zen Maru Gothic', sans-serif;
   }
 
@@ -188,6 +188,44 @@
     transform: translateY(0);
     box-shadow: none;
   }
+
+  /* ▼ セクション内サブ目次（障がい者・障がい児福祉用） */
+  .toc {
+    margin: 8px 0 12px;
+    padding: 10px 10px;
+    background-color: #f8fdf5;
+    border-radius: 6px;
+  }
+
+  .toc-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  .toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .toc ul li a {
+    background-color: var(--color-primary);
+    padding: 6px 12px;
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: inline-block;
+  }
+
+  .sub-toc ul li a:hover {
+    opacity: 0.9;
+  }
 </style>
 
 <body>
@@ -212,6 +250,15 @@
           <a href="index.html">ホームページ</a> ＞ <span>情報を探す</span>
         </nav>
       </div>
+              <!-- 目次（アンカーリンク） -->
+        <div class="toc">
+            <ul>
+                <li><a href="#s_1">カテゴリから探す</a></li>
+                <li><a href="#s_2">できごとから探す</a></li>
+                <li><a href="#s_3">対象者から探す</a></li>
+
+            </ul>
+        </div>
 
       <div id="find">
         <section class="section_1" id="s_1">

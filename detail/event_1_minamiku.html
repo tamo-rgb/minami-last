@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/data/icon.png">
+    <link rel="icon" type="image/icon" href="/data/favcon.png">
+    <title>南区の概要｜札幌市南区</title>
+
+    <!-- フォント（統一） -->
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/style.css">
+    <script src="/assets/common.js"></script>
+
+    <style>
+        body {
+            background-color: var(--color-gbg);
+            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        main {
+            background-color: var(--color-gbg);
+        }
+
+        /* ===== パンくず ===== */
+        .breadcrumb {
+            padding: 10px;
+            color: #555;
+            background-color: #fff;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .breadcrumb a {
+            color: #2e8b57;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #333;
+        }
+
+        /* ===== タイトル ===== */
+        .top-contents {
+            margin: 20px 10px 0;
+            padding: 12px 15px;
+            background-color: #fff;
+            border-bottom: 2px solid var(--color-primary);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .top-contents h1 {
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .top-contents p {
+            margin: 4px 0;
+            font-size: var(--font-p);
+        }
+
+        .updated-date {
+            margin-top: 4px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        /* ===== 目次（タブ風） ===== */
+        .toc {
+            margin: 0 10px;
+            padding: 10px 10px;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .toc p {
+            margin: 0 0 4px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 5px 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .toc ul li a {
+            background-color: var(--color-primary);
+            padding: 6px 12px;
+            color: #ffffff;
+            font-weight: 500;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .toc ul li a:hover {
+            opacity: 0.9;
+        }
+
+        /* ===== セクション共通 ===== */
+        .section {
+            margin: 12px 15px;
+            padding: 14px 16px;
+            background-color: #fff;
+            border-radius: 10px;
+            border: 1px solid #f0f2f4;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            scroll-margin-top: 70px;
+        }
+
+        .section h3 {
+            border-left: 6px solid var(--color-primary);
+            padding-left: 10px;
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .section p {
+            margin: 6px 0;
+            font-size: var(--font-p);
+        }
+
+        h4 {
+            margin: 12px 0 6px;
+            font-size: 1rem;
+            border-left: 4px solid var(--color-primary);
+            padding-left: 8px;
+        }
+
+        /* ブロックを区切る線（楽しくても見やすく） */
+        .sub-divider {
+            margin: 12px 0;
+            border: none;
+            border-top: 1px dashed #d0d4d8;
+        }
+
+        /* ===== 概要内レイアウト ===== */
+        .overview-highlight {
+            padding: 8px 10px;
+            margin: 6px 0 10px;
+            border-radius: 8px;
+            background: #f5fbf4;
+            font-size: 0.95rem;
+        }
+
+        .overview-highlight strong {
+            font-weight: 700;
+        }
+
+        /* 「楽しい感じ」のためのカード表現 */
+        .symbol-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .symbol-card {
+            background: #fdfdfd;
+            border-radius: 12px;
+            border: 1px solid #e4ece4;
+            padding: 10px 12px;
+            text-align: center;
+        }
+
+        .symbol-emoji {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .symbol-title {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .symbol-text {
+            font-size: 0.9rem;
+        }
+
+        /* 花・木・鳥のカード */
+        .nature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .nature-item {
+            background: #f8fcff;
+            border-radius: 12px;
+            border: 1px solid #dde7f5;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nature-icon {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .nature-name {
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .nature-desc {
+            font-size: 0.9rem;
+        }
+
+        /* 関連情報・お問い合わせカード */
+        .add-section {
+            margin: 12px 15px 20px;
+            padding: 14px 16px;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .add-section h3 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+
+        .add-section ul {
+            padding-left: 20px;
+            margin: 4px 0 10px;
+        }
+
+        .add-section li {
+            font-size: var(--font-p);
+        }
+
+        .add-section a.content-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0 0;
+            padding: 10px 16px;
+            border: 1px solid var(--color-primary);
+            background-color: var(--color-palegreen);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--color-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .add-section a.content-box:hover {
+            background-color: #f7fff0;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- ヘッダー -->
+        <div id="header"></div>
+        <div style="height:60px;"></div>
+
+        <main>
+            <!-- パンくず -->
+            <nav class="breadcrumb">
+                <a href="/index.html">ホームページ</a> ＞
+                <a href="/search/search_event.html">文化・行事</a> ＞
+                <span>南区の概要</span>
+            </nav>
+
+            <!-- タイトル -->
+            <section class="top-contents">
+                <h1 class="midashi">南区の概要</h1>
+                <p>豊かな自然と、ゆったりとした住宅地が広がる札幌市南区。山・川・温泉・芸術など、四季を通じて楽しめる魅力がぎゅっと詰まったエリアです。</p>
+                <p class="updated-date">更新日：2022年6月22日</p>
+            </section>
+
+            <!-- 目次 -->
+            <div class="toc">
+                <p>見たい項目を選べます</p>
+                <ul>
+                    <li><a href="#section-1">南区の位置と広がり</a></li>
+                    <li><a href="#section-2">自然とまちの特色</a></li>
+                    <li><a href="#section-3">南区のシンボルマーク</a></li>
+                    <li><a href="#section-4">南区の花・木・鳥</a></li>
+                    <li><a href="#section-5">このページについてのお問い合わせ</a></li>
+                </ul>
+            </div>
+
+            <!-- セクション1：位置と広がり -->
+            <div id="section-1" class="section">
+                <h3>南区の位置と広がり</h3>
+
+                <p>南区は、札幌市の南西部に位置し、<strong>札幌10区の中でいちばん広い区</strong>です。</p>
+
+                <div class="overview-highlight">
+                    <strong>● どこと隣り合っているの？</strong><br>
+                    「小樽市・千歳市・恵庭市・伊達市・京極町・喜茂別町・赤井川村」の4市2町1村と、<br>
+                    市内では「中央区・豊平区・清田区・西区・手稲区」の5区と接しています。
+                </div>
+
+                <p>南北に37.6km、東西に33.2kmの広がりを持ち、面積は<strong>657.48km²</strong>。これは札幌市全体の約<strong>60%</strong>を占める広さです。</p>
+                <p class="note">※札幌10区位置図などの地図画像は、この位置に配置することを想定しています。</p>
+            </div>
+
+            <!-- セクション2：自然とまちの特色 -->
+            <div id="section-2" class="section">
+                <h3>自然とまちの特色</h3>
+
+                <h4>緑あふれる大きな「庭」のようなエリア</h4>
+                <p>南区の区域には<strong>支笏洞爺国立公園</strong>が含まれ、札幌岳や余市岳など、標高1,000mを越える高峰が<strong>17座</strong>もそびえ立っています。</p>
+                <p>一方で、人口約<strong>13万5千人</strong>（令和4年2月現在）が暮らす住宅街もあり、<strong>自然と暮らしが調和したまち</strong>として発展を続けています。</p>
+
+                <hr class="sub-divider">
+
+                <h4>札幌を代表するスポットがいっぱい</h4>
+                <ul>
+                    <li>札幌のシンボルの一つ<strong>「藻岩山」</strong></li>
+                    <li>札幌市民の水がめ<strong>「豊平峡ダム」「定山渓ダム」</strong></li>
+                    <li>大規模な国営公園<strong>「滝野すずらん丘陵公園」</strong></li>
+                    <li>独特の地形やアートが楽しめる<strong>「石山緑地」</strong></li>
+                    <li>ウィンタースポーツが楽しめる<strong>「札幌国際スキー場」</strong></li>
+                    <li>身近な自然を味わえる<strong>ハイキングコース</strong> など</li>
+                </ul>
+                <p>四季折々の景色を楽しめる、憩いの場がたくさん整備されています。</p>
+
+                <hr class="sub-divider">
+
+                <h4>フルーツと温泉も自慢です</h4>
+                <p>南区は、市内10区の中で<strong>3番目に広い農地面積</strong>を持ち、果樹栽培も盛んです。観光果樹園では、季節ごとのフルーツ狩りが多くの人に親しまれています。</p>
+                <p>また、<strong>定山渓温泉</strong>は健康保養地として知られ、夏の涼しさや秋の紅葉が人気で、市内外からたくさんの観光客が訪れます。</p>
+
+                <hr class="sub-divider">
+
+                <h4>芸術文化も楽しめる南区</h4>
+                <p>世界的な音楽祭<strong>「パシフィック・ミュージック・フェスティバル（PMF）」</strong>が開催される<strong>札幌芸術の森</strong>も南区にあります。</p>
+                <p>北方文化の発信地としての期待も大きく、音楽やアートを楽しめるスポットとして親しまれています。</p>
+            </div>
+
+            <!-- セクション3：シンボルマーク -->
+            <div id="section-3" class="section">
+                <h3>南区のシンボルマーク</h3>
+
+                <p>南区のシンボルマークは、<strong>昭和52年（区制5周年）に公募</strong>によって決定されました。</p>
+
+                <div class="symbol-cards">
+                    <div class="symbol-card">
+                        <span class="symbol-emoji">🕊️</span>
+                        <div class="symbol-title">緑と小鳥に恵まれた南区</div>
+                        <div class="symbol-text">
+                            豊かな緑と、鳥たちが集う自然環境に恵まれた南区のイメージを表現しています。
+                        </div>
+                    </div>
+                    <div class="symbol-card">
+                        <span class="symbol-emoji">ミ</span>
+                        <div class="symbol-title">「ミナミ」と読めるデザイン</div>
+                        <div class="symbol-text">
+                            形の中には、カタカナの<strong>「ミナミ」</strong>を読み取ることができる、遊び心のあるデザインです。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- セクション4：花・木・鳥 -->
+            <div id="section-4" class="section">
+                <h3>南区の花・木・鳥</h3>
+
+                <p>南区の「花・木・鳥」は、<strong>平成2年</strong>の『広報さっぽろ南区版8月号』で公募され、同年10月に決定しました。</p>
+
+                <div class="nature-grid">
+                    <div class="nature-item">
+                        <span class="nature-icon">🌸</span>
+                        <div class="nature-name">花「コスモス」</div>
+                        <div class="nature-desc">
+                            秋風にゆれる可憐な花。南区のやさしく、明るいイメージを表しています。
+                        </div>
+                    </div>
+                    <div class="nature-item">
+                        <span class="nature-icon">🌳</span>
+                        <div class="nature-name">木「シラカバ」</div>
+                        <div class="nature-desc">
+                            北国を象徴する白い樹肌の木。南区の豊かな森林と爽やかな景観を象徴しています。
+                        </div>
+                    </div>
+                    <div class="nature-item">
+                        <span class="nature-icon">🐦</span>
+                        <div class="nature-name">鳥「セキレイ」</div>
+                        <div class="nature-desc">
+                            水辺やまちなかで見かける、親しみのある小さな鳥。南区の身近な自然を表しています。
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- お問い合わせ -->
+            <div id="section-5" class="section">
+                <h3>このページについてのお問い合わせ</h3>
+                <p>札幌市南区市民部総務企画課<br>
+                    〒005-8612 札幌市南区真駒内幸町2丁目2-1<br>
+                    電話番号：011-582-4714<br>
+                    ファクス番号：011-582-0144
+                </p>
+                <p>お問い合わせフォーム</p>
+            </div>
+
+            <!-- 楽しい感じの関連リンクカード（任意） -->
+            <div class="add-section">
+                <h3>あわせて読みたい南区の情報</h3>
+                <ul>
+                    <li>南区の観光・レジャースポット</li>
+                    <li>南区のイベント情報</li>
+                    <li>南区で楽しむ四季の自然</li>
+                </ul>
+                <a href="/minami/index.html" class="content-box">
+                    南区トップページにもどる
+                </a>
+            </div>
+
+            <!-- フッター -->
+            <div id="footer"></div>
+        </main>
+    </div>
+
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+
+    <script>
+        // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+</body>
+
+</html>

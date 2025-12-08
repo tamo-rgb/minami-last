@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南区の歴史年表｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.85rem;
+    }
+
+    /* 年代タブ */
+    .year-tabs {
+      margin: 0 10px 10px;
+      overflow-wrap: anywhere;
+      padding: 8px 10px;
+      background-color: transparent;
+    }
+
+    .year-tabs-inner {
+      display: flex;
+      flex-wrap: wrap; 
+      gap: 6px;
+      padding-bottom: 2px;
+    }
+
+    .year-tab {
+      flex: 0 0 auto;
+      border-radius: 20px;
+      padding: 6px 12px;
+      border: 1px solid var(--color-primary);
+      background-color: #fff;
+      color: var(--color-primary);
+      font-size: var(--font-p);
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .year-tab.active {
+      background-color: var(--color-primary);
+      color: #fff;
+    }
+
+    .year-tab:focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 2px;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 年表ブロック切り替え */
+    .history-block {
+      display: none;
+    }
+
+    .history-block.active {
+      display: block;
+    }
+
+    /* 年表テーブル */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--font-p);
+      margin-top: 6px;
+    }
+
+    .history-table thead th {
+      border-bottom: 2px solid #d8dddf;
+      padding: 6px 4px;
+      text-align: left;
+      background-color: #f5f7f8;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .history-table tbody td {
+      border-bottom: 1px solid #e3e6e8;
+      padding: 6px 4px;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .history-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .history-year,
+    .history-era {
+      white-space: nowrap;
+      padding-right: 6px;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .history-table thead {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+                <a href="/search/search_event.html">文化・行事</a> ＞
+                
+        <span>南区の歴史年表</span>
+      </nav>
+
+      <!-- ページタイトル -->
+      <section class="top-contents">
+        <h1 class="midashi">南区の歴史年表</h1>
+        <p>
+          南区のこれまでの歩みを、西暦と和暦ごとの年表でご紹介します。<br>
+          上部のタブから年代を切り替えてご覧ください。
+        </p>
+        <p class="updated-date">更新日：2025年12月1日</p>
+      </section>
+
+      <!-- 年代タブ -->
+      <div class="year-tabs">
+        <div class="year-tabs-inner">
+          <button type="button" class="year-tab active" data-target="history-1753-1899">1753年～1899年</button>
+          <button type="button" class="year-tab" data-target="history-1900-1949">1900年～1949年</button>
+          <button type="button" class="year-tab" data-target="history-1950-1979">1950年～1979年</button>
+          <button type="button" class="year-tab" data-target="history-1980-1999">1980年～1999年</button>
+          <button type="button" class="year-tab" data-target="history-2000-now">2000年～現在</button>
+        </div>
+      </div>
+
+      <!-- 歴史（1753年～1899年） -->
+      <section id="history-1753-1899" class="section history-block active">
+        <h3>歴史（1753年～1899年）</h3>
+        <div class="contents">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>西暦</th>
+                <th>和暦</th>
+                <th>できごと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="history-year">1753年</td>
+                <td class="history-era">宝暦3年</td>
+                <td>木材業者飛騨屋久兵衛が豊平川沿いの山林伐採を開始。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1866年</td>
+                <td class="history-era">慶応2年</td>
+                <td>美泉定山が温泉を確認し、仮屋を設ける。<br>美泉定山の像の写真</td>
+              </tr>
+              <tr>
+                <td class="history-year">1871年</td>
+                <td class="history-era">明治4年</td>
+                <td>
+                  岩村判官が豊平川沿いに通路を開き、宿泊所を建設、定山を湯守とする。<br>
+                  本願寺街道開通。<br>
+                  東久世開拓使長官が「定山渓」と命名。<br>
+                  石碑の写真1枚目／石碑の写真2枚目／石碑の写真3枚目
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1872年</td>
+                <td class="history-era">明治5年</td>
+                <td>
+                  簾舞通行屋が置かれ、屋守として黒岩清五郎が定住。<br>
+                  硬石山で硬石が発見され、採掘を開始。<br>
+                  石山で軟石が発見される（採掘は1875年からといわれる）。<br>
+                  採石場の写真1枚目／2枚目／3枚目
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1876年</td>
+                <td class="history-era">明治9年</td>
+                <td>
+                  エドウィン・ダンが真駒内に牧牛場（後の真駒内種畜場）を開く。<br>
+                  エドウィン・ダンの銅像の写真／エドウィン・ダン記念館の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1879年</td>
+                <td class="history-era">明治12年</td>
+                <td>滝野に官営の水車器械場を設置。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1880年</td>
+                <td class="history-era">明治13年</td>
+                <td>藻岩下に入植始まる。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1882年</td>
+                <td class="history-era">明治15年</td>
+                <td>澄川に入植始まる。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1883年</td>
+                <td class="history-era">明治16年</td>
+                <td>
+                  藤野に入植始まる。<br>
+                  石碑の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1887年</td>
+                <td class="history-era">明治20年</td>
+                <td>
+                  吉川太左衛門が小金湯温泉を経営。<br>
+                  小金湯温泉の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1898年</td>
+                <td class="history-era">明治31年</td>
+                <td>小村亀十郎が白川開拓に着手。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 歴史（1900年～1949年） -->
+      <section id="history-1900-1949" class="section history-block">
+        <h3>歴史（1900年～1949年）</h3>
+        <div class="contents">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>西暦</th>
+                <th>和暦</th>
+                <th>できごと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="history-year">1900年</td>
+                <td class="history-era">明治33年</td>
+                <td>常盤に入植始まる。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1907年</td>
+                <td class="history-era">明治40年</td>
+                <td>定山渓発電所送電を開始。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1909年</td>
+                <td class="history-era">明治42年</td>
+                <td>山鼻から石山間の馬車鉄道開通（1918年廃止）。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1916年</td>
+                <td class="history-era">大正5年</td>
+                <td>
+                  豊羽鉱山開業。<br>
+                  石碑の写真／祠の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1918年</td>
+                <td class="history-era">大正7年</td>
+                <td>
+                  白石から定山渓に定山渓鉄道開通（1969年廃止）。<br>
+                  記念碑の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1921年</td>
+                <td class="history-era">大正10年</td>
+                <td>藻岩原生林が天然記念物に指定。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1923年</td>
+                <td class="history-era">大正12年</td>
+                <td>
+                  真駒内種畜場内にモーテン・ラーセン農場開設。<br>
+                  定山渓が北海道三景に選ばれる。<br>
+                  農場の写真1／農場の写真2／定山渓温泉の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1932年</td>
+                <td class="history-era">昭和7年</td>
+                <td>定山渓・小樽間の道路開通。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1936年</td>
+                <td class="history-era">昭和11年</td>
+                <td>藻岩ダム・藻岩発電所完成。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1939年</td>
+                <td class="history-era">昭和14年</td>
+                <td>石山に豊羽鉱山の選鉱所完成（1969年移転）。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1942年</td>
+                <td class="history-era">昭和17年</td>
+                <td>簾舞に傷痍軍人北海道第2療養所（現国立療養所札幌南病院）開設。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1946年</td>
+                <td class="history-era">昭和21年</td>
+                <td>
+                  真駒内種畜場が米軍に接収され、キャンプ・クロフォードの建設始まる。<br>
+                  記念碑の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1947年</td>
+                <td class="history-era">昭和22年</td>
+                <td>駒岡に入植始まる。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1949年</td>
+                <td class="history-era">昭和24年</td>
+                <td>
+                  藻南公園が開園。<br>
+                  定山渓が国立公園に指定される。<br>
+                  公園の写真
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 歴史（1950年～1979年） -->
+      <section id="history-1950-1979" class="section history-block">
+        <h3>歴史（1950年～1979年）</h3>
+        <div class="contents">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>西暦</th>
+                <th>和暦</th>
+                <th>できごと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="history-year">1954年</td>
+                <td class="history-era">昭和29年</td>
+                <td>
+                  十五島公園開園。<br>
+                  十五島公園の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1955年</td>
+                <td class="history-era">昭和30年</td>
+                <td>キャンプ・クロフォードの返還開始、代わって自衛隊が駐屯。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1956年</td>
+                <td class="history-era">昭和31年</td>
+                <td>藤の沢小学校に小鳥の村が設けられる。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1959年</td>
+                <td class="history-era">昭和34年</td>
+                <td>キャンプ・クロフォードの返還終了、真駒内団地の造成開始。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1961年</td>
+                <td class="history-era">昭和36年</td>
+                <td>豊平町が札幌市と合併。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1965年</td>
+                <td class="history-era">昭和40年</td>
+                <td>
+                  さっぽろ雪まつりが真駒内会場でも催される。<br>
+                  定山渓かっぱ祭り始まる。<br>
+                  かっぱ像の写真1／写真2／写真3
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1971年</td>
+                <td class="history-era">昭和46年</td>
+                <td>
+                  地下鉄南北線開通。<br>
+                  滝野自然学園開設。<br>
+                  白川浄水場通水開始。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1972年</td>
+                <td class="history-era">昭和47年</td>
+                <td>
+                  札幌オリンピック冬季大会開催。<br>
+                  政令指定都市移行に伴い南区誕生。<br>
+                  オリンピックロゴの写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1972年</td>
+                <td class="history-era">昭和47年</td>
+                <td>
+                  豊平峡ダム完成。<br>
+                  豊平峡ダムの写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1973年</td>
+                <td class="history-era">昭和48年</td>
+                <td>
+                  定山渓温泉が有馬温泉と姉妹提携。<br>
+                  温泉地の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1975年</td>
+                <td class="history-era">昭和50年</td>
+                <td>
+                  真駒内公園開園。<br>
+                  真駒内公園の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1976年</td>
+                <td class="history-era">昭和51年</td>
+                <td>白川野外教室開設。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1977年</td>
+                <td class="history-era">昭和52年</td>
+                <td>南区のシンボルマーク制定。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1979年</td>
+                <td class="history-era">昭和54年</td>
+                <td>
+                  南区民センター完成。<br>
+                  澄川児童会館オープン。<br>
+                  滝野すずらん丘陵公園工事開始。<br>
+                  区民センターの写真
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 歴史（1980年～1999年） -->
+      <section id="history-1980-1999" class="section history-block">
+        <h3>歴史（1980年～1999年）</h3>
+        <div class="contents">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>西暦</th>
+                <th>和暦</th>
+                <th>できごと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="history-year">1981年</td>
+                <td class="history-era">昭和56年</td>
+                <td>藻岩児童会館オープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1982年</td>
+                <td class="history-era">昭和57年</td>
+                <td>
+                  区政施行10周年記念「南区のあゆみ」刊行。<br>
+                  藤野児童会館オープン。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1983年</td>
+                <td class="history-era">昭和58年</td>
+                <td>
+                  澄川図書館開館。<br>
+                  滝野すずらん丘陵公園一部開園。<br>
+                  澄川図書館の写真／滝野すずらん丘陵公園の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1984年</td>
+                <td class="history-era">昭和59年</td>
+                <td>
+                  南区体育館オープン。<br>
+                  真駒内児童会館オープン。<br>
+                  旧簾舞通行屋が札幌市の有形文化財に指定。<br>
+                  豊平川さけ科学館オープン。<br>
+                  南区体育館の写真／豊平川さけ科学館の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1985年</td>
+                <td class="history-era">昭和60年</td>
+                <td>駒岡清掃工場操業開始。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1986年</td>
+                <td class="history-era">昭和61年</td>
+                <td>
+                  保養センター駒岡オープン。<br>
+                  札幌芸術の森一部開園。<br>
+                  石山陸橋立体交差完成。<br>
+                  保養センターの写真／芸術の森の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1987年</td>
+                <td class="history-era">昭和62年</td>
+                <td>北方自然教育園一部オープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1988年</td>
+                <td class="history-era">昭和63年</td>
+                <td>南の沢児童会館オープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1989年</td>
+                <td class="history-era">平成元年</td>
+                <td>
+                  藤野地区センターオープン。<br>
+                  青少年山の家オープン。<br>
+                  定山渓ダム完成。<br>
+                  藤野地区センターの写真／青少年山の家の写真／定山渓ダムの写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1990年</td>
+                <td class="history-era">平成2年</td>
+                <td>
+                  PMF（パシフィック・ミュージック・フェスティバル）開催。<br>
+                  石山児童会館オープン。<br>
+                  南区の花木鳥を制定。<br>
+                  コスモスの写真／シラカバの写真／セキレイの写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1991年</td>
+                <td class="history-era">平成3年</td>
+                <td>
+                  市立高等専門学校開校。<br>
+                  ミュンヘン大橋架設される。<br>
+                  白川市民の森オープン。<br>
+                  ミュンヘン大橋の写真／白川市民の森の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1992年</td>
+                <td class="history-era">平成4年</td>
+                <td>常盤児童会館オープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1994年</td>
+                <td class="history-era">平成6年</td>
+                <td>真駒内五輪児童会館オープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1995年</td>
+                <td class="history-era">平成7年</td>
+                <td>南老人福祉センターオープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1996年</td>
+                <td class="history-era">平成8年</td>
+                <td>もいわ地区センターオープン。</td>
+              </tr>
+              <tr>
+                <td class="history-year">1997年</td>
+                <td class="history-era">平成9年</td>
+                <td>
+                  みすまい児童会館オープン。<br>
+                  藻岩下・南小学校にミニ児童会館オープン。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1998年</td>
+                <td class="history-era">平成10年</td>
+                <td>
+                  「ふるさと南区まちづくりビジョン」完成（4月）。<br>
+                  澄川北緑地開園（5月）。<br>
+                  定山渓自然の村オープン（6月）。<br>
+                  札幌芸術の森「クラフト工房」完成（7月）。<br>
+                  びん・缶・ペットボトルの分別収集スタート（8月・全市は10月）。<br>
+                  芸術の森地区福祉のまち推進センター開設、石山小学校開校100周年（9月）。<br>
+                  藻岩地区福祉のまち推進センター開設、石山救急隊発足（10月）。<br>
+                  定山渓自然の村の写真／芸術の森クラフト工房の写真
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">1999年</td>
+                <td class="history-era">平成11年</td>
+                <td>
+                  南区防災マップ完成（3月）。<br>
+                  南沢地区町内会連合会設立（4月）。<br>
+                  藻岩下地区福祉のまち推進センター開設（6月）。<br>
+                  芸術の森野外美術館「隠された庭への道」オープン（7月）。<br>
+                  藤野東公園開園、石山陸橋下トンネル完成（10月）。<br>
+                  石山小学校「平和の像」完成、駒岡小学校50周年（11月）。<br>
+                  八剣山トンネル開通、石…（記述続き）
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 歴史（2000年～現在） -->
+      <section id="history-2000-now" class="section history-block">
+        <h3>歴史（2000年～現在）</h3>
+        <div class="contents">
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>西暦</th>
+                <th>和暦</th>
+                <th>できごと</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="history-year">2000年</td>
+                <td class="history-era">平成12年</td>
+                <td>
+                  南沢地区福祉のまち推進センター開設（1月）。<br>
+                  保養センター駒岡に屋内パークゴルフ場完成（2月）。<br>
+                  パークゴルフ場の写真。<br>
+                  真駒内曙小学校に「ふれあいの場」誕生（4月）。<br>
+                  藻岩地区「子育てふれあい交流広場」設立（8月）。<br>
+                  精進川公園開園（10月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2001年</td>
+                <td class="history-era">平成13年</td>
+                <td>
+                  散策路「ウォーキングトレイル」誕生（5月）。<br>
+                  定山渓温泉街に足湯完成（12月）。<br>
+                  藤野野外スポーツ交流施設 Fu's オープン（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2002年</td>
+                <td class="history-era">平成14年</td>
+                <td>
+                  すみかわ地区センターオープン（2月）。<br>
+                  区制施行30周年（4月）。<br>
+                  区制施行30周年記念誌「南区開拓夜話」刊行（6月）。<br>
+                  簾舞小学校に蝶の資料館完成（9月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2003年</td>
+                <td class="history-era">平成15年</td>
+                <td>
+                  南消防署藤野出張所開設（3月）。<br>
+                  定山渓地区福祉のまち推進センター開設（4月）。<br>
+                  エドウィン・ダン記念館リニューアルオープン（5月）。<br>
+                  定山渓温泉街に第2足湯「足のふれあい太郎の湯」完成（11月）。<br>
+                  アイヌ文化交流センター全面オープン（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2004年</td>
+                <td class="history-era">平成16年</td>
+                <td>
+                  出張所・連絡所をまちづくりセンターへ改編（4月）。<br>
+                  滝野すずらん丘陵公園に森のすみかが完成（7月）。<br>
+                  いしやま朝市が始まる（8月）。<br>
+                  定山渓小にミニ児童会館オープン（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2005年</td>
+                <td class="history-era">平成17年</td>
+                <td>
+                  さっぽろ雪まつり真駒内会場が廃止（2月）。<br>
+                  「旧石山郵便局（ぽすとかん）」が札幌景観資産に指定される（3月）。<br>
+                  青少年山の家がリニューアルオープン（5月）。<br>
+                  こまおか朝市が始まる（6月）。<br>
+                  定山渓観光案内所と博物館が移転オープン（7月）。<br>
+                  定山渓源泉公園がオープン（8月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2006年</td>
+                <td class="history-era">平成18年</td>
+                <td>
+                  豊羽鉱山が閉鎖（3月）。<br>
+                  「旧石切山駅（石山振興会館）」が札幌景観資産に指定される（3月）。<br>
+                  札幌市立大学開学（4月）。<br>
+                  定山渓郷土博物館がリニューアルオープン（4月）。<br>
+                  藤野トンネルが開通（6月）。<br>
+                  東海大学と地域、行政が地域連携協定書を締結（7月）。<br>
+                  平成18年度札幌市総合防災訓練が行われる（9月）。<br>
+                  シーニックバイウェイ・ワークショップの開催（10月）。<br>
+                  真駒内公園歩くスキーコースがオープン（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2007年</td>
+                <td class="history-era">平成19年</td>
+                <td>南区シーニックバイウェイ検討協議会が発足（9月）。</td>
+              </tr>
+              <tr>
+                <td class="history-year">2008年</td>
+                <td class="history-era">平成20年</td>
+                <td>
+                  「エドウィン・ダン記念館」が札幌景観資産に指定される（3月）。<br>
+                  豊平峡ダムのカムイ・ニセイ橋が通行可能となる（4月）。<br>
+                  澄川小にミニ児童会館オープン（4月）。<br>
+                  もいわした朝市が始まる（7月）。<br>
+                  第1回札幌南シーニックバイウェイルート運営代表者会議が開催（9月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2009年</td>
+                <td class="history-era">平成21年</td>
+                <td>
+                  澄川まちづくりセンターが地域自主運営を開始（1月）。<br>
+                  石山まちづくりセンターが地域自主運営を開始（3月）。<br>
+                  シーニックバイウェイ「候補ルート」として登録（5月）。<br>
+                  真駒内まちづくりセンターが地域自主運営を開始（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2010年</td>
+                <td class="history-era">平成22年</td>
+                <td>
+                  芸術の森地区まちづくりセンターが地域自主運営を開始（1月）。<br>
+                  市税事務所が開設され、区役所の税務部門が各市税事務所に移転（10月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2011年</td>
+                <td class="history-era">平成23年</td>
+                <td>
+                  藻岩下まちづくりセンターが地域自主運営を開始（1月）。<br>
+                  「札幌シーニックバイウェイ藻岩山麓・定山渓ルート（旧称：札幌南シーニックバイウェイ）」が札幌市内で初めて、シーニックバイウェイルートに指定（7月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2012年</td>
+                <td class="history-era">平成24年</td>
+                <td>
+                  定山渓温泉PR隊長の「かっぽん」に特別住民票が交付される（7月）。<br>
+                  南沢死亡事故「ゼロ」5000日達成（12月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2013年</td>
+                <td class="history-era">平成25年</td>
+                <td>
+                  定山渓出張所が移転オープン（1月）。<br>
+                  札幌シーニックバイウェイ藻岩山麓・定山渓ルートのシンボルマークが決定（7月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2014年</td>
+                <td class="history-era">平成26年</td>
+                <td>
+                  地下鉄南北線真駒内駅構内に「駅ナカアート」が完成（3月）。<br>
+                  簾舞まちづくりセンターが地域自主運営を開始（4月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2015年</td>
+                <td class="history-era">平成27年</td>
+                <td>旧真駒内緑小学校跡施設に「まこまる」がオープン（4月）。</td>
+              </tr>
+              <tr>
+                <td class="history-year">2016年</td>
+                <td class="history-era">平成28年</td>
+                <td>
+                  小金湯さくらの森がオープン（4月）。<br>
+                  定山渓ネイチャールミナリエが初開催（6月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2017年</td>
+                <td class="history-era">平成29年</td>
+                <td>
+                  盤渓・北ノ沢トンネルが開通（2月）。<br>
+                  2017年アジア冬季競技大会が真駒内屋内競技場で開催（2月）。<br>
+                  市立札幌みなみの杜高等支援学校が開校（4月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2018年</td>
+                <td class="history-era">平成30年</td>
+                <td>
+                  南区こそだてインフォメーションが開設（4月）。<br>
+                  北海道胆振東部地震で区内全域がブラックアウト（9月）。<br>
+                  札幌軟石が北海道遺産に選定（11月）。
+                </td>
+              </tr>
+              <tr>
+                <td class="history-year">2019年</td>
+                <td class="history-era">平成31（令和元）年</td>
+                <td>
+                  南消防署がリニューアル（1月）。<br>
+                  石山まちづくりセンター・石山会館が石山小学校複合施設へ移転（4月）。<br>
+                  ラグビー・ワールドカップ2019でトンガチームが定山渓で合宿（9月）。
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div id="footer"></div>
+    </main>
+  </div>
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
+  <script>
+    // 年代タブ切り替え
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.year-tab');
+      const blocks = document.querySelectorAll('.history-block');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.getAttribute('data-target');
+
+          // タブの状態切り替え
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          // コンテンツ切り替え
+          blocks.forEach(block => {
+            if (block.id === targetId) {
+              block.classList.add('active');
+            } else {
+              block.classList.remove('active');
+            }
+          });
+
+          // 上部に少しスクロール調整（モバイル用）
+          const mainTop = document.querySelector('.top-contents');
+          if (mainTop) {
+            window.scrollTo({
+              top: mainTop.offsetTop + mainTop.offsetHeight - 10,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+            // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+  </script>
+</body>
+
+</html>

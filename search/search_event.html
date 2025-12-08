@@ -138,23 +138,21 @@
     }
 
     /* ===== タブ部分 ===== */
+
     .tab-card-buttons {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
     }
 
     .tab-card-buttons .tab-button {
-        flex: 1;
-        margin: 0 5px;
-        padding: 12px 0;
+        margin: 2px 5px;
+        padding: 2px 10px;
         background: #fff;
-        border-radius: 10px;
-        border: 2px solid var(--color-primary);
+        border-radius: 20px;
+        border: 1px solid var(--color-primary);
         cursor: pointer;
         font-weight: bold;
         color: var(--color-primary);
-        transition: all 0.2s;
     }
 
     .tab-card-buttons .tab-button.active {
@@ -213,129 +211,570 @@
     <main>
         <!-- パンくずリスト -->
         <nav class="breadcrumb">
-            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>文化・イベント</span>
+            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ 
+            <span>文化・行事</span>
         </nav>
 
         <!-- タブカード -->
         <section class="section tab-card">
-            <h2 class="test-title">文化・イベント</h2>
+            <h2 class="test-title">文化・行事</h2>
+            <!-- 区を切り替えるボタン -->
+<div class="tab-card-buttons">
+    <button class="tab-button active" data-tab="minami">南区</button>
+    <button class="tab-button" data-tab="kita">北区</button>
+    <button class="tab-button" data-tab="nishi">西区</button>
+    <button class="tab-button" data-tab="tyuo">中央区</button>
+    <button class="tab-button" data-tab="higashi">東区</button>
+    <button class="tab-button" data-tab="shiroishi">白石区</button>
+    <button class="tab-button" data-tab="atsubetsu">厚別区</button>
+    <button class="tab-button" data-tab="toyohira">豊平区</button>
+    <button class="tab-button" data-tab="kiyota">清田区</button>
+    <button class="tab-button" data-tab="teine">手稲区</button>
+</div>
+
 
             <div class="tab-card-content">
-                <section id="new" class="tab-content active">
-                    <ul class="news-list">
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>南区の紹介</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">南区50周年特設ホームページ<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区長室から<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区の概要<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区まちづくりプラン<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区ガイド<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区再発見<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
-                            </div>
-                        </li>
+<!-- 南区 -->
+<section id="minami" class="tab-content active">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>南区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="/detail/event_1_minamiku.html" class="toggle-item">南区の概要<span class="arrow"></span></a>
+                <a href="/detail/event_1_history.html" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
 
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>地域の活動</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">「地域みんなで子どもを見守る南区」運動<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区成人の日行事（成人式）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区緑苑大学（高齢者教室）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区少年少女親善スポーツ大会<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">あつまれ！まこまないの森<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">レクリエーションスポーツ用具の貸出（無料）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区内のスポーツ関係団体<span class="arrow"></span></a>
-                            </div>
-                        </li>
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">「地域みんなで子どもを見守る南区」運動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区緑苑大学（高齢者教室）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区少年少女親善スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">あつまれ！まこまないの森<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">レクリエーションスポーツ用具の貸出（無料）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内のスポーツ関係団体<span class="arrow"></span></a>
+            </div>
+        </li>
 
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>南区の魅力を発見</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">アートを通じたまちづくり<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">ミナミナク・アートプロジェクト<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">シーニックバイウェイ「住んでよし、訪れてよし」のまちづくり<span
-                                        class="arrow"></span></a>
-                                <a href="#" class="toggle-item">2025年度みなみくカレンダー<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">札幌軟石<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">花による南区イメージアップ事業<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">動画を活用した南区の魅力PR事業<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区冬の雪あかり<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">足湯！DJ！PARTYNIGHT！<span class="arrow"></span></a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>南区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ミナミナク・アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイ「住んでよし、訪れてよし」のまちづくり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">2025年度みなみくカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">札幌軟石<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花による南区イメージアップ事業<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画を活用した南区の魅力PR事業<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">南区冬の雪あかり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">足湯！DJ！PARTYNIGHT！<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
 
-                <section id="news" class="tab-content">
-                    <ul class="news-list">
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>南区の紹介</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">南区50周年特設ホームページ<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区長室から<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区の概要<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区まちづくりプラン<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区ガイド<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区再発見<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
-                            </div>
-                        </li>
+<!-- 北区 -->
+<section id="kita" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>北区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">北区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
 
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>地域の活動</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">「地域みんなで子どもを見守る南区」運動<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区成人の日行事（成人式）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区緑苑大学（高齢者教室）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区少年少女親善スポーツ大会<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">あつまれ！まこまないの森<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">レクリエーションスポーツ用具の貸出（無料）<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">区内のスポーツ関係団体<span class="arrow"></span></a>
-                            </div>
-                        </li>
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">北区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">高齢者教室（北区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内のスポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
 
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h3>南区の魅力を発見</h3>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">アートを通じたまちづくり<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">ミナミナク・アートプロジェクト<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">シーニックバイウェイ「住んでよし、訪れてよし」のまちづくり<span
-                                        class="arrow"></span></a>
-                                <a href="#" class="toggle-item">2025年度みなみくカレンダー<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">札幌軟石<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">花による南区イメージアップ事業<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">動画を活用した南区の魅力PR事業<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">南区冬の雪あかり<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">足湯！DJ！PARTYNIGHT！<span class="arrow"></span></a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>北区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（北区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと北区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">四季のイベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">北区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る北区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 西区 -->
+<section id="nishi" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>西区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">西区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">西区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">レクリエーションスポーツ用具貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>西区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（西区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと西区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">西区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（西区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る西区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 中央区（idは data-tab="tyuo" に合わせて tyuo） -->
+<section id="tyuo" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>中央区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">中央区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">中央区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">レクリエーションスポーツ用具貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>中央区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（中央区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと中央区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">中央区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史的建造物・文化施設<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（中央区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る中央区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 東区 -->
+<section id="higashi" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>東区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">東区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">東区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>東区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（東区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと東区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">東区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（東区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る東区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 白石区 -->
+<section id="shiroishi" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>白石区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">白石区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">白石区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>白石区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（白石区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと白石区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">白石区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（白石区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る白石区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 厚別区 -->
+<section id="atsubetsu" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>厚別区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">厚別区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">厚別区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>厚別区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（厚別区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと厚別区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">厚別区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（厚別区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る厚別区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 豊平区 -->
+<section id="toyohira" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>豊平区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">豊平区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">豊平区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>豊平区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（豊平区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと豊平区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">豊平区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（豊平区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る豊平区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 清田区 -->
+<section id="kiyota" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>清田区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">清田区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">清田区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>清田区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（清田区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと清田区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">清田区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（清田区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る清田区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- 手稲区 -->
+<section id="teine" class="tab-content">
+    <ul class="news-list">
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>手稲区の紹介</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">手稲区の概要<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">歴史<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">見どころ<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区まちづくりプラン<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区ガイド<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区再発見<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">ふるさと小百科<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">碑（いしぶみ）を訪ねて<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>地域の活動</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">手稲区の子ども見守り活動<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区成人の日行事（成人式）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区高齢者教室<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区少年少女スポーツ大会<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">地域イベント・まつり<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">スポーツ用具の貸出<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">区内スポーツ団体<span class="arrow"></span></a>
+            </div>
+        </li>
+
+        <li class="list-item">
+            <div class="toggle-tab">
+                <h3>手稲区の魅力を発見</h3>
+                <div class="arrow-btn"></div>
+            </div>
+            <div class="toggle-content">
+                <a href="#" class="toggle-item">アートを通じたまちづくり（手稲区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区アートプロジェクト<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">シーニックバイウェイと手稲区<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区イベントカレンダー<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">手稲区の歴史的建造物<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">花とみどりの取り組み（手稲区）<span class="arrow"></span></a>
+                <a href="#" class="toggle-item">動画で知る手稲区の魅力<span class="arrow"></span></a>
+            </div>
+        </li>
+    </ul>
+</section>
 
             </div>
         </section>

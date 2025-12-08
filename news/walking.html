@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ウオーキングイベント｜南区冬季ノルディックウオーキング体験会｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 情報ラベル＋リスト */
+    .info-list {
+      margin: 4px 0 6px;
+      padding: 0;
+      list-style: none;
+      font-size: var(--font-p);
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 6em;
+      color: #355c3e;
+    }
+
+    /* 長文＆説明ブロック */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* 区切り線（長文の区切り用）※点線そのまま */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* PDFリンク */
+    a.pdf-link {
+      display: inline-block;
+      margin: 4px 0;
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    a.pdf-link:hover {
+      opacity: 0.85;
+    }
+
+    /* ボタン風リンク */
+    a.content-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 0;
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-palegreen);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    a.content-box:hover {
+      background-color: #f7fff0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 5em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/news.html">お知らせを見る</a> ＞
+        <span>ウオーキングイベント</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">ウオーキングイベント（南区冬季ノルディックウオーキング体験会）</h1>
+        <p>南区健康・子ども課では、ウオーキングを通じた区民の皆さまの健康づくりに取り組んでいます。<br>
+          普段、運動習慣のない方も、まずは歩くことから始めてみませんか。</p>
+        <p class="updated-date">更新日：2025年10月1日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-intro">イベント概要</a></li>
+          <li><a href="#section-outline">開催内容</a></li>
+          <li><a href="#section-course">コースについて</a></li>
+          <li><a href="#section-target">対象・定員・持ち物</a></li>
+          <li><a href="#section-entry">申し込み方法</a></li>
+          <li><a href="#section-other">その他・注意事項</a></li>
+        </ul>
+      </div>
+
+      <!-- イベント概要 -->
+      <section id="section-intro" class="section">
+        <h3>「冬季ノルディックウオーキング体験会」を開催します</h3>
+        <div class="contents">
+          <div class="text-block">
+            季節を感じながら、一緒にすこやかウオーキング！<br>
+            ノルディック複合団体で金メダルを獲得した<strong>阿部雅司氏</strong>を講師に迎え、オリンピックでの経験に基づく健康づくりについての講演と、ウオーキングポールを使ったノルディックウオーキング体験会を実施します。
+          </div>
+
+          <a href="/uncompleted.html" class="pdf-link">チラシ（PDF：2,106KB）</a>
+        </div>
+      </section>
+
+      <!-- 開催内容 -->
+      <section id="section-outline" class="section">
+        <h3>開催概要</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">名称</span>南区冬季ノルディックウオーキング体験会</li>
+            <li><span class="label">日時</span>令和7年（2025年）12月6日（土曜日）<br>
+              9時30分～12時00分（9時15分受付開始）
+            </li>
+            <li><span class="label">会場</span>南区民センター 2階ホール（南区真駒内幸町2丁目2-1）</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>内容（予定）</strong></p>
+          <ul class="info-list">
+            <li>講演「金メダルへの道のり」（9時30分～10時20分）</li>
+            <li>ノルディックウオーキング体験（10時30分～12時00分）</li>
+          </ul>
+          <p>※第二部（ノルディックウオーキング体験）は屋外で行います。</p>
+        </div>
+      </section>
+
+      <!-- コース -->
+      <section id="section-course" class="section">
+        <h3>コースについて（第二部）</h3>
+        <div class="contents">
+          <p><strong>コース</strong></p>
+          <p>エドウィン・ダン記念公園 ～ 真駒内公園（解散）</p>
+
+          <ul class="info-list">
+            <li>距離：約3.0km</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <div class="text-block">
+            真駒内公園内で解散となりますが、ご希望の方は南区民センターまで歩いて戻ることもできます。<br>
+            足元の状況に応じて、ペースを調整しながら歩きます。
+          </div>
+        </div>
+      </section>
+
+      <!-- 対象・定員・持ち物 -->
+      <section id="section-target" class="section">
+        <h3>対象・定員・持ち物</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">対象</span>南区にお住まいの方<br>
+              ※小学生以下は、保護者同伴でご参加ください。
+            </li>
+            <li><span class="label">定員</span>30名（先着順）</li>
+            <li><span class="label">費用</span>無料</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>持ち物</strong></p>
+          <ul class="info-list">
+            <li>飲み物</li>
+            <li>リュック</li>
+            <li>屋内用運動靴</li>
+            <li>屋外用運動靴</li>
+            <li>ポール など</li>
+          </ul>
+
+          <p>※暖かい服装・歩きやすい服装でご参加ください。</p>
+        </div>
+      </section>
+
+      <!-- 申し込み方法 -->
+      <section id="section-entry" class="section">
+        <h3>申し込み</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">受付期間</span>令和7年（2025年）11月19日（水曜日）8時 ～ 12月1日（月曜日）</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>申込方法</strong></p>
+          <div class="text-block">
+            札幌市コールセンターまで、<strong>電話</strong>または<strong>WEB</strong>でお申し込みください。
+          </div>
+
+          <ul class="info-list">
+            <li><span class="label">電話</span>札幌市コールセンター：011-222-4894（年中無休／8時00分～21時00分）</li>
+            <li><span class="label">WEB</span>
+              <a href="https://www.callcenter.city.sapporo.jp/sapporo/cc/web/formList.html" target="_blank"
+                rel="noopener noreferrer">
+                申込フォーム（札幌市コールセンター）
+              </a>
+            </li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>申込時の必要事項</strong></p>
+          <p>お申し込みの際は、以下の内容をお伝えください。</p>
+          <ul class="info-list">
+            <li>イベント名（南区冬季ノルディックウオーキング体験会）</li>
+            <li>参加者全員の氏名・年齢</li>
+            <li>歩くペース（1.普通／2.ゆっくり／3.未経験）</li>
+            <li>ポール貸出希望（1.貸出／2.持参）</li>
+            <li>身長（ポール貸出希望者のみ）</li>
+            <li>代表者の電話番号、メールアドレス</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- その他・注意事項 -->
+      <section id="section-other" class="section">
+        <h3>その他・注意事項</h3>
+        <div class="contents">
+          <p><strong>グループでのお申し込みについて</strong></p>
+          <div class="text-block">
+            グループ申込も可能です（1組4名まで）。<br>
+            参加者全員分の「氏名・年齢・歩くペース・ポール貸出希望・身長（貸出希望者のみ）」をお知らせください。
+          </div>
+
+          <div class="divider"></div>
+
+          <p><strong>ポールの貸出について</strong></p>
+          <ul class="info-list">
+            <li>ポールは無料で貸し出します。</li>
+            <li>ご自身でお持ちの場合は、持参していただくことも可能です。</li>
+            <li>イベント終了後もポールの貸出を希望する場合は、身分証明書が必要です。</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- フッター読み込み -->
+      <div id="footer"></div>
+    </main>
+  </div>
+</body>
+
+</html>
