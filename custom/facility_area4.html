@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>南区2</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+    <title>南区エリア4｜生活情報</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
     <link rel="icon" type="image/icon" href="/favcon.png">
 
     <!-- フォント -->
@@ -46,7 +47,6 @@
             color: #333;
         }
 
-        /* ページ上部タイトル部分 */
         .top-contents {
             margin: 0;
             padding: 10px 20px;
@@ -71,7 +71,6 @@
             color: #777;
         }
 
-        /* 目次ブロック */
         .toc {
             margin: 0 10px;
             padding: 10px 10px;
@@ -106,7 +105,6 @@
             opacity: 0.9;
         }
 
-        /* セクション共通 */
         .section {
             margin: 0 15px 12px;
             padding: 14px 14px 12px;
@@ -152,7 +150,6 @@
             opacity: 0.85;
         }
 
-        /* ===== トグルリスト ===== */
         .toggle-list {
             margin-top: 8px;
         }
@@ -212,29 +209,6 @@
             font-size: var(--font-p);
         }
 
-        /* ===== 追記事項・関連情報カード ===== */
-        .add-section {
-            margin: 12px 15px 20px;
-            padding: 14px 16px;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .add-section h3 {
-            margin: 0 0 8px;
-            font-size: 1.1rem;
-        }
-
-        .add-section ul {
-            padding-left: 20px;
-            margin: 4px 0 10px;
-        }
-
-        .add-section li {
-            font-size: var(--font-p);
-        }
-
         a.content-box {
             display: flex;
             justify-content: center;
@@ -243,11 +217,10 @@
             padding: 10px 16px;
             border: 1px solid var(--color-primary);
             background-color: var(--color-palegreen);
-            border-radius: 25px;
+            border-radius: 999px;
             text-decoration: none;
             color: var(--color-primary);
             font-weight: 500;
-            font-size: 0.95rem;
         }
 
         a.content-box:hover {
@@ -258,150 +231,150 @@
 
 <body>
     <div class="wrapper">
-        <!-- ヘッダー読み込み -->
-        <div id="header"></div>
 
-        <!-- ヘッダー分の余白 -->
+        <div id="header"></div>
         <div style="height:60px; background-color:#fff;"></div>
 
         <main>
-            <!-- ページタイトル＋説明 -->
             <section class="top-contents">
-                <h1 class="midashi">お住まいのごみ収集について</h1>
-                <p>真駒内柏丘/東町/幸町/泉町/南町地区</p>
-                <p class="updated-date">更新日：2022年6月22日</p>
+                <h1 class="midashi">施設情報</h1>
+                <p>真駒内本町 / 容町 / 曙町 / 緑町</p>
+                <p class="updated-date">更新日：2025年1月</p>
             </section>
 
-            <!-- 目次ボタン -->
             <div class="toc">
                 <ul>
-                    <li><a href="#section-1">ごみ収集日</a></li>
-                    <li><a href="#toggle-bunbetsu">ごみの分別</a></li>
-                    <li><a href="#toggle-others">その他の地域</a></li>
+                    <li><a href="#section-1">近くの避難所</a></li>
+                    <li><a href="#section-2">医療機関</a></li>
+                    <li><a href="#section-3">公共施設</a></li>
                 </ul>
             </div>
 
-            <!-- ゴミ収集日（内容はそのまま） -->
-            <div id="section-1" class="section">
-                <h3>ごみ収集日</h3>
+            <!-- 避難所 -->
+            <section id="section-1" class="section">
+                <h3>近くの避難所</h3>
                 <div class="contents">
+                    <p>災害時に指定されている避難所です。</p>
                     <ul>
-                        <li>真駒内柏丘</li>
-                        <li>真駒内東町</li>
-                        <li>真駒内幸町</li>
-                        <li>真駒内泉町</li>
-                        <li>真駒内南町</li>
+                        <li>真駒内曙小学校</li>
+                        <li>真駒内中学校</li>
+                        <li>真駒内公園（広域避難場所）</li>
                     </ul>
-                    <p>下のPDFより確認できます</p>
-                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami1_07090809.pdf"
-                        class="pdf-link">通年版（PDF：1,440KB）</a><br>
-                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami1f_07090802.pdf"
-                        class="pdf-link">外国語版 前期（PDF：2,102KB）</a><br>
-                    <a href="https://www.city.sapporo.jp/seiso/kaisyu/08_minami/documents/07minami1f_08030809.pdf"
-                        class="pdf-link">外国語版 後期（PDF：1,419KB）</a><br>
-                    <a href="#" class="pdf-link">月めくり版 表紙・各月PDF</a>
-                </div>
-            </div>
 
-            <!-- ごみ分別・資源回収・その他の地域（トグルリスト） -->
-            <div id="section-2" class="section">
-                <h3>ごみの分別・資源回収・その他の地域</h3>
+                    <a href="https://bousai.city.sapporo.jp/?p=evacuation%2Fshelter&l=16-0%2C17-0%2C18-0%2C19-0%2C20-0%2C21-0&ll=43.0686606%2C141.34856659999997&z=12&municipalityCd=011002"
+                        class="content-box">
+                        札幌市避難場所マップ<br>（さっぽろ防災ポータルへのリンク）
+                    </a>
+                </div>
+            </section>
+
+            <!-- 医療機関 -->
+            <section id="section-2" class="section">
+                <h3>医療機関</h3>
                 <div class="contents">
-                    <p>詳しい内容は、以下のトグルをタップ（クリック）してご覧ください。</p>
+                    <p>急病時や日常の診療に利用できる医療機関です。</p>
 
                     <div class="toggle-list">
-                        <!-- ごみの分別 -->
-                        <div class="toggle-item" id="toggle-bunbetsu">
-                            <button class="toggle-header" type="button" aria-expanded="false"
-                                aria-controls="toggle-bunbetsu-content">
-                                <span class="label">ごみの分別</span>
-                                <span class="icon" aria-hidden="true">＋</span>
+                        <!-- 内科・総合 -->
+                        <div class="toggle-item">
+                            <button class="toggle-header" type="button" aria-expanded="false" aria-controls="clinic1">
+                                <span class="label">内科・総合病院</span>
+                                <span class="icon">＋</span>
                             </button>
-                            <div class="toggle-content" id="toggle-bunbetsu-content" hidden>
-                                <p>ごみの分け方・出し方の詳細は、札幌市の「ごみ分別」のページで確認してください。</p>
+                            <div class="toggle-content" id="clinic1" hidden>
                                 <ul>
-                                    <li>燃やせるごみ・燃やせないごみ・資源ごみなど、種類ごとに出し方が異なります。</li>
-                                    <li>スプレー缶や乾電池などは、危険物として指定の方法で出す必要があります。</li>
+                                    <li>真駒内本町クリニック</li>
+                                    <li>真駒内駅前内科クリニック</li>
+                                    <li>北海道立真駒内病院</li>
                                 </ul>
-                                <a href="/detail/living_5_separete.html" class="content-box">
-                                    ごみの分け方・出し方
-                                </a>
                             </div>
                         </div>
 
-
-                        <!-- その他の地域 -->
-                        <div class="toggle-item" id="toggle-others">
-                            <button class="toggle-header" type="button" aria-expanded="false"
-                                aria-controls="toggle-others-content">
-                                <span class="label">その他の地域</span>
-                                <span class="icon" aria-hidden="true">＋</span>
+                        <!-- 小児科 -->
+                        <div class="toggle-item">
+                            <button class="toggle-header" type="button" aria-expanded="false" aria-controls="clinic2">
+                                <span class="label">小児科</span>
+                                <span class="icon">＋</span>
                             </button>
-                            <div class="toggle-content" id="toggle-others-content" hidden>
-                                <p>石山・常盤・滝野地区以外の南区のごみ収集カレンダーは、別ページでご案内しています。</p>
+                            <div class="toggle-content" id="clinic2" hidden>
                                 <ul>
-                                    <li>お住まいの地区名を選んで、ごみ収集日カレンダーを確認してください。</li>
-                                    <li>引っ越しなどで地区が変わった場合は、新しい地区のカレンダーをご確認ください。</li>
+                                    <li>真駒内こどもクリニック</li>
+                                    <li>澄川小児クリニック（隣接エリア）</li>
                                 </ul>
-                                <a href="/detail/living_garbagecalender.html" class="content-box">
-                                    南区の他の地域のごみ収集カレンダー
-                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 歯科 -->
+                        <div class="toggle-item">
+                            <button class="toggle-header" type="button" aria-expanded="false" aria-controls="clinic3">
+                                <span class="label">歯科</span>
+                                <span class="icon">＋</span>
+                            </button>
+                            <div class="toggle-content" id="clinic3" hidden>
+                                <ul>
+                                    <li>真駒内本町歯科</li>
+                                    <li>緑町デンタルクリニック</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+
+                    <a href="/detail/comfort_4_kyukyu.html" class="content-box">
+                        救急当番医療機関・救急医療相談窓口
+                    </a>
                 </div>
-            </div>
+            </section>
+
+            <!-- 公共施設 -->
+            <section id="section-3" class="section">
+                <h3>公共施設・行政機関</h3>
+                <div class="contents">
+                    <ul>
+                        <li>市役所</li>
+                        <li>まちづくりセンター</li>
+                        <li>地区センター</li>
+                        <li>区民センター</li>
+                    </ul>
+
+                    <a href="/detail/town_1_sisetu.html" class="content-box">
+                        南区内のその他の施設
+                    </a>
+                </div>
+            </section>
 
             <div id="footer"></div>
         </main>
     </div>
-    <!-- 上に戻るボタン -->
+
     <div class="backtotop-wrapper">
         <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
     </div>
+
     <script>
-        // トグルリスト開閉処理
         document.addEventListener('DOMContentLoaded', () => {
             const toggles = document.querySelectorAll('.toggle-header');
-
             toggles.forEach(btn => {
                 btn.addEventListener('click', () => {
                     const expanded = btn.getAttribute('aria-expanded') === 'true';
                     const contentId = btn.getAttribute('aria-controls');
                     const content = document.getElementById(contentId);
-
                     btn.setAttribute('aria-expanded', String(!expanded));
-                    if (content) {
-                        content.hidden = expanded;
-                    }
-
-                    // アイコン切り替え
+                    content.hidden = expanded;
                     const icon = btn.querySelector('.icon');
-                    if (icon) {
-                        icon.textContent = expanded ? '＋' : '－';
-                    }
+                    icon.textContent = expanded ? '＋' : '－';
                 });
             });
         });
-                // 上に戻るボタン
+
         const backToTopBtn = document.getElementById('backToTopBtn');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
+            backToTopBtn.style.display = window.scrollY > 300 ? 'flex' : 'none';
         });
-
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 
 </body>
-
 </html>
+

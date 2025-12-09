@@ -2,909 +2,363 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
-    <link rel="icon" type="image/icon" href="/favcon.png">
-    <title>子どもが生まれたときの手続き｜札幌市南区</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>障がいのある方への支援・お役立ち情報｜札幌市</title>
 
-    <!-- フォント（統一） -->
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
-        rel="stylesheet">
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
 
-    <link rel="stylesheet" href="/assets/style.css">
-    <script src="/assets/common.js"></script>
+  <!-- 共通CSS＆JS -->
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
 
-    <style>
-        body {
-            background-color: var(--color-gbg);
-            font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        }
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        main {
-            background-color: var(--color-gbg);
-        }
-        /* ===== パンくずリスト ===== */
-        .breadcrumb {
-            padding: 10px;
-            color: #555;
-            background-color: #fff;
-            margin-bottom: 10px;
-            line-height: 1.4;
-        }
+    main {
+      background-color: var(--color-gbg);
+    }
 
-        .breadcrumb a {
-            color: #2e8b57;
-            text-decoration: none;
-            font-weight: 500;
-        }
+    /* ===== パンくず ===== */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+      line-height: 1.4;
+      font-size: 0.9rem;
+    }
 
-        .breadcrumb a:hover {
-            text-decoration: underline;
-        }
+    .breadcrumb a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        .breadcrumb span {
-            color: #333;
-        }
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
 
-        /* ===== タイトル部分 ===== */
-        .top-contents {
-            margin: 20px 10px 0;
-            padding: 12px 15px;
-            background-color: #fff;
-            border-bottom: 2px solid var(--color-primary);
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
+    .breadcrumb span {
+      color: #333;
+    }
 
-        .top-contents h1 {
-            margin: 0 0 8px;
-            font-size: 1.4rem;
-        }
+    /* ===== ページ上部 ===== */
+    .top-contents {
+      margin: 0 10px 8px;
+      padding: 12px 16px 14px;
+      background-color: #fff;
+      border-radius: 14px;
+      border: 1px solid #ecf0f3;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    }
 
-        .top-contents p {
-            margin: 0;
-            font-size: var(--font-p);
-        }
+    .top-contents h1 {
+      font-size: 1.3rem;
+      margin: 0 0 6px;
+    }
 
-        .updated-date {
-            margin-top: 4px;
-            font-size: 0.85rem;
-            color: #777;
-        }
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
 
-        /* ===== タブ切り替え（目次より上） ===== */
-        .tab-wrapper {
-            margin: 10px 15px 0;
-            background-color: transparent;
-        }
+    .updated-date {
+      margin-top: 4px;
+      color: #777;
+      font-size: 0.85rem;
+    }
 
-        .tab-label {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 0 0 4px;
-        }
+    /* ===== 目次（アンカーリンク） ===== */
+    .toc {
+      margin: 0 10px 10px;
+      padding: 8px 10px;
+      background: transparent;
+    }
 
-        .tab-nav {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 4px;
-        }
+    .toc p {
+      margin: 0 0 4px;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
-        .tab-button {
-            flex: 1 1 150px;
-            padding: 8px 10px;
-            border-radius: 20px 20px 0 0;
-            border: 1px solid var(--color-primary);
-            border-bottom: none;
-            background-color: #f0f5eb;
-            color: #555;
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-align: center;
-            cursor: pointer;
-        }
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 5px 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
 
-        .tab-button.active {
-            background-color: #ffffff;
-            color: #222;
-            border-bottom: 1px solid #ffffff;
-        }
+    .toc ul li a {
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--color-primary);
+      background-color: #fff;
+      color: var(--color-primary);
+      font-weight: 500;
+      text-decoration: none;
+      font-size: var(--font-p);
+      display: inline-block;
+    }
 
-        .tab-content {
-            display: none;
-        }
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
 
-        .tab-content.active {
-            display: block;
-        }
+    /* ===== セクション共通 ===== */
+    .section {
+      margin: 0 10px 14px;
+      padding: 14px 14px 16px;
+      background-color: #fff;
+      border-radius: 14px;
+      border: 1px solid #ecf0f3;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+      scroll-margin-top: 70px;
+    }
 
-        /* ===== 目次（アンカーリンク） ===== */
-        .toc {
-            margin: 0 10px;
-            padding: 10px 10px;
-            border-radius: 0 0 10px 10px;
-        }
+    .section-header {
+      margin-bottom: 10px;
+    }
 
-        .toc p {
-            margin: 0 0 4px;
-            font-size: 0.9rem;
-            color: #555;
-        }
+    .section-title {
+      margin: 0;
+      font-size: 1.2rem;
+      border-left: 5px solid var(--color-primary);
+      padding-left: 8px;
+    }
 
-        .toc ul {
-            list-style: none;
-            padding: 0;
-            margin: 5px 0 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
+    .section-sub {
+      font-size: 0.85rem;
+      color: #777;
+    }
 
-        .toc ul li a {
-            background-color: var(--color-primary);
-            padding: 6px 12px;
-            color: #ffffff;
-            font-weight: 500;
-            border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: inline-block;
-        }
+    /* ===== お役立ち情報カード ===== */
+    .info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 6px;
+    }
 
-        .toc ul li a:hover {
-            opacity: 0.9;
-        }
+    .info-card {
+      border-radius: 12px;
+      border: 1px solid #e5eaee;
+      padding: 10px 11px 11px;
+      background: #fbfcff;
+    }
 
-        .toc-block {
-            display: none;
-        }
+    .info-card h3 {
+      margin: 0 0 4px;
+      font-size: 0.96rem;
+    }
 
-        .toc-block.active {
-            display: block;
-        }
+    .info-card p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.6;
+    }
 
-        /* ===== セクション（カード） ===== */
-        .section {
-            margin: 12px 15px;
-            padding: 14px 16px;
-            background-color: #fff;
-            border-radius: 10px;
-            border: 1px solid #f0f2f4;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-            scroll-margin-top: 70px;
-        }
+    .info-meta {
+      margin: 3px 0 0;
+      font-size: 0.8rem;
+      color: #7a8694;
+    }
 
-        .section h3 {
-            border-left: 6px solid var(--color-primary);
-            padding-left: 10px;
-            margin: 0 0 10px;
-            font-size: 1.2rem;
-        }
+    a.content-box {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin: 8px 0 0;
+      padding: 8px 14px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-palegreen);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
 
-        .section p {
-            margin: 6px 0;
-            font-size: var(--font-p);
-        }
+    a.content-box:hover {
+      background-color: #f7fff0;
+    }
 
-        /* 見出しレベル4・5・リスト */
-        h4 {
-            margin: 12px 0 6px;
-            font-size: 1rem;
-        }
+    /* スマホ調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        margin: 0 10px 8px;
+        padding: 10px 12px 12px;
+      }
 
-        .section h4 {
-            border-left: 4px solid var(--color-primary);
-            padding-left: 8px;
-        }
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
 
-        /* ★ 小さい見出し（妊婦一般健康診査等 など） */
-        h5 {
-            margin: 8px 0 4px;
-            font-weight: 600;
-            color: #1c5a50;
-            font-size: var(--font-h4);
-        }
-
-        .section h5 {
-            border-left: none;
-            padding-left: 0;
-        }
-
-        .contents {
-            padding: 6px 0 4px;
-        }
-
-        .contents ul {
-            padding-left: 20px;
-            margin: 4px 0 10px;
-        }
-
-        .contents ul li {
-            margin-bottom: 6px;
-            font-size: var(--font-p);
-        }
-
-        .detail {
-            padding-left: 20px;
-            margin: 4px 0 0;
-            font-size: var(--font-p);
-        }
-
-        .detail li {
-            margin-bottom: 4px;
-        }
-
-        /* ★ ブロックを区切る線 */
-        .sub-divider {
-            margin: 12px 0;
-            border: none;
-            border-top: 1px dashed #d0d4d8;
-        }
-
-        /* ===== テーブル（必要な箇所のみ残す） ===== */
-        .table-wrapper {
-            margin-top: 10px;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        table.table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: var(--font-p);
-            background-color: #fff;
-        }
-
-        table.table th {
-            background-color: var(--color-primary);
-            color: #fff;
-            font-weight: 500;
-            padding: 8px 10px;
-            white-space: nowrap;
-        }
-
-        table.table td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #ddd;
-            background-color: #fff;
-            vertical-align: top;
-        }
-
-        /* ===== 関連情報・カード ===== */
-        .add-section {
-            margin: 12px 15px 20px;
-            padding: 14px 16px;
-            border-radius: 10px;
-            background-color: #ffffff;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .add-section h3 {
-            margin: 0 0 8px;
-            font-size: 1.1rem;
-        }
-
-        .add-section ul {
-            padding-left: 20px;
-            margin: 4px 0 10px;
-        }
-
-        .add-section li {
-            font-size: var(--font-p);
-        }
-
-        .add-section a.content-box {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 10px 0 0;
-            padding: 10px 16px;
-            border: 1px solid var(--color-primary);
-            background-color: var(--color-palegreen);
-            border-radius: 25px;
-            text-decoration: none;
-            color: var(--color-primary);
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-
-        .add-section a.content-box:hover {
-            background-color: #f7fff0;
-        }
-    </style>
+      .section {
+        margin: 0 10px 12px;
+        padding: 12px 12px 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="wrapper">
-        <!-- スクロール進捗バー -->
-        <div id="scrollProgress"></div>
+  <div class="wrapper">
+    <!-- ヘッダー -->
+    <div id="header"></div>
+    <div style="height:60px;"></div>
 
-        <!-- ポップアップ -->
-        <div id="popup" style="display:none;">
-            <div class="popup-content"></div>
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <span>障がいのある方への支援</span>
+      </nav>
+
+      <!-- ページ上部 -->
+      <section class="top-contents">
+        <h1 class="midashi">障がいのある方への支援・お役立ち情報</h1>
+        <p>
+          障がいのある方やそのご家族が、安心して暮らし、学び・働き・地域とつながるための情報をまとめました。<br>
+          日常生活の支援から就労支援、相談窓口まで、必要な情報にたどりつきやすいように整理しています。
+        </p>
+        <p class="updated-date">更新日：2025年12月5日</p>
+      </section>
+
+      <!-- 目次 -->
+      <div class="toc">
+        <p>知りたい分野から探す</p>
+        <ul>
+          <li><a href="#life">日常生活の支援</a></li>
+          <li><a href="#certificate">手帳・制度</a></li>
+          <li><a href="#work">就労・職業訓練</a></li>
+          <li><a href="#edu">子ども・教育</a></li>
+          <li><a href="#health">医療・福祉サービス</a></li>
+          <li><a href="#supporter">家族・支援者向け</a></li>
+          <li><a href="#consult">相談窓口</a></li>
+        </ul>
+      </div>
+
+      <!-- メイン：お役立ち情報カード群 -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">主な支援メニューと情報</h2>
+          <span class="section-sub">分野ごとの支援内容と関連ページへの入り口です</span>
         </div>
 
-        <!-- ヘッダー読み込み -->
-        <div id="header"></div>
-        <div class="yohaku" style="height:60px;"></div>
+        <div class="info-list">
+          <!-- 日常生活 -->
+          <div class="info-card" id="life">
+            <h3>日常生活の支援（移動・住まい・福祉サービス）</h3>
+            <p>
+              外出や通院、買い物などの日常生活を送るための支援や、在宅生活を支えるヘルパー派遣・ホームヘルプサービス、<br>
+              グループホームなどの住まいの場に関する情報をまとめています。
+            </p>
+            <p class="info-meta">移動支援／ホームヘルプ・重度訪問介護／グループホーム・ショートステイ　など</p>
+            <a href="/uncompleted.html" class="content-box">日常生活の支援メニューを見る</a>
+          </div>
 
-        <main>
-            <!-- パンくずリスト -->
-            <nav class="breadcrumb">
-                <a href="/index.html">ホームページ</a> ＞
-                <a href="/search.html">情報を探す</a> ＞
-                <span>子どもが生まれたとき</span>
-            </nav>
+          <!-- 手帳・制度 -->
+          <div class="info-card" id="certificate">
+            <h3>障害者手帳・各種制度のご案内</h3>
+            <p>
+              身体障害者手帳・療育手帳・精神障害者保健福祉手帳などの手帳制度や、税の減免・交通機関の割引、<br>
+              各種助成制度などの概要と申請方法をご案内します。
+            </p>
+            <p class="info-meta">障害者手帳の取得／税・料金の減免／各種助成・給付制度　など</p>
+            <a href="/uncompleted.html" class="content-box">障害者手帳・制度の詳細を見る</a>
+          </div>
 
-            <!-- タイトル -->
-            <section class="top-contents">
-                <h1 class="midashi">子どもが生まれたときの手続き</h1>
-                <p>妊娠届や出産に関する支援、出生届、健康保険・年金・医療費助成、児童手当、子育て支援などの主な手続きについてご案内します。</p>
-                <p class="updated-date">更新日：2022年6月22日</p>
-            </section>
+          <!-- 就労 -->
+          <div class="info-card" id="work">
+            <h3>就労支援・職業訓練</h3>
+            <p>
+              一般就労を目指す方、福祉的就労を希望する方など、それぞれの状況に応じた就労支援の情報です。<br>
+              就労移行支援・就労継続支援事業所、職業訓練や求人情報、職場定着のサポートなどを紹介しています。
+            </p>
+            <p class="info-meta">就労移行支援／就労継続支援A・B型／職業訓練・ハローワークとの連携　など</p>
+            <a href="/uncompleted.html" class="content-box">就労・職業訓練の情報を見る</a>
+          </div>
 
-            <!-- タブ切り替え（目次より上） -->
-            <div class="tab-wrapper">
-                <p class="tab-label">内容を選択してください</p>
-                <div class="tab-nav">
-                    <button class="tab-button active" data-target="pregnancy-content">妊娠から出産まで</button>
-                    <button class="tab-button" data-target="childcare-content">子育てのこと</button>
-                </div>
-            </div>
+          <!-- 子ども・教育 -->
+          <div class="info-card" id="edu">
+            <h3>子ども・教育・発達支援</h3>
+            <p>
+              発達に気がかりのあるお子さんや、障がいのあるお子さんとそのご家族に向けた支援です。<br>
+              乳幼児期の相談、療育・通所支援、学校生活の支援や進路相談に関する情報をまとめています。
+            </p>
+            <p class="info-meta">発達相談／児童発達支援・放課後等デイサービス／学校生活の支援　など</p>
+            <a href="/uncompleted.html" class="content-box">子ども・教育に関する支援を見る</a>
+          </div>
 
-            <!-- 目次（タブごとに切り替え） -->
-            <div id="pregnancy-toc" class="toc toc-block active">
-                <p>見出しに移動できます</p>
-                <ul>
-                    <li><a href="#pregnancy-notify">妊娠届の提出（母子健康手帳の交付）</a></li>
-                    <li><a href="#pregnancy-support">安心して出産するために（健診・相談）</a></li>
-                    <li><a href="#pregnancy-cost">出産費用でお困りの方に</a></li>
-                    <li><a href="#birth-notification">子どもが生まれたら（出生届など）</a></li>
-                    <li><a href="#birth-insurance-pension">国民健康保険・国民年金などの手続き</a></li>
-                    <li><a href="#birth-medical">子どもの医療費助成</a></li>
-                    <li><a href="#birth-allowance">児童手当など（子どもを養育している方へ）</a></li>
-                    <li><a href="#birth-single-parent">ひとり親家庭の方のために</a></li>
-                </ul>
-            </div>
+          <!-- 医療・福祉サービス -->
+          <div class="info-card" id="health">
+            <h3>医療・リハビリ・福祉サービス</h3>
+            <p>
+              医療機関との連携やリハビリテーション、障害福祉サービスの利用など、心身の状態に応じた支援を受けるための情報です。<br>
+              自立支援医療や医療費の助成についてもあわせてご案内します。
+            </p>
+            <p class="info-meta">自立支援医療／リハビリテーション／障害福祉サービスの利用　など</p>
+            <a href="/uncompleted.html" class="content-box">医療・福祉サービスについて詳しく見る</a>
+          </div>
 
-            <div id="childcare-toc" class="toc toc-block">
-                <p>見出しに移動できます</p>
-                <ul>
-                    <li><a href="#child-health">子どもの健康診査・相談</a></li>
-                    <li><a href="#child-consult">子育て情報・相談</a></li>
-                    <li><a href="#child-nursery">保育施設・保育サービス</a></li>
-                    <li><a href="#child-shortstay">子どもショートステイ</a></li>
-                    <li><a href="#child-dayservice">病後児デイサービス事業</a></li>
-                </ul>
-            </div>
+          <!-- 家族・支援者向け -->
+          <div class="info-card" id="supporter">
+            <h3>ご家族・支援者の方へ</h3>
+            <p>
+              介護や支援に携わるご家族・支援者の負担を軽減するための制度や、相談・交流の場に関する情報です。<br>
+              介護者教室や家族会、レスパイト（休息）のためのサービスなどをご紹介します。
+            </p>
+            <p class="info-meta">家族向け相談／家族会・ピアサポート／レスパイト・一時預かり　など</p>
+            <a href="/uncompleted.html" class="content-box">家族・支援者向け情報を見る</a>
+          </div>
 
-            <!-- タブ：妊娠から出産まで -->
-            <div id="pregnancy-content" class="tab-content active">
-                <!-- 妊娠届・母子健康手帳 -->
-                <div id="pregnancy-notify" class="section">
-                    <h3>妊娠したら（妊娠届・母子健康手帳の交付）</h3>
-                    <div class="contents">
-                        <h4>妊娠届の提出（母子健康手帳の交付）</h4>
-                        <p>妊娠した方には、母子健康手帳を交付します。妊娠中や出産に関わる情報をお伝えしています。30分程度お時間がかかる場合があります。</p>
-                        <p>母子健康手帳には、妊婦健診や出産状況、乳幼児健診などの内容を記録できます。</p>
-                        <p><strong>窓口</strong><br>
-                            保健センター3階　健康・子ども課（電話011-581-5211）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>妊娠届出書（用紙は産婦人科で交付されます）</li>
-                        </ul>
-                    </div>
-                </div>
+          <!-- 文化・スポーツ・交流 -->
+          <div class="info-card">
+            <h3>文化・スポーツ・地域交流</h3>
+            <p>
+              スポーツや文化活動、地域のサークル・イベントなど、障がいの有無にかかわらず参加できる場づくりの情報です。<br>
+              生きがいや仲間づくりにつながる取組を紹介しています。
+            </p>
+            <p class="info-meta">障がい者スポーツ／文化・芸術活動／地域交流イベント　など</p>
+            <a href="/uncompleted.html" class="content-box">文化・スポーツ・交流の情報を見る</a>
+          </div>
 
-                <!-- 安心して出産するために -->
-                <div id="pregnancy-support" class="section">
-                    <h3>安心して出産するために</h3>
+          <!-- 相談窓口 -->
+          <div class="info-card" id="consult">
+            <h3>相談窓口一覧</h3>
+            <p>
+              「どこに相談したらよいかわからない」「いくつかの制度を組み合わせたい」など、<br>
+              お困りごとがあるときは、まずは相談窓口までご連絡ください。<br>
+              障がい福祉担当窓口や基幹相談支援センターなどが、状況に応じて支援をご案内します。
+            </p>
+            <p class="info-meta">障がい福祉窓口／相談支援事業所／電話・来所・訪問相談　など</p>
+            <a href="/uncompleted.html" class="content-box">相談窓口の一覧を見る</a>
+          </div>
+        </div>
+      </section>
 
-                    <div class="contents">
-                        <h4>各種健康診査・健康相談の実施</h4>
-                        <p>妊婦の健康を守り、安心して出産するための費用助成や健康相談を行っています。</p>
-
-                        <h5>妊婦一般健康診査等</h5>
-                        <p>
-                            妊婦健診等の費用の一部を助成します。妊娠届出時に北海道内の指定機関（産科婦人科委託医療機関等）で利用できる受診票をお渡しします。医療機関等にご提示ください。
-                        </p>
-                        <ul>
-                            <li>妊婦健診受診票：14回分（子宮頸がん検診1回分および超音波検査6回分の受診票が付属します。）</li>
-                            <li>新生児聴覚検査受診票：1回分</li>
-                            <li>産婦健診受診票：2回分</li>
-                        </ul>
-                        <p>
-                            受診票の裏面に記載の診査項目が公費負担となり、上限回数を超えた場合や助成対象外の検査項目等については自己負担となります。<br>
-                            北海道外の産婦人科医療機関等で受診し費用を自己負担された場合は、申請により負担した費用の一部が助成される場合があります。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>マタニティ教室</h5>
-                        <p>
-                            初めて親になる方を対象に、出産の準備や育児の方法などの講話や実習を行っています。詳細は「健康・衛生のお知らせ」のページをご覧ください。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>妊婦訪問</h5>
-                        <p>
-                            助産師や保健師・看護師が妊娠5ヵ月目以降で家庭訪問を行い、妊娠中や出産に向けての健康管理・育児実習について、ご相談に応じています。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>赤ちゃん訪問</h5>
-                        <p>
-                            助産師や保健師・看護師が家庭訪問を行い、妊娠中や産後の母親と赤ちゃんの健康管理について、ご相談に応じています。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>女性の健康支援相談</h5>
-                        <p>妊娠中や産後の健康状態、母乳育児などに関する相談を行います。</p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>妊産婦歯科健診</h5>
-                        <p>妊婦さんと産後1年以内の産婦さんを対象に、歯科健診とお口のケアについての相談・保健指導を行います。</p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h4>高血圧症候群にかかったときは</h4>
-                        <p>高血圧症候群にかかっている妊産婦が、必要な治療を受けるため7日以上入院した場合、その療養に要する費用の一部を支給します（所得制限・申請期限等があります）。</p>
-                        <p>詳しくは、健康・子ども課（保健センター3階・電話011-581-5211）へお問い合わせください。</p>
-                    </div>
-                </div>
-
-                <!-- 出産費用でお困りの方に -->
-                <div id="pregnancy-cost" class="section">
-                    <h3>出産費用でお困りの方に</h3>
-                    <div class="contents">
-                        <h4>助産施設の提供</h4>
-                        <p>経済上の理由により入院助産を受けることができない場合に、希望により助産施設に入所し、助産を受けることができます。所得制限があります。</p>
-                        <p><strong>窓口</strong><br>
-                            保健センター3階　健康・子ども課 子ども家庭福祉担当（電話011-522-5780）
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 子どもが生まれたら：届出など -->
-                <div id="birth-notification" class="section">
-                    <h3>子どもが生まれたら</h3>
-
-                    <div class="contents">
-                        <h4>出生届の提出</h4>
-                        <p>生まれた日から14日以内に届けてください。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所1階1番　戸籍住民課戸籍係（電話011-582-4724）<br>
-                            ※まちづくりセンター（定山渓出張所を除く）では届出できません。
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>出生証明書</li>
-                            <li>母子健康手帳</li>
-                        </ul>
-
-                        <h5>出生届の夜間・休日受付</h5>
-                        <ul>
-                            <li>夜間・休日でも、区役所北側入口の時間外受付で出生届をお預かりすることができます（事務処理は翌業務日になります）。</li>
-                            <li>この場合、翌業務日以降に母子手帳に貼る出生届出済証明を交付しますので、母子手帳をお持ちの上、区役所1階1番窓口にお越しください。</li>
-                        </ul>
-                    </div>
-
-                    <div class="contents">
-                        <h4>出産連絡票（はがき）の提出</h4>
-                        <p>出生届をする際に窓口に提出するか、健康・子ども課にお持ちください。助産師・保健師・看護師が赤ちゃんの育児訪問や乳幼児健診の案内などに活用します。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所1階1番　戸籍住民課戸籍係（電話011-582-4724）<br>
-                            保健センター3階　健康・子ども課（電話011-581-5211）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>母子健康手帳</li>
-                        </ul>
-                        <p>生まれたお子さんのマイナンバーをお知らせする通知書は、2～3週間後に簡易書留で住民票上のご住所に郵送されます。</p>
-                        <p>住民票コードの通知は、住民登録が南区の場合、数日後に南区役所から普通郵便で郵送されます。</p>
-                    </div>
-                </div>
-
-                <!-- 国保・年金など -->
-                <div id="birth-insurance-pension" class="section">
-                    <h3>国民健康保険・国民年金などの手続き</h3>
-
-                    <div class="contents">
-                        <h4>子どもの国民健康保険加入届（国民健康保険に加入している方）</h4>
-                        <p>国民健康保険加入世帯での出生で、その子どもがほかの健康保険の適用を受けない場合は、国民健康保険の加入手続をしてください。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階6番　保険年金課保険係（電話011-582-4772）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>国民健康保険被保険者証</li>
-                            <li>母子健康手帳</li>
-                        </ul>
-                        <p>※社会保険や共済保険に加入している方は、勤務先へお問い合わせください。社会保険の任意継続をしている方は、加入している健康保険の事務所へ。</p>
-                    </div>
-
-                    <div class="contents">
-                        <h4>出産育児一時金の申請（国民健康保険加入者）</h4>
-                        <p>国民健康保険加入者が出産したとき、出産育児一時金が支給されます。</p>
-                        <p>手続きが必要な方は、<strong>医療機関にて直接支払制度を利用し差額支給が発生する場合</strong>、または<strong>直接支払制度を利用しない場合</strong>です。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階7番　保険年金課給付係（電話011-582-4770）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>国民健康保険被保険者証</li>
-                            <li>母子健康手帳</li>
-                            <li>世帯主の預金通帳</li>
-                            <li>印鑑</li>
-                            <li>医療機関から交付される直接支払制度に関する合意文書</li>
-                            <li>医療機関から交付される出産費用の領収・明細書</li>
-                            <li>マイナンバーカード（個人番号カード）</li>
-                            <li>本人確認書類（運転免許証、年金手帳など）</li>
-                        </ul>
-                    </div>
-
-                    <div class="contents">
-                        <h4>産前産後の国民年金保険料免除申請（第1号被保険者）</h4>
-                        <p>国民年金に加入している方（第1号被保険者）は、産前産後の一定期間の国民年金保険料が免除されます。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階8番　保険年金課年金係（電話011-582-4786）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>本人確認書類（運転免許証、年金手帳など）</li>
-                            <li>母子手帳</li>
-                        </ul>
-                    </div>
-
-                    <div class="contents">
-                        <h4>産前産後の国民健康保険料軽減申請</h4>
-                        <p>出産予定または出産した国民健康保険に加入している方は、一定期間の国民健康保険料が軽減されます。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階6番　保険年金課保険係（電話011-582-4772）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>資格確認書等</li>
-                            <li>母子手帳</li>
-                            <li>本人確認書類（運転免許証、マイナンバーカードなど）</li>
-                        </ul>
-                    </div>
-
-                    <div class="contents">
-                        <h4>障害基礎年金を受給している方は（子の加算）</h4>
-                        <p>障害基礎年金には、子の加算という制度があります。詳細については保険年金課年金係にお問い合わせください。</p>
-                        <p>なお、障害厚生年金（1、2級）を受給している方は札幌西年金事務所（011-241-7284）へ、障害共済年金（1、2級）を受給している方は各共済組合へお問い合わせください。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階8番　保険年金課年金係（電話011-582-4786）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>本人確認書類（運転免許証、年金手帳、年金証書など）</li>
-                            <li>戸籍全部事項証明（戸籍謄本）</li>
-                            <li>※この他にも書類が必要な場合がありますので、詳しくはお問い合わせください。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 子どもの医療費助成 -->
-                <div id="birth-medical" class="section">
-                    <h3>子どもの医療費助成</h3>
-
-                    <div class="contents">
-                        <h4>子ども医療費助成の申請</h4>
-                        <p>医療費を助成します。ただし、所得制限があります。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>子どもの健康保険情報が確認できる資格確認書や資格情報のお知らせなど<br>
-                                （マイナンバーカードの提示のみでは保険証の情報が確認できません）
-                            </li>
-                            <li>※所得証明書が必要な場合がありますので、詳しくはお問い合わせください。</li>
-                        </ul>
-
-                        <h4>未熟児等の医療助成</h4>
-                        <p>未熟児、特定の疾患や障がいのある子どもについては、医療費の公費負担制度があります。</p>
-                        <p>詳しくは、健康・子ども課（保健センター3階・電話011-581-5211）へお問い合わせください。</p>
-                    </div>
-                </div>
-
-                <!-- 児童手当など -->
-                <div id="birth-allowance" class="section">
-                    <h3>子どもを養育している方のために</h3>
-
-                    <div class="contents">
-                        <h4>児童手当の申請</h4>
-                        <p>18歳到達後の最初の年度末までの子どもを養育している方に児童手当を支給します。</p>
-                        <ul>
-                            <li>新たに児童手当を受給しようとする方は認定請求をしてください。</li>
-                            <li>すでに手当を受給している方は増額請求をしてください。</li>
-                            <li>公務員の方は勤務先に請求してください。ただし、民間企業へ派遣された公務員等、勤務先で支給されない方は区役所で請求してください。</li>
-                            <li>手当は、認定請求日の翌月分からの支給となります。さかのぼって手当を受けることはできません。</li>
-                            <li>出生等の事実が発生したら、必要な書類がそろわなくても、まずは窓口にて手続きをしてください。</li>
-                            <li>ただし、出生日の翌日から15日以内に手続きをすれば、出生日の翌月分から支給されます。</li>
-                        </ul>
-                        <p><strong>窓口</strong><br>
-                            区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>受給資格者の預金通帳</li>
-                            <li>健康保険証又は資格確認書、資格情報のお知らせなど<br>
-                                （マイナンバーカードの提示のみでは保険証の情報が確認できません）
-                            </li>
-                            <li>マイナンバーが確認できるもの（マイナンバー通知カードなど）</li>
-                            <li>本人確認書類（運転免許証など）</li>
-                        </ul>
-
-                        <h4>障がいのある子どもを監護している方へ</h4>
-                        <p>20歳未満の重度または中度の障がい児を監護している方は、障がいの程度・内容により特別児童扶養手当の支給を受けることができます。</p>
-                        <p>ただし、児童福祉施設に入所している場合は支給されません。また、所得制限により支給されない場合もあります。</p>
-                        <p>詳しくは、保健福祉課福祉助成係（区役所2階3番・電話011-582-4741）へお問い合わせください。</p>
-                    </div>
-                </div>
-
-                <!-- ひとり親家庭向け -->
-                <div id="birth-single-parent" class="section">
-                    <h3>ひとり親家庭の方のために</h3>
-
-                    <div class="contents">
-                        <h4>ひとり親家庭等医療費助成の申請</h4>
-                        <p>ひとり親家庭や両親のいない家庭の子どもと、その子どもを扶養している母親または父親の医療費を助成します。ただし、所得制限により助成されない場合があります。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>戸籍謄本などひとり親家庭を証明できる書類</li>
-                            <li>健康保険証又は資格確認書、資格情報のお知らせなど<br>
-                                （マイナンバーカードの提示のみでは保険証の情報が確認できません）
-                            </li>
-                            <li>子ども医療受給者証（お持ちの方）</li>
-                            <li>※このほかに所得証明書などが必要な場合がありますので、詳しくはお問い合わせください。</li>
-                        </ul>
-                    </div>
-
-                    <div class="contents">
-                        <h4>児童扶養手当の申請</h4>
-                        <p>
-                            離婚、婚姻によらない出生、もしくは父親または母親が死亡、重度障がい、生死不明、または引き続き1年以上の遺棄や拘禁などの状態にある場合などで、父親または母親と生計を同じくしていない児童（18歳到達後の最初の3月31日までの間にある者。心身に中程度以上の障がいがある場合は20歳未満までの者。）を養育している母親、父親または養育者に支給します。
-                        </p>
-                        <p>ただし、所得制限により一部または全部が支給されない場合があります。また、公的年金を受給中の方については、年金の月額と児童扶養手当の月額を比較し、児童扶養手当の金額が上回った場合にその差額分を手当として支給します。</p>
-                        <p><strong>窓口</strong><br>
-                            区役所2階3番　保健福祉課福祉助成係（電話011-582-4741）
-                        </p>
-                        <p><strong>必要なもの</strong></p>
-                        <ul>
-                            <li>戸籍全部事項証明（戸籍謄本）</li>
-                            <li>預金通帳</li>
-                            <li>年金手帳</li>
-                            <li>マイナンバーが確認できるもの（マイナンバー通知カードなど）</li>
-                            <li>本人確認書類（運転免許証など）</li>
-                            <li>※この他にも書類が必要な場合がありますので、詳しくはお問い合わせください。</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- タブ：子育てのこと -->
-            <div id="childcare-content" class="tab-content">
-                <!-- 子どもの健康診査・相談 -->
-                <div id="child-health" class="section">
-                    <h3>子どもの健康を守るために</h3>
-
-                    <div class="contents">
-                        <h4>各種健康診査・健康相談の実施</h4>
-                        <p>子どもの健康を守り、健やかに育てていくための健康診査や健康相談を行っています。</p>
-
-                        <h5>各種乳幼児健康診査</h5>
-                        <p>
-                            病気の早期発見のための健診や、発育・発達に合わせた保健指導などを行います。<br>
-                            対象例：4ヵ月児健診・10ヵ月児健診・1歳6ヵ月児健診・3歳児健診・5歳児健診 など
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>予防接種</h5>
-                        <p>
-                            BCGは保健センターで、4種（2種）混合・風疹・麻疹（はしか）・肺炎球菌・ヒブなどの予防接種は委託医療機関で行っています。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>新生児先天性代謝異常症検査</h5>
-                        <p>
-                            先天性代謝異常症など6疾患の早期発見・治療による障がい発生防止のための検査です。市内で出生した生後4～6日後の新生児が対象です。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>育児教室「みなみっこくらぶ」</h5>
-                        <p>
-                            2ヵ月頃から2歳頃までのお子さんを持つ保護者を対象に、育児教室「みなみっこくらぶ」を開催しています。<br>
-                            お子さんの月齢に応じて、離乳のすすめ方、子どもの事故防止、むし歯予防、親子遊びなどを行います。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                        <hr class="sub-divider">
-
-                        <h5>乳幼児精神発達相談・5歳児発達相談</h5>
-                        <p>
-                            お子さんのことばの遅れ、こだわりやかんしゃくの強さなど、心理的な面でのご心配について、予約制で相談を受けています。
-                        </p>
-                        <p><strong>問い合わせ先</strong><br>
-                            健康・子ども課（保健センター3階・電話011-581-5211）
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 子育て情報・相談 -->
-                <div id="child-consult" class="section">
-                    <h3>子育てに関する問い合わせ・相談</h3>
-
-                    <div class="contents">
-                        <h4>子育て情報・相談</h4>
-                        <p>親子で出かけられる子育てサロンなどの紹介や、保育士による子育て相談を行っています。</p>
-
-                        <p><strong>窓口</strong></p>
-                        <ul>
-                            <li>
-                                保健センター1階　健康・子ども課 子育て支援担当係（電話011-588-5411）<br>
-                                （子育て相談専用電話 011-584-0874）
-                            </li>
-                            <li>
-                                南区保育・子育て支援センター（ちあふる・みなみ）子育て支援係（電話011-215-0183）<br>
-                                （子育て相談専用電話 011-215-0203）
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- 保育施設・保育サービス -->
-                <div id="child-nursery" class="section">
-                    <h3>保育施設（保育所）・保育サービスについて</h3>
-
-                    <div class="contents">
-                        <h4>保育園への入所</h4>
-                        <p>就労や病気などで、保護者が子どもの面倒を見られないときのために、認可保育園があります。</p>
-                        <p>保育園によって、障がい児保育・夜間保育・延長保育・一時保育なども実施しています。入所を希望する方はご相談ください。</p>
-                        <p><strong>窓口</strong><br>
-                            保健センター3階　健康・子ども課 子ども家庭福祉担当（電話011-522-5780）
-                        </p>
-                        <hr class="sub-divider">
-                    </div>
-
-                    <div id="child-shortstay" class="contents">
-                        <h4>子どもショートステイ</h4>
-                        <p>保護者が病気などにより子どもの養育が一時的に困難となった場合、児童養護施設で一時的にお預かりします。</p>
-                        <p><strong>窓口</strong><br>
-                            保健センター3階　健康・子ども課 子ども家庭福祉担当（電話011-522-5780）
-                        </p>
-                        <hr class="sub-divider">
-                    </div>
-
-                    <div class="contents">
-                        <h4>保育園・幼稚園などの送迎や一時的な託児</h4>
-                        <p>保育園・幼稚園などの送り迎えや、保護者の都合による一時的な託児など、援助を受けたい人と援助したい人が会員組織をつくり、地域の人が子育て家庭を支援する仕組みです。</p>
-                        <p><strong>窓口</strong><br>
-                            さっぽろ子育てサポートセンター<br>
-                            （札幌市中央区大通西19丁目1-1　札幌市社会福祉総合センター　電話011-623-2415）
-                        </p>
-                        <hr class="sub-divider">
-                    </div>
-
-                    <div id="child-dayservice" class="contents">
-                        <h4>札幌市病後児デイサービス事業</h4>
-                        <p>病気回復期にあって集団保育が困難な、生後5ヵ月から小学校3年生までのお子さんを対象とした事業です。</p>
-                        <p>勤務などの都合により家庭で保育することができない場合に、市内の医療機関に付設された施設で一時的に保育します。</p>
-                        <p>看護師や保育士などの専門スタッフが、お子さんの健康状態をチェックしながら、保育、服薬の介助および給食の提供などのサービスを行います。</p>
-                        <p><strong>窓口</strong><br>
-                            札幌市子ども未来局 子育て支援部 施設運営課（電話011-211-2986）
-                        </p>
-                    </div>
-
-                    <div class="contents">
-                        <h4>保育施設・保育サービスの情報</h4>
-                        <p>保育施設や保育サービスの詳しい情報は、子ども未来局「さっぽろ子育て情報サイト」のページをご覧ください。</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 関連情報カード -->
-            <div class="add-section">
-                <h3>関連情報</h3>
-                <ul>
-                    <li>妊娠届・母子健康手帳に関する手続き</li>
-                    <li>子ども医療費助成・児童手当などの手続き</li>
-                    <li>ひとり親家庭の支援制度</li>
-                    <li>保育園・子育てサロンなど子育て支援に関する情報</li>
-                </ul>
-                <a href="/search/search_living.html" class="content-box">
-                    暮らし・手続きに関する他のページを見る
-                </a>
-            </div>
-
-            <!-- フッター -->
-            <div id="footer"></div>
-
-        </main>
-    </div>
-
-    <!-- 上に戻るボタン -->
+      <div id="footer"></div>
+    </main>
+  </div>
+     <!-- 上に戻るボタン -->
     <div class="backtotop-wrapper">
         <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
     </div>
 
     <script>
-        // タブ切り替え
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const pregnancyToc = document.getElementById('pregnancy-toc');
-        const childcareToc = document.getElementById('childcare-toc');
-
-        function activateTab(targetId) {
-            tabButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.target === targetId);
-            });
-            tabContents.forEach(content => {
-                content.classList.toggle('active', content.id === targetId);
-            });
-
-            // 目次の切り替え
-            if (targetId === 'pregnancy-content') {
-                pregnancyToc.classList.add('active');
-                childcareToc.classList.remove('active');
-            } else if (targetId === 'childcare-content') {
-                childcareToc.classList.add('active');
-                pregnancyToc.classList.remove('active');
-            }
-
-            // タイトル付近までスムーズスクロール
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetId = button.dataset.target;
-                activateTab(targetId);
-            });
-        });
-
-        // 初期表示
-        activateTab('pregnancy-content');
-
         // 上に戻るボタン
         const backToTopBtn = document.getElementById('backToTopBtn');
 
+        // 一定量スクロールしたらボタン表示
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 backToTopBtn.style.display = 'flex';
@@ -913,6 +367,7 @@
             }
         });
 
+        // クリックで先頭へスムーズスクロール
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
@@ -920,7 +375,6 @@
             });
         });
     </script>
-
 </body>
 
 </html>

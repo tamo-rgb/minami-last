@@ -273,7 +273,6 @@
                     <li><a href="#section-1">南区1</a></li>
                     <li><a href="#section-4">南区4</a></li>
                     <li><a href="#toggle-bunbetsu">ごみの分別</a></li>
-                    <li><a href="#toggle-shigen">資源物の無料回収</a></li>
                     <li><a href="#toggle-others">その他の地域</a></li>
                 </ul>
             </div>
@@ -336,27 +335,8 @@
                                     <li>燃やせるごみ・燃やせないごみ・資源ごみなど、種類ごとに出し方が異なります。</li>
                                     <li>スプレー缶や乾電池などは、危険物として指定の方法で出す必要があります。</li>
                                 </ul>
-                                <a href="/uncompleted.html" class="content-box">
-                                    ごみの分け方・出し方（外部サイト・PDF 等）
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- 資源物の無料回収 -->
-                        <div class="toggle-item" id="toggle-shigen">
-                            <button class="toggle-header" type="button" aria-expanded="false"
-                                aria-controls="toggle-shigen-content">
-                                <span class="label">資源物の無料回収</span>
-                                <span class="icon" aria-hidden="true">＋</span>
-                            </button>
-                            <div class="toggle-content" id="toggle-shigen-content" hidden>
-                                <p>資源物（古紙、缶、びん、ペットボトルなど）は、地域の集団回収や資源ごみ回収日に無料で出すことができます。</p>
-                                <ul>
-                                    <li>資源物ごとに、出し方（ひもで束ねる・中を水ですすぐ など）が決められています。</li>
-                                    <li>回収方法は地域や団体によって異なる場合があります。回覧板や町内会のお知らせもご確認ください。</li>
-                                </ul>
-                                <a href="/uncompleted.html" class="content-box">
-                                    資源物の出し方・集団回収のご案内
+                                <a href="/detail/living_5_separete.html" class="content-box">
+                                    ごみの分け方・出し方
                                 </a>
                             </div>
                         </div>
@@ -374,7 +354,7 @@
                                     <li>お住まいの地区名を選んで、ごみ収集日カレンダーを確認してください。</li>
                                     <li>引っ越しなどで地区が変わった場合は、新しい地区のカレンダーをご確認ください。</li>
                                 </ul>
-                                <a href="/uncompleted.html" class="content-box">
+                                <a href="/detail/living_garbagecalender.html" class="content-box">
                                     南区の他の地域のごみ収集カレンダー
                                 </a>
                             </div>
@@ -383,21 +363,14 @@
                 </div>
             </div>
 
-            <!-- 関連情報カード -->
-            <div class="add-section">
-                <h3>関連情報</h3>
-                <ul>
-                    <li>住民票の記載内容について</li>
-                </ul>
-                <a href="search.html" class="content-box">
-                    よくある質問を見る
-                </a>
-            </div>
 
             <div id="footer"></div>
         </main>
     </div>
-
+    <!-- 上に戻るボタン -->
+    <div class="backtotop-wrapper">
+        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+    </div>
     <script>
         // トグルリスト開閉処理
         document.addEventListener('DOMContentLoaded', () => {
@@ -420,6 +393,23 @@
                         icon.textContent = expanded ? '＋' : '－';
                     }
                 });
+            });
+        });
+                // 上に戻るボタン
+        const backToTopBtn = document.getElementById('backToTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'flex';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
