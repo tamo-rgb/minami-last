@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>総合案内・おくやみ窓口｜札幌市南区</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/icon.png">
+  <link rel="icon" type="image/icon" href="/favcon.png">
+
+  <!-- フォント -->
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/common.js"></script>
+
+  <style>
+    body {
+      background-color: var(--color-gbg);
+      font-family: "Zen Maru Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      background-color: var(--color-gbg);
+    }
+
+    /* パンくず */
+    .breadcrumb {
+      padding: 10px;
+      color: #555;
+      background-color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .breadcrumb a {
+      color: #2e8b57;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #333;
+    }
+
+    /* ページ上部タイトル部分 */
+    .top-contents {
+      margin: 0;
+      padding: 10px 20px;
+      background-color: #fff;
+      border-bottom: 2px solid #2e8b57;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .top-contents h1 {
+      margin: 0 0 6px;
+    }
+
+    .top-contents p {
+      margin: 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    .updated-date {
+      margin-top: 4px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    /* 目次ブロック */
+    .toc {
+      margin: 0 10px;
+      padding: 10px 10px;
+      border-radius: 0 0 10px 10px;
+      background-color: transparent;
+    }
+
+    .toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .toc ul li {
+      margin: 0;
+    }
+
+    .toc ul li a {
+      background-color: var(--color-primary);
+      padding: 6px 12px;
+      color: #fff;
+      font-weight: 500;
+      border-radius: 20px;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    .toc ul li a:hover {
+      opacity: 0.9;
+    }
+
+    /* セクション共通 */
+    .section {
+      margin: 0 15px 12px;
+      padding: 14px 14px 12px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid #f0f2f4;
+      scroll-margin-top: 70px;
+    }
+
+    .section h3 {
+      border-left: 6px solid var(--color-primary);
+      padding-left: 10px;
+      margin: 0 0 8px;
+    }
+
+    .contents p {
+      margin: 6px 0;
+      font-size: var(--font-p);
+      line-height: 1.7;
+    }
+
+    /* 情報ラベル＋リスト */
+    .info-list {
+      margin: 4px 0 6px;
+      padding: 0;
+      list-style: none;
+      font-size: var(--font-p);
+    }
+
+    .info-list li {
+      margin-bottom: 4px;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      display: inline-block;
+      min-width: 7em;
+      color: #355c3e;
+    }
+
+    /* 長文＆説明ブロック */
+    .text-block {
+      background-color: #f9fbf9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      line-height: 1.7;
+      font-size: var(--font-p);
+    }
+
+    /* 区切り線 */
+    .divider {
+      border-top: 1px dashed #c4d4c7;
+      margin: 14px 0;
+    }
+
+    /* PDFリンク */
+    a.pdf-link {
+      display: inline-block;
+      margin: 4px 0;
+      color: var(--color-primary);
+      text-decoration: underline;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    a.pdf-link:hover {
+      opacity: 0.85;
+    }
+
+    /* ボタン風リンク */
+    a.content-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0 0;
+      padding: 10px 16px;
+      border: 1px solid var(--color-primary);
+      background-color: var(--color-palegreen);
+      border-radius: 25px;
+      text-decoration: none;
+      color: var(--color-primary);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    a.content-box:hover {
+      background-color: #f7fff0;
+    }
+
+    /* スマホでの余白微調整 */
+    @media (max-width: 480px) {
+      .top-contents {
+        padding: 10px 14px;
+      }
+
+      .top-contents h1 {
+        font-size: 1.15rem;
+      }
+
+      .section {
+        margin: 0 10px 10px;
+        padding: 12px 12px 10px;
+      }
+
+      .label {
+        min-width: 6em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- ヘッダー読み込み -->
+    <div id="header"></div>
+
+    <!-- ヘッダー分の余白 -->
+    <div style="height:60px; background-color:#fff;"></div>
+
+    <main>
+      <!-- パンくず -->
+      <nav class="breadcrumb">
+        <a href="/index.html">ホームページ</a> ＞
+        <a href="/search/search_town.html">環境・施設</a> ＞
+
+        <span>総合案内・おくやみ窓口</span>
+      </nav>
+
+      <!-- ページタイトル＋説明 -->
+      <section class="top-contents">
+        <h1 class="midashi">総合案内・おくやみ窓口</h1>
+        <p>
+          南区役所では、区役所窓口のサービスアップを図る取組として、来庁者を担当窓口にスムーズにご案内する「総合案内」と、<br>
+          亡くなった方に関する必要な手続きや担当窓口等をご遺族に案内する「おくやみ窓口」を設置しています。
+        </p>
+        <p class="updated-date">更新日：2025年7月1日</p>
+      </section>
+
+      <!-- 目次ボタン -->
+      <div class="toc">
+        <ul>
+          <li><a href="#section-outline">窓口の概要</a></li>
+          <li><a href="#section-time">開設日・時間・場所</a></li>
+          <li><a href="#section-detail">事業の概要</a></li>
+          <li><a href="#section-use">利用方法・対象</a></li>
+          <li><a href="#section-reserve">予約方法</a></li>
+          <li><a href="#section-contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- 概要 -->
+      <section id="section-outline" class="section">
+        <h3>総合案内・おくやみ窓口とは</h3>
+        <div class="contents">
+          <div class="text-block">
+            南区役所では、来庁される皆さまがスムーズに手続きを行えるよう、1階ロビーに「総合案内」と「おくやみ窓口」を設置しています。<br>
+            総合案内では庁舎全般のご案内を行い、おくやみ窓口では、故人に関する必要な手続きや担当窓口をご遺族の方へご案内します。
+          </div>
+        </div>
+      </section>
+
+      <!-- 開設日・時間・場所 -->
+      <section id="section-time" class="section">
+        <h3>開設日・時間・場所</h3>
+        <div class="contents">
+          <p><strong>（1）総合案内</strong></p>
+          <ul class="info-list">
+            <li><span class="label">開設時間</span>平日 8時45分～17時15分</li>
+            <li><span class="label">備考</span>区役所の各窓口の受付時間と同じです。</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p><strong>（2）おくやみ窓口</strong></p>
+          <ul class="info-list">
+            <li><span class="label">月・水・金</span>8時45分～15時15分</li>
+            <li><span class="label">火・木</span>8時45分～12時00分、14時00分～17時15分</li>
+            <li>
+              <span class="label">備考</span>
+              おくやみ窓口については、令和7年7月1日から上記の受付時間に変更となりました。
+            </li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <ul class="info-list">
+            <li><span class="label">場所</span>南区役所 1階ロビー</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 事業の概要 -->
+      <section id="section-detail" class="section">
+        <h3>事業の概要</h3>
+        <div class="contents">
+          <p><strong>総合案内</strong></p>
+          <div class="text-block">
+            南区役所庁舎全般について、総合的な案内を行います。<br>
+            どの窓口に行けばよいかわからない場合などは、まず総合案内にお声がけください。
+          </div>
+
+          <div class="divider"></div>
+
+          <p><strong>おくやみ窓口</strong></p>
+          <div class="text-block">
+            ご遺族の方から故人の状況をお伺いし、必要な手続きや担当窓口をご案内します。<br>
+            また、手続きに係るご遺族の負担を軽減するため、故人の氏名や住所等を申請書に印字して作成する支援も行っています。
+          </div>
+
+          <p>
+            ※おくやみ窓口については、オンラインによる相談もお受けしていますが、<br>
+            申請書の作成支援をご希望される場合には、窓口をご利用くださいますようお願いします。
+          </p>
+
+          <a href="#" class="pdf-link">おくやみ窓口のご案内（PDF：237KB）</a>
+        </div>
+      </section>
+
+      <!-- 利用方法・対象 -->
+      <section id="section-use" class="section">
+        <h3>利用方法・対象者</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">利用方法</span>原則予約制</li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <ul class="info-list">
+            <li>
+              <span class="label">対象者</span>
+              南区内に住民登録があった故人のご遺族
+            </li>
+          </ul>
+
+          <div class="text-block">
+            具体的な手続き内容や必要な持ち物については、予約時にご案内します。<br>
+            ご不明な点があれば、お気軽にお問い合わせください。
+          </div>
+        </div>
+      </section>
+
+      <!-- 予約方法 -->
+      <section id="section-reserve" class="section">
+        <h3>予約方法</h3>
+        <div class="contents">
+          <p><strong>（1）電話による予約</strong></p>
+          <ul class="info-list">
+            <li>
+              <span class="label">専用ダイヤル</span>
+              おくやみ窓口専用ダイヤル：090-8508-1338
+            </li>
+            <li>
+              <span class="label">予約期限</span>
+              利用当日までに、お電話でご予約ください。
+            </li>
+          </ul>
+          <p>
+            ※おかけ間違いが多発しております。ご予約の際は、電話番号に間違いがないか確認したうえで発信していただきますようお願いします。
+          </p>
+
+          <div class="divider"></div>
+
+          <p><strong>（2）オンラインによる予約</strong></p>
+          <p>インターネットからも予約を受け付けています。以下のページからご予約ください。</p>
+
+          <a href="https://ttzk.graffer.jp/city-sapporo/smart-apply/surveys/6581308749095324921" class="content-box"
+            target="_blank" rel="noopener noreferrer">
+            オンライン予約ページ（外部サイト）
+          </a>
+        </div>
+      </section>
+
+
+
+      <!-- お問い合わせ -->
+      <section id="section-contact" class="section">
+        <h3>このページについてのお問い合わせ</h3>
+        <div class="contents">
+          <ul class="info-list">
+            <li><span class="label">担当部署</span>札幌市南区市民部総務企画課</li>
+            <li><span class="label">所在地</span>〒005-8612 札幌市南区真駒内幸町2丁目2-1</li>
+            <li><span class="label">電話番号</span>011-582-4705</li>
+            <li><span class="label">ファクス番号</span>011-582-5469</li>
+          </ul>
+
+          <a href="/uncompleted.html" class="content-box">
+            お問い合わせフォーム
+          </a>
+        </div>
+      </section>
+
+      <!-- フッター読み込み -->
+      <div id="footer"></div>
+    </main>
+  </div>
+
+  <!-- 上に戻るボタン -->
+  <div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+  </div>
+
+  <script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
+</body>
+
+</html>

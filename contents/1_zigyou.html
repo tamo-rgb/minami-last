@@ -220,6 +220,7 @@
       <!-- パンくず -->
       <nav class="breadcrumb">
         <a href="/index.html">ホームページ</a> ＞
+        <a href="/search.html">情報を探す</a> ＞
         <span>事業者向け情報</span>
       </nav>
 
@@ -238,7 +239,7 @@
       <div class="toc">
         <p>知りたいテーマから探す</p>
         <ul>
-          <li><a href="#finance">資金繰り・融資</a></li>
+          <li><a href="#finance">融資</a></li>
           <li><a href="#market">販路拡大・プロモーション</a></li>
           <li><a href="#startup">創業・スタートアップ</a></li>
           <li><a href="#dx">DX・デジタル化</a></li>
@@ -257,7 +258,7 @@
         <div class="info-list">
           <!-- 資金繰り・融資 -->
           <div class="info-card" id="finance">
-            <h3>資金繰り・融資・補助金</h3>
+            <h3>融資・補助金</h3>
             <p>
               設備投資・運転資金・事業再構築など、事業ステージに応じた融資制度や補助金・助成金情報をまとめています。<br>
               「今使える制度を知りたい」「どこに相談したらよいかわからない」といった場合にもご活用ください。
@@ -345,35 +346,75 @@
         </div>
       </section>
 
+      <!-- ★ 追加セクション：札幌市公式の関連ページリンク -->
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">札幌市の事業者向け関連ページ</h2>
+          <span class="section-sub">札幌市公式サイトの事業者向けページへ直接アクセスできます</span>
+        </div>
+
+        <div class="info-list">
+          <!-- 企業への支援 -->
+          <div class="info-card">
+            <h3>企業への支援</h3>
+            <p>
+              札幌市では、中小企業や創業予定の方をはじめ、さまざまな業種の企業のみなさまを対象に、<br>
+              融資・販路開拓・人材・DX・SDGsなど、多様な支援を行っています。
+            </p>
+            <a href="/detail/0_company1.html" class="content-box">「企業への支援」ページへ</a>
+          </div>
+
+          <!-- 入札契約案件情報 -->
+          <div class="info-card">
+            <h3>入札契約案件情報</h3>
+            <p>
+              公募中の案件や入札結果、発注見通しなどの情報をご覧いただけます。<br>
+              市との契約・入札に関心のある事業者の方は、こちらをご確認ください。
+            </p>
+            <a href="/detail/0_company.html" class="content-box">入札契約案件情報を見る</a>
+          </div>
+
+          <!-- 事業所から出るごみ -->
+          <div class="info-card">
+            <h3>事業所から出るごみ</h3>
+            <p>
+              事業系ごみの出し方やルールをわかりやすく解説しています。<br>
+              オフィスや店舗から出るごみの処理方法を確認したい場合にご利用ください。
+            </p>
+            <a href="/detail/living_5_office.html" class="content-box">事業系ごみの出し方を確認する</a>
+          </div>
+        </div>
+      </section>
+
       <div id="footer"></div>
     </main>
   </div>
-     <!-- 上に戻るボタン -->
-    <div class="backtotop-wrapper">
-        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
-    </div>
+  <!-- 上に戻るボタン -->
+  <div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+  </div>
 
-    <script>
-        // 上に戻るボタン
-        const backToTopBtn = document.getElementById('backToTopBtn');
+  <script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
 
-        // 一定量スクロールしたらボタン表示
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
 
-        // クリックで先頭へスムーズスクロール
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 
 </html>

@@ -109,7 +109,7 @@
         display: none;
         margin-top: 7px;
         background: #fff;
-        padding-top:5px;
+        padding-top: 5px;
         border-top: 1px solid var(--color-primary);
     }
 
@@ -198,131 +198,158 @@
 
 <body>
     <div class="wrapper">
-    <!-- スクロール進捗バー -->
-    <div id="scrollProgress"></div>
+        <!-- スクロール進捗バー -->
+        <div id="scrollProgress"></div>
 
-    <!-- ポップアップ -->
-    <div id="popup" style="display:none;">
-        <div class="popup-content"></div>
+        <!-- ポップアップ -->
+        <div id="popup" style="display:none;">
+            <div class="popup-content"></div>
+        </div>
+
+        <!-- ヘッダー読み込み -->
+        <div id="header"></div>
+        <div class="yohaku" style="height:60px;"></div>
+
+        <main>
+            <!-- パンくずリスト -->
+            <nav class="breadcrumb">
+                <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>市政・広報</span>
+            </nav>
+
+            <!-- タブカード -->
+            <section class="section tab-card">
+                <h3 class="test-title">まちづくり</h3>
+
+                <!-- コンテンツ（タブごと） -->
+                <div class="tab-card-content">
+                    <section id="new" class="tab-content active">
+                        <ul class="news-list">
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>選挙</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="#" class="toggle-item">各種制度について<span class="arrow"></span></a>
+                                    <a href="#" class="toggle-item">その他<span class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>さっぽろ広報誌</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="/detail/public_1_kouhou.html" class="toggle-item">最新版<span
+                                            class="arrow"></span></a>
+                                    <a href="/detail/public_1_kakokouhou.html" class="toggle-item">過去<span
+                                            class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>市政</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="#" class="toggle-item">まちづくりプラン<span class="arrow"></span></a>
+                                </div>
+                            </li>
+
+                            <!-- ★ 追加：事業者向けトグル -->
+                            <li class="list-item">
+                                <div class="toggle-tab">
+                                    <h4>事業者向け情報</h4>
+                                    <div class="arrow-btn"></div>
+                                </div>
+                                <div class="toggle-content">
+                                    <a href="/detail/0_company1.html" class="toggle-item">
+                                        企業への支援<span class="arrow"></span>
+                                    </a>
+                                    <a href="/detail/0_company.html" class="toggle-item">
+                                        入札契約案件情報<span class="arrow"></span>
+                                    </a>
+                                    <a href="/detail/living_5_office.html" class="toggle-item">
+                                        事業所から出るごみ<span class="arrow"></span>
+                                    </a>
+                                    <a href="/uncompleted.html" class="toggle-item">
+                                        その他<span class="arrow"></span>
+                                    </a>
+                                </div>
+                            </li>
+                            <!-- ★ 追加ここまで -->
+
+                        </ul>
+                    </section>
+
+                    <!-- 予備タブが必要になったらここに section id="news" などを追加 -->
+
+                </div>
+            </section>
+
+            <!-- フッター読み込み -->
+            <div id="footer"></div>
+        </main>
     </div>
 
-    <!-- ヘッダー読み込み -->
-    <div id="header"></div>
-    <div class="yohaku" style="height:60px;"></div>
 
-    <main>
-        <!-- パンくずリスト -->
-        <nav class="breadcrumb">
-            <a href="../index.html">ホームページ</a> ＞ <a href="../search.html">情報を探す</a> ＞ <span>市政・広報</span>
-        </nav>
+    <!-- JS 読み込み -->
+    <script>
+        // タブ切り替え（タブボタンを使う場合用）
+        const cardTabs = document.querySelectorAll('.tab-card .tab-button');
+        const cardContents = document.querySelectorAll('.tab-card .tab-content');
 
-        <!-- タブカード -->
-        <section class="section tab-card">
-            <h3 class="test-title">市政・広報</h3>
-
-            <!-- コンテンツ（タブごと） -->
-            <div class="tab-card-content">
-                <section id="new" class="tab-content active">
-                    <ul class="news-list">
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>選挙</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">各種制度について<span class="arrow"></span></a>
-                                <a href="#" class="toggle-item">その他<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>さっぽろ広報誌</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="/detail/public_1_kouhou.html" class="toggle-item">最新版<span class="arrow"></span></a>
-                                <a href="/detail/public_1_kakokouhou.html" class="toggle-item">過去<span class="arrow"></span></a>
-                            </div>
-                        </li>
-
-                        <li class="list-item">
-                            <div class="toggle-tab">
-                                <h4>市政</h4>
-                                <div class="arrow-btn"></div>
-                            </div>
-                            <div class="toggle-content">
-                                <a href="#" class="toggle-item">まちづくりプラン<span class="arrow"></span></a>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-
-                <!-- 予備タブが必要になったらここに section id="news" などを追加 -->
-
-            </div>
-        </section>
-
-        <!-- フッター読み込み -->
-        <div id="footer"></div>
-</div>
-
-
-        <!-- JS 読み込み -->
-        <script>
-            // タブ切り替え（タブボタンを使う場合用）
-            const cardTabs = document.querySelectorAll('.tab-card .tab-button');
-            const cardContents = document.querySelectorAll('.tab-card .tab-content');
-
-            cardTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    cardTabs.forEach(t => t.classList.remove('active'));
-                    cardContents.forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
+        cardTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                cardTabs.forEach(t => t.classList.remove('active'));
+                cardContents.forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
             });
+        });
 
-            // -------------------------------
-            // 文字サイズ切り替え（CSS変数対応）
-            // -------------------------------
-            const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
+        // -------------------------------
+        // 文字サイズ切り替え（CSS変数対応）
+        // -------------------------------
+        const fontSizeRadios = document.querySelectorAll('input[name="font-size"]');
 
-            const savedFontSize = localStorage.getItem('fontSize');
-            if (savedFontSize) {
-                document.body.classList.remove('font-small', 'font-large');
-                if (savedFontSize === 'small') document.body.classList.add('font-small');
-                if (savedFontSize === 'large') document.body.classList.add('font-large');
-
-                fontSizeRadios.forEach(radio => {
-                    if (radio.value === savedFontSize) radio.checked = true;
-                });
-            }
+        const savedFontSize = localStorage.getItem('fontSize');
+        if (savedFontSize) {
+            document.body.classList.remove('font-small', 'font-large');
+            if (savedFontSize === 'small') document.body.classList.add('font-small');
+            if (savedFontSize === 'large') document.body.classList.add('font-large');
 
             fontSizeRadios.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    document.body.classList.remove('font-small', 'font-large');
-                    if (radio.value === 'small') document.body.classList.add('font-small');
-                    if (radio.value === 'large') document.body.classList.add('font-large');
-
-                    localStorage.setItem('fontSize', radio.value);
-                });
+                if (radio.value === savedFontSize) radio.checked = true;
             });
+        }
 
-            // トグルスクリプト 
-            const tabs = document.querySelectorAll('.toggle-tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    tab.classList.toggle('active');
-                    const content = tab.nextElementSibling;
-                    if (content.style.display === 'block') {
-                        content.style.display = 'none';
-                    } else {
-                        content.style.display = 'block';
-                    }
-                });
+        fontSizeRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                document.body.classList.remove('font-small', 'font-large');
+                if (radio.value === 'small') document.body.classList.add('font-small');
+                if (radio.value === 'large') document.body.classList.add('font-large');
+
+                localStorage.setItem('fontSize', radio.value);
             });
-        </script>
+        });
+
+        // トグルスクリプト 
+        const tabs = document.querySelectorAll('.toggle-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tab.classList.toggle('active');
+                const content = tab.nextElementSibling;
+                if (content.style.display === 'block') {
+                    content.style.display = 'none';
+                } else {
+                    content.style.display = 'block';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

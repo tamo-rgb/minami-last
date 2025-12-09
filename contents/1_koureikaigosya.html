@@ -220,6 +220,8 @@
       <!-- パンくず -->
       <nav class="breadcrumb">
         <a href="/index.html">ホームページ</a> ＞
+        <a href="/search.html">情報を探す</a> ＞
+
         <span>高齢者を介護している方への支援</span>
       </nav>
 
@@ -357,32 +359,32 @@
     </main>
   </div>
 
-    <!-- 上に戻るボタン -->
-    <div class="backtotop-wrapper">
-        <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
-    </div>
+  <!-- 上に戻るボタン -->
+  <div class="backtotop-wrapper">
+    <button id="backToTopBtn" aria-label="ページの先頭に戻る">▲</button>
+  </div>
 
-    <script>
-        // 上に戻るボタン
-        const backToTopBtn = document.getElementById('backToTopBtn');
+  <script>
+    // 上に戻るボタン
+    const backToTopBtn = document.getElementById('backToTopBtn');
 
-        // 一定量スクロールしたらボタン表示
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'flex';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
+    // 一定量スクロールしたらボタン表示
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.style.display = 'flex';
+      } else {
+        backToTopBtn.style.display = 'none';
+      }
+    });
 
-        // クリックで先頭へスムーズスクロール
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    // クリックで先頭へスムーズスクロール
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 
 </html>
