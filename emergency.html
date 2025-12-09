@@ -33,9 +33,9 @@
 
         /* パンくず */
         .breadcrumb {
-            margin: 10px;
-            padding: 8px 4px;
+            padding: 10px 5px;
             color: #555;
+            background-color: #fff;
             font-size: var(--font-h4);
         }
 
@@ -158,11 +158,10 @@
 
 <body>
     <div class="wrapper">
+        <main>
         <div id="scrollProgress"></div>
         <div id="header"></div>
-        <div style="height:50px;"></div>
-
-        <main class="wrapper">
+        <div style="height:60px;"></div>
 
             <!-- パンくず -->
             <nav class="breadcrumb">
@@ -214,6 +213,18 @@
                         <li>テレビ・ラジオ・公式サイトで最新の情報を確認する</li>
                     </ul>
                 </div>
+                <!-- 避難所・避難場所 ここを追加 -->
+                <div class="box">
+                    <h2>避難所・避難場所</h2>
+                    <ul class="info-list">
+                        <li><a href="/uncompleted.html">南区の指定避難所一覧</a></li>
+                        <li><a href="/uncompleted.html">ハザードマップ・避難場所マップ</a></li>
+                        <li><a href="/uncompleted.html">避難情報の種類と避難のタイミング</a></li>
+                    </ul>
+                    <p style="font-size:0.9rem; color:#555; margin-top:8px;">
+                        ※大雨や地震など災害の種類によって、安全な避難先が変わる場合があります。事前にお住まいの地域の避難先を確認しておきましょう。
+                    </p>
+                </div>
 
                 <!-- 救急当番医療機関 -->
                 <div class="box">
@@ -233,11 +244,11 @@
             </section>
 
 
-        </main>
+
 
         <div id="footer"></div>
     </div>
-
+        </main>
     <script>
         // 過去の緊急情報データ
         const pastEmergencies = [
